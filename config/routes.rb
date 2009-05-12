@@ -7,7 +7,8 @@ ActionController::Routing::Routes.draw do |map|
   end
 
   map.resources :posts, :only => [:index, :show]
-  map.root :controller => "posts"
+  # map.root :controller => "posts"
+  map.root :controller => 'main', :action => 'about'
 
   map.about '/about', :controller => "main", :action => "about"
   #map.connect ':controller/:action/:id'
