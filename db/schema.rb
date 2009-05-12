@@ -9,25 +9,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090107230917) do
+ActiveRecord::Schema.define(:version => 20090403212058) do
 
-  create_table "blogs", :force => true do |t|
+  create_table "posts", :force => true do |t|
     t.string   "title"
-    t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "weathers", :force => true do |t|
-    t.string   "zipcode"
-    t.string   "city"
-    t.string   "region"
-    t.string   "country"
-    t.string   "temperature_high"
-    t.string   "temperature_low"
-    t.string   "temperature_units"
-    t.string   "link"
-    t.date     "recorder_at"
+    t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

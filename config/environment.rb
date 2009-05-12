@@ -54,10 +54,6 @@ Rails::Initializer.run do |config|
   # If you change this key, all old sessions will become invalid!
   # Make sure the secret is at least 30 characters and all random, 
   # no regular words or you'll be exposed to dictionary attacks.
-  config.action_controller.session = {
-    :session_key => '_blog_session',
-    :secret      => '4e780765691d7ee673388baafee2c56ab6efce641ab009fc187923d5fef5f87df5a3a4821d8284f7ab42e91aabce74ed26e064813e51b396c24b1ce40e88a03f'
-  }
 
   # Use the database for sessions instead of the cookie-based default,
   # which shouldn't be used to store highly confidential information

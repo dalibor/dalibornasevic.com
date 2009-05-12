@@ -1,0 +1,8 @@
+<div class="post">
+  <h2><%= link_to post.title, [:admin, post] %></h2>
+  <p class="author">Posted on <%= post.created_at.strftime("%m/%d/%Y at %I:%M%p") %></p>
+  <div class="content">
+    <%= RedCloth.new(post.content).to_html %>
+  </div>
+</div>
+
