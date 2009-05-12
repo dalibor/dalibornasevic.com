@@ -4,7 +4,7 @@ Run following rake task to create session_key and secret for the application
 
 rake config/initializers/session_store.rb 
 
-And add create yaml file config/password.yaml with following structure
+And create yaml file config/password.yml with following structure
 
 password:
   username: username
