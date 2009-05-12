@@ -2,5 +2,6 @@ log/*.log
 tmp/**/*
 config/database.yml
 config/session_store.rb
+config/password.yaml
 *~
 *.swp
