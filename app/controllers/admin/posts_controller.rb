@@ -1,6 +1,7 @@
 class Admin::PostsController < ApplicationController
 
   before_filter :authenticate
+  layout "admin"
 
   def index
     @posts = Post.find(:all, :limit => 5, :order => 'created_at DESC')
