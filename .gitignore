@@ -5,3 +5,4 @@ config/session_store.rb
 config/password.yml
 *~
 *.swp
+.project
