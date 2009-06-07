@@ -129,3 +129,7 @@ img.about {
 pre {
   clear: both;
 }
+
+#admin_menu li {
+	display: inline;
+}

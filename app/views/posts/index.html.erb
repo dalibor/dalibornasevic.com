@@ -1,1 +1,4 @@
 <%= render :partial => 'post', :collection => @posts %>
+<div class="pagination">
+	<%= will_paginate @posts %>
+</div>

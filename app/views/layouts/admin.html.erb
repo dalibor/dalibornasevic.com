@@ -39,6 +39,11 @@
                 <div class='error'><%= flash[:error] %></div>
               <% end %>
             </div>
+			<div>
+				<ul id="admin_menu">
+					<li><%= link_to 'Posts', admin_posts_path %></li>
+				</ul>
+			</div>
             <%= yield %>
           </div>
           <div id="sidebar">

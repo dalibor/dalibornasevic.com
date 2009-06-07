@@ -4,9 +4,9 @@ module NavigationHelpers
     
     when /the homepage/
       root_path
-    when /^list of blog posts$/
+    when /^list of posts$/
       posts_path
-    when /^list of blog posts in administration$/
+    when /^list of posts in administration$/
       admin_posts_path
     when /^blog post with id (\d+) in administration$/
       admin_post_path($1)
