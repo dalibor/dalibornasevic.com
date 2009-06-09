@@ -25,4 +25,10 @@ describe Post do
     post.should_not be_valid
     post.errors.on(:content).should match(/blank/)
   end
+  
+  it "should respond to comments" do
+    Post.reflect_on_association(:comments).should_not be_nil
+    #Post.new.should respond_to(:comments)
+  end
+  
 end

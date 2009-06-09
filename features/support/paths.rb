@@ -8,13 +8,15 @@ module NavigationHelpers
       posts_path
     when /^list of posts in administration$/
       admin_posts_path
-    when /^blog post with id (\d+) in administration$/
+    when /^post with id "([^\"]*)"$/
+      post_path($1)
+    when /^post with id (\d+) in administration$/
       admin_post_path($1)
-    when /^edit blog post with id (\d+) in administration$/
+    when /^edit post with id (\d+) in administration$/
       edit_admin_post_path($1)
-    when /^new blog post in administration$/
+    when /^new post in administration$/
       new_admin_post_path
-    when /^delete blog post with id (\d+) in administration$/
+    when /^delete post with id (\d+) in administration$/
       delete_admin_post_path($1)
 
 

@@ -5,5 +5,8 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find params[:id]
+    @comment = Comment.new
+    @commentable = @post
+    @comments = @post.comments
   end
 end

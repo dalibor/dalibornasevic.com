@@ -37,7 +37,7 @@ describe Admin::PostsController, "new post create valid" do
     Post.stub!(:new).and_return(@mock_object = mock_model(Post, :save=>true))
   end
   
-  it "should create new post successfully" do
+  it "should initialize new post successfully" do
     Post.should_receive(:new).with("name"=>"value").and_return(@mock_object)
     post :create, :post=>{:name=>"value"}
   end
@@ -48,7 +48,7 @@ describe Admin::PostsController, "new post create valid" do
 #    assigns[:post].should_not be_new_record
   end
   
-  it "response should be redirect" do
+  it "should have response with redirect" do
     post :create, :post=>{:name=>"value"}
     response.should be_redirect
   end
@@ -58,7 +58,7 @@ describe Admin::PostsController, "new post create valid" do
     assigns(:post).should == @mock_object
   end
   
-  it "should redirect to the admin post path" do
+  it "should have response with redirect to the admin post path" do
     post :create, :post=>{:name=>"value"}
     response.should redirect_to(admin_post_url(@mock_object))
   end
@@ -71,7 +71,7 @@ describe Admin::PostsController, "new post create invalid" do
     Post.stub!(:new).and_return(@mock_object = mock_model(Post, :save=>false))
   end
   
-  it "should create new post successfully" do
+  it "should initialize new post successfully" do
     Post.should_receive(:new).with("name"=>"value").and_return(@mock_object)
     post :create, :post=>{:name=>"value"}
   end
@@ -129,7 +129,7 @@ describe Admin::PostsController, "update post with valid params" do
     put :update, :id => "1", :post => {}
   end
 
-  it "response should be redirect" do
+  it "should have response with redirect" do
     put :update, :id => "1", :post=>{}
     response.should be_redirect
   end
@@ -139,7 +139,7 @@ describe Admin::PostsController, "update post with valid params" do
     assigns(:post).should == @mock_object
   end
   
-  it "should redirect to the admin post path" do
+  it "should have response with redirect to the admin post path" do
     put :update, :id => "1", :post=>{}
     response.should redirect_to(admin_post_url(@mock_object))
   end
@@ -203,6 +203,51 @@ describe Admin::PostsController, "destroy post" do
   it "should redirect to the admin post path" do
     delete :destroy, :id => "1"
     response.should redirect_to(admin_posts_path)
+  end
+end
+
+describe Admin::PostsController, "invalid credentals" do
+  before(:each) do
+    @request.env["HTTP_AUTHORIZATION"] = "Basic " + Base64::encode64("dalibor1:password1")
+  end
+  
+  it "should protect from accessing index " do
+    Admin::PostsController.before_filters.should include(:authenticate)
+  end
+  
+  it "should protect from accessing posts list in administration " do
+    get :index
+    response.code.should == "401" # unauthorized
+  end
+  
+  it "should protect from accessing post 1 in administration " do
+    get :show, :id => 1
+    response.code.should == "401" # unauthorized
+  end
+  
+  it "should protect from accessing edit post 1 in administration " do
+    get :edit, :id => 1
+    response.code.should == "401" # unauthorized
+  end
+  
+  it "should protect from accessing new post form in administration " do
+    get :new
+    response.code.should == "401" # unauthorized
+  end
+  
+  it "should protect from accessing create post in administration " do
+    post :create, :post => {:title => "something"}
+    response.code.should == "401" # unauthorized
+  end
+
+  it "should protect from accessing update post in administration " do
+    put :create, :id => 1, :post => {:title => "something"}
+    response.code.should == "401" # unauthorized
+  end
+  
+  it "should protect from accessing delete post in administration " do
+    delete :destroy, :id => 1
+    response.code.should == "401" # unauthorized
   end
 end
 

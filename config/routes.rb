@@ -6,7 +6,10 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :posts, :member => {:delete => :get}
   end
 
-  map.resources :posts, :only => [:index, :show]
+  map.resources :posts, :only => [:index, :show] do |post|
+    post.resources :comments, :only => [:create]
+  end
+  
   # map.root :controller => "posts"
   map.root :controller => 'main', :action => 'about'
 
