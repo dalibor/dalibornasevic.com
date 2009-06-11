@@ -9,19 +9,19 @@ describe Post do
 #  end
 
   it "should be valid when using valid attributes" do
-    post = Post.new(Factory.attributes_for(:post))
+    post = Factory.build(:post)
     post.should be_valid
     # Post.create!(@valid_attributes)
   end
 
   it "should not be valid when title is blank" do
-    post = Post.new(Factory.attributes_for(:post, :title => ''))
+    post = Factory.build(:post, :title => '')
     post.should_not be_valid
     post.errors.on(:title).should match(/blank/)
   end
   
   it "should not be valid when content is blank" do
-    post = Post.new(Factory.attributes_for(:post, :content => ''))
+    post = Factory.build(:post, :content => '')
     post.should_not be_valid
     post.errors.on(:content).should match(/blank/)
   end

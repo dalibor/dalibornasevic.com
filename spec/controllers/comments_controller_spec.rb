@@ -2,13 +2,13 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe CommentsController, "create valid comment" do
   before(:each) do
-    controller.stub!(:find_commentable).and_return(@post_mock = mock_model(Post))
+    Post.stub!(:find).and_return(@post_mock = mock_model(Post))
 #    Post.stub!(:find).with("1").and_return(@post_mock = mock_model(Post))
     @post_mock.stub_association!(:comments, :new => (@comment_mock = mock_model(Comment, :save => true)))
   end
   
-  it "should find commentable" do
-    controller.should_receive(:find_commentable).and_return(@post_mock)
+  it "should find post" do
+    Post.should_receive(:find).and_return(@post_mock)
     post :create, :post_id => "1", :comment=>{:name=>"value"}
   end
   
@@ -23,7 +23,7 @@ describe CommentsController, "create valid comment" do
 #  end
   
   it "should initialize new comment successfully" do
-    controller.should_receive(:find_commentable).and_return(@post_mock)
+    Post.should_receive(:find).and_return(@post_mock)
     @post_mock.comments.should_receive(:new).and_return(@comment_mock)
     post :create, :post_id => "1", :comment=>{:name=>"value"}
   end
@@ -38,7 +38,7 @@ describe CommentsController, "create valid comment" do
     response.should be_redirect
   end
 
-  it "should redirect to commentable path" do
+  it "should redirect to post path" do
     post :create, :post_id => "1", :comment=>{:name=>"value"}
     response.should redirect_to(post_path(@post_mock))
   end
@@ -52,7 +52,7 @@ end
 describe CommentsController, "try to create invalid comment" do
   
   before(:each) do
-    controller.stub!(:find_commentable).and_return(@post_mock = mock_model(Post))
+    Post.stub!(:find).and_return(@post_mock = mock_model(Post))
     @post_mock.stub_association!(:comments, :new => (@comment_mock = mock_model(Comment, :save => false)))
   end
   
@@ -66,9 +66,9 @@ describe CommentsController, "try to create invalid comment" do
     assigns(:comment).should == @comment_mock
   end
   
-  it "should assing commentable" do
+  it "should assing post" do
     post :create, :post_id => "1", :comment=>{:name=>"value"}
-    assigns(:commentable).should == @post_mock
+    assigns(:post).should == @post_mock
   end
   
   it "should assing comments" do

@@ -25,7 +25,7 @@ describe PostsController, "show post" do
   it "should render single post successfully" do
     Post.should_receive(:find).and_return(@mock_object)
     get :show, :id => '1'
-    assigns(:commentable).should_not be_nil
+    assigns(:post).should_not be_nil
     response.should be_success
   end
   

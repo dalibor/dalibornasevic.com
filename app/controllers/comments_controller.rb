@@ -2,24 +2,15 @@ class CommentsController < ApplicationController
   
   
   def create
-    @commentable = find_commentable
-    @comment = @commentable.comments.new(params[:comment])
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.new(params[:comment])
     
     if @comment.save
       flash[:notice] = "Your comment was successfully created."
-      redirect_to @commentable
+      redirect_to @post
     else
-      @comments = @commentable.comments
+      @comments = @post.comments
       render :template => 'posts/show'
-    end
-  end
-  
-  private
-  def find_commentable
-    params.each do |key, value|
-      if key =~ /(.+)_id/
-        return $1.classify.constantize.find(value)
-      end
     end
   end
 end
