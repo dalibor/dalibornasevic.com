@@ -17,3 +17,10 @@ Feature: Write post comments
 		And I press "Comment"
 		Then I should see "Your comment was successfully created."
 		And I should see "My first comment"
+
+  Scenario: Try to create invalid comment
+		Given site has post with id "1"
+		When I go to post with id "1"
+		And I fill in the comment name "Dalibor"
+		And I press "Comment"
+		Then I should see "There were problems with the following fields"

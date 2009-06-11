@@ -74,7 +74,7 @@ a:hover {
     padding-top: 3px;
 }
 
-.form p input#post_submit {
+.form p input.submit {
   margin-left: 150px;
 }
 
@@ -132,4 +132,19 @@ pre {
 
 #admin_menu li {
 	display: inline;
+}
+
+.comments {
+  border-bottom: 1px dotted #CCCCCC;
+  padding: 10px;
+}
+
+.comments img.avatar {
+  float: left;
+  margin-right: 10px;
+}
+
+.comment {
+  clear: both;
+  padding: 5px 5px;
 }

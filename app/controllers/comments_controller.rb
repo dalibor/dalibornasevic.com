@@ -8,6 +8,9 @@ class CommentsController < ApplicationController
     if @comment.save
       flash[:notice] = "Your comment was successfully created."
       redirect_to @commentable
+    else
+      @comments = @commentable.comments
+      render :template => 'posts/show'
     end
   end
   

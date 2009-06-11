@@ -9,6 +9,6 @@
     <%= f.text_area :content %>
   </p>
   <p>
-    <%= f.submit @post.new_record? ? 'Create' : 'Update' %>
+    <%= f.submit @post.new_record? ? 'Create' : 'Update', :class => 'submit' %>
   </p>
 <% end %>

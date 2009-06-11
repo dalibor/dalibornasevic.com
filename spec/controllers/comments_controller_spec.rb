@@ -47,6 +47,37 @@ describe CommentsController, "create valid comment" do
     post :create, :post_id => "1", :comment=>{:name=>"value"}
     flash[:notice].should == "Your comment was successfully created."
   end
-  
+end
 
+describe CommentsController, "try to create invalid comment" do
+  
+  before(:each) do
+    controller.stub!(:find_commentable).and_return(@post_mock = mock_model(Post))
+    @post_mock.stub_association!(:comments, :new => (@comment_mock = mock_model(Comment, :save => false)))
+  end
+  
+  it "should not save the comment" do
+    @comment_mock.should_receive(:save).and_return(false)
+    post :create, :post_id => "1", :comment=>{:name=>"value"}
+  end
+  
+  it "should assign comment" do
+    post :create, :post_id => "1", :comment=>{:name=>"value"}
+    assigns(:comment).should == @comment_mock
+  end
+  
+  it "should assing commentable" do
+    post :create, :post_id => "1", :comment=>{:name=>"value"}
+    assigns(:commentable).should == @post_mock
+  end
+  
+  it "should assing comments" do
+    post :create, :post_id => "1", :comment=>{:name=>"value"}
+    assigns(:comments).should_not be_nil
+  end
+  
+  it "should render new action" do
+    post :create, :post_id => "1", :post=>{:name=>"value"}
+    response.should render_template("posts/show")
+  end
 end
