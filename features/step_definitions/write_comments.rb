@@ -19,6 +19,10 @@ When /^I fill in the comment email "([^\"]*)"$/ do |email|
   fill_in "Email", :with => email
 end
 
+When /^I fill in the comment url "([^\"]*)"$/ do |url|
+  fill_in "URL", :with => url
+end
+
 When /^I fill in the comment content "([^\"]*)"$/ do |content|
-  fill_in "Content", :with => content
+  fill_in "Comments", :with => content
 end

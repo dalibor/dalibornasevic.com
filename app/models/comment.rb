@@ -8,4 +8,13 @@ class Comment < ActiveRecord::Base
   
   validates_presence_of :post_id, :name, :email, :content
   validates_format_of :email, :with => EMAIL_REGEX, :message => "is not an email address."
+  validates_format_of :url, :with => /(^$)|(^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?$)/ix, :allow_blank => true
+  
+  before_validation :add_protocol_to_url
+  
+  def add_protocol_to_url
+  	self.url = 'http://' + url unless url =~ /http/
+  end
+    
+  
 end

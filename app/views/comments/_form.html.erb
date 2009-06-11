@@ -1,16 +1,22 @@
 <div class="new_comment">
   <%= error_messages_for :comment %>
 	<% form_for [@commentable, @comment], :html => {:class => 'form'} do |f| %>
+	<div class="field_notice">required</div>
 	<p>
-		<%= f.label :name %>
+		<%= f.label :name, 'Name:' %>
 		<%= f.text_field :name %>
-	</p>
+  </p>
+	<div class="field_notice">required, will not be published</div
 	<p>
-		<%= f.label :email %>
+		<%= f.label :email, 'Email:' %>
 		<%= f.text_field :email %>
 	</p>
 	<p>
-		<%= f.label :content %>
+		<%= f.label :url, 'URL:' %>
+		<%= f.text_field :url %>
+	</p>
+	<p>
+		<%= f.label :content, 'Comments:' %>
 		<%= f.text_area :content %>
 	</p>
   <p>

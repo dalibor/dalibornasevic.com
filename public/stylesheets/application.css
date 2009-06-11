@@ -78,6 +78,14 @@ a:hover {
   margin-left: 150px;
 }
 
+.field_notice {
+  margin-bottom: -10px;
+  padding-left: 155px;
+  font-size: 10px;
+  clear: both;
+}
+
+
 #footer {
   clear: both;
   width: 600px;

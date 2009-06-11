@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(:version => 20090608193445) do
     t.integer  "post_id"
     t.string   "name"
     t.string   "email"
+    t.string   "url"
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -15,39 +15,52 @@ describe Comment do
   end
   
   it "should validate presence of post_id" do
-    comment = Comment.new(Factory.attributes_for(:comment, :post_id => ''))
+    comment = Factory.build(:comment, :post_id => '')
     comment.should_not be_valid
     comment.errors.on(:post_id).should match(/blank/)
   end
   
   it "should validate presence of name" do
-    comment = Comment.new(Factory.attributes_for(:comment, :name => ''))
+    comment = Factory.build(:comment, :name => '')
     comment.should_not be_valid
     comment.errors.on(:name).should match(/blank/)
   end
   
   it "should validate presence of email" do
-    comment = Comment.new(Factory.attributes_for(:comment, :email => ''))
+    comment = Factory.build(:comment, :email => '')
     comment.should_not be_valid
     comment.errors.on(:email).to_a.join.should match(/blank/)
   end
 
   it "should validate format of email" do
-    comment = Comment.new(Factory.attributes_for(:comment, :email => 'bla@bla.bla'))
+    comment = Factory.build(:comment, :email => 'bla@bla.bla')
     comment.should_not be_valid
     comment.errors.on(:email).to_a.join.should match(/not an email address/)
   end
   
-
-  
-  it "should validte presence of content" do
-    comment = Comment.new(Factory.attributes_for(:comment, :content => ''))
+  it "should validate presence of content" do
+    comment = Factory.build(:comment, :content => '')
     comment.should_not be_valid
     comment.errors.on(:content).should match(/blank/)
   end
   
-    
+  it "should validate format of email when url is not blank" do
+    comment = Factory.build(:comment, :url => 'dalibornasevic')
+    comment.should_not be_valid
+    comment.errors.on(:url).should match(/invalid/)
+  end
+
+  it "should not validate format of email when url is blank" do
+    comment = Factory.build(:comment, :url => '')
+    comment.errors.on(:url).should be_nil
+  end
+
   
+  it "should add protocol to url when url doesn't start with http protocol and save the comment" do
+    comment = Factory.build(:comment, :url => 'www.dalibornasevic.com')
+    comment.should be_valid
+    comment.url.should == 'http://www.dalibornasevic.com'
+  end
   
   
 end

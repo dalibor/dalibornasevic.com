@@ -13,6 +13,7 @@ Feature: Write post comments
 		When I go to post with id "1"
 		And I fill in the comment name "Dalibor"
 		And I fill in the comment email "dalibor.nasevic@gmail.com"
+		And I fill in the comment url "http://www.dalibornasevic.com"
 		And I fill in the comment content "My first comment"
 		And I press "Comment"
 		Then I should see "Your comment was successfully created."
