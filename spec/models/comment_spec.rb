@@ -52,6 +52,7 @@ describe Comment do
 
   it "should not validate format of email when url is blank" do
     comment = Factory.build(:comment, :url => '')
+    comment.valid?
     comment.errors.on(:url).should be_nil
   end
 

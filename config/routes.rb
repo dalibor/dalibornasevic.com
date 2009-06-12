@@ -1,6 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
 
-
   map.namespace :admin do |admin|
     admin.root :controller => 'posts'
     admin.resources :posts, :member => {:delete => :get}
@@ -10,8 +9,8 @@ ActionController::Routing::Routes.draw do |map|
     post.resources :comments, :only => [:create]
   end
   
-  # map.root :controller => "posts"
-  map.root :controller => 'main', :action => 'about'
+  map.root :controller => "posts"
+  # map.root :controller => 'main', :action => 'about'
 
   map.about '/about', :controller => "main", :action => "about"
   #map.connect ':controller/:action/:id'

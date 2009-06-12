@@ -1,4 +1,5 @@
 <div class="new_comment">
+	<a name="form"></a>
   <%= error_messages_for :comment %>
 	<% form_for [@post, @comment], :html => {:class => 'form'} do |f| %>
 	<div class="field_notice">required</div>
@@ -17,7 +18,7 @@
 	</p>
 	<p>
 		<%= f.label :content, 'Comments:' %>
-		<%= f.text_area :content %>
+		<%= f.text_area :content, :rows => 10, :cols => 50 %>
 	</p>
   <p>
     <%= f.submit 'Comment', :class => 'submit' %>

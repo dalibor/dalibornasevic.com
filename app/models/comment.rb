@@ -13,7 +13,7 @@ class Comment < ActiveRecord::Base
   before_validation :add_protocol_to_url
   
   def add_protocol_to_url
-  	self.url = 'http://' + url unless url =~ /http/
+  	self.url = 'http://' + url unless url.blank? || url =~ /http/
   end
     
   

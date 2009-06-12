@@ -9,6 +9,7 @@ class CommentsController < ApplicationController
       flash[:notice] = "Your comment was successfully created."
       redirect_to @post
     else
+      flash[:error] = "Please correct invalid data from the form."
       @comments = @post.comments
       render :template => 'posts/show'
     end
