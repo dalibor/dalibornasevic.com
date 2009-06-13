@@ -15,7 +15,7 @@
 				var _token = "<%= form_authenticity_token %>"
 				<% end %>
    </head>
-  <body onload="sh_highlightDocument();">
+  <body>
     <div id="container">
       <div id="header">
         <h1><%= link_to 'Dalibor Nasevic', root_path %></h1>
@@ -23,10 +23,11 @@
       <div id="content">
         <div class='messages'>
           <% if flash[:notice] %>
-          <div class='notice'><%= flash[:notice] %></div>
+          <div id='notice'><%= flash[:notice] %></div>
           <% end %>
           <% if flash[:error] %>
-          <div class='error'><%= flash[:error] %></div>
+          <div id='error'><%= flash[:error] %></div>
+          <% flash[:error] = nil %>
           <% end %>
         </div>
         <%= yield %>

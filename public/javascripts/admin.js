@@ -10,7 +10,7 @@ if (confirm('Are you sure?')) {
     f.style.display = 'none';
     this.parentNode.appendChild(f);
     f.method = 'POST';
-	alert(element.href.gsub(/\/delete/, ''));
+  	// alert(element.href.gsub(/\/delete/, ''));
     f.action = element.href.gsub(/\/delete/, '') //element.href.match(/(\d)\/delete/, '')[1];
 	
     var m = document.createElement('input');

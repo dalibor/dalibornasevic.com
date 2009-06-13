@@ -4,6 +4,7 @@
 	padding: 0px;
 }
 **/
+  
 img {
   border: none;
 }
@@ -83,8 +84,8 @@ a:hover {
   padding-left: 10px;
 }
 
-#twitter_update_list li {
-  margin-left: -10px;
+#lastfm_content p {
+  margin: 5px 0px;
 }
 
 #content div.form h1 {
@@ -117,7 +118,7 @@ a:hover {
   text-align: center;
 }
 
-.source {
+.sh_sourceCode {
   border: 2px solid #E6EFC2;
   margin: 1em;
   padding: 1.5em;

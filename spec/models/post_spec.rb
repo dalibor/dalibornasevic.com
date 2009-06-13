@@ -31,4 +31,9 @@ describe Post do
     #Post.new.should respond_to(:comments)
   end
   
+  it "should have nice url format using to_param method" do
+    post = Factory.build(:post, :id => 1)
+    post.to_param.should == "1-my-first-blog-post"
+  end
+  
 end

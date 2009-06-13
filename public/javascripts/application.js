@@ -13,8 +13,9 @@ function startAnalytics(id) {
   
 document.observe('dom:loaded', function(){
 
+  sh_highlightDocument();
   
-  if (!_google_analytics_id.blank()){
+  if (typeof(_google_analytics_id) != "undefined" && !_google_analytics_id.blank()){
     startAnalytics(_google_analytics_id);
   }
 
