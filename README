@@ -1,12 +1,21 @@
 Personal Blog application for http://www.dalibornasevic.com
 
-Run following rake task to create session_key and secret for the application
+- Run following rake task to create session_key and secret for the application
 
 rake config/initializers/session_store.rb 
 
-And create yaml file config/password.yml with following structure
+- Create yaml file config/password.yml with following structure
 
 password:
   username: username
   password: password
 
+- Take a look at config/initializers/constants.rb and set your Last.fm and Twitter usernames, Google Analytics ID, RSS name and description, etc.
+
+- Run cucumber features
+
+cucumber features
+
+- Run specs
+
+spec spec --options spec/spec.opts

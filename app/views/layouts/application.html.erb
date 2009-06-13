@@ -1,54 +1,46 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-    <head>
-        <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-        <title><%= yield(:title) || "Dalibor Nasevic" %></title>
-        <%= tag(:meta, :name => 'description', :content => yield(:description) || "Personal weblog for Dalibor Nasevic")  %>
-        <%= tag(:meta, :name => 'keywords', :content => "Dalibor Nasevic, Dalibor, Nasevic, dalibor, ruby, rails, ruby on rails, web development, web, development, Skopje, Macedonia, ETF, Далибор Насевиќ, Далибор, Насевиќ, далибор, руби, реилс, руби он реилс, веб девелопмент, веб, девелопмент, Скопје, Македонија, ЕТФ, blackflash, blackflasher")  %>
-        <%= stylesheet_link_tag 'application' %>
-        <%= javascript_include_tag 'shjs/sh_main.min' %>
-        <%= javascript_include_tag 'shjs/sh_ruby.min' %>
-        <%= javascript_include_tag :defaults %>
-        <%= stylesheet_link_tag 'shjs/sh_vim-dark.min' %>
-        <%= auto_discovery_link_tag(:rss, posts_path(:format => 'rss')) %>
-        <script type="text/javascript">
-          var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-          document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-          </script>
-          <script type="text/javascript">
-          try {
-          var pageTracker = _gat._getTracker("UA-8815357-1");
-          pageTracker._trackPageview();
-          } catch(err) {}
-        </script>
-    </head>
-    <body onload="sh_highlightDocument();">
-        <div id="container">
-          <div id="header">
-            <h1><%= link_to 'Dalibor Nasevic', root_path %></h1>
-          </div>
-          <div id="content">
-            <div class='messages'>
-              <% if flash[:notice] %>
-                <div id='notice'><%= flash[:notice] %></div>
-              <% end %>
-              <% if flash[:error] %>
-                <div id='error'><%= flash[:error] %></div>
-                <% flash[:error] = nil %>
-              <% end %>
-            </div>
-            <%= yield %>
-          </div>
-          <div id="sidebar">
-            <%= render :partial => 'shared/about' %>
-            <%= render :partial => 'shared/twitter' %>
-            <%= render :partial => 'shared/last_fm' %>
-          </div>
-          <div id="footer">
-            2009, dalibornasevic.com
-          </div>
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <title><%= yield(:title) || "Dalibor Nasevic" %></title>
+    <%= tag(:meta, :name => 'description', :content => yield(:description) || "Personal weblog for Dalibor Nasevic")  %>
+    <%= tag(:meta, :name => 'keywords', :content => "Dalibor Nasevic, Dalibor, Nasevic, dalibor, ruby, rails, ruby on rails, web development, web, development, Skopje, Macedonia, ETF, Далибор Насевиќ, Далибор, Насевиќ, далибор, руби, реилс, руби он реилс, веб девелопмент, веб, девелопмент, Скопје, Македонија, ЕТФ, blackflash, blackflasher")  %>
+    <%= stylesheet_link_tag 'application' %>
+    <%= stylesheet_link_tag 'shjs/sh_vim-dark.min' %>
+    <%= javascript_include_tag 'shjs/sh_main.min' %>
+    <%= javascript_include_tag 'shjs/sh_ruby.min' %>
+    <%= javascript_include_tag :defaults %>
+    <%= javascript_include_tag 'google_analytics.js' %>
+    <%= auto_discovery_link_tag(:rss, posts_path(:format => 'rss')) %>
+    <% javascript_tag do -%>
+      var _token = '<%= form_authenticity_token -%>';
+      var _google_analytics_id = '<%= GOOGLE::ANALYTICS_ID %>';
+    <% end -%>
+  <body onload="sh_highlightDocument();">
+    <div id="container">
+      <div id="header">
+        <h1><%= link_to 'Dalibor Nasevic', root_path %></h1>
+      </div>
+      <div id="content">
+        <div class='messages'>
+          <% if flash[:notice] %>
+          <div id='notice'><%= flash[:notice] %></div>
+          <% end %>
+          <% if flash[:error] %>
+          <div id='error'><%= flash[:error] %></div>
+          <% flash[:error] = nil %>
+          <% end %>
         </div>
-        <script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script>
-        <script type="text/javascript" src="http://twitter.com/statuses/user_timeline/blackflasher.json?callback=twitterCallback2&amp;count=3"></script>
-</body>
+        <%= yield %>
+      </div>
+      <div id="sidebar">
+        <%= render :partial => 'shared/about' %>
+        <%= render :partial => 'shared/twitter' %>
+        <%= render :partial => 'shared/last_fm' %>
+      </div>
+      <div id="footer">
+        2009, dalibornasevic.com
+      </div>
+    </div>
+  </body>
 </html>

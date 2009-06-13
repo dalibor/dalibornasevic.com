@@ -71,6 +71,7 @@ a:hover {
   font-size: 0.9em;
   padding: 0.5em 1em;
 }
+	
 
 #sidebar .item h1 {
   color:#666666;
@@ -194,4 +195,9 @@ pre {
 
 .rss {
  text-align: right; 
+}
+
+.time {
+  color: #191919;
+  font-size: 0.7em; 
 }
