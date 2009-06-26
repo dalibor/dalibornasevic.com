@@ -1,0 +1,6 @@
+<div class="comments">
+	<%= render :partial => 'comment', :collection => @comments %>
+</div>
+<div class="pagination">
+	<%= will_paginate @comments %>
+</div>

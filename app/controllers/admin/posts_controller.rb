@@ -23,7 +23,7 @@ class Admin::PostsController < ApplicationController
     @post = Post.new(params[:post])
 
     if @post.save
-      flash[:notice] = 'New post created.'
+      flash[:notice] = 'Post was created successfully'
       redirect_to [:admin, @post]
     else
       render :action => :new
@@ -34,7 +34,7 @@ class Admin::PostsController < ApplicationController
     @post = Post.find(params[:id])
 
     if @post.update_attributes(params[:post])
-      flash[:notice] = 'Post was successfully updated'
+      flash[:notice] = 'Post was updated successfully'
       redirect_to [:admin, @post]
     else
       render :action => :edit
@@ -44,8 +44,8 @@ class Admin::PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    flash[:notice] = 'Post was successfully deleted'
-    redirect_to admin_posts_path
+    flash[:notice] = 'Post was deleted successfully'
+    redirect_to admin_posts_url
   end
 
   def delete

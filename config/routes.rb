@@ -3,6 +3,7 @@ ActionController::Routing::Routes.draw do |map|
   map.namespace :admin do |admin|
     admin.root :controller => 'posts'
     admin.resources :posts, :member => {:delete => :get}
+    admin.resources :comments, :member => {:delete => :get}
   end
 
   map.resources :posts, :only => [:index, :show] do |post|

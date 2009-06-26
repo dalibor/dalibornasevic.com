@@ -4,10 +4,14 @@ module NavigationHelpers
     
     when /the homepage/
       root_path
+    when /^admin root page in administration$/
+      admin_root_path
     when /^list of posts$/
       posts_path
     when /^list of posts in administration$/
       admin_posts_path
+    when /^list of comments in administration$/
+      admin_comments_path
     when /^post with id "([^\"]*)"$/
       post_path($1)
     when /^post with id (\d+) in administration$/

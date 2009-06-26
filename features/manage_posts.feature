@@ -20,12 +20,12 @@ Feature: Manage Blog posts
 		And I fill in "Title" with "First title"
 		And I fill in "Content" with "First content"
 		And I press "Create"
-		Then I should see "New post created."
+		Then I should see "Post was created successfully"
 		And I should see "First title"
 		And I should see "First content"
 		And I should have 1 post
 
-	Scenario: Admin created invalid post
+	Scenario: Admin creates invalid post
 		Given I have no posts
 		And I am logged in
 		And I am on new post in administration
@@ -34,26 +34,24 @@ Feature: Manage Blog posts
 		And I should see "Content can't be blank"
 
 	Scenario: Admin edits post
-		Given I have created posts titled Cucumber, Webrat, Vim, Git
+		Given I have created posts titled Cucumber, Webrat, Vim, Subversion
 		And I am logged in
 		And I am on list of posts in administration
-		When I follow "Webrat"
-		And I follow "Edit post"
-		And I fill in "Title" with "New title"
-		And I fill in "Content" with "New content"
+		And I click "Edit" "post" "4" in "posts" block
+		And I fill in "Title" with "Git"
+		And I fill in "Content" with "Git rules"
 		And I press "Update"
-		Then I should see "Post was successfully updated"
-		And I should see "New title"
-		And I should see "New content"
+		Then I should see "Post was updated successfully"
+		And I should see "Git"
+		And I should see "Git rules"
 		And I should have 4 posts
 
 	Scenario: Admin deletes post
-		Given I have created posts titled Cucumber, Webrat, Vim, Git
+		Given I have created posts titled Cucumber, Webrat, Vim, Subversion
 		And I am logged in
 		And I am on list of posts in administration
-		And I follow "Webrat"
-		And I follow "Delete post"
+		And I click "Delete" "post" "4" in "posts" block
 		When I press "Delete"
-		Then I should see "Post was successfully deleted"
-		And I should not see "Webrat"
+		Then I should see "Post was deleted successfully"
+		And I should not see "Subversion"
 		And I should have 3 posts

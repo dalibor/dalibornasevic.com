@@ -30,6 +30,21 @@ describe Admin::PostsController, "new post" do
   end
 end
 
+describe Admin::PostsController, "show post" do
+  
+  before(:each) do
+    @request.env["HTTP_AUTHORIZATION"] = "Basic " + Base64::encode64("dalibor:password")
+    Post.stub!(:find).with("1").and_return(@mock_object = mock_model(Post))
+  end
+  
+  it "should render new comment successfully" do
+    Post.should_receive(:find).with("1").and_return(@mock_object)
+    get :show, :id => "1"
+    response.should be_success
+    assigns(:post).should_not be_nil
+  end
+end
+
 describe Admin::PostsController, "new post create valid" do
   
   before(:each) do
@@ -56,6 +71,11 @@ describe Admin::PostsController, "new post create valid" do
   it "should assign post" do
     post :create, :post=>{:name=>"value"}
     assigns(:post).should == @mock_object
+  end
+  
+  it "should set flash notice" do
+    post :create, :post=>{:name=>"value"}
+    flash[:notice].should == 'Post was created successfully'
   end
   
   it "should have response with redirect to the admin post path" do
@@ -139,6 +159,11 @@ describe Admin::PostsController, "update post with valid params" do
     assigns(:post).should == @mock_object
   end
   
+  it "should set flash notice" do
+    put :update, :id => "1", :post=>{}
+    flash[:notice].should == 'Post was updated successfully'
+  end
+  
   it "should have response with redirect to the admin post path" do
     put :update, :id => "1", :post=>{}
     response.should redirect_to(admin_post_url(@mock_object))
@@ -167,6 +192,7 @@ describe Admin::PostsController, "update post with invalid params" do
     put :update, :id => "1", :post=>{}
     response.should render_template("edit")
   end
+end
 
 describe Admin::PostsController, "delete post" do
   
@@ -177,7 +203,7 @@ describe Admin::PostsController, "delete post" do
   
   it "should render delete post successfully" do
     Post.should_receive(:find).with("1").and_return(@mock_object)
-    get :edit, :id => "1"
+    get :delete, :id => "1"
     response.should be_success
     assigns(:post).should_not be_nil
   end
@@ -190,6 +216,11 @@ describe Admin::PostsController, "destroy post" do
     Post.stub!(:find).with("1").and_return(@mock_object = mock_model(Post, :destroy => true))
   end
   
+  it "should find post successfully" do
+    Post.should_receive(:find).with("1").and_return(@mock_object)
+    delete :destroy, :id => "1"
+  end
+  
   it "should destroy post successfully" do
     @mock_object.should_receive(:destroy).and_return(true)
     delete :destroy, :id => "1"
@@ -200,9 +231,14 @@ describe Admin::PostsController, "destroy post" do
     response.should be_redirect
   end
   
+  it "should set flash notice" do
+    delete :destroy, :id => "1"
+    flash[:notice].should == 'Post was deleted successfully'
+  end
+  
   it "should redirect to the admin post path" do
     delete :destroy, :id => "1"
-    response.should redirect_to(admin_posts_path)
+    response.should redirect_to(admin_posts_url)
   end
 end
 
@@ -249,6 +285,4 @@ describe Admin::PostsController, "invalid credentals" do
     delete :destroy, :id => 1
     response.code.should == "401" # unauthorized
   end
-end
-
 end

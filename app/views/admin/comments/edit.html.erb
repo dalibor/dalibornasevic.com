@@ -1,7 +1,7 @@
 <div class="new_comment">
-	<a name="form"></a>
   <%= error_messages_for :comment %>
-	<% form_for [@post, @comment], :html => {:class => 'form'} do |f| %>
+	<% form_for [:admin, @comment], :html => {:class => 'form'} do |f| %>
+	<%= f.hidden_field :post_id %>
 	<div class="field_notice">required</div>
 	<p>
 		<%= f.label :name, 'Name:' %>
@@ -21,7 +21,7 @@
 		<%= f.text_area :content, :rows => 10, :cols => 50 %>
 	</p>
   <p>
-    <%= f.submit 'Comment', :class => 'submit' %>
+    <%= f.submit 'Update', :class => 'submit' %>
   </p>
 	<% end %>
 </div>

@@ -1,7 +1,9 @@
 <div>
   <%= link_to 'New post', new_admin_post_path %>
 </div>
-<%= render :partial => 'post', :collection => @posts %>
+<div class="posts">
+	<%= render :partial => 'post', :collection => @posts %>
+</div>
 <div class="pagination">
 	<%= will_paginate @posts %>
 </div>

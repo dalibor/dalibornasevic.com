@@ -1,0 +1,6 @@
+  <div class="comment">
+    <%= gravatar comment.email, :class => 'avatar' %>
+    <%#= image_tag "dalibor.nasevic.png", :class => 'avatar' %>
+    <p class="author">Posted by <%= comment.name %> on <%= comment.created_at.strftime("%B %d, %Y at %I:%M %P") %></p>
+  	<p><%= simple_format comment.content %></p>
+  </div>
