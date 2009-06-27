@@ -1,35 +1,35 @@
 class ServicesController < ApplicationController
   def lastfm
-    user = Scrobbler::User.new(LASTFM::USERNAME)
+    user = Scrobbler::User.new(LASTFM_USERNAME)
     
     begin
       Timeout::timeout(5) do
-        @recent_tracks = user.recent_tracks.first(LASTFM::NUMBER_OF_TRACKS)
+        @recent_tracks = user.recent_tracks.first(LASTFM_NUMBER_OF_TRACKS)
       end
       render :layout => false
     rescue Timeout::Error => e
-      render :text => LASTFM::SERVICE_UNAVAILABLE, :status => :service_unavailable
+      render :text => LASTFM_SERVICE_UNAVAILABLE_MESSAGE, :status => :service_unavailable
     rescue Errno::ETIMEDOUT => e
-      render :text => LASTFM::SERVICE_UNAVAILABLE, :status => :service_unavailable
+      render :text => LASTFM_SERVICE_UNAVAILABLE_MESSAGE, :status => :service_unavailable
     rescue SocketError => e
-      render :text => LASTFM::SERVICE_UNAVAILABLE, :status => :service_unavailable
+      render :text => LASTFM_SERVICE_UNAVAILABLE_MESSAGE, :status => :service_unavailable
     end
   end
 
   def twitter
-    user = TWITTER::USERNAME
+    user = TWITTER_USERNAME
     
     begin
       Timeout::timeout(5) do
-        @twits = Twitter::Search.new.from(user).fetch.results.first(TWITTER::NUMBER_OF_TWITS)
+        @twits = Twitter::Search.new.from(user).fetch.results.first(TWITTER_NUMBER_OF_TWITS)
       end
       render :layout => false
     rescue Timeout::Error => e
-      render :text => TWITTER::SERVICE_UNAVAILABLE, :status => :service_unavailable
+      render :text => TWITTER_SERVICE_UNAVAILABLE_MESSAGE, :status => :service_unavailable
     rescue Errno::ETIMEDOUT => e
-      render :text => TWITTER::SERVICE_UNAVAILABLE, :status => :service_unavailable
+      render :text => TWITTER_SERVICE_UNAVAILABLE_MESSAGE, :status => :service_unavailable
     rescue SocketError => e
-      render :text => TWITTER::SERVICE_UNAVAILABLE, :status => :service_unavailable
+      render :text => TWITTER_SERVICE_UNAVAILABLE_MESSAGE, :status => :service_unavailable
     end
   end
 end

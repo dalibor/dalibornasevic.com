@@ -14,13 +14,11 @@
     <%= auto_discovery_link_tag(:rss, posts_path(:format => 'rss')) %>
     <% javascript_tag do -%>
       var _token = '<%= form_authenticity_token -%>';
-      var _google_analytics_id = '<%= GOOGLE::ANALYTICS_ID %>';
+      var _google_analytics_id = '<%= GOOGLE_ANALYTICS_ID %>';
     <% end -%>
   <body>
     <div id="container">
-      <div id="header">
-        <h1><%= link_to 'Dalibor Nasevic', root_path %></h1>
-      </div>
+			<%= render :partial => 'layouts/header' %>
       <div id="content">
         <div class='messages'>
           <% if flash[:notice] %>

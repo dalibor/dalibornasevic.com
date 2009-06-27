@@ -1,0 +1,23 @@
+password:
+  username: dalibor
+  password: password
+
+blog:
+  title: Dalibor Nasevic
+
+rss:
+  title: Dalibor Nasevic
+  description: Dalibor Nasevic personal weblog
+
+lastfm: 
+  username: blackflasher
+  number_of_tracks: 5
+  service_unavailable_message: Last.fm service is currently unavailable due to some network, traffic or server problems.
+
+twitter:
+  username: blackflasher
+  number_of_twits: 3
+  service_unavailable_message: Twitter service is currently unavailable due to some network, traffic or server problems.
+
+google:
+  analytics_id: UA-8815357-1
