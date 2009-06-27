@@ -12,6 +12,9 @@ describe Comment do
 
   it "should respond to post" do
     Comment.reflect_on_association(:post).should_not be_nil
+    Comment.reflect_on_association(:post).macro.should == :belongs_to
+    Comment.reflect_on_association(:post).class_name.should == 'Post'
+    Comment.reflect_on_association(:post).options.should == { :counter_cache => true } 
   end
   
   it "should validate presence of post_id" do

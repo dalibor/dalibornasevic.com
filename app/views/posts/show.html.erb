@@ -1,5 +1,13 @@
 <%= render :partial => 'posts/post', :object => @post %>
-
-<%= render :partial => 'comments/comments' %>
+<p>
+	<a name="comments" class="anchor">Comments:</a>
+</p>
+<div class="comments">
+	<% if @post.comments.size > 0 %>
+		<%= render :partial => 'comments/comment', :collection => @comments %>
+	<% else %>
+		This post has no comments yet.
+	<% end %>
+</div>
 
 <%= render :partial => 'comments/form' %>

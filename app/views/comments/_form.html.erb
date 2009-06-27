@@ -1,5 +1,7 @@
 <div class="new_comment">
-	<a name="form"></a>
+	<p>
+		<a name="new_comment" class="anchor">Leave a comment:</a>
+	</p>
   <%= error_messages_for :comment %>
 	<% form_for [@post, @comment], :html => {:class => 'form'} do |f| %>
 	<div class="field_notice">required</div>

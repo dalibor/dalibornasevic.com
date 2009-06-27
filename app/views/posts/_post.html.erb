@@ -4,4 +4,10 @@
   <div class="content">
     <%= RedCloth.new(post.content).to_html %>
   </div>
+  <div class="leave_comment">
+      <%= link_to "Comment", post_path(post) + '#new_comment' %>
+			/
+			<%= link_to "Comments (#{post.comments.size})", post_path(post) + '#comments' %>
+  </div>
+	
 </div>
