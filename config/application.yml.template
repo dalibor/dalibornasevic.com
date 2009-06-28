@@ -1,6 +1,9 @@
 password:
   username: dalibor
-  password: password
+#  password: password
+#  Digest::MD5::hexdigest ["dalibor",'extra secret',"password"].join(":")
+  password: 89fee506e01962e534d478f747ceff90
+  realm: "What's the secret code?"
 
 blog:
   title: Dalibor Nasevic
