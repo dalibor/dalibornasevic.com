@@ -1,16 +1,38 @@
 Personal Blog application for http://www.dalibornasevic.com
 
+=========================
+Installation instructions
+=========================
+
+- Clone repository
+
+git clone git://github.com/dalibor/blog.git
+cd blog
+
 - Run following rake task to create session_key and secret for the application
 
 rake config/initializers/session_store.rb 
 
-- Create yaml file config/password.yml with following structure
+- Config database
 
-password:
-  username: username
-  password: password
+cp config/database.yml.template config/database.yml
+vi config/database.yml
 
-- Take a look at config/initializers/constants.rb and set your Last.fm and Twitter usernames, Google Analytics ID, RSS name and description, etc.
+- Peronalize application
+
+cp config/application.yml.template config/application.yml
+vi config/application.yml
+
+- Initialize & update rails submodule
+
+git submodule init
+git submodule update
+cd vendor/rails
+git checkout origin/2-3-stable
+
+=========================
+Run tests
+=========================
 
 - Run cucumber features
 
