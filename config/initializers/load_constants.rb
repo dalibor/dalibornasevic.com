@@ -4,6 +4,7 @@ file = YAML.load_file(File.join(RAILS_ROOT, 'config/application.yml'))
 
 USERNAME = file['password']['username']
 PASSWORD = file['password']['password']
+REALM = file['password']['realm']
 
 BLOG_TITLE = file['blog']['title']
 

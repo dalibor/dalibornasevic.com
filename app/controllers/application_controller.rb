@@ -13,8 +13,8 @@ class ApplicationController < ActionController::Base
   private
 
   def authenticate
-    authenticate_or_request_with_http_basic do |username, password|
-      username == USERNAME && password == PASSWORD
+    authenticate_or_request_with_http_digest(REALM) do |username|
+      PASSWORD || false # should not return nil before rails 2.3.2-stable because of bug!!!
     end
   end
 end

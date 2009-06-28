@@ -10,7 +10,6 @@
     <%= javascript_include_tag 'shjs/sh_main.min' %>
     <%= javascript_include_tag 'shjs/sh_ruby.min' %>
     <%= javascript_include_tag :defaults %>
-    <%= javascript_include_tag 'google_analytics.js' %>
     <%= auto_discovery_link_tag(:rss, posts_path(:format => 'rss')) %>
     <% javascript_tag do -%>
       var _token = '<%= form_authenticity_token -%>';
