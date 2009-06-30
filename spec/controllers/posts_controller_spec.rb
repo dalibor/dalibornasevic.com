@@ -4,14 +4,34 @@ describe PostsController, "list posts" do
   
   it "should render list of posts successfully" do
     Post.stub!(:paginate).and_return(@mock_objects = [mock_model(Post)])
-    # controller.should be_an_instance_of(PostsController)
-#    Post.stub!(:paginate).and_return([post])
     Post.should_receive(:paginate).and_return([@mock_objects])
     get :index
     response.should be_success
     assigns(:posts).should_not be_nil
   end
   
+  it "should render list of posts successfully when :tag param is present" do
+    Tag.stub!(:find_by_name).with('tag 1').and_return(@tag_mock_object = mock_model(Tag))
+    @tag_mock_object.stub_association!(:posts, :paginate => (@posts_mock = [mock_model(Post)]))
+    
+    Tag.should_receive(:find_by_name).with('tag 1').and_return(@tag_mock_object)
+    @tag_mock_object.posts.should_receive(:paginate).and_return(@posts_mock)
+
+    get :index, :tag => 'tag 1'
+    response.should be_success
+    assigns(:posts).should_not be_nil
+  end
+  
+  it "should render list of posts successfully when :tag param is present but tag is not found" do
+    Tag.stub!(:find_by_name).with('tag 1').and_return(nil)
+
+    Post.stub!(:paginate).and_return(@mock_objects = [mock_model(Post)])
+    Post.should_receive(:paginate).and_return([@mock_objects])
+
+    get :index, :tag => 'tag -1'
+    response.should be_success
+    assigns(:posts).should_not be_nil
+  end
 end
 
 describe PostsController, "show post" do

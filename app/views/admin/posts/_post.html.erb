@@ -4,6 +4,9 @@
   <div class="content">
     <%= RedCloth.new(post.content).to_html %>
   </div>
+	<div class="tags">
+		Tags: <%= post.tags.empty? ? 'none' : post.tags.map{|tag| link_to(tag.name, tag_posts_path(tag))}.join(' ') %>
+	</div>
 	<div>
 	  <%= link_to 'Edit', edit_admin_post_path(post) %>
 	  <%#= link_to 'Delete post', [:admin, @post], :method => :delete, :confirm => 'Are you sure' %>

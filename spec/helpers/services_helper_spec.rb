@@ -41,13 +41,4 @@ describe ServicesHelper do
     @track.stub!(:name).and_return('Warcurse')
     get_full_track_name(@track).should == 'Kreator - Warcurse (Hordes Of Chaos)'
   end
-  
-
-  
-
-  
-
-  
-
-  
 end

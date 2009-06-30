@@ -19,10 +19,12 @@ Feature: Manage Blog posts
 		When I follow "New post"
 		And I fill in "Title" with "First title"
 		And I fill in "Content" with "First content"
+		And I fill in "Tags" with "Tag1 Tag2 Tag3"
 		And I press "Create"
 		Then I should see "Post was created successfully"
 		And I should see "First title"
 		And I should see "First content"
+		And I should see "Tags: Tag1 Tag2 Tag3"
 		And I should have 1 post
 
 	Scenario: Admin creates invalid post

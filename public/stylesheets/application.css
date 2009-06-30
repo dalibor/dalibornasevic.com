@@ -69,10 +69,25 @@ a:hover {
 
 #sidebar .item {
   font-family: sans-serif, helvetica, verdana;
-  font-size: 0.9em;
+  font-size: 0.8em;
   padding: 0.5em 1em;
 }
 	
+#sidebar .item .content .t1 {
+	font-size: 0.9em;
+}
+#sidebar .item .content .t2 {
+	font-size: 1.1em;
+}
+#sidebar .item .content .t3 {
+	font-size: 1.3em;
+}
+#sidebar .item .content .t4 {
+	font-size: 1.5em;
+}
+#sidebar .item .content .t5 {
+	font-size: 1.7em;
+}
 
 #sidebar .item h1 {
   color:#666666;
@@ -135,6 +150,10 @@ a:hover {
 
 .post .content {
   margin: 1em 0;
+}
+
+.post .tags {
+	margin: 1em 0;
 }
 
 .author {

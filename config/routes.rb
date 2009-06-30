@@ -11,7 +11,7 @@ ActionController::Routing::Routes.draw do |map|
   end
   
   map.root :controller => 'posts'
-  # map.root :controller => 'main', :action => 'about'
+  map.tag_posts 'tag/:tag', :controller => 'posts', :action => 'index'
 
   map.about '/about', :controller => 'main', :action => 'about'
   map.lastfm_service 'services/lastfm', :controller => 'services', :action => 'lastfm'

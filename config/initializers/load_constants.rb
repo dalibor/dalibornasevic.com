@@ -17,7 +17,7 @@ LASTFM_SERVICE_UNAVAILABLE_MESSAGE = file['lastfm']['service_unavailable_message
 
 TWITTER_USERNAME = file['twitter']['username']
 TWITTER_NUMBER_OF_TWITS = file['twitter']['number_of_twits']
-TWITTER_SERVICE_UNAVAILABLE = file['twitter']['service_unavailable_message']
+TWITTER_SERVICE_UNAVAILABLE_MESSAGE = file['twitter']['service_unavailable_message']
 
 
 GOOGLE_ANALYTICS_ID = file['google']['analytics_id']
