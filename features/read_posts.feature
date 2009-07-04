@@ -15,3 +15,8 @@ Feature: Display blog posts
 		And I follow "Webrat"
 		Then I should see "Webrat"
 		And I should not see "Cucumber"
+		
+	Scenario: Don't display unpublished posts
+		Given Site has unpublished posts titled "Cucumber"
+		When I go to list of posts
+		Then I should not see "Cucumber"

@@ -1,4 +1,7 @@
 class Post < ActiveRecord::Base
+  
+  attr_accessor :publish
+  
   validates_presence_of :title
   validates_presence_of :content
   
@@ -8,6 +11,8 @@ class Post < ActiveRecord::Base
   
   attr_writer :tag_names
   after_save :assign_tags
+  
+  before_save :check_for_publish
   
   def tag_names
     @tag_names || tags.map{|t| t.name}.join(' ') # it seems like factory girl somehow can't handle tags.map(&name).join(' ')
@@ -25,5 +30,9 @@ class Post < ActiveRecord::Base
         Tag.find_or_create_by_name(name.strip)
       end
     end
+  end
+  
+  def check_for_publish
+   self.published_at = nil unless publish == '1'
   end
 end

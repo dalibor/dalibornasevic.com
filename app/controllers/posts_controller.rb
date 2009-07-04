@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   def index
     
-    conditions = {:page => params[:page], :per_page => 5, :order => 'created_at DESC'}
+    conditions = {:page => params[:page], :per_page => 5, :order => 'created_at DESC', :include => :tags, :conditions => 'published_at IS NOT NULL'}
     
     @posts = if !params[:tag].blank? && (tag = Tag.find_by_name(params[:tag]))
       tag.posts.paginate(conditions)

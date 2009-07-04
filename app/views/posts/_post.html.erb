@@ -1,6 +1,6 @@
 <div class="post">
   <h2><%= link_to post.title, post %></h2>
-  <p class="author">Posted on <%= post.created_at.strftime("%B %d, %Y at %I:%M %P") %></p>
+  <p class="author">Posted on <%= post.published_at.strftime("%B %d, %Y at %I:%M %P") %></p>
   <div class="content">
     <%= RedCloth.new(post.content).to_html %>
   </div>

@@ -1,7 +1,7 @@
 <div class="post admin">
 	<div class="title">
 	  <h2><%= link_to post.title, [:admin, post] %></h2>
-	  <p class="author">Posted on <%= post.created_at.strftime("%m/%d/%Y at %I:%M%p") %></p>
+	  <p class="author"><%= post.published_at ? "Published on #{post.published_at.strftime('%B %d, %Y at %I:%M %P')}" : 'Not published yet' %></p>
 	</div>
 	<div class="icons">
 	  <%= link_to image_tag('icons/edit.png', :title => 'Edit'), edit_admin_post_path(post) %>

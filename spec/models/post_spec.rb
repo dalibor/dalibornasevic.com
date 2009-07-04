@@ -26,6 +26,18 @@ describe Post do
     post.errors.on(:content).should match(/blank/)
   end
   
+  it "should not be published if publish is '0'" do
+    post = Factory.build(:post, :publish => '0')
+    post.save.should be_true
+    post.published_at.should be_nil
+  end
+  
+  it "should be published if publish is '1'" do
+    post = Factory.build(:post)
+    post.save.should be_true
+    post.published_at.should_not be_nil
+  end
+  
   it "should keep tag_names when model is not saved and don't exist in database" do
     post = Factory.build(:post, :title => '')
     post.save.should be_false

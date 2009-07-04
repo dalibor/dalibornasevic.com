@@ -19,6 +19,8 @@ Feature: Manage Blog posts
 		When I follow "New post"
 		And I fill in "Title" with "First title"
 		And I fill in "Content" with "First content"
+	  And I select "January 23, 2004 10:30AM" as the "Publish at" date and time
+	  And I check "post_publish"
 		And I fill in "Tags" with "Tag1 Tag2 Tag3"
 		And I press "Create"
 		Then I should see "Post was created successfully"

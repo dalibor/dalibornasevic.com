@@ -28,6 +28,8 @@ class Admin::PostsController < ApplicationController
     else
       render :action => :new
     end
+    puts "@@@@@@"
+    p @post
   end
 
   def update
