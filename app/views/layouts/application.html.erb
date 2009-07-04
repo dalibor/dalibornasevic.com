@@ -2,9 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-    <title><%= yield(:title) || "Dalibor Nasevic" %></title>
-    <%= tag(:meta, :name => 'description', :content => yield(:description) || "Personal weblog for Dalibor Nasevic")  %>
-    <%= tag(:meta, :name => 'keywords', :content => "Dalibor Nasevic, Dalibor, Nasevic, dalibor, ruby, rails, ruby on rails, web development, web, development, Skopje, Macedonia, ETF, Далибор Насевиќ, Далибор, Насевиќ, далибор, руби, реилс, руби он реилс, веб девелопмент, веб, девелопмент, Скопје, Македонија, ЕТФ, blackflash, blackflasher")  %>
+    <title><%= " :: #{BLOG_TITLE} :: #{yield(:title)}" %></title>
+    <%= tag(:meta, :name => 'description', :content => yield(:description) || BLOG_DESCRIPTION)  %>
+    <%= tag(:meta, :name => 'keywords', :content => BLOG_KEYWORDS)  %>
     <%= stylesheet_link_tag 'application' %>
     <%= stylesheet_link_tag 'shjs/sh_vim-dark.min' %>
     <%= javascript_include_tag 'shjs/sh_main.min' %>
@@ -37,7 +37,7 @@
         <%= render :partial => 'shared/tags' %>
       </div>
       <div id="footer">
-        2009, dalibornasevic.com
+        <%= BLOG_FOOTER %>
       </div>
     </div>
   </body>

@@ -1,3 +1,5 @@
+<% title(@post.title) %>
+
 <%= render :partial => 'posts/post', :object => @post %>
 <p>
 	<a name="comments" class="anchor">Comments:</a>
@@ -9,5 +11,4 @@
 		This post has no comments yet.
 	<% end %>
 </div>
-
 <%= render :partial => 'comments/form' %>

@@ -7,6 +7,11 @@ PASSWORD = file['password']['password']
 REALM = file['password']['realm']
 
 BLOG_TITLE = file['blog']['title']
+BLOG_DESCRIPTION = file['blog']['description']
+BLOG_KEYWORDS = file['blog']['keywords']
+BLOG_FOOTER = file['blog']['footer']
+BLOG_ABOUT_SHORT = file['blog']['about']['short']
+BLOG_ABOUT_LONG = file['blog']['about']['long']
 
 RSS_TITLE = file['rss']['title']
 RSS_DESCRIPTION = file['rss']['description']
