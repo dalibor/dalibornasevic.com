@@ -125,7 +125,6 @@ a:hover {
   clear: both;
 }
 
-
 #footer {
   clear: both;
   width: 620px;
@@ -140,8 +139,22 @@ a:hover {
   overflow-x: auto;
 }
 
+.admin .title {
+	float: left;
+}
+
+.top_icons {
+	text-align: right;
+  margin: 0 5px;
+}
+
+.admin .icons {
+	text-align: right;
+	float: right;
+}
+
 .post {
-  margin: 10px 5px;
+  margin: 5px 5px;
 }
 
 .post h2 {
@@ -150,6 +163,7 @@ a:hover {
 
 .post .content {
   margin: 1em 0;
+	clear: both;
 }
 
 .post .tags {
@@ -230,4 +244,23 @@ pre {
 .time {
   color: #191919;
   font-size: 0.7em; 
+}
+
+/* Pagination */
+.pagination {
+	padding: 10px;
+	text-align: center;
+}
+.prev_page, .current, .pagination a, .next_page  {
+	padding: 1px 5px 1px 5px;
+	text-decoration: none;
+}
+.prev_page, .pagination a, .next_page  {
+	color: #993300;
+	border: 1px solid #993300;
+}
+.pagination .current, .pagination a:hover {
+	background-color: #993300;
+	border: 1px solid #993300;
+	color: #FFFFFF;
 }

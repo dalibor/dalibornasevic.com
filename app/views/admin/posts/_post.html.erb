@@ -1,16 +1,16 @@
-<div class="post">
-  <h2><%= link_to post.title, [:admin, post] %></h2>
-  <p class="author">Posted on <%= post.created_at.strftime("%m/%d/%Y at %I:%M%p") %></p>
+<div class="post admin">
+	<div class="title">
+	  <h2><%= link_to post.title, [:admin, post] %></h2>
+	  <p class="author">Posted on <%= post.created_at.strftime("%m/%d/%Y at %I:%M%p") %></p>
+	</div>
+	<div class="icons">
+	  <%= link_to image_tag('icons/edit.png', :title => 'Edit'), edit_admin_post_path(post) %>
+	  <%= link_to image_tag('icons/delete.png', :title => 'Delete'), delete_admin_post_path(post), :class => "delete" %>
+	</div>
   <div class="content">
     <%= RedCloth.new(post.content).to_html %>
   </div>
 	<div class="tags">
 		Tags: <%= post.tags.empty? ? 'none' : post.tags.map{|tag| link_to(tag.name, tag_posts_path(tag))}.join(' ') %>
-	</div>
-	<div>
-	  <%= link_to 'Edit', edit_admin_post_path(post) %>
-	  <%#= link_to 'Delete post', [:admin, @post], :method => :delete, :confirm => 'Are you sure' %>
-	  <%#= link_to 'Delete post', [:admin, @post], :method => :delete, :href => delete_admin_post_path(@post), :confirm => 'Are you sure' %>
-	  <%= link_to("Delete", delete_admin_post_path(post), :class => "delete") %>
 	</div>
 </div>
