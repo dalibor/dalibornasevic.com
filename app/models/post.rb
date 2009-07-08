@@ -1,7 +1,5 @@
 class Post < ActiveRecord::Base
   
-  attr_accessor :publish
-  
   validates_presence_of :title
   validates_presence_of :content
   
@@ -10,12 +8,18 @@ class Post < ActiveRecord::Base
   has_many :tags, :through => :taggings
   
   attr_writer :tag_names
+  attr_writer :publish
+
   after_save :assign_tags
   
   before_save :check_for_publish
   
   def tag_names
     @tag_names || tags.map{|t| t.name}.join(' ') # it seems like factory girl somehow can't handle tags.map(&name).join(' ')
+  end
+  
+  def publish
+    @publish || !published_at.nil?
   end
 
   def to_param

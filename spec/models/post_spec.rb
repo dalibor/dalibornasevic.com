@@ -28,13 +28,22 @@ describe Post do
   
   it "should not be published if publish is '0'" do
     post = Factory.build(:post, :publish => '0')
+    post.should be_valid
     post.save.should be_true
     post.published_at.should be_nil
   end
   
   it "should be published if publish is '1'" do
     post = Factory.build(:post)
+    post.title = "New Title"
     post.save.should be_true
+    post.published_at.should_not be_nil
+  end
+  
+  it "should not delete published_at when editing record and not changing publish" do
+    post = Factory.build(:post)
+    post.should be_valid
+    post.title = 'New title'
     post.published_at.should_not be_nil
   end
   
