@@ -265,3 +265,11 @@ pre {
 	border: 1px solid #993300;
 	color: #FFFFFF;
 }
+
+blockquote {
+	background-color: #E5E8E8;
+	border: 1px solid #C9C9C9;
+	font-style: italic;
+	padding: 10px;
+	margin: 10px;
+}
