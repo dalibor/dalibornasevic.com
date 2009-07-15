@@ -15,3 +15,21 @@ end
 
 require 'cucumber/rails/rspec'
 require 'webrat/core/matchers'
+
+Before do
+  @after_current_scenario_blocks = []
+  
+  class ApplicationController
+    def authenticate
+      authenticate_or_request_with_http_basic(REALM) do |username, password|
+        username == USERNAME && password == PASSWORD
+      end
+    end
+  end
+end
+
+After do
+ if @after_current_scenario_blocks.any?
+   @after_current_scenario_blocks.each{ |b| b.call }
+ end
+end 

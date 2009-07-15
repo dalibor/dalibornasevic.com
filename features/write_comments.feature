@@ -15,6 +15,7 @@ Feature: Write post comments
 		And I fill in the comment email "dalibor.nasevic@gmail.com"
 		And I fill in the comment url "http://www.dalibornasevic.com"
 		And I fill in the comment content "My first comment"
+		And I wait "0.1" second
 		And I press "Comment"
 		Then I should see "Your comment was successfully created."
 		And I should see "My first comment"
@@ -23,5 +24,13 @@ Feature: Write post comments
 		Given site has post with id "1"
 		When I go to post with id "1"
 		And I fill in the comment name "Dalibor"
+		And I wait "0.1" second
 		And I press "Comment"
 		Then I should see "There were problems with the following fields"
+
+  Scenario: Try to create spam comment
+		Given site has post with id "1"
+		When I go to post with id "1"
+		And I fill in the comment name "Dalibor"
+		And I press "Comment"
+		Then I should see "Our spam filter blocked your post"

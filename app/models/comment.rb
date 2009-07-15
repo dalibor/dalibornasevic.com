@@ -5,6 +5,14 @@ EMAIL_REGEX       = /\A#{EMAIL_NAME_REGEX}@#{DOMAIN_HEAD_REGEX}#{DOMAIN_TLD_REGE
 
 class Comment < ActiveRecord::Base
   belongs_to :post, :counter_cache => true
+
+  class << self
+    attr_writer :minimum_wait_time
+    
+    def minimum_wait_time
+      @minimum_wait_time || 15
+    end
+  end
   
   validates_presence_of :post_id, :name, :email, :content
   validates_format_of :email, :with => EMAIL_REGEX, :message => "is not an email address."
@@ -15,6 +23,7 @@ class Comment < ActiveRecord::Base
   def add_protocol_to_url
   	self.url = 'http://' + url unless url.blank? || url =~ /http/
   end
-    
+ 
+
   
 end

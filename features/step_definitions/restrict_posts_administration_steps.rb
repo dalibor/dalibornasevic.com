@@ -17,4 +17,3 @@ end
 When /^I do delete a post with id 1 in administration$/ do
   delete 'admin/posts/1'
 end
-

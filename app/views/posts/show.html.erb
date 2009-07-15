@@ -1,4 +1,5 @@
 <% title(@post.title) %>
+<% javascript 'spam.js' unless params[:controller] == 'comments' %>
 
 <%= render :partial => 'posts/post', :object => @post %>
 <p>

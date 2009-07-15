@@ -4,6 +4,7 @@ describe CommentsController, "create valid comment" do
   before(:each) do
     Post.stub!(:find).and_return(@post_mock = mock_model(Post))
 #    Post.stub!(:find).with("1").and_return(@post_mock = mock_model(Post))
+    request.session[:spam_timestamp] = (Time.now-15.seconds).to_i
     @post_mock.stub_association!(:comments, :new => (@comment_mock = mock_model(Comment, :save => true)))
   end
   
@@ -53,6 +54,7 @@ describe CommentsController, "try to create invalid comment" do
   
   before(:each) do
     Post.stub!(:find).and_return(@post_mock = mock_model(Post))
+    request.session[:spam_timestamp] = (Time.now-15.seconds).to_i
     @post_mock.stub_association!(:comments, :new => (@comment_mock = mock_model(Comment, :save => false)))
   end
   

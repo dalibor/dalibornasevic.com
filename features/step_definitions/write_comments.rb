@@ -26,3 +26,10 @@ end
 When /^I fill in the comment content "([^\"]*)"$/ do |content|
   fill_in "Comments", :with => content
 end
+
+When /^I wait "([^\"]*)" second$/ do |time|
+  original_value = Comment.minimum_wait_time
+  Comment.minimum_wait_time = 1
+  sleep Comment.minimum_wait_time
+  @after_current_scenario_blocks << lambda{ Comment.minimum_wait_time = original_value } 
+end
