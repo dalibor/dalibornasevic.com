@@ -1,3 +1,7 @@
+<div class="top_icons">
+    <%= link_to image_tag('icons/index.png', :title => 'All Comments'), admin_comments_path %>
+    <%= link_to image_tag('icons/show.png', :title => 'Show Comment'), admin_comment_path(@comment) %>
+</div>
 <div class="new_comment">
   <%= error_messages_for :comment %>
 	<% form_for [:admin, @comment], :html => {:class => 'form'} do |f| %>
