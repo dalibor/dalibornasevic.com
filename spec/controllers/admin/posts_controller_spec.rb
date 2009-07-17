@@ -3,7 +3,7 @@ require File.expand_path(File.dirname(__FILE__) + '/../../spec_helper')
 describe Admin::PostsController, "list posts" do
   
   before(:each) do
-    @request.env["HTTP_AUTHORIZATION"] = "Basic " + Base64::encode64("#{USERNAME}:#{PASSWORD}")
+    authenticate_with_http_digest(USERNAME, PASSWORD, REALM)
     Post.stub!(:paginate).and_return(@mock_objects = [mock_model(Post)])
   end
   
@@ -18,7 +18,7 @@ end
 describe Admin::PostsController, "new post" do
   
   before(:each) do
-    @request.env["HTTP_AUTHORIZATION"] = "Basic " + Base64::encode64("#{USERNAME}:#{PASSWORD}")
+    authenticate_with_http_digest(USERNAME, PASSWORD, REALM)
     Post.stub!(:new).and_return(@mock_object = mock_model(Post))
   end
   
@@ -33,7 +33,7 @@ end
 describe Admin::PostsController, "show post" do
   
   before(:each) do
-    @request.env["HTTP_AUTHORIZATION"] = "Basic " + Base64::encode64("#{USERNAME}:#{PASSWORD}")
+    authenticate_with_http_digest(USERNAME, PASSWORD, REALM)
     Post.stub!(:find).with("1").and_return(@mock_object = mock_model(Post))
   end
   
@@ -48,7 +48,7 @@ end
 describe Admin::PostsController, "new post create valid" do
   
   before(:each) do
-    @request.env["HTTP_AUTHORIZATION"] = "Basic " + Base64::encode64("#{USERNAME}:#{PASSWORD}")
+    authenticate_with_http_digest(USERNAME, PASSWORD, REALM)
     Post.stub!(:new).and_return(@mock_object = mock_model(Post, :save=>true))
   end
   
@@ -87,7 +87,7 @@ end
 describe Admin::PostsController, "new post create invalid" do
   
   before(:each) do
-    @request.env["HTTP_AUTHORIZATION"] = "Basic " + Base64::encode64("#{USERNAME}:#{PASSWORD}")
+    authenticate_with_http_digest(USERNAME, PASSWORD, REALM)
     Post.stub!(:new).and_return(@mock_object = mock_model(Post, :save=>false))
   end
   
@@ -120,7 +120,7 @@ end
 describe Admin::PostsController, "edit post" do
   
   before(:each) do
-    @request.env["HTTP_AUTHORIZATION"] = "Basic " + Base64::encode64("#{USERNAME}:#{PASSWORD}")
+    authenticate_with_http_digest(USERNAME, PASSWORD, REALM)
     Post.stub!(:find).with("1").and_return(@mock_object = mock_model(Post))
   end
   
@@ -135,7 +135,7 @@ end
 describe Admin::PostsController, "update post with valid params" do
   
   before(:each) do
-    @request.env["HTTP_AUTHORIZATION"] = "Basic " + Base64::encode64("#{USERNAME}:#{PASSWORD}")
+    authenticate_with_http_digest(USERNAME, PASSWORD, REALM)
     Post.stub!(:find).with("1").and_return(@mock_object = mock_model(Post, :update_attributes=>true))
   end
   
@@ -174,7 +174,7 @@ end
 describe Admin::PostsController, "update post with invalid params" do
   
   before(:each) do
-    @request.env["HTTP_AUTHORIZATION"] = "Basic " + Base64::encode64("#{USERNAME}:#{PASSWORD}")
+    authenticate_with_http_digest(USERNAME, PASSWORD, REALM)
     Post.stub!(:find).with("1").and_return(@mock_object = mock_model(Post, :update_attributes=>false))
   end
   
@@ -197,7 +197,7 @@ end
 describe Admin::PostsController, "delete post" do
   
   before(:each) do
-    @request.env["HTTP_AUTHORIZATION"] = "Basic " + Base64::encode64("#{USERNAME}:#{PASSWORD}")
+    authenticate_with_http_digest(USERNAME, PASSWORD, REALM)
     Post.stub!(:find).with("1").and_return(@mock_object = mock_model(Post))
   end
   
@@ -212,7 +212,7 @@ end
 describe Admin::PostsController, "destroy post" do
   
   before(:each) do
-    @request.env["HTTP_AUTHORIZATION"] = "Basic " + Base64::encode64("#{USERNAME}:#{PASSWORD}")
+    authenticate_with_http_digest(USERNAME, PASSWORD, REALM)
     Post.stub!(:find).with("1").and_return(@mock_object = mock_model(Post, :destroy => true))
   end
   
@@ -244,7 +244,7 @@ end
 
 describe Admin::PostsController, "invalid credentals" do
   before(:each) do
-    @request.env["HTTP_AUTHORIZATION"] = "Basic " + Base64::encode64("dalibor1:password1")
+    authenticate_with_http_digest("dalibor1", "password1", REALM)
   end
   
   it "should protect from accessing index " do

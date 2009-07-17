@@ -3,7 +3,7 @@ require File.expand_path(File.dirname(__FILE__) + '/../../spec_helper')
 describe Admin::CommentsController, "list comments" do
 
   before(:each) do
-    @request.env["HTTP_AUTHORIZATION"] = "Basic " + Base64::encode64("#{USERNAME}:#{PASSWORD}")
+    authenticate_with_http_digest(USERNAME, PASSWORD, REALM)
     Comment.stub!(:paginate).and_return(@mock_objects = [mock_model(Comment)])
   end
   
@@ -18,7 +18,7 @@ end
 describe Admin::CommentsController, "show comment" do
   
   before(:each) do
-    @request.env["HTTP_AUTHORIZATION"] = "Basic " + Base64::encode64("#{USERNAME}:#{PASSWORD}")
+    authenticate_with_http_digest(USERNAME, PASSWORD, REALM)
     Comment.stub!(:find).with("1").and_return(@mock_object = mock_model(Comment))
   end
   
@@ -33,7 +33,7 @@ end
 describe Admin::CommentsController, "edit comment" do
   
   before(:each) do
-    @request.env["HTTP_AUTHORIZATION"] = "Basic " + Base64::encode64("#{USERNAME}:#{PASSWORD}")
+    authenticate_with_http_digest(USERNAME, PASSWORD, REALM)
     Comment.stub!(:find).with("1").and_return(@mock_object = mock_model(Comment))
   end
   
@@ -48,7 +48,7 @@ end
 describe Admin::CommentsController, "update comment" do
   
   before(:each) do
-    @request.env["HTTP_AUTHORIZATION"] = "Basic " + Base64::encode64("#{USERNAME}:#{PASSWORD}")
+    authenticate_with_http_digest(USERNAME, PASSWORD, REALM)
     Comment.stub!(:find).with("1").and_return(@mock_object = mock_model(Comment, :update_attributes=>true))
   end
   
@@ -81,7 +81,7 @@ end
 describe Admin::CommentsController, "update comment with invalid params" do
   
   before(:each) do
-    @request.env["HTTP_AUTHORIZATION"] = "Basic " + Base64::encode64("#{USERNAME}:#{PASSWORD}")
+    authenticate_with_http_digest(USERNAME, PASSWORD, REALM)
     Comment.stub!(:find).with("1").and_return(@mock_object = mock_model(Comment, :update_attributes=>false))
   end
   
@@ -104,7 +104,7 @@ end
 describe Admin::CommentsController, "delete comment" do
   
   before(:each) do
-    @request.env["HTTP_AUTHORIZATION"] = "Basic " + Base64::encode64("#{USERNAME}:#{PASSWORD}")
+    authenticate_with_http_digest(USERNAME, PASSWORD, REALM)
     Comment.stub!(:find).with("1").and_return(@mock_object = mock_model(Comment))
   end
   
@@ -119,7 +119,7 @@ end
 describe Admin::CommentsController, "destroy comment" do
   
   before(:each) do
-    @request.env["HTTP_AUTHORIZATION"] = "Basic " + Base64::encode64("#{USERNAME}:#{PASSWORD}")
+    authenticate_with_http_digest(USERNAME, PASSWORD, REALM)
     Comment.stub!(:find).with("1").and_return(@mock_object = mock_model(Comment, :destroy => true))
   end
   
