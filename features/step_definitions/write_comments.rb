@@ -28,8 +28,11 @@ When /^I fill in the comment content "([^\"]*)"$/ do |content|
 end
 
 When /^I wait "([^\"]*)" second$/ do |time|
-  original_value = Comment.minimum_wait_time
-  Comment.minimum_wait_time = 1
-  sleep Comment.minimum_wait_time
-  @after_current_scenario_blocks << lambda{ Comment.minimum_wait_time = original_value } 
+  now = Time.now
+  Time.stub!(:now).and_return(now + time.to_i.seconds)
+
+#  original_value = Comment.minimum_wait_time
+#  Comment.minimum_wait_time = 1
+#  sleep Comment.minimum_wait_time
+#  @after_current_scenario_blocks << lambda{ Comment.minimum_wait_time = original_value } 
 end

@@ -1,15 +1,15 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe Comment do
-#  before(:each) do
-#    @valid_attributes = {
-#      :post => Post.new,
-#      :name => "value for name",
-#      :email => "value for email",
-#      :content => "value for content"
-#    }
-#  end
-
+  #  before(:each) do
+  #    @valid_attributes = {
+  #      :post => Post.new,
+  #      :name => "value for name",
+  #      :email => "value for email",
+  #      :content => "value for content"
+  #    }
+  #  end
+  
   it "should respond to post" do
     Comment.reflect_on_association(:post).should_not be_nil
     Comment.reflect_on_association(:post).macro.should == :belongs_to
@@ -34,7 +34,7 @@ describe Comment do
     comment.should_not be_valid
     comment.errors.on(:email).to_a.join.should match(/blank/)
   end
-
+  
   it "should validate format of email" do
     comment = Factory.build(:comment, :email => 'bla@bla.bla')
     comment.should_not be_valid
@@ -52,13 +52,12 @@ describe Comment do
     comment.should_not be_valid
     comment.errors.on(:url).should match(/invalid/)
   end
-
+  
   it "should not validate format of email when url is blank" do
     comment = Factory.build(:comment, :url => '')
     comment.valid?
     comment.errors.on(:url).should be_nil
   end
-
   
   it "should add protocol to url when url doesn't start with http protocol and save the comment" do
     comment = Factory.build(:comment, :url => 'www.dalibornasevic.com')
@@ -66,5 +65,14 @@ describe Comment do
     comment.url.should == 'http://www.dalibornasevic.com'
   end
   
+  it "should have set minimum_wait_time to 15" do
+    Comment.minimum_wait_time.should == 15
+  end
   
+  it "should be able to change minimum_wait_time" do
+    old_value = Comment.minimum_wait_time
+    Comment.minimum_wait_time = 1
+    Comment.minimum_wait_time.should == 1
+    Comment.minimum_wait_time = old_value
+  end
 end
