@@ -15,6 +15,34 @@ describe Admin::CommentsController, "list comments" do
   end
 end
 
+describe Admin::CommentsController, "filter comments" do
+
+  before(:each) do
+    authenticate_with_http_digest(USERNAME, PASSWORD, REALM)
+    @valid_comment = Factory.create(:comment)
+    @spam_comment = Factory.create(:comment)
+    @spam_comment.mark_as_spam!
+  end
+  
+  it "should render all comments successfully" do
+    get :index
+    response.should be_success
+    assigns(:comments).should == [@spam_comment, @valid_comment]
+  end
+  
+  it "should render only valid comments" do
+    get :index, :type => 'not-spam'
+    response.should be_success
+    assigns(:comments).should == [@valid_comment]
+  end
+  
+  it "should render only spam comments" do
+    get :index, :type => 'spam'
+    response.should be_success
+    assigns(:comments).should == [@spam_comment]
+  end
+end
+
 describe Admin::CommentsController, "show comment" do
   
   before(:each) do

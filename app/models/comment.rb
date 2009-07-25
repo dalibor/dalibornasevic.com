@@ -33,7 +33,7 @@ class Comment < ActiveRecord::Base
     if Rakismet::KEY.blank?
       self.approved = true
     else
-      self.approved = !self.spam?      
+      self.approved = !self.spam?
     end
     true # return true so it doesn't stop save
   end

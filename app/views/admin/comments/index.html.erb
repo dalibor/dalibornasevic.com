@@ -1,3 +1,8 @@
+<p>
+	<%= link_to_unless params[:type].blank?, 'All', admin_comments_path %> |
+	<%= link_to_unless params[:type] == 'not-spam', 'Not Spam', admin_comments_path(:type => 'not-spam') %> |
+	<%= link_to_unless params[:type] == 'spam', 'Spam', admin_comments_path(:type => 'spam') %>
+</p>
 <% form_tag destroy_multiple_admin_comments_path, :method => :delete do %>
 	<div class="comments">
     <%= render :partial => 'comment', :collection => @comments %>

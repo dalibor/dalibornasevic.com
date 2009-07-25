@@ -4,4 +4,5 @@ Factory.define :comment do |f|
   f.email "dalibor.nasevic@gmail.com"
   f.url "http://www.dalibornasevic.com"
   f.content "This is my first comment"
+  f.approved true
 end

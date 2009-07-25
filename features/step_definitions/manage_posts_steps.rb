@@ -18,7 +18,7 @@ Then /^I should have (\d+) post.?$/ do |count|
 end
 
 Given /^I have created posts titled (.+)$/ do |titles|
-  titles.split(', ').each do |title|
+  titles.split(', ').reverse.each do |title|
     Factory.create(:post, :title => title)
   end
 end

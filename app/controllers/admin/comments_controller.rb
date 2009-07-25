@@ -4,7 +4,11 @@ class Admin::CommentsController < ApplicationController
   layout "admin"
   
   def index
-    @comments = Comment.paginate(:page => params[:page], :per_page => 10, :include => :post, :order => 'created_at DESC')
+    conditions = case params[:type]
+      when 'spam'; 'approved = FALSE'
+      when 'not-spam'; 'approved = TRUE'
+    end
+    @comments = Comment.paginate(:page => params[:page], :per_page => 10, :conditions => conditions, :include => :post, :order => 'id DESC')
   end
   
   def show
@@ -44,7 +48,7 @@ class Admin::CommentsController < ApplicationController
     end
     redirect_to admin_comments_url
   end
-
+  
   def approve
     @comment = Comment.find(params[:id])
     @comment.mark_as_ham!
