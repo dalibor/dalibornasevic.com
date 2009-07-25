@@ -2,6 +2,7 @@ log/*.log
 tmp/**/*
 config/database.yml
 config/initializers/session_store.rb
+config/initializers/rakismet.rb
 config/application.yml
 *~
 *.swp

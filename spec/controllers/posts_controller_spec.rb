@@ -38,8 +38,7 @@ describe PostsController, "show post" do
   
   before(:each) do
     Post.stub!(:find).with("1").and_return(@mock_object = mock_model(Post))
-    @mock_object.stub!(:comments).and_return(@comments = [mock_model(Comment)])
-    @mock_object.stub!(:comments).and_return(@comments)
+    @mock_object.stub_association!(:comments, :find => (@comments = [@comment = mock_model(Comment)]))
   end
   
   it "should render single post successfully" do
@@ -50,7 +49,13 @@ describe PostsController, "show post" do
   end
   
   it "should assing comments for a post successfully" do
-    @mock_object.should_receive(:comments).and_return(@comments)
+    @mock_object.comments.should_receive(:find).and_return(@comments)
+    get :show, :id => '1'
+    assigns(:comments).should_not be_nil
+  end
+  
+  it "should initialize new comment comments for a post successfully" do
+    Comment.should_receive(:new).and_return(@comment)
     get :show, :id => '1'
     assigns(:comments).should_not be_nil
   end

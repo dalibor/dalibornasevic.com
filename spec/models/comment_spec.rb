@@ -65,14 +65,69 @@ describe Comment do
     comment.url.should == 'http://www.dalibornasevic.com'
   end
   
-  it "should have set minimum_wait_time to 15" do
-    Comment.minimum_wait_time.should == 15
+  it "should set approved to true when comment is not spam when using Akismet service" do
+    Rakismet::KEY.stub!(:blank?).and_return(false)
+    comment = Factory.build(:comment, :url => 'www.dalibornasevic.com')
+    comment.stub!(:spam?).and_return(false)
+    comment.check_for_spam.should == true
+    comment.approved.should == true
   end
   
-  it "should be able to change minimum_wait_time" do
-    old_value = Comment.minimum_wait_time
-    Comment.minimum_wait_time = 1
-    Comment.minimum_wait_time.should == 1
-    Comment.minimum_wait_time = old_value
+  it "should set approved to true when comment is not spam when not using Akismet service" do
+    Rakismet::KEY.stub!(:blank?).and_return(true)
+    comment = Factory.build(:comment, :url => 'www.dalibornasevic.com')
+    comment.check_for_spam.should == true
+    comment.approved.should == true
+  end
+  
+  it "should set approved to false when comment is spam using Akismet service" do
+    Rakismet::KEY.stub!(:blank?).and_return(false)
+    comment = Factory.build(:comment, :url => 'www.dalibornasevic.com')
+    comment.stub!(:spam?).and_return(true)
+    comment.check_for_spam.should == true
+    comment.approved.should == false
+  end
+  
+  it "should set request params to model attributes" do
+    comment = Factory.build(:comment, :url => 'www.dalibornasevic.com')
+    request = stub_request
+    comment.request=request
+    comment.user_ip.should == request.remote_ip
+    comment.user_agent.should == request.env['HTTP_USER_AGENT']
+    comment.referrer.should == request.env['HTTP_REFERER']
+  end
+  
+  it "should mark as spam when using Akismet service" do
+    comment = Factory.build(:comment, :approved => true)
+    comment.stub!(:spam?).and_return(false)
+    comment.save!
+    comment.stub!(:spam!).and_return(true)
+    comment.mark_as_spam!
+    comment.approved.should == false
+  end
+  
+  it "should mark as spam when not using Akismet service" do
+    comment = Factory.build(:comment, :approved => true)
+    Rakismet::KEY.stub!(:blank?).and_return(true)
+    comment.save!
+    comment.mark_as_spam!
+    comment.approved.should == false
+  end
+   
+  it "should mark as ham when using Akismet service" do
+    comment = Factory.build(:comment, :approved => false)
+    comment.stub!(:spam?).and_return(true)
+    comment.save!
+    comment.stub!(:ham!).and_return(true)
+    comment.mark_as_ham!
+    comment.approved.should == true
+  end
+  
+  it "should mark as ham when not using Akismet service" do
+    comment = Factory.build(:comment, :approved => false)
+    Rakismet::KEY.stub!(:blank?).and_return(true)
+    comment.save!
+    comment.mark_as_ham!
+    comment.approved.should == true
   end
 end

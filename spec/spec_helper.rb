@@ -88,3 +88,10 @@ def authenticate_with_http_digest(user, password, realm)
     end
   )
 end
+
+def stub_request
+    request = mock('request')
+    request.stub!(:remote_ip).and_return("127.0.0.1")
+    request.stub!(:env).and_return({'HTTP_USER_AGENT' => 'Firefox', 'HTTP_REFERER' => 'http://www.dalibornasevic.com'})
+    request
+end

@@ -26,3 +26,7 @@ TWITTER_SERVICE_UNAVAILABLE_MESSAGE = file['twitter']['service_unavailable_messa
 
 
 GOOGLE_ANALYTICS_ID = file['google']['analytics_id']
+
+Rakismet::KEY  = file['akismet']['key']
+Rakismet::URL  = file['akismet']['url']
+Rakismet::HOST = file['akismet']['host']

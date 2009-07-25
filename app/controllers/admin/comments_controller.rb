@@ -2,9 +2,9 @@ class Admin::CommentsController < ApplicationController
   
   before_filter :authenticate
   layout "admin"
-
+  
   def index
-    @comments = Comment.paginate(:page => params[:page], :per_page => 10, :order => 'created_at DESC')
+    @comments = Comment.paginate(:page => params[:page], :per_page => 10, :include => :post, :order => 'created_at DESC')
   end
   
   def show
@@ -34,6 +34,28 @@ class Admin::CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     @comment.destroy
     flash[:notice] = 'Comment was deleted successfully'
+    redirect_to admin_comments_url
+  end
+  
+  def destroy_multiple
+    unless params[:comment_ids].blank?
+      Comment.destroy(params[:comment_ids])
+      flash[:notice] = "Comments were deleted successfully"
+    end
+    redirect_to admin_comments_url
+  end
+
+  def approve
+    @comment = Comment.find(params[:id])
+    @comment.mark_as_ham!
+    flash[:notice] = 'Comment was approved successfully'
+    redirect_to admin_comments_url
+  end
+  
+  def reject
+    @comment = Comment.find(params[:id])
+    @comment.mark_as_spam!
+    flash[:notice] = 'Comment was rejected successfully'
     redirect_to admin_comments_url
   end
 end

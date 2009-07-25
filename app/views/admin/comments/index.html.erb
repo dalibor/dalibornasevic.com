@@ -1,6 +1,11 @@
-<div class="comments">
-	<%= render :partial => 'comment', :collection => @comments %>
-</div>
+<% form_tag destroy_multiple_admin_comments_path, :method => :delete do %>
+	<div class="comments">
+    <%= render :partial => 'comment', :collection => @comments %>
+	</div>
+	<p class="destroy_all">
+    <%= submit_tag "Destroy selected comments" %>
+	</p>
+<% end %>
 <div class="pagination">
-	<%= will_paginate @comments %>
+    <%= will_paginate @comments %>
 </div>

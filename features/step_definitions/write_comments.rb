@@ -27,12 +27,31 @@ When /^I fill in the comment content "([^\"]*)"$/ do |content|
   fill_in "Comments", :with => content
 end
 
-When /^I wait "([^\"]*)" second$/ do |time|
-  now = Time.now
-  Time.stub!(:now).and_return(now + time.to_i.seconds)
+When /^this comment is not spam$/ do
+  class Comment
+    def spam?
+      false
+    end
+  end
+end
+
+When /^this comment is spam$/ do
+#  Rakismet::KEY.stub!(:blank?).and_return(false)
+  module Rakismet;  remove_const :"KEY"; end
+  Rakismet::KEY = '1234567890'
+  class Comment
+    def spam?
+      true
+    end
+  end
+end
+
+#When /^I wait "([^\"]*)" second$/ do |time|
+#  now = Time.now
+#  Time.stub!(:now).and_return(now + time.to_i.seconds)
 
 #  original_value = Comment.minimum_wait_time
 #  Comment.minimum_wait_time = 1
 #  sleep Comment.minimum_wait_time
 #  @after_current_scenario_blocks << lambda{ Comment.minimum_wait_time = original_value } 
-end
+#end

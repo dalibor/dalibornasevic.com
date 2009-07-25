@@ -1,19 +1,22 @@
 class CommentsController < ApplicationController
+  has_rakismet :only => :create
+  
   def create
     @post = Post.find(params[:post_id])
     @comment = @post.comments.new(params[:comment])
-
-    if session[:spam_timestamp] && (Time.now.to_i - session[:spam_timestamp].to_i) >= Comment.minimum_wait_time
-      if @comment.save
+    @comment.request = request
+    
+    if @comment.save
+      if @comment.approved?
         flash[:notice] = "Your comment was successfully created."
-        redirect_to @post
       else
-        flash[:error] = "Please correct invalid data from the form."
-        @comments = @post.comments
-        render :template => 'posts/show'
+        flash[:error] = "Unfortunately this comment is considered spam by Akismet. It will show up once it has been approved by the administrator."
       end
+      redirect_to @post
     else
-      render :action => :spam
+      flash[:error] = "Please correct invalid data from the form."
+      @comments = @post.comments
+      render :template => 'posts/show'
     end
   end
 end

@@ -24,3 +24,8 @@ twitter:
 
 google:
   analytics_id: UA-8815357-1
+
+akismet:
+	key: 
+  url: 'http://dalibornasevic.com'
+  host: 'rest.akismet.com'

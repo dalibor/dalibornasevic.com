@@ -114,6 +114,10 @@ a:hover {
     padding-top: 3px;
 }
 
+p.destroy_all {
+	text-align: right;
+}
+
 .form p input.submit {
   margin-left: 150px;
 }

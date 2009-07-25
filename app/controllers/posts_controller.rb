@@ -19,7 +19,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find params[:id]
-    @comments = @post.comments
+    @comments = @post.comments.find(:all, :conditions => {:approved => true})
     @comment = Comment.new
   end
   
