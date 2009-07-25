@@ -157,6 +157,30 @@ describe Comment do
   end
 end
 
+describe Comment, "named scopes" do
+
+  before(:each) do
+    Factory.create(:comment) # valid comment
+    Factory.create(:comment) # valid comment
+    spam_comment = Factory.create(:comment)
+    spam_comment.mark_as_spam!
+  end
+  
+  it "should count all comments" do
+    Comment.all.count.should == 3
+  end
+
+  it "should count valid comments" do
+    Comment.valid_comments.count.should == 2
+  end
+  
+  it "should count spam comments" do
+    Comment.spam_comments.count.should == 1
+  end
+  
+  
+end
+
 private
 
 def create_spam_comment

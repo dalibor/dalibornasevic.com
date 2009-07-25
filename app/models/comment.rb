@@ -17,6 +17,10 @@ class Comment < ActiveRecord::Base
   
   belongs_to :post#, :counter_cache => true
   
+  named_scope :spam_comments, :conditions => { :approved => false }
+  named_scope :valid_comments, :conditions => { :approved => true }
+
+  
   before_create :check_for_spam
   after_save :update_counter_cache
   after_destroy :update_counter_cache
