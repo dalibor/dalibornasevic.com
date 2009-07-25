@@ -14,7 +14,7 @@ describe Comment do
     Comment.reflect_on_association(:post).should_not be_nil
     Comment.reflect_on_association(:post).macro.should == :belongs_to
     Comment.reflect_on_association(:post).class_name.should == 'Post'
-    Comment.reflect_on_association(:post).options.should == { :counter_cache => true } 
+    # Comment.reflect_on_association(:post).options.should == { :counter_cache => true }
   end
   
   it "should validate presence of post_id" do
@@ -98,7 +98,7 @@ describe Comment do
   end
   
   it "should mark as spam when using Akismet service" do
-    comment = Factory.build(:comment, :approved => true)
+    comment = Factory.build(:comment)
     comment.stub!(:spam?).and_return(false)
     comment.save!
     comment.stub!(:spam!).and_return(true)
@@ -107,7 +107,7 @@ describe Comment do
   end
   
   it "should mark as spam when not using Akismet service" do
-    comment = Factory.build(:comment, :approved => true)
+    comment = Factory.build(:comment)
     Rakismet::KEY.stub!(:blank?).and_return(true)
     comment.save!
     comment.mark_as_spam!
@@ -115,19 +115,54 @@ describe Comment do
   end
    
   it "should mark as ham when using Akismet service" do
-    comment = Factory.build(:comment, :approved => false)
-    comment.stub!(:spam?).and_return(true)
-    comment.save!
+    comment = create_spam_comment
     comment.stub!(:ham!).and_return(true)
     comment.mark_as_ham!
     comment.approved.should == true
   end
   
   it "should mark as ham when not using Akismet service" do
-    comment = Factory.build(:comment, :approved => false)
-    Rakismet::KEY.stub!(:blank?).and_return(true)
-    comment.save!
+    comment = create_spam_comment
+    comment.stub!(:ham!).and_return(true)
     comment.mark_as_ham!
     comment.approved.should == true
   end
+  
+  it "should not increase comments_count in post when spam comment is created" do
+    comment = create_spam_comment
+    comment.post.comments.size.should == 0
+  end
+  
+  it "should increase comments_count in post when not spam comment is created" do
+    comment = Factory.create(:comment)
+    comment.post.comments.size.should == 1
+  end
+  
+  it "should decrease comment_count in post when comment is marked as spam" do
+    comment = Factory.create(:comment)
+    comment.post.comments.size.should == 1
+    comment.mark_as_spam!
+    comment.reload
+    comment.post.comments.size.should == 0
+  end
+  
+  it "should increase comment_count in post when comment is marked as ham" do
+    comment = create_spam_comment
+    comment.post.comments.size.should == 0
+    comment.save!
+    comment.stub!(:ham!).and_return(true)
+    comment.mark_as_ham!
+    comment.reload
+    comment.post.comments.size.should == 1
+  end
+end
+
+private
+
+def create_spam_comment
+    comment = Factory.build(:comment)
+    Rakismet::KEY.stub!(:blank?).and_return(false)
+    comment.stub!(:spam?).and_return(true)
+    comment.save!
+    comment
 end

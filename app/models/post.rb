@@ -37,6 +37,6 @@ class Post < ActiveRecord::Base
   end
   
   def check_for_publish
-   self.published_at = nil unless publish == '1'
+   self.published_at = nil if publish == '0'
   end
 end

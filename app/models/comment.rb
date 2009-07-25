@@ -15,9 +15,11 @@ class Comment < ActiveRecord::Base
   :user_agent => :user_agent,
   :referrer => :referrer
   
-  belongs_to :post, :counter_cache => true
+  belongs_to :post#, :counter_cache => true
   
   before_create :check_for_spam
+  after_save :update_counter_cache
+  after_destroy :update_counter_cache
   
   validates_presence_of :post_id, :name, :email, :content
   validates_format_of :email, :with => EMAIL_REGEX, :message => "is not an email address."
@@ -56,5 +58,12 @@ class Comment < ActiveRecord::Base
       self.ham! unless Rakismet::KEY.blank?
       update_attribute(:approved, true)
     end
+  end
+  
+  private
+  
+  def update_counter_cache
+    self.post.comments_count = post.comments.count( :conditions => "approved = true")
+    self.post.save
   end
 end
