@@ -6,11 +6,11 @@ module ApplicationHelper
   end
   
   def keywords(page_keywords)
-    content_for(:keywords) { page_keywords }
+    content_for(:keywords) { page_keywords } unless page_keywords.blank? 
   end
   
   def description(page_description)
-    content_for(:description) { page_description }
+    content_for(:description) { page_description } unless page_description.blank?
   end
   
   def javascript(*files)
