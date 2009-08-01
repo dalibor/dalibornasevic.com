@@ -10,6 +10,9 @@
   <div class="content">
     <%= RedCloth.new(post.content).to_html %>
   </div>
+  <div>
+  	<%= post.description %>
+  </div>
 	<div class="tags">
 		Tags: <%= post.tags.empty? ? 'none' : post.tags.map{|tag| link_to(tag.name, tag_posts_path(tag))}.join(' ') %>
 	</div>

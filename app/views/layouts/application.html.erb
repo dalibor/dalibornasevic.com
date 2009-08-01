@@ -2,9 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-    <title><%= " :: #{BLOG_TITLE} :: #{yield(:title)}" %></title>
+    <title><%= "#{yield(:title)} :: #{BLOG_TITLE}" %></title>
     <%= tag(:meta, :name => 'description', :content => yield(:description) || BLOG_DESCRIPTION)  %>
-    <%= tag(:meta, :name => 'keywords', :content => BLOG_KEYWORDS)  %>
+    <%= tag(:meta, :name => 'keywords', :content => yield(:keywords) ||BLOG_KEYWORDS)  %>
     <%= auto_discovery_link_tag(:rss, posts_path(:format => 'rss')) %>
     <%= stylesheet_link_tag 'application' %>
     <%= stylesheet_link_tag 'shjs/sh_vim-dark.min' %>

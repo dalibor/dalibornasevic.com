@@ -1,4 +1,6 @@
 <% title(@post.title) %>
+<% keywords(@post.tags.map(&:name).join(', ')) %>
+<% description(@post.description) %>
 
 <%= render :partial => 'posts/post', :object => @post %>
 <p>

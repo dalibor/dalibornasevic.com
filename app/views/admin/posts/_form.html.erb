@@ -9,6 +9,10 @@
     <%= f.text_area :content %>
   </p>
   <p>
+    <%= f.label :description %>
+    <%= f.text_area :description, :rows => 5 %>
+  </p>
+  <p>
     <%= f.label :published_at, 'Publish at' %>
     <%= f.datetime_select :published_at %>
 		<%= f.check_box :publish %>
