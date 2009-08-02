@@ -9,10 +9,6 @@ Installation instructions
 git clone git://github.com/dalibor/blog.git
 cd blog
 
-- Run following rake task to create session_key and secret for the application
-
-rake config/initializers/session_store.rb 
-
 - Config database
 
 cp config/database.yml.template config/database.yml
@@ -23,12 +19,26 @@ vi config/database.yml
 cp config/application.yml.template config/application.yml
 vi config/application.yml
 
+- Run following rake task to create session_key and secret for the application
+
+rake config/initializers/session_store.rb 
+
 - Initialize & update rails submodule
 
 git submodule init
 git submodule update
 cd vendor/rails
 git checkout origin/2-3-stable
+
+
+=========================
+SEO
+=========================
+
+- When creating post fill description area for description meta tag of your show post page
+- Add tags to the post for keywords on that page
+- Run rake sitemap task to create a sitemap (rake sitemap) and submit your public/sitemaps/sitemap_index.xml to search engines 
+
 
 =========================
 Run tests

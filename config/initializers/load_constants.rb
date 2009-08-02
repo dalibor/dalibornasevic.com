@@ -6,6 +6,7 @@ USERNAME = file['password']['username']
 PASSWORD = file['password']['password']
 REALM = file['password']['realm']
 
+BLOG_URL = file['blog']['url']
 BLOG_TITLE = file['blog']['title']
 BLOG_DESCRIPTION = file['blog']['description']
 BLOG_KEYWORDS = file['blog']['keywords']

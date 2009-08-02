@@ -1,16 +1,21 @@
 password:
   username: dalibor
 #  password: password
-#  Digest::MD5::hexdigest ["dalibor",'Secret Code',"password"].join(":")
+#  Digest::MD5::hexdigest ["dalibor",'Secret Code',"password"].join(":") # in ruby script/console
   password: 89fee506e01962e534d478f747ceff90
   realm: "Secret Code"
 
 blog:
-  title: Dalibor Nasevic
+  url: yourblog.com
+  title: Blog title
+  description: Blog description for search engines
+  keywords: ruby, rails, ruby on rails, web development, web, development
+  footer: 2009, dalibornasevic.com
+  about: Bla bla bla
 
 rss:
-  title: Dalibor Nasevic
-  description: Dalibor Nasevic personal weblog
+  title: RSS title
+  description: RSS description
 
 lastfm: 
   username: blackflasher
@@ -23,9 +28,9 @@ twitter:
   service_unavailable_message: Twitter service is currently unavailable due to some network, traffic or server problems.
 
 google:
-  analytics_id: UA-8815357-1
+  analytics_id: XX-YYYYYYY-Z
 
 akismet:
 	key: 
-  url: 'http://dalibornasevic.com'
+  url: 'http://yourblog.com'
   host: 'rest.akismet.com'
