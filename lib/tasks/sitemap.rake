@@ -5,6 +5,7 @@ task :sitemap => :environment do
   sitemap = BigSitemap.new(:url_options => {:host => BLOG_URL}, :gzip => false)
 
   sitemap.add(Tag, {
+    :path => 'tag',
     :change_frequency => 'daily',
     :priority         => 0.5
   })
