@@ -2,7 +2,7 @@ require 'big_sitemap'
 
 desc 'Generate XML Sitemap'
 task :sitemap => :environment do
-  sitemap = BigSitemap.new(:url_options => {:host => BLOG_URL}, :gzip => false)
+  sitemap = BigSitemap.new(:url_options => {:host => BLOG_URL}, :gzip => false, :path => '')
 
   sitemap.add(Tag, {
     :path => 'tag',
