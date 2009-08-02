@@ -4,6 +4,7 @@ config/database.yml
 config/initializers/session_store.rb
 config/initializers/rakismet.rb
 config/application.yml
+public/sitemaps/*
 *~
 *.swp
 .project

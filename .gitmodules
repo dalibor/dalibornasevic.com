@@ -1,3 +1,6 @@
 [submodule "vendor/rails"]
 	path = vendor/rails
 	url = git://github.com/rails/rails.git
+[submodule "vendor/plugins/big_sitemap"]
+	path = vendor/plugins/big_sitemap
+	url = git@github.com:dalibor/big_sitemap.git
