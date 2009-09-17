@@ -9,6 +9,10 @@ Installation instructions
 git clone git://github.com/dalibor/blog.git
 cd blog
 
+- Run following rake task to create session_key and secret for the application
+
+rake config/initializers/session_store.rb 
+
 - Config database
 
 cp config/database.yml.template config/database.yml
@@ -18,10 +22,6 @@ vi config/database.yml
 
 cp config/application.yml.template config/application.yml
 vi config/application.yml
-
-- Run following rake task to create session_key and secret for the application
-
-rake config/initializers/session_store.rb 
 
 - Initialize & update rails submodule
 

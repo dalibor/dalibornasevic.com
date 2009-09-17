@@ -13,6 +13,8 @@ class ServicesController < ApplicationController
       render :text => LASTFM_SERVICE_UNAVAILABLE_MESSAGE, :status => :service_unavailable
     rescue SocketError => e
       render :text => LASTFM_SERVICE_UNAVAILABLE_MESSAGE, :status => :service_unavailable
+		rescue NoMethodError => e
+			render :text => LASTFM_SERVICE_UNAVAILABLE_MESSAGE, :status => :service_unavailable
     end
   end
 
@@ -30,6 +32,8 @@ class ServicesController < ApplicationController
       render :text => TWITTER_SERVICE_UNAVAILABLE_MESSAGE, :status => :service_unavailable
     rescue SocketError => e
       render :text => TWITTER_SERVICE_UNAVAILABLE_MESSAGE, :status => :service_unavailable
+		rescue NoMethodError => e
+			render :text => LASTFM_SERVICE_UNAVAILABLE_MESSAGE, :status => :service_unavailable
     end
   end
 end
