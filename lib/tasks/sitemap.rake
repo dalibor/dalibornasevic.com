@@ -1,5 +1,7 @@
-require 'big_sitemap'
-
+begin
+  require 'big_sitemap'
+rescue LoadError
+end
 desc 'Generate XML Sitemap'
 task :sitemap => :environment do
   sitemap = BigSitemap.new(:url_options => {:host => BLOG_URL}, :gzip => false, :path => '')

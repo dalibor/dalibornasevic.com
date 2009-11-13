@@ -31,6 +31,6 @@ google:
   analytics_id: XX-YYYYYYY-Z
 
 akismet:
-	key: 
+  key: 
   url: 'http://yourblog.com'
   host: 'rest.akismet.com'

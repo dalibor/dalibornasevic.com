@@ -9,9 +9,21 @@ Installation instructions
 git clone git://github.com/dalibor/blog.git
 cd blog
 
+- Initialize & update rails submodule
+
+git submodule init
+git submodule update
+cd vendor/rails
+git checkout origin/2-3-stable
+
 - Run following rake task to create session_key and secret for the application
 
 rake config/initializers/session_store.rb 
+
+Install gems
+
+sudo gem install rack # be sure to have the latest rack gem installed
+sudo rake gems:install
 
 - Config database
 
@@ -23,13 +35,11 @@ vi config/database.yml
 cp config/application.yml.template config/application.yml
 vi config/application.yml
 
-- Initialize & update rails submodule
+- Create database and run application
 
-git submodule init
-git submodule update
-cd vendor/rails
-git checkout origin/2-3-stable
-
+rake db:create
+rake db:migrate
+ruby script/server
 
 =========================
 SEO
