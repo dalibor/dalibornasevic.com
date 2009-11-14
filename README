@@ -16,15 +16,6 @@ git submodule update
 cd vendor/rails
 git checkout origin/2-3-stable
 
-- Run following rake task to create session_key and secret for the application
-
-rake config/initializers/session_store.rb 
-
-Install gems
-
-sudo gem install rack # be sure to have the latest rack gem installed
-sudo rake gems:install
-
 - Config database
 
 cp config/database.yml.template config/database.yml
@@ -34,6 +25,15 @@ vi config/database.yml
 
 cp config/application.yml.template config/application.yml
 vi config/application.yml
+
+- Run following rake task to create session_key and secret for the application
+
+rake config/initializers/session_store.rb 
+
+Install gems
+
+sudo gem install rack # be sure to have the latest rack gem installed
+sudo rake gems:install
 
 - Create database and run application
 
