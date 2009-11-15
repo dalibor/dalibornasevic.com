@@ -1,6 +1,6 @@
 = blog
 
-* http://www.dalibornasevic.com
+* http://github.com/dalibor/blog
 
 == DESCRIPTION:
 
