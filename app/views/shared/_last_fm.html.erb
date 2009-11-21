@@ -1,5 +1,5 @@
 <div class="item">
-  <h1><%= link_to 'Last.fm', 'http://www.last.fm/user/blackflasher' %></h1>
+  <h1><%= link_to 'Last.fm', "http://www.last.fm/user/#{LASTFM_USERNAME}" %></h1>
     <%= image_tag "loading.gif", :id => 'lastfm_loading', :alt => "Loading", :style => "display: none" %>
   <div class="content" id="lastfm_content">
 
