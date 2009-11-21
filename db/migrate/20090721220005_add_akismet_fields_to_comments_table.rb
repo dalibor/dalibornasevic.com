@@ -1,4 +1,7 @@
 class AddAkismetFieldsToCommentsTable < ActiveRecord::Migration
+
+  class Comment < ActiveRecord::Base; end
+
   def self.up
     add_column :comments, :user_ip, :string
     add_column :comments, :user_agent, :string
