@@ -17,5 +17,5 @@
     Posted by <%= h comment.name %> at <%= comment.created_at.strftime("%B %d, %Y at %I:%M %P") %> <br />
     <%= h comment.post.title %>
   </p>
-  <p><%= h comment.content %></p>
+  <p><%= sanitize simple_format(comment.content), :tags => %w(br p) %></p>
 </div>
