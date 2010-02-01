@@ -1,6 +1,6 @@
 <% @recent_tracks.each do |track| %>
-<p>
-	<%= get_full_track_name(track) %> 
-	<span class="time">(<%= link_to time_ago_in_words(track.date) + ' ago', track.url %>)</span>
-</p>
+  <p>
+    <%= get_full_track_name(track) %> 
+    <span class="time">(<%= link_to time_ago_in_words(track.date) + ' ago', track.url %>)</span>
+  </p>
 <% end %>

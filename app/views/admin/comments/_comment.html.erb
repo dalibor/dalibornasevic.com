@@ -1,21 +1,21 @@
-  <div class="comment admin">
-	<div class="icons">
-	  <%= link_to image_tag('icons/edit.png', :title => 'Edit'), edit_admin_comment_path(comment) %>
-	  <%= link_to image_tag('icons/delete.png', :title => 'Delete'), delete_admin_comment_path(comment), :class => "delete" %>
-		<br />
-		<%= label_tag "Delete" %>
-		<%= check_box_tag "comment_ids[]", comment.id %><br />
-		<% if comment.approved? %>
-			<span><%= link_to 'reject', reject_admin_comment_path(comment), :method => :put %></span>
-		<% else %>
-			<span><%= link_to 'approve', approve_admin_comment_path(comment), :method => :put %></span>
-		<% end %>
+<div class="comment admin">
+  <div class="icons">
+    <%= link_to image_tag('icons/edit.png', :title => 'Edit'), edit_admin_comment_path(comment) %>
+    <%= link_to image_tag('icons/delete.png', :title => 'Delete'), delete_admin_comment_path(comment), :class => "delete" %>
+    <br />
+    <%= label_tag "Delete" %>
+    <%= check_box_tag "comment_ids[]", comment.id %><br />
+    <% if comment.approved? %>
+      <span><%= link_to 'reject', reject_admin_comment_path(comment), :method => :put %></span>
+    <% else %>
+      <span><%= link_to 'approve', approve_admin_comment_path(comment), :method => :put %></span>
+    <% end %>
 
-	</div>
-    <%= gravatar comment.email, :class => 'avatar' %>
-    <p class="author">
-    	Posted by <%= comment.name %> at <%= comment.created_at.strftime("%B %d, %Y at %I:%M %P") %> <br />
-			<%= comment.post.title %>
-		</p>
-  	<p><%= simple_format comment.content %></p>
   </div>
+  <%= gravatar comment.email, :class => 'avatar' %>
+  <p class="author">
+    Posted by <%= h comment.name %> at <%= comment.created_at.strftime("%B %d, %Y at %I:%M %P") %> <br />
+    <%= h comment.post.title %>
+  </p>
+  <p><%= h comment.content %></p>
+</div>

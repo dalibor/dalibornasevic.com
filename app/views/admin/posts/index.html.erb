@@ -1,9 +1,9 @@
 <div class="top_icons">
-    <%= link_to image_tag('icons/add.png', :title => 'New post'), new_admin_post_path %>
+  <%= link_to image_tag('icons/add.png', :title => 'New post'), new_admin_post_path %>
 </div>
 <div class="posts">
-    <%= render :partial => 'post', :collection => @posts %>
+  <%= render :partial => 'post', :collection => @posts %>
 </div>
 <div class="pagination">
-    <%= will_paginate @posts %>
+  <%= will_paginate @posts %>
 </div>

@@ -1,7 +1,7 @@
 <% @twits.each do |twit| %>
-<p>
- 	<%= auto_link twit.text %>
-	<span class="time">(<%= link_to time_ago_in_words(twit.created_at) + ' ago' , "http://twitter.com/#{TWITTER_USERNAME}/status/#{twit.id}" %>)</span>
-</p>
+  <p>
+    <%= auto_link twit.text %>
+    <span class="time">(<%= link_to time_ago_in_words(twit.created_at) + ' ago' , "http://twitter.com/#{TWITTER_USERNAME}/status/#{twit.id}" %>)</span>
+  </p>
 <% end %>
-	
+

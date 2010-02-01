@@ -1,5 +1,4 @@
 module ServicesHelper
-  
   def get_full_track_name(track)
     if track.name.blank?
       return nil
@@ -19,6 +18,5 @@ module ServicesHelper
         end
       end  
     end
-#    track.artist + ' - ' + track.name + track.album
   end
 end

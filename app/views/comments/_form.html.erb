@@ -1,29 +1,29 @@
 <div class="new_comment">
-	<p>
-		<a name="new_comment" class="anchor">Leave a comment:</a>
-	</p>
-  <%= error_messages_for :comment %>
-	<% form_for [@post, @comment], :html => {:class => 'form'} do |f| %>
-	<div class="field_notice">required</div>
-	<p>
-		<%= f.label :name, 'Name:' %>
-		<%= f.text_field :name %>
-  </p>
-	<div class="field_notice">required, will not be published</div
-	<p>
-		<%= f.label :email, 'Email:' %>
-		<%= f.text_field :email %>
-	</p>
-	<p>
-		<%= f.label :url, 'URL:' %>
-		<%= f.text_field :url %>
-	</p>
-	<p>
-		<%= f.label :content, 'Comments:' %>
-		<%= f.text_area :content, :rows => 10, :cols => 50 %>
-	</p>
   <p>
-    <%= f.submit 'Comment', :class => 'submit' %>
+    <a name="new_comment" class="anchor">Leave a comment:</a>
   </p>
-	<% end %>
-</div>
+  <%= error_messages_for :comment %>
+  <% form_for [@post, @comment], :html => {:class => 'form'} do |f| %>
+    <div class="field_notice">required</div>
+    <p>
+      <%= f.label :name, 'Name:' %>
+      <%= f.text_field :name %>
+    </p>
+    <div class="field_notice">required, will not be published</div
+      <p>
+        <%= f.label :email, 'Email:' %>
+        <%= f.text_field :email %>
+      </p>
+      <p>
+        <%= f.label :url, 'URL:' %>
+        <%= f.text_field :url %>
+      </p>
+      <p>
+        <%= f.label :content, 'Comments:' %>
+        <%= f.text_area :content, :rows => 10, :cols => 50 %>
+      </p>
+      <p>
+        <%= f.submit 'Comment', :class => 'submit' %>
+      </p>
+    <% end %>
+  </div>
