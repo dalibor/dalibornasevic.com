@@ -38,7 +38,7 @@ class Admin::CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     @comment.destroy
     flash[:notice] = 'Comment was deleted successfully'
-    redirect_to admin_comments_url
+    redirect_to :back
   end
 
   def destroy_multiple
@@ -46,20 +46,20 @@ class Admin::CommentsController < ApplicationController
       Comment.destroy(params[:comment_ids])
       flash[:notice] = "Comments were deleted successfully"
     end
-    redirect_to admin_comments_url
+    redirect_to :back
   end
 
   def approve
     @comment = Comment.find(params[:id])
     @comment.mark_as_ham!
     flash[:notice] = 'Comment was approved successfully'
-    redirect_to admin_comments_url
+    redirect_to :back
   end
 
   def reject
     @comment = Comment.find(params[:id])
     @comment.mark_as_spam!
     flash[:notice] = 'Comment was rejected successfully'
-    redirect_to admin_comments_url
+    redirect_to :back
   end
 end
