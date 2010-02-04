@@ -3,9 +3,9 @@
 <% description(@post.description) %>
 
 <%= render :partial => 'posts/post', :object => @post %>
-<p>
-  <a name="comments" class="anchor">Comments:</a>
-</p>
+
+<p><a name="comments" class="anchor">Comments:</a></p>
+
 <div class="comments">
   <% if @post.comments.size > 0 %>
     <%= render :partial => 'comments/comment', :collection => @comments %>
@@ -13,4 +13,10 @@
     This post has no comments yet.
   <% end %>
 </div>
-<%= render :partial => 'comments/form' %>
+
+<% if @post.comments_closed? -%>
+  <p>Sorry, comments are closed for this article.</p>
+<% else -%>
+  <%= render :partial => 'comments/form' %>
+<% end -%>
+

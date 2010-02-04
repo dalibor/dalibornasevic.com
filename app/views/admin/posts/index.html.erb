@@ -2,7 +2,11 @@
   <%= link_to image_tag('icons/add.png', :title => 'New post'), new_admin_post_path %>
 </div>
 <div class="posts">
-  <%= render :partial => 'post', :collection => @posts %>
+  <% for post in @posts %>
+  <div class="post admin">
+    <%= render :partial => 'post_header', :locals => {:post => post} %>
+  </div>
+  <% end %>
 </div>
 <div class="pagination">
   <%= will_paginate @posts %>

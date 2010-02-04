@@ -134,6 +134,7 @@ p.destroy_all {
   width: 620px;
   font-size: 0.7em;
   text-align: center;
+  padding-top: 30px;
 }
 
 .sh_sourceCode {

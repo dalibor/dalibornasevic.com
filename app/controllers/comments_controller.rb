@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
   has_rakismet :only => :create
   
   def create
-    @post = Post.find(params[:post_id])
+    @post = Post.find(params[:post_id], :conditions => "comments_closed = 0")
     @comment = @post.comments.new(params[:comment])
     @comment.request = request
     
