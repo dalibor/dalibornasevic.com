@@ -4,7 +4,7 @@ class Admin::PostsController < ApplicationController
   layout "admin"
 
   def index
-    @posts = Post.paginate(:page => params[:page], :per_page => 5, :select => "id, title, published_at", :include => :tags, :order => 'id DESC')
+    @posts = Post.paginate(:page => params[:page], :per_page => 15, :select => "id, title, published_at", :include => :tags, :order => 'id DESC')
   end
 
   def new
