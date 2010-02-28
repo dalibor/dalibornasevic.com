@@ -41,6 +41,7 @@ class Comment < ActiveRecord::Base
     else
       self.approved = !self.spam?
     end
+    true
   end
 
   def request=(request)
