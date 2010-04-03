@@ -25,7 +25,8 @@ Rails::Initializer.run do |config|
   # They can then be installed with "rake gems:install" on new installations.
   # You have to specify the :lib option for libraries, where the Gem name (sqlite3-ruby) differs from the file itself (sqlite3)
   # config.gem "bj"
-  config.gem "hpricot", :version => '>=0.6', :source => "http://code.whytheluckystiff.net"
+  config.gem "hpricot", :version => '>=0.6'
+  config.gem "RedCloth", :version => '>=4.2.3', :lib => 'redcloth'
   config.gem "oauth", :version => '=0.3.4'
   config.gem "mash", :version => '=0.0.3'
   config.gem "httparty", :version => '=0.4.3'
@@ -74,5 +75,3 @@ Rails::Initializer.run do |config|
   # Please note that observers generated using script/generate observer need to have an _observer suffix
   # config.active_record.observers = :cacher, :garbage_collector, :forum_observer
 end
-
-require 'redcloth'
