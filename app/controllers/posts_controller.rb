@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_filter :set_spam_timestamp
 
   def index
-    conditions = {:page => params[:page], :per_page => 5, :order => 'created_at DESC', :include => :tags, :conditions => 'published_at IS NOT NULL'}
+    conditions = {:page => params[:page], :per_page => 5, :order => 'published_at DESC', :include => :tags, :conditions => 'published_at IS NOT NULL'}
 
     if !params[:tag].blank? && (tag = Tag.find_by_name(params[:tag]))
       @posts = tag.posts.paginate(conditions)
