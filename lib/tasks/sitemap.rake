@@ -1,6 +1,7 @@
 begin
   require 'big_sitemap'
 rescue LoadError
+  p 'big_sitemap gem is missing. Install it with: gem install alexrabarts-big_sitemap'
 end
 desc 'Generate XML Sitemap'
 task :sitemap => :environment do

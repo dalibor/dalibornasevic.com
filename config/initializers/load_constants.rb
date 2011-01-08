@@ -22,7 +22,7 @@ LASTFM_NUMBER_OF_TRACKS = file['lastfm']['number_of_tracks'].to_i
 LASTFM_SERVICE_UNAVAILABLE_MESSAGE = file['lastfm']['service_unavailable_message']
 
 TWITTER_USERNAME = file['twitter']['username']
-TWITTER_NUMBER_OF_TWITS = file['twitter']['number_of_twits']
+TWITTER_NUMBER_OF_TWITS = file['twitter']['number_of_twits'].to_i
 TWITTER_SERVICE_UNAVAILABLE_MESSAGE = file['twitter']['service_unavailable_message']
 
 

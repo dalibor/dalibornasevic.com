@@ -21,20 +21,24 @@ Rails::Initializer.run do |config|
   # you must remove the Active Record framework.
   # config.frameworks -= [ :active_record, :active_resource, :action_mailer ]
 
-  # Specify gems that this application depends on. 
+  # Specify gems that this application depends on.
   # They can then be installed with "rake gems:install" on new installations.
   # You have to specify the :lib option for libraries, where the Gem name (sqlite3-ruby) differs from the file itself (sqlite3)
   # config.gem "bj"
-  config.gem "hpricot", :version => '>=0.6'
-  config.gem "RedCloth", :version => '>=4.2.3', :lib => 'redcloth'
-  config.gem "oauth", :version => '=0.3.4'
-  config.gem "mash", :version => '=0.0.3'
-  config.gem "httparty", :version => '=0.4.3'
-  
+  config.gem 'hpricot', :version => '>=0.6'
+  config.gem 'RedCloth', :version => '>=4.2.3', :lib => 'redcloth'
+  config.gem 'oauth', :version => '=0.3.4'
+  config.gem 'mash', :version => '=0.0.3'
+  config.gem 'httparty', :version => '=0.4.3'
+  config.gem 'extlib', :version => '>= 0.9.9' # alexrabarts-big_sitemap dependency
+  config.gem 'alexrabarts-big_sitemap', :lib => 'big_sitemap', :source => 'http://gems.github.com'
+  config.gem 'rakismet'
+  config.gem 'will_paginate'
+
   # config.gem "sqlite3-ruby", :lib => "sqlite3"
   # config.gem "aws-s3", :lib => "aws/s3"
 
-  # Only load the plugins named here, in the order given. By default, all plugins 
+  # Only load the plugins named here, in the order given. By default, all plugins
   # in vendor/plugins are loaded in alphabetical order.
   # :all can be used as a placeholder for all plugins not explicitly named
   # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
@@ -58,7 +62,7 @@ Rails::Initializer.run do |config|
 
   # Your secret key for verifying cookie session data integrity.
   # If you change this key, all old sessions will become invalid!
-  # Make sure the secret is at least 30 characters and all random, 
+  # Make sure the secret is at least 30 characters and all random,
   # no regular words or you'll be exposed to dictionary attacks.
 
   # Use the database for sessions instead of the cookie-based default,

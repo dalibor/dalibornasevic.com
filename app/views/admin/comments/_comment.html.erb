@@ -12,7 +12,7 @@
     <% end %>
 
   </div>
-  <%= gravatar comment.email, :class => 'avatar' %>
+  <%= image_tag gravatar_url(comment.email), :class => 'avatar' %>
   <p class="author">
     Posted by <%= h comment.name %> at <%= comment.created_at.strftime("%B %d, %Y at %I:%M %P") %> <br />
     <%= h comment.post.title %>

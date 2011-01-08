@@ -1,5 +1,6 @@
 log/*.log
 tmp/**/*
+tmp/webrat-*
 config/database.yml
 config/initializers/session_store.rb
 config/initializers/rakismet.rb

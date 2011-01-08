@@ -4,8 +4,9 @@ DOMAIN_TLD_REGEX  = '(?:[A-Z]{2}|com|org|net|edu|gov|mil|biz|info|mobi|name|aero
 EMAIL_REGEX       = /\A#{EMAIL_NAME_REGEX}@#{DOMAIN_HEAD_REGEX}#{DOMAIN_TLD_REGEX}\z/i
 
 class Comment < ActiveRecord::Base
+  include Rakismet::Model
 
-  has_rakismet :author => :name,
+  rakismet_attrs :author => :name,
     :author_email => :email,
     :author_url => :url,
     :comment_type => 'comment',

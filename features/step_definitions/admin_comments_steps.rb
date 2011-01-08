@@ -10,7 +10,7 @@ Given /^I have comments (.+)$/ do |contents|
 end
 
 Given /^I click "([^\"]*)" "([^\"]*)" "([^\"]*)" in "([^\"]*)" block$/ do |text, type, nth, block|
-puts "#{type}:nth-child(#{nth})"
+  #puts "#{type}:nth-child(#{nth})"
   click_link_within ".#{block} .#{type}:nth-child(#{nth})", text
 end
 
