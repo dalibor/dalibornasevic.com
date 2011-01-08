@@ -6,7 +6,7 @@
 
 # Specifies gem version of Rails to use when vendor/rails is not present
 #RAILS_GEM_VERSION = '2.2.2' unless defined? RAILS_GEM_VERSION
-RAILS_GEM_VERSION = '2.3.2' unless defined? RAILS_GEM_VERSION
+RAILS_GEM_VERSION = '2.3.9' unless defined? RAILS_GEM_VERSION
 
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
@@ -27,13 +27,9 @@ Rails::Initializer.run do |config|
   # config.gem "bj"
   config.gem 'hpricot', :version => '>=0.6'
   config.gem 'RedCloth', :version => '>=4.2.3', :lib => 'redcloth'
-  config.gem 'oauth', :version => '=0.3.4'
-  config.gem 'mash', :version => '=0.0.3'
-  config.gem 'httparty', :version => '=0.4.3'
-  config.gem 'extlib', :version => '>= 0.9.9' # alexrabarts-big_sitemap dependency
-  config.gem 'alexrabarts-big_sitemap', :lib => 'big_sitemap', :source => 'http://gems.github.com'
   config.gem 'rakismet'
   config.gem 'will_paginate'
+  config.gem 'sitemap_generator', :lib => false
 
   # config.gem "sqlite3-ruby", :lib => "sqlite3"
   # config.gem "aws-s3", :lib => "aws/s3"

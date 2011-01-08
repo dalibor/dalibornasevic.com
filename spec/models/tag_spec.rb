@@ -9,7 +9,7 @@ describe Tag do
     Tag.reflect_on_association(:taggings).options[:dependent].should == :destroy
     #Tag.new.should respond_to(:taggings)
   end
-  
+
   it "should respond to tags" do
     Tag.reflect_on_association(:posts).should_not be_nil
     Tag.reflect_on_association(:posts).macro.should == :has_many

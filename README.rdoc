@@ -32,7 +32,7 @@ Personal Blog application for http://dalibornasevic.com
 
 - Run following rake task to create session_key and secret for the application
 
-    rake config/initializers/session_store.rb 
+    rake config/initializers/session_store.rb
 
 - Install gems
 
@@ -51,9 +51,9 @@ Personal Blog application for http://dalibornasevic.com
 
 - Add tags to the post which are used as keywords on that page
 
-- Run rake sitemap task to create a sitemap and submit your public/sitemaps/sitemap_index.xml to search engines
+- Run rake sitemap task to create a sitemap and submit it to search engines
 
-    rake sitemap
+    rake sitemap:refresh
 
 == Run tests
 

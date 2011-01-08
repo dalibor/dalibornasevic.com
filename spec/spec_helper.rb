@@ -42,15 +42,15 @@ Spec::Runner.configure do |config|
   # config.mock_with :rr
   #
   # == Notes
-  # 
+  #
   # For more information take a look at Spec::Runner::Configuration and Spec::Runner
 end
 
 module Spec
   module Mocks
     module Methods
-      def stub_association!(association_name, methods_to_be_stubbed = 
-{})
+      def stub_association!(association_name, methods_to_be_stubbed =
+                            {})
         mock_association = Spec::Mocks::Mock.new(association_name.to_s)
         methods_to_be_stubbed.each do |method, return_value|
           mock_association.stub!(method).and_return(return_value)
@@ -66,13 +66,13 @@ def authenticate_with_http_basic(user, password)
 end
 
 def authenticate_with_http_digest(user, password, realm)
-    unless ActionController::Base < ActionController::ProcessWithTest
-      ActionController::Base.class_eval { include ActionController::ProcessWithTest }
-    end
- 
-    @controller.instance_eval %Q(
+  unless ActionController::Base < ActionController::ProcessWithTest
+    ActionController::Base.class_eval { include ActionController::ProcessWithTest }
+  end
+
+  @controller.instance_eval %Q(
       alias real_process_with_test process_with_test
- 
+
       def process_with_test(request, response)
         credentials = {
           :uri => request.env['REQUEST_URI'],
@@ -90,8 +90,8 @@ def authenticate_with_http_digest(user, password, realm)
 end
 
 def stub_request
-    request = mock('request')
-    request.stub!(:remote_ip).and_return("127.0.0.1")
-    request.stub!(:env).and_return({'HTTP_USER_AGENT' => 'Firefox', 'HTTP_REFERER' => 'http://www.dalibornasevic.com'})
-    request
+  request = mock('request')
+  request.stub!(:remote_ip).and_return("127.0.0.1")
+  request.stub!(:env).and_return({'HTTP_USER_AGENT' => 'Firefox', 'HTTP_REFERER' => 'http://www.dalibornasevic.com'})
+  request
 end

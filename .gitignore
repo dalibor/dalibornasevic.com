@@ -5,9 +5,7 @@ config/database.yml
 config/initializers/session_store.rb
 config/initializers/rakismet.rb
 config/application.yml
-public/sitemap_index.xml
-public/sitemap_posts.xml
-public/sitemap_tags.xml
+public/sitemap*
 *~
 *.swp
 .project
