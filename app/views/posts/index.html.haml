@@ -1,0 +1,7 @@
+- title(@title)
+- keywords(@keywords)
+.rss
+  = link_to image_tag('feed-icon-14x14.png'), posts_path(:format => 'rss')
+= render :partial => 'post', :collection => @posts
+.pagination
+  = will_paginate @posts

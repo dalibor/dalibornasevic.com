@@ -1,0 +1,6 @@
+.top_icons
+  = link_to image_tag('icons/index.png', :title => 'All Posts'), admin_posts_path
+  = link_to image_tag('icons/show.png', :title => 'Show Post'), admin_post_path(@post)
+.form
+  %h1 Edit post
+  = render :partial => 'form'

@@ -1,0 +1,22 @@
+.new_comment
+  %p
+    %a.anchor{:name => "new_comment"} Leave a comment:
+  = render "shared/error_messages", :resource => @comment
+  = form_for [@post, @comment], :html => {:class => 'form'} do |f|
+    .field_notice required
+    %p
+      = f.label :name, 'Name:'
+      = f.text_field :name
+    .field_notice
+      required, will not be published
+      %p
+        = f.label :email, 'Email:'
+        = f.text_field :email
+      %p
+        = f.label :url, 'URL:'
+        = f.text_field :url
+      %p
+        = f.label :content, 'Comments:'
+        = f.text_area :content, :rows => 10, :cols => 50
+      %p
+        = f.submit 'Comment', :class => 'submit'

@@ -1,0 +1,16 @@
+- title(@post.title)
+- keywords(@post.tags.map(&:name).join(', '))
+- description(@post.description)
+= render :partial => 'posts/post', :object => @post
+%p
+  %a.anchor{:name => "comments"} Comments:
+.comments
+  - if @post.comments.size > 0
+    = render :partial => 'comments/comment', :collection => @comments
+  - else
+    This post has no comments yet.
+- if @post.comments_closed?
+  %p Sorry, comments are closed for this article.
+- else
+  = render :partial => 'comments/form'
+

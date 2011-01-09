@@ -1,0 +1,35 @@
+!!!
+%html{:lang => "en", "xml:lang" => "en", :xmlns => "http://www.w3.org/1999/xhtml"}
+  %head
+    %meta{:content => "text/html;charset=UTF-8", "http-equiv" => "content-type"}/
+    %title= "#{yield(:title)} :: #{BLOG_TITLE}"
+    = tag(:meta, :name => 'description', :content => yield(:description) || BLOG_DESCRIPTION)
+    = tag(:meta, :name => 'keywords', :content => yield(:keywords) || BLOG_KEYWORDS)
+    = auto_discovery_link_tag(:rss, posts_path(:format => 'rss'))
+    = stylesheet_link_tag 'application'
+    = stylesheet_link_tag 'shjs/sh_vim-dark.min'
+    = javascript_include_tag 'shjs/sh_main.min'
+    = javascript_include_tag 'shjs/sh_ruby.min'
+    = javascript_include_tag :defaults
+    = yield :head
+    = javascript_tag do
+      var _token = '#{form_authenticity_token}';
+      var _google_analytics_id = '#{GOOGLE_ANALYTICS_ID}';
+  %body
+    #container
+      = render :partial => 'layouts/header'
+      #content
+        .messages
+          - if flash[:notice]
+            #notice= flash[:notice]
+          - if flash[:error]
+            #error= flash[:error]
+            - flash[:error] = nil
+        = yield
+      #sidebar
+        = render :partial => 'shared/about'
+        = render :partial => 'shared/twitter'
+        = render :partial => 'shared/last_fm'
+        = render :partial => 'shared/tags'
+      #footer
+        = BLOG_FOOTER

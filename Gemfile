@@ -20,9 +20,12 @@ group :development do
   gem 'ruby-debug'
 end
 
+group :development, :test do
+  gem 'rspec-rails'
+end
+
 group :test do
   gem 'rspec'
-  gem 'rspec-rails'
   gem 'cucumber'
   gem 'cucumber-rails'
   gem 'database_cleaner'

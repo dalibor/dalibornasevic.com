@@ -1,0 +1,8 @@
+.top_icons
+  = link_to 'Create new', new_admin_post_path
+.posts
+  - for post in @posts
+    .post.admin
+      = render 'post_header', :post => post
+.pagination
+  = will_paginate @posts

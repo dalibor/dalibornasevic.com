@@ -1,0 +1,23 @@
+= form_for [:admin, @post], :html => {:class => 'form'} do |f|
+  = render "shared/error_messages", :resource => @post
+  %p
+    = f.label :title
+    = f.text_field :title
+  %p
+    = f.label :content
+    = f.text_area :content
+  %p
+    = f.label :description
+    = f.text_area :description, :rows => 5
+  %p
+    = f.label :published_at, 'Publish at'
+    = f.datetime_select :published_at
+    = f.check_box :publish
+  %p
+    = f.label :tag_names, 'Tags'
+    = f.text_field :tag_names
+  %p
+    = f.label :comments_closed, 'Close comments?'
+    = f.check_box :comments_closed
+  %p
+    = f.submit @post.new_record? ? 'Create' : 'Update', :class => 'submit'

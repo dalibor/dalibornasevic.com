@@ -1,0 +1,9 @@
+.post.admin
+  = render :partial => 'post_header', :locals => {:post => @post}
+  .content
+    = raw RedCloth.new(post.content).to_html
+  %div
+    = post.description
+  .tags
+    Tags:
+    = raw post.tags.empty? ? 'none' : post.tags.map{|tag| link_to(tag.name, tag_posts_path(tag))}.join(' ')

@@ -1,0 +1,4 @@
+.item
+  %h1= link_to 'Last.fm', "http://www.last.fm/user/#{LASTFM_USERNAME}"
+  = image_tag "loading.gif", :id => 'lastfm_loading', :alt => "Loading", :style => "display: none"
+  #lastfm_content.content
