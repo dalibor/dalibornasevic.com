@@ -1,5 +1,11 @@
-Given /^site has post with id "([^\"]*)"$/ do |id|
-  Factory.create(:post, :id => id)
+Given /^I am logged in$/ do
+  add_headers({'HTTP_AUTHORIZATION' => "Basic #{["#{USERNAME}:#{PASSWORD}"].pack("m*")}"})
+end
+
+Given /^I have posts titled (.+)$/ do |titles|
+  titles.split(', ').each do |title|
+    Factory.create(:post, :title => title)
+  end
 end
 
 Then /^should see a comment form$/ do
@@ -53,5 +59,5 @@ end
 #  original_value = Comment.minimum_wait_time
 #  Comment.minimum_wait_time = 1
 #  sleep Comment.minimum_wait_time
-#  @after_current_scenario_blocks << lambda{ Comment.minimum_wait_time = original_value } 
+#  @after_current_scenario_blocks << lambda{ Comment.minimum_wait_time = original_value }
 #end

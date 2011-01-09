@@ -1,6 +1,6 @@
 require "yaml"
 
-file = YAML.load_file(File.join(RAILS_ROOT, 'config/application.yml'))
+file = YAML.load_file(File.join(Rails.root, 'config/application.yml'))
 
 USERNAME = file['password']['username']
 PASSWORD = file['password']['password']

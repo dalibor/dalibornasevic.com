@@ -2,10 +2,10 @@
   <h2><%= link_to post.title, post %></h2>
   <p class="author">Posted on <%= post.published_at.strftime("%B %d, %Y at %I:%M %P") %></p>
   <div class="content">
-    <%= RedCloth.new(post.content).to_html %>
+    <%= raw RedCloth.new(post.content).to_html %>
   </div>
   <div class="tags">
-    Tags: <%= post.tags.empty? ? 'none' : post.tags.map{|tag| link_to(tag.name, tag_posts_path(tag))}.join(' ') %>
+    Tags: <%= raw post.tags.empty? ? 'none' : post.tags.map{|tag| link_to(tag.name, tag_posts_path(tag))}.join(' ') %>
   </div>
   <div class="leave_comment">
     <%= link_to "Comment", post_path(post) + '#new_comment' %>

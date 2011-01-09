@@ -1,0 +1,6 @@
+- if resource.errors.any?
+  #error_explanation
+    %p There were problems with the following fields
+    %ul
+      - resource.errors.full_messages.each do |msg|
+        %li= msg

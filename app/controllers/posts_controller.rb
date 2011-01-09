@@ -1,7 +1,5 @@
 class PostsController < ApplicationController
 
-  before_filter :set_spam_timestamp
-
   def index
     conditions = {:page => params[:page], :per_page => 5, :order => 'published_at DESC', :include => :tags, :conditions => 'published_at IS NOT NULL'}
 
@@ -25,11 +23,5 @@ class PostsController < ApplicationController
     @post = Post.find params[:id], :conditions => 'published_at IS NOT NULL'
     @comments = @post.comments.find(:all, :conditions => {:approved => true})
     @comment = Comment.new
-  end
-
-  private
-
-  def set_spam_timestamp
-    session[:spam_timestamp] = Time.now.to_i
   end
 end

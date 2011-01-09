@@ -11,7 +11,7 @@
     <%= javascript_include_tag 'shjs/sh_ruby.min' %>
     <%= javascript_include_tag :defaults %>
     <%= javascript_include_tag 'admin' %>
-    <% javascript_tag do %>
+    <%= javascript_tag do %>
       var _token = "<%= form_authenticity_token %>"
     <% end %>
   </head>

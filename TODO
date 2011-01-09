@@ -1,0 +1,13 @@
+Version 0.2 TODO:
+  - Remove http basic authentication
+  - Add Omni auth
+  - Update cucumber tests
+  - Replace erb templates with haml
+  - Remove prototype, add jQuery
+  - Change or improve code highligh library
+  - Add latests activities on social media sites using pure javascript
+  - Add formtastic for forms
+  - Check if akismet works, otherwise replace it with lighter solution
+  - Check sitemap generator
+  - Add boilerplace html5 template
+  - Change design

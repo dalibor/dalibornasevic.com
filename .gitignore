@@ -1,3 +1,5 @@
+.bundle
+db/*.sqlite3
 log/*.log
 tmp/**/*
 tmp/webrat-*
@@ -6,6 +8,6 @@ config/initializers/session_store.rb
 config/initializers/rakismet.rb
 config/application.yml
 public/sitemap*
+capybara*
 *~
 *.swp
-.project

@@ -2,8 +2,8 @@
   <p>
     <a name="new_comment" class="anchor">Leave a comment:</a>
   </p>
-  <%= error_messages_for :comment %>
-  <% form_for [@post, @comment], :html => {:class => 'form'} do |f| %>
+  <%= render "shared/error_messages", :resource => @comment %>
+  <%= form_for [@post, @comment], :html => {:class => 'form'} do |f| %>
     <div class="field_notice">required</div>
     <p>
       <%= f.label :name, 'Name:' %>
