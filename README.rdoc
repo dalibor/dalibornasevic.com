@@ -23,9 +23,10 @@ Personal Blog application for http://dalibornasevic.com
     cp config/application.yml.template config/application.yml
     vi config/application.yml
 
-- Run following rake task to create session_key and secret for the application
+- Change the secret token for verifying the integrity of signed cookies
 
-    rake config/initializers/session_store.rb
+    First generate new secret token with: 'rake secret'
+    Then add it to config/initializers/secret_token.rb
 
 - Install gems
 
