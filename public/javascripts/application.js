@@ -12,6 +12,7 @@ function startAnalytics(id) {
 }
 
 $(function () {
+  SyntaxHighlighter.defaults['toolbar'] = false;
   SyntaxHighlighter.all();
 
   if (typeof(_google_analytics_id) != "undefined" && _google_analytics_id){
