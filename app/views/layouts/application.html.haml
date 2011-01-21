@@ -6,11 +6,10 @@
     = tag(:meta, :name => 'description', :content => yield(:description) || BLOG_DESCRIPTION)
     = tag(:meta, :name => 'keywords', :content => yield(:keywords) || BLOG_KEYWORDS)
     = auto_discovery_link_tag(:rss, posts_path(:format => 'rss'))
+    = render 'layouts/syntaxhighlighter'
     = stylesheet_link_tag 'application'
-    = stylesheet_link_tag 'shjs/sh_vim-dark.min'
-    = javascript_include_tag 'shjs/sh_main.min'
-    = javascript_include_tag 'shjs/sh_ruby.min'
-    = javascript_include_tag :defaults
+    = javascript_include_tag 'jquery-1.4.4.min', 'rails', 'application'
+    -#, 'shjs/sh_main.min', 'shjs/sh_ruby.min', 'shjs/sh_javascript.min', 'shjs/sh_html.min', 'shjs/sh_css.min'
     = yield :head
     = javascript_tag do
       var _token = '#{form_authenticity_token}';

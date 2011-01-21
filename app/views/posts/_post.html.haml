@@ -3,7 +3,7 @@
   %p.author
     Posted on #{post.published_at.strftime("%B %d, %Y at %I:%M %P")}
   .content
-    = raw RedCloth.new(post.content).to_html
+    = find_and_preserve RedCloth.new(post.content).html_safe
   .tags
     Tags: #{raw post.tags.empty? ? 'none' : post.tags.map{|tag| link_to(tag.name, tag_posts_path(tag))}.join(' ')}
   .leave_comment

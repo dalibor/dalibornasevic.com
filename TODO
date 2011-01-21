@@ -2,11 +2,11 @@ Version 0.2 TODO:
   - Remove http basic authentication
   - Add Omni auth
   - Update cucumber tests
-  - Remove prototype, add jQuery
-  - Change or improve code highligh library
   - Add latests activities on social media sites using pure javascript
+  - Add last tweets with javascript
   - Add formtastic for forms
   - Check if akismet works, otherwise replace it with lighter solution
   - Check sitemap generator
   - Add boilerplace html5 template
   - Change design
+  - Write db fix migration to change all opening pre tags to: <pre class="brush: ruby">

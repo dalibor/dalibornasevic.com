@@ -54,7 +54,7 @@ a:hover {
   font-size: 0.9em;
 }
 
-#content h1 { 
+#content h1 {
   color: #666666;
   font-family: monospace;
   font-size: 2em;
@@ -62,7 +62,7 @@ a:hover {
 
 #sidebar {
   border-left: 1px dotted #666666;
-  padding-left: 10px; 
+  padding-left: 10px;
   float: right;
   width: 250px;
 }
@@ -228,7 +228,7 @@ pre {
 }
 
 .leave_comment {
-  border-bottom: 1px dotted #CCCCCC; 
+  border-bottom: 1px dotted #CCCCCC;
   font-size: 0.9em;
   text-align: right;
   padding-bottom: 5px;
@@ -244,12 +244,12 @@ pre {
 
 
 .rss {
-  text-align: right; 
+  text-align: right;
 }
 
 .time {
   color: #191919;
-  font-size: 0.7em; 
+  font-size: 0.7em;
 }
 
 /* Pagination */

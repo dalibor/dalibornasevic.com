@@ -11,21 +11,20 @@ function startAnalytics(id) {
   } catch(err) {}
 }
 
-document.observe('dom:loaded', function(){
+$(function () {
+  SyntaxHighlighter.all();
 
-  sh_highlightDocument();
-
-  if (typeof(_google_analytics_id) != "undefined" && !_google_analytics_id.blank()){
+  if (typeof(_google_analytics_id) != "undefined" && _google_analytics_id){
     startAnalytics(_google_analytics_id);
   }
 
-  if ($('notice')){
-      new Effect.Fade($('notice'), {
-      });
-  }
+  //if ($('notice')){
+      //new Effect.Fade($('notice'), {
+      //});
+  //}
 
-  if ($('error')){
-      new Effect.Fade($('error'), {
-      });
-  }
+  //if ($('error')){
+      //new Effect.Fade($('error'), {
+      //});
+  //}
 });
