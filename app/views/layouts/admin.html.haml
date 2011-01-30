@@ -2,9 +2,9 @@
 %html{:lang => "en", "xml:lang" => "en", :xmlns => "http://www.w3.org/1999/xhtml"}
   %head
     %meta{:content => "text/html;charset=UTF-8", "http-equiv" => "content-type"}/
-    %title= " :: #{BLOG_TITLE} :: Administration "
-    = tag(:meta, :name => 'description', :content => yield(:description) || BLOG_DESCRIPTION)
-    = tag(:meta, :name => 'keywords', :content => BLOG_KEYWORDS)
+    %title= " :: #{B[:title]} :: Administration "
+    = tag(:meta, :name => 'description', :content => yield(:description) || B[:description])
+    = tag(:meta, :name => 'keywords', :content => B[:keywords])
     = render 'layouts/syntaxhighlighter'
     = stylesheet_link_tag 'application'
     = javascript_include_tag 'jquery-1.4.4.min', 'rails', 'admin'
@@ -26,4 +26,4 @@
           %li= link_to 'Posts', admin_posts_path
           %li= link_to 'Comments', admin_comments_path
       #footer
-        = BLOG_FOOTER
+        2009, dalibornasevic.com

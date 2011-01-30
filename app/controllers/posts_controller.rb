@@ -10,7 +10,7 @@ class PostsController < ApplicationController
     else
       @posts = Post.paginate(conditions)
       @title = "Home"
-      @keywords = BLOG_KEYWORDS
+      @keywords = B[:keywords]
     end
 
     respond_to do |format|

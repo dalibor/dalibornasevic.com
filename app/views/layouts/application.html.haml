@@ -2,18 +2,16 @@
 %html{:lang => "en", "xml:lang" => "en", :xmlns => "http://www.w3.org/1999/xhtml"}
   %head
     %meta{:content => "text/html;charset=UTF-8", "http-equiv" => "content-type"}/
-    %title= "#{yield(:title)} :: #{BLOG_TITLE}"
-    = tag(:meta, :name => 'description', :content => yield(:description) || BLOG_DESCRIPTION)
-    = tag(:meta, :name => 'keywords', :content => yield(:keywords) || BLOG_KEYWORDS)
+    %title= "#{yield(:title)} :: #{B[:title]}"
+    = tag(:meta, :name => 'description', :content => yield(:description) || B[:description])
+    = tag(:meta, :name => 'keywords', :content => yield(:keywords) || B[:keywords])
     = auto_discovery_link_tag(:rss, posts_path(:format => 'rss'))
     = render 'layouts/syntaxhighlighter'
     = stylesheet_link_tag 'application'
-    = javascript_include_tag 'jquery-1.4.4.min', 'rails', 'application'
-    -#, 'shjs/sh_main.min', 'shjs/sh_ruby.min', 'shjs/sh_javascript.min', 'shjs/sh_html.min', 'shjs/sh_css.min'
+    = javascript_include_tag 'jquery-1.4.4.min', 'jquery.timeago', 'jquery.autolink', 'jquery.tweets', 'jquery.tracks', 'rails', 'application'
     = yield :head
     = javascript_tag do
       var _token = '#{form_authenticity_token}';
-      var _google_analytics_id = '#{GOOGLE_ANALYTICS_ID}';
   %body
     #container
       = render :partial => 'layouts/header'
@@ -31,4 +29,4 @@
         = render :partial => 'shared/last_fm'
         = render :partial => 'shared/tags'
       #footer
-        = BLOG_FOOTER
+        2009, dalibornasevic.com
