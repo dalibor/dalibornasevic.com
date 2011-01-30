@@ -12,6 +12,8 @@ gem 'RedCloth', '>=4.2.3', :require => 'redcloth'
 gem 'rakismet'
 gem 'will_paginate', '~> 3.0.pre2'
 gem 'sitemap_generator'
+gem 'compass'
+gem 'html5-boilerplate'
 
 group :development do
   gem 'annotate'

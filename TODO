@@ -1,14 +1,12 @@
 Version 0.2 TODO:
-  - Add boilerplace html5 template
   - Remove http basic authentication
   - Add simple authentication
-
-
   - Update cucumber tests
-  - Add latests activities on social media sites using pure javascript
+
   - Add formtastic for forms
+  - Change design
+  - Currently reading section
+
   - Check if akismet works, otherwise replace it with lighter solution
   - Check sitemap generator
-  - Change design
   - Write db fix migration to change all opening pre tags to: <pre class="brush: ruby">
-  - Currently reading section

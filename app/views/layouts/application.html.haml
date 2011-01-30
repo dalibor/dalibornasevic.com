@@ -1,32 +1,20 @@
-!!!
-%html{:lang => "en", "xml:lang" => "en", :xmlns => "http://www.w3.org/1999/xhtml"}
-  %head
-    %meta{:content => "text/html;charset=UTF-8", "http-equiv" => "content-type"}/
-    %title= "#{yield(:title)} :: #{B[:title]}"
-    = tag(:meta, :name => 'description', :content => yield(:description) || B[:description])
-    = tag(:meta, :name => 'keywords', :content => yield(:keywords) || B[:keywords])
-    = auto_discovery_link_tag(:rss, posts_path(:format => 'rss'))
-    = render 'layouts/syntaxhighlighter'
-    = stylesheet_link_tag 'application'
-    = javascript_include_tag 'jquery-1.4.4.min', 'jquery.timeago', 'jquery.autolink', 'jquery.tweets', 'jquery.tracks', 'rails', 'application'
-    = yield :head
-    = javascript_tag do
-      var _token = '#{form_authenticity_token}';
-  %body
+!!! 5
+-# http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither
+-ie_html :lang => 'en', :class => 'no-js' do
+  = render :partial => 'layouts/head'
+  %body{ :class => "#{controller.controller_name}" }
     #container
-      = render :partial => 'layouts/header'
-      #content
-        .messages
-          - if flash[:notice]
-            #notice= flash[:notice]
-          - if flash[:error]
-            #error= flash[:error]
-            - flash[:error] = nil
+      %header#header
+        = render :partial => 'layouts/header'
+      #main
+        = render :partial => 'layouts/flashes'
         = yield
-      #sidebar
-        = render :partial => 'shared/about'
-        = render :partial => 'shared/twitter'
-        = render :partial => 'shared/last_fm'
-        = render :partial => 'shared/tags'
-      #footer
-        2009, dalibornasevic.com
+        %sidebar
+          = render :partial => 'shared/about'
+          = render :partial => 'shared/twitter'
+          = render :partial => 'shared/last_fm'
+          = render :partial => 'shared/tags'
+      %footer#footer
+        = render :partial => 'layouts/footer'
+    -# Javascript at the bottom for fast page loading
+    = render :partial => 'layouts/javascripts'

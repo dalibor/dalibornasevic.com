@@ -65,12 +65,13 @@
     }()
   );
 
-  $.fn.tweets = function(options){
+  $.fn.tweets = function (options) {
     return this.each(function () {
       var defaults = {
         limit: 5,
         username: 'blackflasher'
-      },
+      };
+
       settings = $.extend({}, defaults, options);
 
       Twitter.tweets(settings, $(this));

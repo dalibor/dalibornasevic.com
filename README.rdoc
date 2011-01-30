@@ -23,6 +23,11 @@ Personal Blog application for http://dalibornasevic.com
     cp config/application.yml.template config/application.yml
     vi config/application.yml
 
+- Setup google analytics
+
+    cp config/google.yml.template config/google.yml
+    vi config/google.yml
+
 - Change the secret token for verifying the integrity of signed cookies
 
     First generate new secret token with: 'rake secret'

@@ -11,9 +11,6 @@ blog:
   description: "Dalibor Nasevic is a Software Engineer from Skopje (Macedonia), works on web applications development using Ruby, Ruby on Rails, Javascript and jQuery."
   keywords: "Dalibor Nasevic, Dalibor, Nasevic, ruby, rails, ruby on rails, web development, web, development, software, Далибор Насевиќ, Далибор, Насевиќ, веб девелопмент, веб, девелопмент"
 
-google:
-  analytics_id: XX-YYYYYYY-Z
-
 akismet:
   key:
   url: 'http://yourblog.com'

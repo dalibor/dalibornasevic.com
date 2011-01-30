@@ -4,10 +4,12 @@ log/*.log
 tmp/**/*
 tmp/webrat-*
 config/database.yml
+config/google.yml
+config/application.yml
 config/initializers/session_store.rb
 config/initializers/rakismet.rb
-config/application.yml
 public/sitemap*
 capybara*
 *~
 *.swp
+.sass-cache
