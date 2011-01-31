@@ -1,5 +1,4 @@
 Version 0.2 TODO:
-  - Write specs for Editor model
   - Add administration CRUD for editors
   - Add edit editor profile / password change feature
 

@@ -1,18 +1,39 @@
-!!! 5
--# http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither
--ie_html :lang => 'en', :class => 'no-js' do
-  = render :partial => 'layouts/head'
-  %body{ :class => "#{controller.controller_name}" }
+!!!
+%html
+  %head
+    %title Dalibor Nasevic
+    = stylesheet_link_tag "web-app-theme/base", "web-app-theme/themes/drastic-dark/style", "web-app-theme/override", :cache => true
+    = javascript_include_tag 'jquery-1.4.4.min.js', 'syntaxhighlighter/shCore', 'syntaxhighlighter/shBrushRuby', 'rails', 'plugins', 'admin'
+    = csrf_meta_tag
+  %body
     #container
-      %header#header
-        = render :partial => 'layouts/header'
-      #main
-        = render :partial => 'layouts/flashes'
-        = yield
-        %sidebar
-          = link_to 'Posts', admin_posts_path
-          = link_to 'Comments', admin_comments_path
-      %footer#footer
-        = render :partial => 'layouts/footer'
-    -# Javascript at the bottom for fast page loading
-    = render :partial => 'layouts/javascripts'
+      #header
+        %h1
+          = link_to "Dalibor Nasevic", root_path
+        #user-navigation
+          %ul.wat-cf
+            %li
+              %a{:href => "#"}= t("web-app-theme.profile", :default => "Profile")
+            %li
+              %a{:href => "#"}= t("web-app-theme.settings", :default => "Settings")
+            %li
+              %a.logout{:href => "/logout"}= t("web-app-theme.logout", :default => "Logout")
+        #main-navigation
+          %ul.wat-cf
+            %li{:class => controller.controller_path == 'admin/posts' ? 'active' : '' }
+              %a{:href => admin_posts_path} Posts
+            %li{:class => controller.controller_path == 'admin/comments' ? 'active' : '' }
+              %a{:href => admin_comments_path} Comments
+      #wrapper.wat-cf
+        .flash
+          - flash.each do |type, message|
+            %div{:class => "message #{type}"}
+              %p= message
+        #main
+          = yield
+          #footer
+            .block
+              %p
+                Copyright &copy; #{Time.now.year} Dalibor Nasevic.
+        #sidebar
+          = yield :sidebar

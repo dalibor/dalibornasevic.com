@@ -13,7 +13,7 @@ Blog::Application.routes.draw do
   match '/about' => 'main#about', :as => :about
 
   namespace :admin do
-    root :to => 'posts#index'
+    root :to => 'main#index'
 
     resources :posts do
       member do

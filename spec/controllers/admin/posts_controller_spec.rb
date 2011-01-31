@@ -23,7 +23,7 @@ describe Admin::PostsController do
     end
 
     it "should render new post successfully" do
-      Post.should_receive(:new).with().and_return(@mock_object)
+      Post.should_receive(:new).and_return(@mock_object)
       get :new
       response.should be_success
       assigns(:post).should_not be_nil
@@ -73,7 +73,7 @@ describe Admin::PostsController do
 
     it "should set flash notice" do
       post :create, :post=>{:name=>"value"}
-      flash[:notice].should == 'Post was created successfully'
+      flash[:notice].should == 'Post was successfully created.'
     end
 
     it "should have response with redirect to the admin post path" do
@@ -156,7 +156,7 @@ describe Admin::PostsController do
 
     it "should set flash notice" do
       put :update, :id => "1", :post=>{}
-      flash[:notice].should == 'Post was updated successfully'
+      flash[:notice].should == 'Post was successfully updated.'
     end
 
     it "should have response with redirect to the admin post path" do
@@ -188,20 +188,6 @@ describe Admin::PostsController do
     end
   end
 
-  describe "delete post" do
-    before :each do
-      login
-      Post.stub!(:find).with("1").and_return(@mock_object = mock_model(Post))
-    end
-
-    it "should render delete post successfully" do
-      Post.should_receive(:find).with("1").and_return(@mock_object)
-      get :delete, :id => "1"
-      response.should be_success
-      assigns(:post).should_not be_nil
-    end
-  end
-
   describe "destroy post" do
     before :each do
       login
@@ -225,7 +211,7 @@ describe Admin::PostsController do
 
     it "should set flash notice" do
       delete :destroy, :id => "1"
-      flash[:notice].should == 'Post was deleted successfully'
+      flash[:notice].should == 'Post was successfully destroyed.'
     end
 
     it "should redirect to the admin post path" do

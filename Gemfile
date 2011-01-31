@@ -15,6 +15,7 @@ gem 'sitemap_generator'
 gem 'compass'
 gem 'html5-boilerplate'
 gem 'bcrypt-ruby', :require => 'bcrypt'
+gem 'inherited_resources', '~> 1.2.1'
 
 group :development do
   gem 'annotate'
@@ -25,6 +26,8 @@ end
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'web-app-theme', '>= 0.6.2'
+  gem 'ruby_parser' # used by web-app-theme
 end
 
 group :test do

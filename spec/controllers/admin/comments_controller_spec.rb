@@ -96,7 +96,7 @@ describe Admin::CommentsController do
 
     it "should set flash notice" do
       put :update, :id => "1", :comment=>{}
-      flash[:notice].should == 'Comment was updated successfully'
+      flash[:notice].should == 'Comment was successfully updated.'
     end
 
     it "should have response with redirect to the admin comments path" do
@@ -128,21 +128,6 @@ describe Admin::CommentsController do
     end
   end
 
-  describe "delete comment" do
-
-    before :each do
-      login
-      Comment.stub!(:find).with("1").and_return(@mock_object = mock_model(Comment))
-    end
-
-    it "should render new comment successfully" do
-      Comment.should_receive(:find).with("1").and_return(@mock_object)
-      get :delete, :id => "1"
-      response.should be_success
-      assigns(:comment).should_not be_nil
-    end
-  end
-
   describe "destroy comment" do
 
     before :each do
@@ -162,7 +147,7 @@ describe Admin::CommentsController do
 
     it "should set flash notice" do
       delete :destroy, :id => "1"
-      flash[:notice].should == 'Comment was deleted successfully'
+      flash[:notice].should == 'Comment was successfully destroyed.'
     end
 
     it "response should be redirect" do
@@ -195,7 +180,7 @@ describe Admin::CommentsController do
 
     it "should set flash notice" do
       delete :destroy_multiple, :comment_ids => ['1', '2']
-      flash[:notice].should == 'Comments were deleted successfully'
+      flash[:notice].should == 'Comments were successfully destroyed.'
     end
 
     it "should redirect to the admin comment path" do
@@ -229,7 +214,7 @@ describe Admin::CommentsController do
 
     it "should set flash notice" do
       put :approve, :id => "1", :comment=>{}
-      flash[:notice].should == 'Comment was approved successfully'
+      flash[:notice].should == 'Comment was approved successfully.'
     end
 
     it "should have response with redirect to the admin comments path" do
@@ -262,7 +247,7 @@ describe Admin::CommentsController do
 
     it "should set flash notice" do
       put :reject, :id => "1", :comment=>{}
-      flash[:notice].should == 'Comment was rejected successfully'
+      flash[:notice].should == 'Comment was rejected successfully.'
     end
 
     it "should have response with redirect to the admin comments path" do

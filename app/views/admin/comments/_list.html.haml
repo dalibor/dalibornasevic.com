@@ -1,0 +1,3 @@
+%li.first{:class => (params[:type].blank? ? 'active' : '')}= link_to "List (All #{Comment.all.count})", admin_comments_path
+%li{:class => (params[:type] == 'not-spam' ? 'active' : '')}= link_to "Valid (#{Comment.valid_comments.count})", admin_comments_path(:type => 'not-spam')
+%li{:class => (params[:type] == 'spam' ? 'active' : '')}= link_to "Spam (#{Comment.spam_comments.count})", admin_comments_path(:type => 'spam')

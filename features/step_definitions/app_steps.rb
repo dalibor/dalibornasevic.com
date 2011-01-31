@@ -1,11 +1,20 @@
 Given /^I am logged in$/ do
-  Factory.create(:editor)
   steps %Q{
     Given I am on the login page
     When I fill in "Email" with "pink.panter@gmail.com"
     And I fill in "Password" with "password"
     And I press "Login"
   }
+end
+
+Given /^I am logged in as editor$/ do
+  Factory.create(:editor)
+  Given "I am logged in"
+end
+
+Given /^I am logged in as admin$/ do
+  Factory.create(:editor, :is_admin => true)
+  Given "I am logged in"
 end
 
 Given /^I have posts titled (.+)$/ do |titles|
@@ -33,10 +42,6 @@ end
 
 When /^I fill in the comment url "([^\"]*)"$/ do |url|
   fill_in "URL", :with => url
-end
-
-When /^I fill in the comment content "([^\"]*)"$/ do |content|
-  fill_in "Comments", :with => content
 end
 
 When /^this comment is not spam$/ do

@@ -1,12 +1,48 @@
-%p
-  = link_to_unless params[:type].blank?, "All (#{Comment.all.count})", admin_comments_path
-  |
-  \#{link_to_unless params[:type] == 'not-spam', "Valid (#{Comment.valid_comments.count})", admin_comments_path(:type => 'not-spam')} |
-  \#{link_to_unless params[:type] == 'spam', "Spam (#{Comment.spam_comments.count})", admin_comments_path(:type => 'spam')}
-= form_tag destroy_multiple_admin_comments_path, :method => :delete do
-  .comments
-    = render :partial => 'comment', :collection => @comments
-  %p.destroy_all
-    = submit_tag "Destroy selected comments"
-.pagination
-  = will_paginate @comments
+.block
+  .secondary-navigation
+    %ul.wat-cf
+      = render :partial => 'list'
+      %li= link_to "#{t("web-app-theme.new", :default => "New")}", new_admin_comment_path
+
+  .content
+    %h2.title
+      = t("web-app-theme.all", :default => "All")
+      Comments
+    .inner
+      = form_tag destroy_multiple_admin_comments_path, :method => :delete do
+        %table.table
+          %tr
+            %th.first ID
+            %th
+              = t("activerecord.attributes.admin_comment.post_id", :default => t("activerecord.labels.name", :default => "Name"))
+            %th= t("web-app-theme.created_at", :default => "Created at")
+            %th Delete
+            %th Spam
+            %th.last &nbsp;
+          - @comments.each do |comment|
+            %tr{:class => cycle("odd", "even")}
+              %td
+                = comment.id
+              %td
+                = link_to comment.name, admin_comment_path(comment)
+              %td
+                = comment.created_at
+              %td
+                = check_box_tag "comment_ids[]", comment.id
+              %td
+                - if comment.approved?
+                  %span= link_to 'reject', reject_admin_comment_path(comment), :method => :put
+                - else
+                  %span= link_to 'approve', approve_admin_comment_path(comment), :method => :put
+              %td.last
+                = link_to "#{t("web-app-theme.show", :default => "Show")}", admin_comment_path(comment)
+                |
+                \#{link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_admin_comment_path(comment)} |
+                \#{link_to "#{t("web-app-theme.delete", :default => "Delete")}", admin_comment_path(comment), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}"}
+        .actions-bar.wat-cf
+          .actions
+          = will_paginate @comments
+        .actions-bar.wat-cf
+          .actions
+          = submit_tag "Destroy selected comments"
+- content_for :sidebar, render(:partial => 'sidebar')
