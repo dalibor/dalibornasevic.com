@@ -1,0 +1,11 @@
+%h1 Login
+
+= form_tag session_path do
+  %p
+    = label_tag :email
+    = text_field_tag :email
+  %p
+    = label_tag :password
+    = password_field_tag :password
+  %p
+    = submit_tag :login, :value => "Login"

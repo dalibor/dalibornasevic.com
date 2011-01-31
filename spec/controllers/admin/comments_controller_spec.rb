@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Admin::CommentsController do
   describe "list comments" do
     before :each do
-      authenticate_with_http_basic(USERNAME, PASSWORD, REALM)
+      login
       Comment.stub!(:paginate).and_return(@mock_objects = [mock_model(Comment)])
     end
 
@@ -17,7 +17,7 @@ describe Admin::CommentsController do
 
   describe "filter comments" do
     before :each do
-      authenticate_with_http_basic(USERNAME, PASSWORD, REALM)
+      login
       post = Factory.create(:post)
       @valid_comment = Factory.create(:comment, :post => post, :approved => true)
       @spam_comment = Factory.create(:comment, :post => post, :approved => false)
@@ -45,7 +45,7 @@ describe Admin::CommentsController do
 
   describe "show comment" do
     before :each do
-      authenticate_with_http_basic(USERNAME, PASSWORD, REALM)
+      login
       Comment.stub!(:find).with("1").and_return(@mock_object = mock_model(Comment))
     end
 
@@ -60,7 +60,7 @@ describe Admin::CommentsController do
   describe "edit comment" do
 
     before :each do
-      authenticate_with_http_basic(USERNAME, PASSWORD, REALM)
+      login
       Comment.stub!(:find).with("1").and_return(@mock_object = mock_model(Comment))
     end
 
@@ -75,7 +75,7 @@ describe Admin::CommentsController do
   describe "update comment" do
 
     before :each do
-      authenticate_with_http_basic(USERNAME, PASSWORD, REALM)
+      login
       Comment.stub!(:find).with("1").and_return(@mock_object = mock_model(Comment, :update_attributes=>true))
     end
 
@@ -108,7 +108,7 @@ describe Admin::CommentsController do
   describe "update comment with invalid params" do
 
     before :each do
-      authenticate_with_http_basic(USERNAME, PASSWORD, REALM)
+      login
       Comment.stub!(:find).with("1").and_return(@mock_object = mock_model(Comment, :update_attributes=>false))
     end
 
@@ -131,7 +131,7 @@ describe Admin::CommentsController do
   describe "delete comment" do
 
     before :each do
-      authenticate_with_http_basic(USERNAME, PASSWORD, REALM)
+      login
       Comment.stub!(:find).with("1").and_return(@mock_object = mock_model(Comment))
     end
 
@@ -146,7 +146,7 @@ describe Admin::CommentsController do
   describe "destroy comment" do
 
     before :each do
-      authenticate_with_http_basic(USERNAME, PASSWORD, REALM)
+      login
       Comment.stub!(:find).with("1").and_return(@mock_object = mock_model(Comment, :destroy => true))
     end
 
@@ -179,7 +179,7 @@ describe Admin::CommentsController do
 
   describe "destroy multiple comment" do
     before :each do
-      authenticate_with_http_basic(USERNAME, PASSWORD, REALM)
+      login
       Comment.stub!(:destroy)
     end
 
@@ -207,7 +207,7 @@ describe Admin::CommentsController do
 
   describe "approve comment" do
     before :each do
-      authenticate_with_http_basic(USERNAME, PASSWORD, REALM)
+      login
       Comment.stub!(:find).with("1").and_return(@mock_object = mock_model(Comment))
       @mock_object.stub!(:mark_as_ham!).and_return(true)
     end
@@ -240,7 +240,7 @@ describe Admin::CommentsController do
 
   describe "reject comment" do
     before :each do
-      authenticate_with_http_basic(USERNAME, PASSWORD, REALM)
+      login
       Comment.stub!(:find).with("1").and_return(@mock_object = mock_model(Comment))
       @mock_object.stub!(:mark_as_spam!).and_return(true)
     end

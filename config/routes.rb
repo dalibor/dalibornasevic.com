@@ -1,5 +1,17 @@
 Blog::Application.routes.draw do
 
+  get 'login', :to => 'sessions#new', :as => 'login'
+  get 'logout', :to => 'sessions#destroy', :as => 'logout'
+  resource :session
+
+  resources :posts, :only => [:index, :show] do
+    resources :comments, :only => [:create]
+  end
+
+  root :to => 'posts#index'
+  match '/tag/:tag' => 'posts#index', :as => :tag_posts
+  match '/about' => 'main#about', :as => :about
+
   namespace :admin do
     root :to => 'posts#index'
 
@@ -21,14 +33,6 @@ Blog::Application.routes.draw do
       end
     end
   end
-
-  resources :posts, :only => [:index, :show] do
-    resources :comments, :only => [:create]
-  end
-
-  root :to => 'posts#index'
-  match '/tag/:tag' => 'posts#index', :as => :tag_posts
-  match '/about' => 'main#about', :as => :about
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

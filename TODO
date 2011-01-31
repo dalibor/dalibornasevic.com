@@ -1,7 +1,7 @@
 Version 0.2 TODO:
-  - Remove http basic authentication
-  - Add simple authentication
-  - Update cucumber tests
+  - Write specs for Editor model
+  - Add administration CRUD for editors
+  - Add edit editor profile / password change feature
 
   - Add formtastic for forms
   - Change design

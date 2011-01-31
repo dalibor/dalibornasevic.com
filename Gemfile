@@ -14,6 +14,7 @@ gem 'will_paginate', '~> 3.0.pre2'
 gem 'sitemap_generator'
 gem 'compass'
 gem 'html5-boilerplate'
+gem 'bcrypt-ruby', :require => 'bcrypt'
 
 group :development do
   gem 'annotate'

@@ -1,29 +1,18 @@
-!!!
-%html{:lang => "en", "xml:lang" => "en", :xmlns => "http://www.w3.org/1999/xhtml"}
-  %head
-    %meta{:content => "text/html;charset=UTF-8", "http-equiv" => "content-type"}/
-    %title= " :: #{B[:title]} :: Administration "
-    = tag(:meta, :name => 'description', :content => yield(:description) || B[:description])
-    = tag(:meta, :name => 'keywords', :content => B[:keywords])
-    = render 'layouts/syntaxhighlighter'
-    = stylesheet_link_tag 'application'
-    = javascript_include_tag 'jquery-1.4.4.min', 'rails', 'admin'
-    = javascript_tag do
-      var _token = "#{form_authenticity_token}"
-  %body
+!!! 5
+-# http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither
+-ie_html :lang => 'en', :class => 'no-js' do
+  = render :partial => 'layouts/head'
+  %body{ :class => "#{controller.controller_name}" }
     #container
-      = render :partial => 'layouts/header'
-      #content
-        .messages
-          - if flash[:notice]
-            #notice= flash[:notice]
-          - if flash[:error]
-            #error= flash[:error]
-            - flash[:error] = nil
+      %header#header
+        = render :partial => 'layouts/header'
+      #main
+        = render :partial => 'layouts/flashes'
         = yield
-      #sidebar
-        %ul#admin_menu
-          %li= link_to 'Posts', admin_posts_path
-          %li= link_to 'Comments', admin_comments_path
-      #footer
-        2009, dalibornasevic.com
+        %sidebar
+          = link_to 'Posts', admin_posts_path
+          = link_to 'Comments', admin_comments_path
+      %footer#footer
+        = render :partial => 'layouts/footer'
+    -# Javascript at the bottom for fast page loading
+    = render :partial => 'layouts/javascripts'

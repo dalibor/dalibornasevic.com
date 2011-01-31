@@ -31,6 +31,7 @@ GEM
     activesupport (3.0.3)
     annotate (2.4.0)
     arel (2.0.6)
+    bcrypt-ruby (2.1.4)
     builder (2.1.2)
     capybara (0.3.8)
       culerity (>= 0.2.4)
@@ -168,6 +169,7 @@ PLATFORMS
 DEPENDENCIES
   RedCloth (>= 4.2.3)
   annotate
+  bcrypt-ruby
   capybara
   compass
   cucumber

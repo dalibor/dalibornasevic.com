@@ -1,5 +1,11 @@
 Given /^I am logged in$/ do
-  add_headers({'HTTP_AUTHORIZATION' => "Basic #{["#{USERNAME}:#{PASSWORD}"].pack("m*")}"})
+  Factory.create(:editor)
+  steps %Q{
+    Given I am on the login page
+    When I fill in "Email" with "pink.panter@gmail.com"
+    And I fill in "Password" with "password"
+    And I press "Login"
+  }
 end
 
 Given /^I have posts titled (.+)$/ do |titles|

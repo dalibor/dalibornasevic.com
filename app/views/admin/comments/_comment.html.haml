@@ -1,7 +1,7 @@
 .comment.admin
   .icons
-    = link_to image_tag('icons/edit.png', :title => 'Edit'), edit_admin_comment_path(comment)
-    = link_to image_tag('icons/delete.png', :title => 'Delete'), delete_admin_comment_path(comment), :class => "delete"
+    = link_to 'Edit', edit_admin_comment_path(comment)
+    = link_to 'Delete', admin_comment_path(comment), :method => :delete, :confirm => "Are you sure?"
     %br/
     = label_tag "Delete"
     = check_box_tag "comment_ids[]", comment.id

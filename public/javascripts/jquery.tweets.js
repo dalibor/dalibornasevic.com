@@ -43,7 +43,7 @@
 
         $.each(data, function (i) {
           liClass = (i === 0) ? "odd" : "even";
-          url = twitterUrl + this.screen_name + '/status/' + this.id_str;
+          url = twitterUrl + this.user.screen_name + '/status/' + this.id_str;
 
           ul.append(
             $("<li/>", {"class": liClass}).append(

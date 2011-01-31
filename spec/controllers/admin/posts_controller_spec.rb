@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Admin::PostsController do
   describe "index posts" do
     before :each do
-      authenticate_with_http_basic(USERNAME, PASSWORD, REALM)
+      login
       @posts_mock = [mock_model(Post)]
       Post.stub!(:paginate).and_return(@posts_mock)
     end
@@ -18,7 +18,7 @@ describe Admin::PostsController do
 
   describe "new post" do
     before :each do
-      authenticate_with_http_basic(USERNAME, PASSWORD, REALM)
+      login
       Post.stub!(:new).and_return(@mock_object = mock_model(Post))
     end
 
@@ -32,7 +32,7 @@ describe Admin::PostsController do
 
   describe "show post" do
     before :each do
-      authenticate_with_http_basic(USERNAME, PASSWORD, REALM)
+      login
       Post.stub!(:find).with("1").and_return(@mock_object = mock_model(Post))
     end
 
@@ -46,7 +46,7 @@ describe Admin::PostsController do
 
   describe "new post create valid" do
     before :each do
-      authenticate_with_http_basic(USERNAME, PASSWORD, REALM)
+      login
       Post.stub!(:new).and_return(@mock_object = mock_model(Post, :save=>true))
     end
 
@@ -84,7 +84,7 @@ describe Admin::PostsController do
 
   describe "new post create invalid" do
     before :each do
-      authenticate_with_http_basic(USERNAME, PASSWORD, REALM)
+      login
       Post.stub!(:new).and_return(@mock_object = mock_model(Post, :save=>false))
     end
 
@@ -116,7 +116,7 @@ describe Admin::PostsController do
 
   describe "edit post" do
     before :each do
-      authenticate_with_http_basic(USERNAME, PASSWORD, REALM)
+      login
       Post.stub!(:find).with("1").and_return(@mock_object = mock_model(Post))
     end
 
@@ -130,7 +130,7 @@ describe Admin::PostsController do
 
   describe "update post with valid params" do
     before :each do
-      authenticate_with_http_basic(USERNAME, PASSWORD, REALM)
+      login
       Post.stub!(:find).with("1").and_return(@mock_object = mock_model(Post, :update_attributes=>true))
     end
 
@@ -168,7 +168,7 @@ describe Admin::PostsController do
 
   describe "update post with invalid params" do
     before :each do
-      authenticate_with_http_basic(USERNAME, PASSWORD, REALM)
+      login
       Post.stub!(:find).with("1").and_return(@mock_object = mock_model(Post, :update_attributes=>false))
     end
 
@@ -190,7 +190,7 @@ describe Admin::PostsController do
 
   describe "delete post" do
     before :each do
-      authenticate_with_http_basic(USERNAME, PASSWORD, REALM)
+      login
       Post.stub!(:find).with("1").and_return(@mock_object = mock_model(Post))
     end
 
@@ -204,7 +204,7 @@ describe Admin::PostsController do
 
   describe "destroy post" do
     before :each do
-      authenticate_with_http_basic(USERNAME, PASSWORD, REALM)
+      login
       Post.stub!(:find).with("1").and_return(@mock_object = mock_model(Post, :destroy => true))
     end
 
@@ -237,37 +237,37 @@ describe Admin::PostsController do
   describe "invalid credentals" do
     it "should protect from accessing posts list in administration " do
       get :index
-      response.code.should == "401" # unauthorized
+      response.code.should == "302" # unauthorized
     end
 
     it "should protect from accessing post 1 in administration " do
       get :show, :id => 1
-      response.code.should == "401" # unauthorized
+      response.code.should == "302" # unauthorized
     end
 
     it "should protect from accessing edit post 1 in administration " do
       get :edit, :id => 1
-      response.code.should == "401" # unauthorized
+      response.code.should == "302" # unauthorized
     end
 
     it "should protect from accessing new post form in administration " do
       get :new
-      response.code.should == "401" # unauthorized
+      response.code.should == "302" # unauthorized
     end
 
     it "should protect from accessing create post in administration " do
       post :create, :post => {:title => "something"}
-      response.code.should == "401" # unauthorized
+      response.code.should == "302" # unauthorized
     end
 
     it "should protect from accessing update post in administration " do
       put :create, :id => 1, :post => {:title => "something"}
-      response.code.should == "401" # unauthorized
+      response.code.should == "302" # unauthorized
     end
 
     it "should protect from accessing delete post in administration " do
       delete :destroy, :id => 1
-      response.code.should == "401" # unauthorized
+      response.code.should == "302" # unauthorized
     end
   end
 end

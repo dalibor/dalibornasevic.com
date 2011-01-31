@@ -1,12 +1,11 @@
-Feature: Manage Blog posts
-  In order to make a blog
-  As an administrator
-  I want to create and manage posts
+Feature: Manage blog posts
+  In order to have good posts
+  As an editor
+  I want to be able to manage posts
 
-  @wip
   Scenario: Admin lists posts in administration
     Given I am logged in
-    And I am on list of posts in administration
+    When I follow "Administration"
     When I follow "Posts"
     And I follow "Create new"
     And I fill in "Title" with "First title"

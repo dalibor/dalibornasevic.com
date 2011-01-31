@@ -26,3 +26,10 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = true
 end
+
+def login
+   current_editor = mock_model(Editor, :id => 1)
+   controller.stub!(:current_user).and_return(current_editor)
+   controller.stub!(:authenticate).and_return(:true)
+end
+
