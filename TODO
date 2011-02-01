@@ -4,8 +4,8 @@ Version 0.2 TODO:
 
   - Add formtastic for forms
   - Change design
-  - Currently reading section
 
   - Check if akismet works, otherwise replace it with lighter solution
   - Check sitemap generator
   - Write db fix migration to change all opening pre tags to: <pre class="brush: ruby">
+  - Currently reading section

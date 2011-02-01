@@ -9,8 +9,7 @@ Feature: Manage comments
     And a comment exists with post: the post, name: "Pink Panter"
 
   Scenario: Admin can manage comments
-    When I follow "Administration"
-    And I follow "Comments"
+    When I follow "Comments"
     And I follow "Pink Panter"
     And I follow "Edit"
     And I fill in "Content" with "Great Site"

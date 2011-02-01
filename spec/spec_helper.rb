@@ -28,8 +28,13 @@ RSpec.configure do |config|
 end
 
 def login
-   current_editor = mock_model(Editor, :id => 1)
-   controller.stub!(:current_user).and_return(current_editor)
-   controller.stub!(:authenticate).and_return(:true)
+  current_editor = Factory.create(:editor)
+  controller.stub!(:current_editor).and_return(current_editor)
+  controller.stub!(:authenticate).and_return(:true)
 end
 
+shared_examples_for "protected resource" do
+  it "should protect resource" do
+    response.should be_redirect
+  end
+end

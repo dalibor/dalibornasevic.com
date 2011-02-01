@@ -13,9 +13,7 @@
         #user-navigation
           %ul.wat-cf
             %li
-              %a{:href => "#"}= t("web-app-theme.profile", :default => "Profile")
-            %li
-              %a{:href => "#"}= t("web-app-theme.settings", :default => "Settings")
+              %a{:href => edit_admin_profile_path}= t("web-app-theme.profile", :default => "Profile")
             %li
               %a.logout{:href => "/logout"}= t("web-app-theme.logout", :default => "Logout")
         #main-navigation
@@ -24,6 +22,9 @@
               %a{:href => admin_posts_path} Posts
             %li{:class => controller.controller_path == 'admin/comments' ? 'active' : '' }
               %a{:href => admin_comments_path} Comments
+            - if current_editor.is_admin?
+              %li{:class => controller.controller_path == 'admin/editors' ? 'active' : '' }
+                %a{:href => admin_editors_path} Editors
       #wrapper.wat-cf
         .flash
           - flash.each do |type, message|

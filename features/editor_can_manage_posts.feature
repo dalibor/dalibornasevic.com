@@ -3,10 +3,11 @@ Feature: Manage blog posts
   As an editor
   I want to be able to manage posts
 
-  Scenario: Admin lists posts in administration
+  Background:
     Given I am logged in as editor
-    When I follow "Administration"
-    And I follow "Posts"
+
+  Scenario: Admin lists posts in administration
+    When I follow "Posts"
     And I follow "New"
     And I fill in "Title" with "First title"
     And I fill in "Content" with "First content"

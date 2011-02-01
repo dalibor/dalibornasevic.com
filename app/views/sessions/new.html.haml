@@ -1,11 +1,20 @@
-%h1 Login
-
-= form_tag session_path do
-  %p
-    = label_tag :email
-    = text_field_tag :email
-  %p
-    = label_tag :password
-    = password_field_tag :password
-  %p
-    = submit_tag :login, :value => "Login"
+.block#block-login
+  %h2 Login
+  .content.login
+    .flash
+      - flash.each do |type, message|
+        %div{ :class => "message #{type}" }
+          %p= message
+    = form_tag session_path, :class => "form login" do
+      .group.wat-cf
+        .left= label_tag :email
+        .right= text_field_tag :email
+      .group.wat-cf
+        .left= label_tag :password
+        .right= password_field_tag :password
+      .group.wat-cf
+        .right
+          %button.button{ :type => "submit" }
+            = image_tag "web-app-theme/icons/key.png"
+            Login
+    = link_to "Back", root_path

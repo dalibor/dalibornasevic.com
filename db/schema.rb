@@ -29,8 +29,8 @@ ActiveRecord::Schema.define(:version => 20110130225411) do
   add_index "comments", ["post_id"], :name => "index_comments_on_post_id"
 
   create_table "editors", :force => true do |t|
-    t.string   "email"
     t.string   "name"
+    t.string   "email"
     t.string   "password_hash"
     t.string   "password_salt"
     t.boolean  "is_admin",      :default => false

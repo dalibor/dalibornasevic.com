@@ -32,6 +32,9 @@ Blog::Application.routes.draw do
         delete :destroy_multiple
       end
     end
+
+    resources :editors
+    resource :profile, :only => [:edit, :update]
   end
 
   # The priority is based upon order of creation:
