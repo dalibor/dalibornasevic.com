@@ -9,8 +9,11 @@
 .group
   = f.label :published_at, t("activerecord.attributes.post.published_at", :default => "Published at"), :class => :label
   = f.datetime_select :published_at, :class => 'datetime_select'
-  = f.check_box :publish
   %span.description Date and time when this post is published
+.group
+  = f.label :publish, t("activerecord.attributes.post.publish", :default => "Publish"), :class => :label
+  = f.check_box :publish
+  %span.description Is post published?
 .group
   = f.label :description, t("activerecord.attributes.post.description", :default => "Description"), :class => :label
   = f.text_field :description, :class => 'text_field'

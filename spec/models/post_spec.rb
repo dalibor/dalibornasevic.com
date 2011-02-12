@@ -1,22 +1,31 @@
 require 'spec_helper'
 
 describe Post do
+
+  describe 'attributes' do
+    it { should allow_mass_assignment_of(:title) }
+    it { should allow_mass_assignment_of(:content) }
+    it { should allow_mass_assignment_of(:description) }
+    it { should allow_mass_assignment_of(:comments_closed) }
+    it { should allow_mass_assignment_of(:publish) }
+    it { should allow_mass_assignment_of(:published_at) }
+    it { should allow_mass_assignment_of(:tag_names) }
+    it { should_not allow_mass_assignment_of(:comments_count) }
+    it { should_not allow_mass_assignment_of(:editor_id) }
+  end
+
   describe 'associations' do
     it { should have_many(:comments) }
     it { should have_many(:taggings) }
     it { should have_many(:tags) }
+    it { should belong_to(:editor) }
   end
 
   describe 'validations' do
+    subject { Factory.create(:post) }
+    it { should be_valid }
     it { should validate_presence_of(:title) }
     it { should validate_presence_of(:content) }
-  end
-
-  describe 'create valid post' do
-    it "can create post given valid attributes" do
-      post = Factory.create(:post)
-      post.should be_valid
-    end
   end
 
   describe 'published_at timestamp' do
@@ -75,3 +84,21 @@ describe Post do
     end
   end
 end
+
+
+# == Schema Information
+#
+# Table name: posts
+#
+#  id              :integer(4)      not null, primary key
+#  title           :string(255)
+#  content         :text
+#  created_at      :datetime
+#  updated_at      :datetime
+#  comments_count  :integer(4)      default(0)
+#  published_at    :datetime
+#  description     :string(255)
+#  comments_closed :boolean(1)      default(FALSE)
+#  editor_id       :integer(4)
+#
+

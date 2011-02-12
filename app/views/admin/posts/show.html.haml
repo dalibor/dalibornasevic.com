@@ -28,6 +28,11 @@
         = @post.published_at
       %p
         %b
+          = t("activerecord.attributes.admin_post.publish", :default => t("activerecord.labels.publish", :default => "Publish"))
+          \:
+        = @post.publish
+      %p
+        %b
           = t("activerecord.attributes.admin_post.description", :default => t("activerecord.labels.description", :default => "Description"))
           \:
         = @post.description

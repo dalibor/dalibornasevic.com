@@ -7,28 +7,34 @@ class Admin::CommentsController < Admin::BaseController
                  when 'spam'; 'approved = FALSE'
                  when 'not-spam'; 'approved = TRUE'
                  end
-    @comments = Comment.paginate(:page => params[:page], :per_page => 10, :conditions => conditions, :include => :post, :order => 'id DESC')
+    @comments = comments.paginate(:page => params[:page], :per_page => 10, :conditions => conditions, :include => :post, :order => 'id DESC')
   end
 
   def destroy_multiple
-    unless params[:comment_ids].blank?
-      Comment.destroy(params[:comment_ids])
+    if params[:comment_ids].present?
+      comments.destroy(params[:comment_ids])
       flash[:notice] = "Comments were successfully destroyed."
     end
     redirect_to admin_comments_path
   end
 
   def approve
-    @comment = Comment.find(params[:id])
-    @comment.mark_as_ham!
-    flash[:notice] = 'Comment was approved successfully.'
-    redirect_to admin_comments_path
+    resource.mark_as_ham!
+    redirect_to admin_comments_path, :notice => 'Comment was approved successfully.'
   end
 
   def reject
-    @comment = Comment.find(params[:id])
-    @comment.mark_as_spam!
-    flash[:notice] = 'Comment was rejected successfully.'
-    redirect_to admin_comments_path
+    resource.mark_as_spam!
+    redirect_to admin_comments_path, :notice => 'Comment was rejected successfully.'
   end
+
+  protected
+
+    def resource
+      @comment ||= comments.find(params[:id])
+    end
+
+    def comments
+      @comments ||= Comment.on_posts_of(current_editor)
+    end
 end

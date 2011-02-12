@@ -3,10 +3,8 @@ Feature: Manage blog posts
   As an editor
   I want to be able to manage posts
 
-  Background:
+  Scenario: Editor lists posts in administration
     Given I am logged in as editor
-
-  Scenario: Admin lists posts in administration
     When I follow "Posts"
     And I follow "New"
     And I fill in "Title" with "First title"
@@ -27,3 +25,13 @@ Feature: Manage blog posts
     When I follow "Delete"
     Then I should see "Post was successfully destroyed"
     And I should not see "Git"
+
+  Scenario: Editor can view only their posts
+    Given an editor exists with email: "i_the_editor@example.com"
+    And a post exists with editor: the editor, title: "My post"
+    And an editor exists with email: "other_editor@example.com"
+    And a post exists with editor: the editor, title: "Other post"
+    And I am logged in as "i_the_editor@example.com"
+    When I follow "Posts"
+    Then I should see "My post"
+    And I should not see "Other post"

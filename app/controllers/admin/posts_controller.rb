@@ -3,11 +3,13 @@ class Admin::PostsController < Admin::BaseController
   inherit_resources
 
   def index
-    # TODO: move to model
-    @posts = Post.paginate(:page => params[:page], :per_page => 15,
-                           :select => "id, title, published_at",
-                           :include => :tags,
-                           :order => 'id DESC')
+    @posts = current_editor.posts.order('created_at DESC').
+      paginate(:page => params[:page], :per_page => 15)
   end
 
+  protected
+
+    def begin_of_association_chain
+      current_editor
+    end
 end

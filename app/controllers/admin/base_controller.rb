@@ -14,7 +14,7 @@ class Admin::BaseController < ApplicationController
     def require_admin
       if current_editor && !current_editor.is_admin?
         session[:editor_id] = nil # clean session
-        redirect_to login_url, :error => "Access denied."
+        redirect_to login_url, :alert => "Access denied."
       end
     end
 

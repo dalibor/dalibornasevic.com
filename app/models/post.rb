@@ -1,5 +1,10 @@
 class Post < ActiveRecord::Base
 
+  # Attributes
+  attr_accessible :title, :content, :description, :comments_closed,
+                  :tag_names, :publish, :published_at
+  attr_writer :tag_names
+
   # Validations
   validates :title, :presence => true
   validates :content, :presence => true
@@ -8,20 +13,11 @@ class Post < ActiveRecord::Base
   has_many :comments
   has_many :taggings, :dependent => :destroy
   has_many :tags, :through => :taggings
-
-  # Attributes
-  attr_writer :publish
-  attr_writer :tag_names
+  belongs_to :editor
 
   # Callbacks
   before_save :reset_published_at, :unless => Proc.new {|m| m.publish }
   after_save :assign_tags
-
-  # nil is when the post form is not submitted
-  # but when the post is updated with comments cache counter
-  def publish
-    @publish.nil? ? published_at : @publish
-  end
 
   def tag_names
     @tag_names || tags.map(&:name).join(' ')
@@ -45,3 +41,21 @@ class Post < ActiveRecord::Base
       self.published_at = nil
     end
 end
+
+
+# == Schema Information
+#
+# Table name: posts
+#
+#  id              :integer(4)      not null, primary key
+#  title           :string(255)
+#  content         :text
+#  created_at      :datetime
+#  updated_at      :datetime
+#  comments_count  :integer(4)      default(0)
+#  published_at    :datetime
+#  description     :string(255)
+#  comments_closed :boolean(1)      default(FALSE)
+#  editor_id       :integer(4)
+#
+

@@ -27,14 +27,29 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = true
 end
 
-def login
-  current_editor = Factory.create(:editor)
+def login_as_editor
+  current_editor = Factory.create(:editor, :email => "editor@example.com")
   controller.stub!(:current_editor).and_return(current_editor)
   controller.stub!(:authenticate).and_return(:true)
+  current_editor
+end
+
+def login_as_admin
+  current_editor = Factory.create(:admin, :email => "admin@example.com")
+  controller.stub!(:current_editor).and_return(current_editor)
+  controller.stub!(:authenticate).and_return(:true)
+  current_editor
 end
 
 shared_examples_for "protected resource" do
   it "should protect resource" do
+    flash[:alert].should_not be_nil
     response.should be_redirect
+  end
+end
+
+shared_examples_for "accessible resource" do
+  it "should protect resource" do
+    flash[:alert].should be_nil
   end
 end

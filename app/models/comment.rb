@@ -28,6 +28,8 @@ class Comment < ActiveRecord::Base
   # Scopes
   scope :spam_comments, :conditions => { :approved => false }
   scope :valid_comments, :conditions => { :approved => true }
+  scope :on_posts_of, proc { |current_editor|
+    where(['post_id IN (?)', current_editor.posts.map{|p| p.id}]) }
 
   # Callbacks
   before_validation :add_protocol_to_url
@@ -80,3 +82,22 @@ class Comment < ActiveRecord::Base
       Rakismet::KEY.present?
     end
 end
+
+# == Schema Information
+#
+# Table name: comments
+#
+#  id         :integer(4)      not null, primary key
+#  post_id    :integer(4)
+#  name       :string(255)
+#  email      :string(255)
+#  url        :string(255)
+#  content    :text
+#  created_at :datetime
+#  updated_at :datetime
+#  user_ip    :string(255)
+#  user_agent :string(255)
+#  referrer   :string(255)
+#  approved   :boolean(1)      default(FALSE), not null
+#
+

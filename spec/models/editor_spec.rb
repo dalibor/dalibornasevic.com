@@ -1,11 +1,21 @@
 require 'spec_helper'
 
 describe Editor do
+
+  describe 'attributes' do
+    it { should allow_mass_assignment_of(:email) }
+    it { should allow_mass_assignment_of(:name) }
+    it { should allow_mass_assignment_of(:password) }
+    it { should allow_mass_assignment_of(:password_confirmation) }
+  end
+
   describe 'associations' do
+    it { should have_many(:posts) }
   end
 
   describe 'validations' do
     subject { Factory(:editor) }
+    it { should be_valid }
     it { should validate_presence_of(:email) }
     it { should validate_uniqueness_of(:email) }
 
@@ -60,3 +70,18 @@ describe Editor do
   end
 
 end
+
+# == Schema Information
+#
+# Table name: editors
+#
+#  id            :integer(4)      not null, primary key
+#  email         :string(255)
+#  name          :string(255)
+#  password_hash :string(255)
+#  password_salt :string(255)
+#  is_admin      :boolean(1)      default(FALSE)
+#  created_at    :datetime
+#  updated_at    :datetime
+#
+
