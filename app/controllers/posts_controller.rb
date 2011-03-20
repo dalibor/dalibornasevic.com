@@ -1,17 +1,10 @@
 class PostsController < ApplicationController
 
   def index
-    conditions = {:page => params[:page], :per_page => 5, :order => 'published_at DESC', :include => :tags, :conditions => 'published_at IS NOT NULL'}
-
-    if !params[:tag].blank? && (tag = Tag.find_by_name(params[:tag]))
-      @posts = tag.posts.paginate(conditions)
-      @title = "#{params[:tag].capitalize}"
-      @keywords = params[:tag]
-    else
-      @posts = Post.paginate(conditions)
-      @title = "Home"
-      @keywords = B[:keywords]
-    end
+    @posts          = scope.order('published_at DESC').includes('tags').
+                            where('published_at IS NOT NULL').
+                            paginate :page => params[:page], :per_page => 5
+    @posts_by_month = Post.posts_by_month
 
     respond_to do |format|
       format.html
@@ -20,8 +13,21 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find params[:id], :conditions => 'published_at IS NOT NULL'
-    @comments = @post.comments.find(:all, :conditions => {:approved => true})
-    @comment = Comment.new
+    @post           = Post.where('published_at IS NOT NULL').find(params[:id])
+    @comments       = @post.comments.where({:approved => true})
+    @comment        = Comment.new
+    @posts_by_month = Post.posts_by_month
   end
+
+  private
+    def scope
+      if params[:tag].present? && (tag = Tag.find_by_name(params[:tag]))
+        tag.posts
+      elsif params[:year].present? && params[:month].present?
+        Post.where("YEAR(published_at) = ? AND MONTH(published_at) = ?", 
+                   params[:year], params[:month])
+      else
+        Post
+      end
+    end
 end

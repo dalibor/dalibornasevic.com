@@ -22,3 +22,18 @@ Feature: A visitor can view posts
     Given a post exists with title: "Cucumber", published_at: nil
     When I am on list of posts
     Then I should not see "Cucumber"
+
+  Scenario: Visitor can see posts grouped by month
+    Given a post exists with title: "Cucumber", published_at: "2011-01-03"
+    And a post exists with title: "Webrat", published_at: "2011-01-13"
+    And a post exists with title: "Vim", published_at: "2011-02-03"
+    And I am on list of posts
+    Then I should see "January 2011 (2)"
+    And I should see "February 2011 (1)"
+    And I should see "Cucumber"
+    And I should see "Webrat"
+    And I should see "Vim"
+    When I follow "January 2011"
+    Then I should see "Cucumber"
+    And I should see "Webrat"
+    And I should not see "Vim"

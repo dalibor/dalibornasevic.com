@@ -19,6 +19,7 @@
  * TODO:
  *
  *  - loading notification
+ *  - autorefresh
  *
  */
 
@@ -51,7 +52,7 @@
 
           if (typeof(this.date) === "undefined") {
             date = '';
-            listeningNow = $('<span/>').append(
+            listeningNow = $('<div/>').append(
               $('<img/>').attr({src: 'http://cdn.last.fm/flatness/global/icon_eq.gif'}),
               'Listening now'
             )
@@ -68,14 +69,12 @@
 
           ul.append(
             $("<li/>", {"class": liClass}).append(
-              $('<span/>').append(
-                $('<img/>').attr({src: imageUrl, alt: this.album['#text'], title: this.album['#text']})
-              ),
-              $('<span/>').append(
+              $('<img/>').attr({'class': 'cover', src: imageUrl, alt: this.album['#text'], title: this.album['#text']}),
+              $('<div/>').append(
                 this.artist['#text'] + ' - ',
                 $('<a/>').attr({href: this.url, target: '_blank'}).text(this.name)
               ),
-              $('<span/>').attr({title: date}).timeago(),
+              $('<i/>').attr({title: date, "class": "date"}).timeago(),
               listeningNow
             )
           )

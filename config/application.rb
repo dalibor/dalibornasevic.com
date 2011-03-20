@@ -1,5 +1,9 @@
 require File.expand_path('../boot', __FILE__)
 
+# temporary hack for recaptcha:
+# https://github.com/ambethia/recaptcha/issues/closed/#issue/7
+require 'net/http'
+
 require 'rails/all'
 
 # If you have a Gemfile, require the gems listed there, including any gems
@@ -43,5 +47,13 @@ module Blog
       g.template_engine :haml
       g.test_framework :rspec, :fixture => false
     end
+
+    ActionView::Base.field_error_proc = Proc.new do |html_tag, instance|
+      include ActionView::Helpers::RawOutputHelper
+      raw %(<span class="field_with_errors">#{html_tag}</span>)
+    end
+
   end
 end
+
+

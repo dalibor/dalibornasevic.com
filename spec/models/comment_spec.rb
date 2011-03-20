@@ -35,10 +35,9 @@ describe Comment do
   describe "named scopes" do
     before(:each) do
       post = Factory.create(:post)
-      Factory.create(:comment, :post => post) # valid comment
-      Factory.create(:comment, :post => post) # valid comment
-      spam_comment = Factory.create(:comment, :post => post)
-      spam_comment.mark_as_spam!
+      Factory.create(:comment, :post => post)
+      Factory.create(:comment, :post => post)
+      Factory.create(:comment, :post => post, :approved => false)
     end
 
     it "should count all comments" do
@@ -51,31 +50,6 @@ describe Comment do
 
     it "should count spam comments" do
       Comment.spam_comments.count.should == 1
-    end
-  end
-
-  describe "akismet" do
-    it "approve comment when akismet key is not present" do
-      comment = Factory.build(:comment, :post => Factory.create(:post))
-      comment.stub!(:rakismet_key_present?).and_return(false)
-      comment.save.should be_true
-      comment.approved.should == true
-    end
-
-    it "approve comment when akismet key is present and comment is not spam" do
-      comment = Factory.build(:comment, :post => Factory.create(:post))
-      comment.stub!(:rakismet_key_present?).and_return(true)
-      comment.stub!(:spam?).and_return(false)
-      comment.save.should be_true
-      comment.approved.should == true
-    end
-
-    it "does not approve comment when akismet key is present and comment is spam" do
-      comment = Factory.build(:comment, :post => Factory.create(:post))
-      comment.stub!(:rakismet_key_present?).and_return(true)
-      comment.stub!(:spam?).and_return(true)
-      comment.save.should be_true
-      comment.approved.should == false
     end
   end
 
@@ -97,49 +71,9 @@ describe Comment do
     end
   end
 
-  describe "change comment status to be spam or ham" do
-    it "should mark as spam when akismet key is not present" do
-      comment = Factory.create(:comment, :post => Factory.create(:post), :approved => true)
-      comment.stub!(:rakismet_key_present?).and_return(false)
-      comment.mark_as_spam!
-      comment.approved.should == false
-    end
-
-    it "should mark as spam when akismet key is present" do
-      comment = Factory.create(:comment, :post => Factory.create(:post), :approved => true)
-      comment.stub!(:rakismet_key_present?).and_return(true)
-      comment.stub!(:spam!).and_return(true)
-      comment.mark_as_spam!
-      comment.approved.should == false
-    end
-
-    it "should mark as ham when akismet key is not present" do
-      comment = Factory.create(:comment, :post => Factory.create(:post), :approved => false)
-      comment.stub!(:rakismet_key_present?).and_return(false)
-      comment.mark_as_ham!
-      comment.approved.should == true
-    end
-
-    it "should mark as ham when akismet key is present" do
-      comment = Factory.create(:comment, :post => Factory.create(:post), :approved => false)
-      comment.stub!(:rakismet_key_present?).and_return(true)
-      comment.stub!(:ham!).and_return(true)
-      comment.mark_as_ham!
-      comment.approved.should == true
-    end
-  end
-
   describe "comments_count" do
-    def create_spam_comment
-      comment = Factory.build(:comment, :post => Factory.create(:post), :approved => false)
-      comment.stub!(:rakismet_key_present?).and_return(true)
-      comment.stub!(:spam?).and_return(true)
-      comment.save.should be_true
-      return comment
-    end
-
     it "should not increase comments_count in post when spam comment is created" do
-      comment = create_spam_comment
+      comment = Factory.create(:comment, :approved => false)
       comment.post.comments_count.should == 0
     end
 
@@ -151,17 +85,17 @@ describe Comment do
     it "should decrease comment_count in post when comment is marked as spam" do
       comment = Factory.create(:comment, :post => Factory.create(:post), :approved => true)
       comment.post.comments.size.should == 1
-      comment.stub!(:rakismet_key_present?).and_return(false)
-      comment.mark_as_spam!
+      comment.approved = false
+      comment.save
       comment.reload
       comment.post.comments.size.should == 0
     end
 
     it "should increase comment_count in post when comment is marked as ham" do
-      comment = create_spam_comment
+      comment = Factory.create(:comment, :approved => false)
       comment.post.comments_count.should == 0
-      comment.stub!(:rakismet_key_present?).and_return(false)
-      comment.mark_as_ham!
+      comment.approved = true
+      comment.save
       comment.reload
       comment.post.comments.size.should == 1
     end

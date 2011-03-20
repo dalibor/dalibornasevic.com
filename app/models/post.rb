@@ -27,6 +27,13 @@ class Post < ActiveRecord::Base
     "#{id}-#{title.parameterize}"
   end
 
+  def self.posts_by_month
+    select("published_at, COUNT(*) AS total").
+    group("YEAR(published_at), MONTH(published_at)").
+    where('published_at IS NOT NULL').
+    order('published_at DESC')
+  end
+
   private
 
     def assign_tags

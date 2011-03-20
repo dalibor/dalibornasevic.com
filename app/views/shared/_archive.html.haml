@@ -1,0 +1,7 @@
+%aside.archive
+  %h3 Archive
+  %ul
+    - @posts_by_month.each do |post|
+      %li
+        = link_to post.published_at.strftime("%B %Y"), date_posts_path(post.published_at.year, post.published_at.month)
+        == (#{post.total})

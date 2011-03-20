@@ -2,8 +2,9 @@
 %html
   %head
     %title Dalibor Nasevic
-    = stylesheet_link_tag "web-app-theme/base", "web-app-theme/themes/drastic-dark/style", "web-app-theme/override", :cache => true
-    = javascript_include_tag 'jquery-1.4.4.min.js', 'syntaxhighlighter/shCore', 'syntaxhighlighter/shBrushRuby', 'rails', 'plugins', 'admin'
+    = stylesheet_link_tag "web-app-theme/base", "web-app-theme/themes/drastic-dark/style", "web-app-theme/override", 'syntaxhighlighter/shCore.css', 'syntaxhighlighter/shThemeFadeToGrey', :cache => true
+    = render 'layouts/brushes'
+    = javascript_include_tag 'jquery-1.4.4.min.js', 'jquery.wymeditor.min.js', 'wym_boot', 'rails', 'plugins', 'admin'
     = csrf_meta_tag
   %body
     #container

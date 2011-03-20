@@ -9,19 +9,24 @@ gem 'mysql2'
 gem 'haml'
 gem 'hpricot', '>=0.6'
 gem 'RedCloth', '>=4.2.3', :require => 'redcloth'
-gem 'rakismet'
 gem 'will_paginate', '~> 3.0.pre2'
 gem 'sitemap_generator'
 gem 'compass'
 gem 'html5-boilerplate'
 gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'inherited_resources', '~> 1.2.1'
+gem 'recaptcha', :require => 'recaptcha/rails'
 
 group :development do
   gem 'annotate'
   gem 'mongrel'
   gem 'haml-rails' # haml generators
   gem 'ruby-debug'
+  gem 'wirble'
+  gem 'interactive_editor'
+  gem 'sketches'
+  gem 'looksee'
+  gem 'awesome_print'
 end
 
 group :development, :test do

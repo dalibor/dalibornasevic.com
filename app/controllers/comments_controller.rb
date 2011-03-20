@@ -1,21 +1,20 @@
 class CommentsController < ApplicationController
 
   def create
-    @post = Post.find(params[:post_id], :conditions => "comments_closed = 0")
-    @comment = @post.comments.new(params[:comment])
+    @post            = Post.where("comments_closed = 0").find(params[:post_id])
+    @comment         = @post.comments.new(params[:comment])
     @comment.request = request
 
-    if @comment.save
-      if @comment.approved?
-        flash[:notice] = "Your comment was successfully created."
-      else
-        flash[:error] = "Unfortunately this comment is considered spam by Akismet. It will show up once it has been approved by the administrator."
-      end
+    if verify_recaptcha(:model => @comment) && @comment.save
+      flash[:notice] = "Your comment was successfully created."
       redirect_to @post
     else
-      flash[:error] = "Please correct invalid data from the form."
-      @comments = @post.comments
-      render :template => 'posts/show'
+      if @comment.valid?
+        flash.now[:error] = "Please enter correct reCaptcha."
+      else
+        flash.now[:error] = "Please correct invalid data from the form."
+      end
+      render 'new'
     end
   end
 end

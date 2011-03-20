@@ -15,7 +15,7 @@
         %b
           = t("activerecord.attributes.admin_post.content", :default => t("activerecord.labels.content", :default => "Content"))
           \:
-        = @post.content
+        = raw @post.content
       %p
         %b
           = t("activerecord.attributes.admin_post.comments_count", :default => t("activerecord.labels.comments_count", :default => "Comments count"))

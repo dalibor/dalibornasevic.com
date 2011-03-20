@@ -1,6 +1,12 @@
-.comment
-  = image_tag gravatar_url(comment.email), :class => 'avatar'
-  %p.author
-    Posted by #{h comment.name} on #{comment.created_at.strftime("%B %d, %Y at %I:%M %P")}
-  %p= sanitize simple_format(comment.content), :tags => %w(br p)
+%li
+  .author
+    .avatar= image_tag gravatar_url(comment.email), :class => 'avatar'
+    .name= h comment.name
 
+  .content
+    = sanitize simple_format(comment.content), :tags => %w(br p)
+
+  .time
+    posted
+    = time_ago_in_words comment.created_at
+    ago

@@ -1,12 +1,12 @@
-.post
-  %h2= link_to post.title, post
-  %p.author
-    Posted on #{post.published_at.strftime("%B %d, %Y at %I:%M %P")}
-  .content
-    = find_and_preserve RedCloth.new(post.content).html_safe
-  .tags
-    Tags: #{raw post.tags.empty? ? 'none' : post.tags.map{|tag| link_to(tag.name, tag_posts_path(tag))}.join(' ')}
-  .leave_comment
-    = link_to "Comment", post_path(post) + '#new_comment'
-    \/
-    \#{link_to "Comments (#{post.comments.size})", post_path(post) + '#comments'}
+.posts_wrapper
+  %article
+    %header
+      %h2= link_to post.title, post
+      %div
+        %time{:datetime => post.published_at}
+          = time_ago_in_words post.published_at
+          ago
+        %span= raw post.tags.map{|tag| link_to(tag.name, tag_posts_path(tag))}.join(' ')
+
+    %section
+      = raw find_and_preserve(post.content)

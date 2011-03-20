@@ -1,1 +1,15 @@
-%h1= link_to B[:title], root_path
+.wrapper
+  #logo
+    %h1
+      = link_to root_path do
+        %strong Dalibor
+        Nasevic
+    %p
+      Programming principles and practices to extreme levels
+  %nav
+    %ul
+      %li= link_to image_tag('feed-icon-14x14.png'), posts_path(:format => 'rss')
+      %li= link_to "Home", root_path
+      %li= link_to "Blog", posts_path
+      %li= link_to "About", static_path('about')
+      %li= mail_to 'dalibor.nasevic@gmail.com', 'Contact'

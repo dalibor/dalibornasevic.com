@@ -1,17 +1,5 @@
-require "yaml"
-
-file = YAML.load_file(File.join(Rails.root, 'config/application.yml'))
 B = {}
-
-USERNAME = file['password']['username']
-PASSWORD = file['password']['password']
-REALM = file['password']['realm']
-
-B[:url]         = file['blog']['url']
-B[:title]       = file['blog']['title']
-B[:description] = file['blog']['description']
-B[:keywords]    = file['blog']['keywords']
-
-Rakismet::KEY   = file['akismet']['key']
-Rakismet::URL   = file['akismet']['url']
-Rakismet::HOST  = file['akismet']['host']
+B[:url]         = "dalibornasevic.com"
+B[:title]       = "Dalibor Nasevic"
+B[:description] = "Dalibor Nasevic is a Software Engineer from Skopje (Macedonia), works on web applications development using Ruby, Ruby on Rails, Javascript and jQuery."
+B[:keywords]    = "Dalibor Nasevic, Dalibor, Nasevic, ruby, rails, ruby on rails, web development, web, development, software, Далибор Насевиќ, Далибор, Насевиќ, веб девелопмент, веб, девелопмент"

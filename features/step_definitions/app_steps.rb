@@ -44,23 +44,12 @@ When /^I fill in the comment url "([^\"]*)"$/ do |url|
   fill_in "URL", :with => url
 end
 
-When /^this comment is not spam$/ do
-  class Comment
-    def spam?
-      false
-    end
-  end
+Then /^the page should have "([^"]*)"$/ do |selector|
+  page.should have_css(selector)
 end
 
-When /^this comment is spam$/ do
-#  Rakismet::KEY.stub!(:blank?).and_return(false)
-  module Rakismet;  remove_const :"KEY"; end
-  Rakismet::KEY = '1234567890'
-  class Comment
-    def spam?
-      true
-    end
-  end
+Then /^the page should not have "([^"]*)"$/ do |selector|
+  page.should_not have_css(selector)
 end
 
 #When /^I wait "([^\"]*)" second$/ do |time|

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110212164305) do
+ActiveRecord::Schema.define(:version => 20110320230140) do
 
   create_table "comments", :force => true do |t|
     t.integer  "post_id"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(:version => 20110212164305) do
     t.string   "user_ip"
     t.string   "user_agent"
     t.string   "referrer"
-    t.boolean  "approved",   :default => false, :null => false
+    t.boolean  "approved",   :default => true, :null => false
   end
 
   add_index "comments", ["post_id"], :name => "index_comments_on_post_id"

@@ -1,16 +1,11 @@
 Version 0.2 TODO:
-  - Prepare front page content
-  - Write front page html markup
-  - Write front page css styles
-  - Design logo
+  Write missing spesc and features
+  Improve looks
+  Test in other browser (IE, Opera, Safari, Chrome)
+  Removed unused javascripts
 
-  - Add formtastic for forms
-  - Change design
+- Deploy
+  rake db:migrate
+  rake db:seed
+  rails runner db/fixes/assign_editor_id_to_posts.rb
 
-  - Check if akismet works, otherwise replace it with lighter solution
-  - Check sitemap generator
-  - Write db fix migration to change all opening pre tags to: <pre class="brush: ruby">
-  - Currently reading section
-
-  - CSS styles:
-    - blockquote

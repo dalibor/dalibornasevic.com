@@ -33,7 +33,6 @@ describe Admin::CommentsController do
       post = Factory.create(:post, :editor => editor)
       @valid_comment = Factory.create(:comment, :post => post, :approved => true)
       @spam_comment = Factory.create(:comment, :post => post, :approved => false)
-      @spam_comment.mark_as_spam!
     end
 
     it "should render all comments successfully" do
@@ -76,46 +75,6 @@ describe Admin::CommentsController do
     it "should set flash notice" do
       delete :destroy_multiple, :comment_ids => ['1', '2']
       flash[:notice].should == 'Comments were successfully destroyed.'
-    end
-  end
-
-  describe "approve comment" do
-    before :each do
-      login_as_editor
-      @mock_object = mock_model(Comment)
-      Comment.stub_chain(:on_posts_of, :find).with("1").and_return(@mock_object)
-      @mock_object.stub!(:mark_as_ham!).and_return(true)
-    end
-
-    it "should mark as ham comment" do
-      @mock_object.should_receive(:mark_as_ham!).and_return(true)
-      put :approve, :id => "1", :comment=>{}
-      response.should redirect_to(admin_comments_url)
-    end
-
-    it "should set flash notice" do
-      put :approve, :id => "1", :comment=>{}
-      flash[:notice].should == 'Comment was approved successfully.'
-    end
-  end
-
-  describe "reject comment" do
-    before :each do
-      login_as_editor
-      @mock_object = mock_model(Comment)
-      Comment.stub_chain(:on_posts_of, :find).with("1").and_return(@mock_object)
-      @mock_object.stub!(:mark_as_spam!).and_return(true)
-    end
-
-    it "should mark as spam comment" do
-      @mock_object.should_receive(:mark_as_spam!).and_return(true)
-      put :reject, :id => "1", :comment=>{}
-      response.should redirect_to(admin_comments_url)
-    end
-
-    it "should set flash notice" do
-      put :reject, :id => "1", :comment=>{}
-      flash[:notice].should == 'Comment was rejected successfully.'
     end
   end
 end

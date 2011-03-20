@@ -19,6 +19,7 @@
  * TODO:
  *
  *  - loading notification
+ *  - autorefresh
  *
  */
 
@@ -47,11 +48,11 @@
 
           ul.append(
             $("<li/>", {"class": liClass}).append(
-              $('<span/>').text(this.text).autolink(),
-              $('<a/>').attr({ href: url,
-                title: this.created_at,
-                target: '_blank'}
-              ).timeago()
+              $('<div/>').text(this.text).autolink(),
+              $('<i/>').append(
+                $('<a/>').attr({href: url, title: this.created_at,
+                  "class": "date", target: '_blank'}).timeago()
+              )
             )
           )
         });

@@ -1,4 +1,15 @@
 class MainController < ApplicationController
-  def about
+
+  def index
+    @posts = Post.order('created_at DESC').limit(5)
+  end
+
+  def show
+    render params[:id]
+  end
+
+  def sitemap
+    @posts = Post.order('published_at DESC').where(:publish => true)
+    @tags  = Tag.order('name ASC')
   end
 end
