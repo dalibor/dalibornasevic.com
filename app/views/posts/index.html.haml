@@ -1,0 +1,9 @@
+- title("Recent blog posts")
+
+.posts_wrapper
+  = render :partial => 'post', :collection => @posts
+
+  .pagination
+    = will_paginate @posts
+
+= render 'shared/archive'

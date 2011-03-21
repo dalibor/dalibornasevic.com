@@ -13,26 +13,25 @@ Personal Blog application for http://dalibornasevic.com
     git clone git://github.com/dalibor/blog.git
     cd blog
 
-- Initialize & update rails submodule
-
-    git submodule init
-    git submodule update
-    cd vendor/rails
-    git checkout origin/2-3-stable
-
 - Config database
 
     cp config/database.yml.template config/database.yml
     vi config/database.yml
 
-- Peronalize application
+- Personalize application
 
     cp config/application.yml.template config/application.yml
     vi config/application.yml
 
-- Run following rake task to create session_key and secret for the application
+- Setup google analytics
 
-    rake config/initializers/session_store.rb 
+    cp config/google.yml.template config/google.yml
+    vi config/google.yml
+
+- Change the secret token for verifying the integrity of signed cookies
+
+    First generate new secret token with: 'rake secret'
+    Then add it to config/initializers/secret_token.rb
 
 - Install gems
 
@@ -51,9 +50,9 @@ Personal Blog application for http://dalibornasevic.com
 
 - Add tags to the post which are used as keywords on that page
 
-- Run rake sitemap task to create a sitemap and submit your public/sitemaps/sitemap_index.xml to search engines
+- Run rake sitemap task to create a sitemap and submit it to search engines
 
-    rake sitemap
+    rake sitemap:refresh
 
 == Run tests
 

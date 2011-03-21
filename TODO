@@ -1,0 +1,11 @@
+Version 0.2 TODO:
+  Write missing spesc and features
+  Improve looks
+  Test in other browser (IE, Opera, Safari, Chrome)
+  Removed unused javascripts
+
+- Deploy
+  rake db:migrate
+  rake db:seed
+  rails runner db/fixes/assign_editor_id_to_posts.rb
+

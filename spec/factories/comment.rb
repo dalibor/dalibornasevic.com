@@ -1,7 +1,8 @@
-Factory.define :comment do |f|
+Factory.define :comment, :class => Comment do |f|
+  f.name        "Pink Panter"
+  f.email       "pink.panter@gmail.com"
+  f.url         "http://www.pinkpanter.com"
+  f.content     "This is my first comment"
+  f.approved    true
   f.association :post
-  f.name "Dalibor Nasevic"
-  f.email "dalibor.nasevic@gmail.com"
-  f.url "http://www.dalibornasevic.com"
-  f.content "This is my first comment"
 end

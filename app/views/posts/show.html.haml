@@ -1,0 +1,21 @@
+- title(@post.title)
+- keywords(@post.tags.map(&:name).join(', '))
+- description(@post.description)
+
+= render 'posts/post', :post => @post
+
+= render 'shared/archive'
+
+.comments_wrapper
+  %h3 Comments
+  - if @post.comments.size > 0
+    %ol
+      = render :partial => 'comments/comment', :collection => @comments
+  - else
+    %p This article does not have any comments yet.
+
+.comment_form
+  - if @post.comments_closed?
+    %p Sorry, comments are closed for this article.
+  - else
+    = render :partial => 'comments/form'

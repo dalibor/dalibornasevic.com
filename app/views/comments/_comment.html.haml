@@ -1,0 +1,12 @@
+%li
+  .author
+    .avatar= image_tag gravatar_url(comment.email), :class => 'avatar'
+    .name= h comment.name
+
+  .content
+    = sanitize simple_format(comment.content), :tags => %w(br p)
+
+  %time
+    posted
+    = time_ago_in_words comment.created_at
+    ago

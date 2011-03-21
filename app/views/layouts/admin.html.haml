@@ -1,0 +1,41 @@
+!!!
+%html
+  %head
+    %title Dalibor Nasevic
+    = stylesheet_link_tag "web-app-theme/base", "web-app-theme/themes/drastic-dark/style", "web-app-theme/override", 'syntaxhighlighter/shCore.css', 'syntaxhighlighter/shThemeFadeToGrey', :cache => true
+    = render 'layouts/brushes'
+    = javascript_include_tag 'jquery-1.4.4.min.js', 'jquery.wymeditor.min.js', 'wym_boot', 'rails', 'plugins', 'admin'
+    = csrf_meta_tag
+  %body
+    #container
+      #header
+        %h1
+          = link_to "Dalibor Nasevic", root_path
+        #user-navigation
+          %ul.wat-cf
+            %li
+              %a{:href => edit_admin_profile_path}= t("web-app-theme.profile", :default => "Profile")
+            %li
+              %a.logout{:href => "/logout"}= t("web-app-theme.logout", :default => "Logout")
+        #main-navigation
+          %ul.wat-cf
+            %li{:class => controller.controller_path == 'admin/posts' ? 'active' : '' }
+              %a{:href => admin_posts_path} Posts
+            %li{:class => controller.controller_path == 'admin/comments' ? 'active' : '' }
+              %a{:href => admin_comments_path} Comments
+            - if current_editor.is_admin?
+              %li{:class => controller.controller_path == 'admin/editors' ? 'active' : '' }
+                %a{:href => admin_editors_path} Editors
+      #wrapper.wat-cf
+        .flash
+          - flash.each do |type, message|
+            %div{:class => "message #{type}"}
+              %p= message
+        #main
+          = yield
+          #footer
+            .block
+              %p
+                Copyright &copy; #{Time.now.year} Dalibor Nasevic.
+        #sidebar
+          = yield :sidebar

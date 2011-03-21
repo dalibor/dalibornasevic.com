@@ -1,42 +1,68 @@
 class Post < ActiveRecord::Base
 
-  validates_presence_of :title
-  validates_presence_of :content
+  # Attributes
+  attr_accessible :title, :content, :description, :comments_closed,
+                  :tag_names, :publish, :published_at
+  attr_writer :tag_names
 
+  # Validations
+  validates :title, :presence => true
+  validates :content, :presence => true
+
+  # Associations
   has_many :comments
   has_many :taggings, :dependent => :destroy
   has_many :tags, :through => :taggings
+  belongs_to :editor
 
-  attr_writer :tag_names
-  attr_writer :publish
-
+  # Callbacks
+  before_save :reset_published_at, :unless => Proc.new {|m| m.publish }
   after_save :assign_tags
 
-  before_save :check_for_publish
-
   def tag_names
-    @tag_names || tags.map{|t| t.name}.join(' ') # it seems like factory girl somehow can't handle tags.map(&name).join(' ')
-  end
-
-  def publish
-    @publish || !published_at.nil?
+    @tag_names || tags.map(&:name).join(' ')
   end
 
   def to_param
     "#{id}-#{title.parameterize}"
   end
 
+  def self.posts_by_month
+    select("published_at, COUNT(*) AS total").
+    group("YEAR(published_at), MONTH(published_at)").
+    where('published_at IS NOT NULL').
+    order('published_at DESC')
+  end
+
   private
 
-  def assign_tags
-    if @tag_names
-      self.tags = @tag_names.split(/\s+/).map do |name|
-        Tag.find_or_create_by_name(name.strip)
+    def assign_tags
+      if tag_names
+        self.tags = tag_names.split(/\s+/).map do |name|
+          Tag.find_or_create_by_name(name.strip)
+        end
       end
     end
-  end
 
-  def check_for_publish
-    self.published_at = nil if publish == '0'
-  end
+    def reset_published_at
+      self.published_at = nil
+    end
 end
+
+
+# == Schema Information
+#
+# Table name: posts
+#
+#  id              :integer(4)      not null, primary key
+#  title           :string(255)
+#  content         :text
+#  created_at      :datetime
+#  updated_at      :datetime
+#  comments_count  :integer(4)      default(0)
+#  published_at    :datetime
+#  description     :string(255)
+#  comments_closed :boolean(1)      default(FALSE)
+#  editor_id       :integer(4)
+#
+

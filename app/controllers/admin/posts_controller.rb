@@ -1,54 +1,15 @@
-class Admin::PostsController < ApplicationController
+class Admin::PostsController < Admin::BaseController
 
-  before_filter :authenticate
-  layout "admin"
+  inherit_resources
 
   def index
-    @posts = Post.paginate(:page => params[:page], :per_page => 15, :select => "id, title, published_at", :include => :tags, :order => 'id DESC')
+    @posts = current_editor.posts.order('created_at DESC').
+      paginate(:page => params[:page], :per_page => 15)
   end
 
-  def new
-    @post = Post.new
-  end
+  protected
 
-  def show
-    @post = Post.find params[:id]
-  end
-
-  def edit
-    @post = Post.find params[:id]
-  end
-
-  def create
-    @post = Post.new(params[:post])
-
-    if @post.save
-      flash[:notice] = 'Post was created successfully'
-      redirect_to [:admin, @post]
-    else
-      render :action => :new
+    def begin_of_association_chain
+      current_editor
     end
-  end
-
-  def update
-    @post = Post.find(params[:id])
-
-    if @post.update_attributes(params[:post])
-      flash[:notice] = 'Post was updated successfully'
-      redirect_to [:admin, @post]
-    else
-      render :action => :edit
-    end
-  end
-
-  def destroy
-    @post = Post.find(params[:id])
-    @post.destroy
-    flash[:notice] = 'Post was deleted successfully'
-    redirect_to admin_posts_url
-  end
-
-  def delete
-    @post = Post.find(params[:id])
-  end
 end

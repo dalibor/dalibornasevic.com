@@ -1,0 +1,25 @@
+.new_comment
+  %h3 Leave a comment
+
+  -#= render "shared/error_messages", :resource => @comment
+  = form_for [@post, @comment], :html => {:class => 'form'} do |f|
+    %div
+      %span.field_notice required
+      = f.label :name, 'Name'
+      = f.text_field :name
+    %div
+      %span.field_notice valid, will not be published
+      = f.label :email, 'Email'
+      = f.text_field :email
+    %div
+      %span.field_notice enter valid URL, or leave this blank
+      = f.label :url, 'URL'
+      = f.text_field :url
+    %div
+      %span.field_notice required
+      = f.label :content, 'Comment'
+      = f.text_area :content, :rows => 10, :cols => 50
+    %div
+      = raw recaptcha_tags
+    %div
+      = f.submit 'Comment', :class => 'submit'

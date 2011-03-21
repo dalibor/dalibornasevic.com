@@ -1,21 +1,41 @@
-ActionController::Routing::Routes.draw do |map|
+Blog::Application.routes.draw do
+  get '/login', :to => 'sessions#new', :as => 'login'
+  get '/logout', :to => 'sessions#destroy', :as => 'logout'
+  get '/tag/:tag' => 'posts#index', :as => :tag_posts, :constraints => { :tag => /.*/ }
+  get '/date/:year/:month' => 'posts#index', :as => :date_posts
+  get '/sitemap.:format' => 'main#sitemap', :as => :sitemap
 
-  map.namespace :admin do |admin|
-    admin.root :controller => 'posts'
-    admin.resources :posts, :member => {:delete => :get}
-    admin.resources :comments, :member => {:delete => :get, :approve => :put, :reject => :put}, :collection => {:destroy_multiple => :delete}
+  root :to => 'main#index'
+
+  resource :session
+  resources :posts, :only => [:index, :show] do
+    resources :comments, :only => [:create]
   end
 
-  map.resources :posts, :only => [:index, :show] do |post|
-    post.resources :comments, :only => [:create]
-  end
-  
-  map.root :controller => 'posts'
-  map.tag_posts 'tag/:tag', :controller => 'posts', :action => 'index'
+  namespace :admin do
+    root :to => 'main#index'
 
-  map.about '/about', :controller => 'main', :action => 'about'
-  map.lastfm_service 'services/lastfm', :controller => 'services', :action => 'lastfm'
-  map.twitter_service 'services/twitter', :controller => 'services', :action => 'twitter'
-  #map.connect ':controller/:action/:id'
-  #map.connect ':controller/:action/:id.:format'
+    resources :posts do
+      member do
+        get :delete
+      end
+    end
+
+    resources :comments do
+      member do
+        get :delete
+        put :approve
+        put :reject
+      end
+
+      collection do
+        delete :destroy_multiple
+      end
+    end
+
+    resources :editors
+    resource :profile, :only => [:edit, :update]
+  end
+
+  match '/:id' => 'main#show', :as => :static
 end

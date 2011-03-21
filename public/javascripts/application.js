@@ -1,73 +1,18 @@
-// Place your application-specific JavaScript functions and classes here
-// This file is automatically included by javascript_include_tag :defaults
+// remap jQuery to $
+(function ($) {
 
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+  SyntaxHighlighter.defaults['toolbar'] = false;
+  SyntaxHighlighter.all();
 
-function startAnalytics(id) {
-  try {
-    var pageTracker = _gat._getTracker(id);
-    pageTracker._trackPageview();
-  } catch(err) {}
-}
-  
-document.observe('dom:loaded', function(){
+  //$('body').noisy({
+      //intensity: 0.9, 
+      //size: 200, 
+      //opacity: 0.08,
+      ////fallback: 'fallback.png',
+      //monochrome: false
+  //});
 
-  sh_highlightDocument();
-  
-  if (typeof(_google_analytics_id) != "undefined" && !_google_analytics_id.blank()){
-    startAnalytics(_google_analytics_id);
-  }
+  $('#tweets_container').tweets({username: 'blackflasher', limit: 3});
+  $('#tracks_container').tracks({username: 'blackflasher', limit: 3});
 
-  if ($('notice')){
-      new Effect.Fade($('notice'), {
-      });
-  }
-  
-  if ($('error')){
-      new Effect.Fade($('error'), {
-      });
-  }
-  
-  if ($('lastfm_content')){
-    new Ajax.PeriodicalUpdater({ success: 'lastfm_content' }, '/services/lastfm', {
-      method: 'get',
-      frequency: 300, decay: 2,
-      parameters: { authenticity_token: encodeURIComponent( _token ) },
-      onLoading: function(){
-        $('lastfm_loading').show();
-        $('lastfm_content').hide();
-      },
-      onSuccess: function(){
-        $('lastfm_loading').hide();
-        $('lastfm_content').show();
-      },
-      onFailure: function(transport){
-        $('lastfm_content').update(transport.responseText);
-        $('lastfm_loading').hide();
-        $('lastfm_content').show();
-      }
-    });
-  }
-  
-  if ($('twitter_content')){
-    new Ajax.PeriodicalUpdater({ success: 'twitter_content' }, '/services/twitter', {
-      method: 'get',
-      frequency: 600, decay: 2,
-      parameters: { authenticity_token: encodeURIComponent( _token ) },
-      onLoading: function(){
-        $('twitter_loading').show();
-        $('twitter_content').hide();
-      },
-      onSuccess: function(){
-        $('twitter_loading').hide();
-        $('twitter_content').show();
-      },
-      onFailure: function(transport){
-        $('twitter_content').update(transport.responseText);
-        $('twitter_loading').hide();
-        $('twitter_content').show();
-      }
-    });
-  }
-});
+})(this.jQuery);

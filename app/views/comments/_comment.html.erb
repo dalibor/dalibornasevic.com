@@ -1,5 +1,0 @@
-<div class="comment">
-  <%= gravatar comment.email, :class => 'avatar' %>
-  <p class="author">Posted by <%= h comment.name %> on <%= comment.created_at.strftime("%B %d, %Y at %I:%M %P") %></p>
-  <p><%= sanitize simple_format(comment.content), :tags => %w(br p) %></p>
-</div>

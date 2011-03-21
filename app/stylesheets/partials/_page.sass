@@ -1,0 +1,473 @@
+@import compass/css3
+@import compass/utilities
+@import "compass/css3/transform"
+
+//-----------------------------------------------
+// The following html5-boilerplate styles should
+// probably be customized for each site
+//-----------------------------------------------
+
+h1, h2, h3, h4, h5, h6
+  // Bold might not be the best choice if you are
+  // embedding font faces that are already bold
+  font-weight: normal
+
+strong, th
+  font-weight: bold
+
+small
+  // Use font-size mixin to convert to percentage for YUI
+  // http://developer.yahoo.com/yui/3/cssfonts/#fontsize
+  +font-size(11px)
+  // approx 85% when base-font-size eq 13px
+
+// Add the 'required' attribute on your
+// inputs if you want to use these
+input:valid, textarea:valid
+
+input:invalid, textarea:invalid
+  +border-radius(1px)
+  +box-shadow(red, 0, 0, 5px, 0)
+
+.no-boxshadow input:invalid,
+.no-boxshadow textarea:invalid
+  background-color: #f0dddd
+
+//-----------------------------------
+// Add your own custom styles below
+//-----------------------------------
+
+ol, ul
+  margin-bottom: 1em
+
+ul
+  li
+    list-style: none
+
+//p + p
+  //text-indent: 1em
+
+body
+  background-color: #F2F2F2
+  font-size: 75%
+  //background: url("../../images/underline.gif")
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif
+
+// http://24ways.org/2006/compose-to-a-vertical-rhythm
+html > body
+  //font-size: 12px
+  font-size: 13px
+
+p
+  line-height: 1.5em
+  //margin-top: 1.5em
+  margin-bottom: 1.5em
+
+h1
+  font-size: 2em
+  line-height: 0.75em
+  margin-top: 0.5em
+  margin-bottom: 1em
+  //margin-top: 0.75em
+  //margin-bottom: 0.75em
+  //line-height = height-of-each-line / font-size
+  //1.5 / 2 = 0.75
+h2
+  font-size: 1.5em
+h3
+  font-size: 1.25em
+h4
+  font-size: 1em
+  text-transform: uppercase
+  font-weight: bold
+h5
+  font-size: 0.9em
+h6
+  font-size: 0.8em
+
+section
+  header
+    background: $green-light
+    +border-top-left-radius(5px)
+    +border-bottom-left-radius(5px)
+    padding: 5px 10px
+    overflow: hidden
+    h3
+      float: left
+      text-transform: uppercase
+      font-size: 14px
+    a
+      float: right
+
+#container
+  width: 960px
+  margin: 0 auto
+  overflow: hidden
+
+.wrapper
+  width: 960px
+  margin: 0 auto
+
+header#header
+  height: 70px
+  margin-bottom: 10px
+  //background: red
+  //+linear-gradient(color-stops(#B86262, #934545), bottom)
+  //+linear-gradient(color-stops(#934545, #B86262))
+
+  #logo
+    float: left
+    h1
+      margin-bottom: 0
+      a
+        text-transform: uppercase
+        font-size: 25px
+        color: $olive
+        letter-spacing: -0.03em
+
+        &:hover
+          text-decoration: none
+        
+    p
+      margin: 5px 0
+      border-top: 2px solid $olive
+
+  nav
+    float: right
+    margin: 20px 0 0 0
+
+    ul
+      +horizontal-list
+
+#profile
+  width: 420px
+  float: left
+
+  .about
+    background: $green-light
+    padding: 10px
+    overflow: hidden
+    +border-radius(10px)
+    +box-shadow(#666, 0, 2px, 2px)
+
+    h2
+      margin-bottom: 15px
+      font-size: 1.4em
+      letter-spacing: -0.03em
+      margin-left: 90px
+      //text-align: justify
+      strong
+        text-transform: UPPERCASE
+
+    img
+      float: left
+      margin: 0 5px
+      +rotate(-3deg)
+
+    p
+      padding: 5px
+      margin: 0
+
+  #tweets
+    margin-top: 15px
+    header
+      //border-left: 10px solid $twitter-dark
+
+  #tracks
+    margin-top: 15px
+    header
+      //border-left: 10px solid $lastfm-dark
+
+  #tracks_container, #tweets_container
+    ul
+      margin: 0
+      li
+        margin: 5px 0 0
+        padding: 5px
+        overflow: hidden
+        border-bottom: 1px dashed $green-dark
+        img
+          margin-right: 5px
+          float: left
+        img.cover
+          width: 34px
+          height: 34px
+
+        i
+          display: block
+          padding-top: 5px
+
+        .date
+          font-size: 0.9em
+          font-weight: bold
+
+#blog
+  width: 520px
+  margin-left: 20px
+  float: right
+
+  #posts
+
+    article
+      margin: 5px 0 10px
+      padding: 5px
+      border-bottom: 1px dashed $green-dark
+
+      h4
+        margin: 0 0 5px 0
+        font-size: 1.1em
+
+      p
+        margin: 0
+
+      time
+        display: block
+        padding-top: 10px
+        font-size: 0.9em
+        font-weight: bold
+        font-style: italic
+
+#about
+  width: 500px
+  margin-left: 40px
+  float: right
+
+  h2
+    margin: 0 0 15px 10px
+
+  ul
+    li
+      list-style: circle outside none
+      margin: 5px 0 10px
+
+.posts_wrapper
+  width: 650px
+  float: left
+  margin-right: 20px
+  overflow: hidden
+
+  .post_wrapper
+    border-bottom: 1px dashed #666
+    margin-bottom: 25px
+
+  article
+    ul
+      li
+        list-style: disc outside none
+
+    h3
+      margin-bottom: 1em
+
+    header
+      //background: #EEE
+      margin-bottom: 20px
+      h2
+        font-size: 24px
+      div
+        margin-top: 2px
+        padding-top: 3px
+        text-transform: uppercase
+        font-size: 11px
+        font-weight: bold
+        color: #888
+
+        time
+          border-right: 2px solid #999
+          margin-right: 7px
+          padding-right: 4px
+
+        span
+          word-spacing: 3px
+
+aside.archive
+  float: right
+  width: 205px
+
+  h3
+    margin: 0 0 15px 20px
+  ul
+    li
+      margin: 3px 0
+
+.comments_wrapper
+  width: 650px
+  margin-top: 30px
+
+  ol
+    margin: 0
+
+    li
+      border-bottom: 1px dashed #666
+      margin: 20px 0 30px
+      overflow: hidden
+
+      .author
+        float: left
+        width: 60px
+
+      time
+        margin: 5px 0
+        text-align: right
+        float: right
+        width: 590px
+
+      .content
+        float: right
+        width: 580px
+        margin-left: 10px
+
+.comment_form
+
+  h3
+    margin-bottom: 1em
+
+
+footer
+  height: 20px
+  margin-top: 30px
+  //+linear-gradient(color-stops(#934545, #B86262))
+
+  .copyright
+    float: left
+
+  nav
+    float: right
+
+    ul
+      +horizontal-list
+
+#tags
+  .content
+    margin-top: 5px
+    padding: 5px
+
+  .t1
+    font-size: 12px
+  .t2
+    font-size: 15px
+  .t3
+    font-size: 18px
+  .t4
+    font-size: 21px
+  .t5
+    font-size: 24px
+
+label
+  font-weight: bold
+  margin-bottom: 3px
+  float: left
+  display: inline-block
+  width: 100px
+
+span.field_notice
+  display: block
+  padding-left: 100px
+  color: #666
+  font-size: 10px
+
+.fieldWithErrors
+  padding: 2px
+  background-color: red
+  display: table
+
+form
+  div
+    margin: 5px 0 10px
+  span.field_with_errors
+    input, textarea
+      border: 1px solid red
+
+input, textarea
+  +border-radius(3px)
+  border: 1px solid #666
+  padding: 3px
+  &:hover, &:focus, &:active
+    +box-shadow(#ccc, 0, 0, 5px)
+    border: 1px solid #999
+
+input[type=submit]
+  cursor: pointer
+  font-size: 12px
+  font-weight: bold
+  padding: 6px 12px
+  text-transform: uppercase
+  +border-radius(7px)
+  +box-shadow(#666, 1px, 3px)
+
+input[type=submit]:hover, input[type=submit]:focus, input[type=submit]:active
+  +box-shadow(#666, 1px, 3px)
+
+
+.submit
+  margin-left: 100px
+
+#error_explanation
+  margin: 20px
+
+  p
+    margin: 0 10px 0
+    
+blockquote
+  background-color: #E5E8E8
+  border: 1px solid #C9C9C9
+  font-style: italic
+  font-size: 14px
+  margin: 10px
+  padding: 10px
+
+.syntaxhighlighter
+  padding: 10px 0
+
+
+/* pagination */
+
+.pagination a, .pagination span, .pagination em
+  padding: 2px 5px
+  margin-right: 5px
+  display: block
+  float: left
+  border-style: solid
+  border-width: 1px
+
+.pagination em
+  font-weight: bold
+
+.pagination a
+  text-decoration: none
+
+.pagination a, .pagination span
+  -moz-border-radius: 3px
+  border: 1px solid #c1c1c1
+
+.pagination em
+  background: #36393d
+  color: #FFF
+  border: 1px solid #36393d
+
+.pagination a
+  color: #1a1a1a
+
+.pagination a:hover
+  border: 1px solid #666
+
+#recaptcha_widget_div
+  margin-left: 100px
+
+.recaptcha_error
+  display: none
+
+.notice, .error
+  padding: 2px 10px
+  margin: 10px 0
+  color: #FFF
+  p
+    margin: 0
+
+.notice
+  background-color: #0c3
+  border: 3px solid green
+
+.error, .recaptcha_error
+  background-color: #c00
+  border: 3px solid red
+

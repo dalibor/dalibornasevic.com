@@ -1,65 +1,40 @@
-class Admin::CommentsController < ApplicationController
+class Admin::CommentsController < Admin::BaseController
 
-  before_filter :authenticate
-  layout "admin"
+  inherit_resources
 
   def index
     conditions = case params[:type]
                  when 'spam'; 'approved = FALSE'
                  when 'not-spam'; 'approved = TRUE'
                  end
-    @comments = Comment.paginate(:page => params[:page], :per_page => 10, :conditions => conditions, :include => :post, :order => 'id DESC')
-  end
-
-  def show
-    @comment = Comment.find(params[:id])
-  end
-
-  def edit
-    @comment = Comment.find(params[:id])
-  end
-
-  def update
-    @comment = Comment.find(params[:id])
-
-    if @comment.update_attributes(params[:comment])
-      flash[:notice] = 'Comment was updated successfully'
-      redirect_to admin_comment_url(@comment)
-    else
-      render :action => :edit
-    end
-  end
-
-  def delete
-    @comment = Comment.find(params[:id])
-  end
-
-  def destroy
-    @comment = Comment.find(params[:id])
-    @comment.destroy
-    flash[:notice] = 'Comment was deleted successfully'
-    redirect_to :back
+    @comments = comments.paginate(:page => params[:page], :per_page => 10, :conditions => conditions, :include => :post, :order => 'id DESC')
   end
 
   def destroy_multiple
-    unless params[:comment_ids].blank?
-      Comment.destroy(params[:comment_ids])
-      flash[:notice] = "Comments were deleted successfully"
+    if params[:comment_ids].present?
+      comments.destroy(params[:comment_ids])
+      flash[:notice] = "Comments were successfully destroyed."
     end
-    redirect_to :back
+    redirect_to admin_comments_path
   end
 
   def approve
-    @comment = Comment.find(params[:id])
-    @comment.mark_as_ham!
-    flash[:notice] = 'Comment was approved successfully'
-    redirect_to :back
+    resource.mark_as_ham!
+    redirect_to admin_comments_path, :notice => 'Comment was approved successfully.'
   end
 
   def reject
-    @comment = Comment.find(params[:id])
-    @comment.mark_as_spam!
-    flash[:notice] = 'Comment was rejected successfully'
-    redirect_to :back
+    resource.mark_as_spam!
+    redirect_to admin_comments_path, :notice => 'Comment was rejected successfully.'
   end
+
+  protected
+
+    def resource
+      @comment ||= comments.find(params[:id])
+    end
+
+    def comments
+      @comments ||= Comment.on_posts_of(current_editor)
+    end
 end

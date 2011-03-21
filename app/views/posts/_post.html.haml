@@ -1,0 +1,12 @@
+.post_wrapper
+  %article
+    %header
+      %h2= link_to post.title, post
+      %div
+        %time{:datetime => post.published_at}
+          = time_ago_in_words post.published_at
+          ago
+        %span= raw post.tags.map{|tag| link_to(tag.name, tag_posts_path(tag))}.join(' ')
+
+    %section
+      = raw find_and_preserve(post.content)

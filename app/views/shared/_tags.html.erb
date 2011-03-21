@@ -1,8 +1,0 @@
-<div class="item">
-  <h1>Tags</h1>
-  <div class="content">
-		<% tag_cloud Tag.tag_counts, %w(t1 t2 t3 t4 t5) do |name, css_class| %>
-			<%= link_to name, tag_posts_path(name), :class => css_class %>
-		<% end %>
-  </div>
-</div>
