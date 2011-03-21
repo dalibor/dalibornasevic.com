@@ -94,7 +94,7 @@
       var defaults = {
         limit: 5,
         username: 'blackflasher',
-        apiKey: 'b25b959554ed76058ac220b7b2e0a026',
+        apiKey: 'b25b959554ed76058ac220b7b2e0a026'
       }
 
       settings = $.extend({}, defaults, options);

@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
       if @comment.valid?
         flash.now[:error] = "Please enter correct reCaptcha."
       else
-        flash.now[:error] = "Please correct invalid data from the form."
+        flash.now[:error] = "Please correct invalid fields in the form."
       end
       render 'new'
     end

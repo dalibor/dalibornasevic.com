@@ -134,7 +134,7 @@ header#header
 
   nav
     float: right
-    margin: 20px 65px 0 0
+    margin: 20px 0 0 0
 
     ul
       +horizontal-list
@@ -187,17 +187,17 @@ header#header
         overflow: hidden
         border-bottom: 1px dashed $green-dark
         img
-          margin-right: 3px
+          margin-right: 5px
           float: left
         img.cover
           width: 34px
           height: 34px
 
-        div
-          margin-top: 3px
+        i
+          display: block
+          padding-top: 5px
 
         .date
-          padding-top: 5px
           font-size: 0.9em
           font-weight: bold
 
@@ -209,20 +209,23 @@ header#header
   #posts
 
     article
-      margin: 10px 0 20px
-      padding: 5px 0
+      margin: 5px 0 10px
+      padding: 5px
       border-bottom: 1px dashed $green-dark
 
-      h3
+      h4
         margin: 0 0 5px 0
+        font-size: 1.1em
 
       p
         margin: 0
 
-      i
-        padding-top: 5px
+      time
+        display: block
+        padding-top: 10px
         font-size: 0.9em
         font-weight: bold
+        font-style: italic
 
 #about
   width: 500px
@@ -242,6 +245,10 @@ header#header
   float: left
   margin-right: 20px
   overflow: hidden
+
+  .post_wrapper
+    border-bottom: 1px dashed #666
+    margin-bottom: 25px
 
   article
     ul
@@ -269,11 +276,13 @@ header#header
           margin-right: 7px
           padding-right: 4px
 
-aside
-  float: right
-  width: 270px
+        span
+          word-spacing: 3px
 
 aside.archive
+  float: right
+  width: 205px
+
   h3
     margin: 0 0 15px 20px
   ul
@@ -288,6 +297,7 @@ aside.archive
     margin: 0
 
     li
+      border-bottom: 1px dashed #666
       margin: 20px 0 30px
       overflow: hidden
 
@@ -295,14 +305,13 @@ aside.archive
         float: left
         width: 60px
 
-      .time
-        padding-top: 5px
+      time
+        margin: 5px 0
         text-align: right
         float: right
         width: 590px
 
       .content
-        border-bottom: 1px dashed #666
         float: right
         width: 580px
         margin-left: 10px
@@ -323,7 +332,6 @@ footer
 
   nav
     float: right
-    margin: 0 65px 0 0
 
     ul
       +horizontal-list
@@ -331,6 +339,8 @@ footer
 #tags
   .content
     margin-top: 5px
+    padding: 5px
+
   .t1
     font-size: 12px
   .t2

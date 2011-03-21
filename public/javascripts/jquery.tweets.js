@@ -46,11 +46,18 @@
           liClass = (i === 0) ? "odd" : "even";
           url = twitterUrl + this.user.screen_name + '/status/' + this.id_str;
 
+          // fix date for IE
+          var month = this.created_at.substring(4,7)
+          var day   = this.created_at.substring(8,10)
+          var year  = this.created_at.substring(26,30)
+          var time  = this.created_at.substring(11,19)
+          var date  = day + ' ' + month + ' ' + year + ', ' + time
+
           ul.append(
             $("<li/>", {"class": liClass}).append(
               $('<div/>').text(this.text).autolink(),
               $('<i/>').append(
-                $('<a/>').attr({href: url, title: this.created_at,
+                $('<a/>').attr({href: url, title: date,
                   "class": "date", target: '_blank'}).timeago()
               )
             )

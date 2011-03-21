@@ -1,4 +1,4 @@
-- title "Programming principles and practices to extreme levels"
+- title "Software principles and practices to extreme levels"
 
 = render 'shared/profile'
 
@@ -6,13 +6,13 @@
   %section#posts
     %header
       %h3 Recent blog posts
-      = link_to "View all", posts_path
+      = link_to "All posts", posts_path
     - @posts.each do |post|
       %article
         %h4= link_to post.title, post
         %p
           = post.description
-        %i
+        %time
           = time_ago_in_words post.created_at
           ago
 
