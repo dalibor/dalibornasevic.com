@@ -36,13 +36,21 @@ Personal Blog application for http://dalibornasevic.com
 
     rake db:create
     rake db:migrate
+
+- Seed admin user
+
+    vi db/seeds.rb
+    rake db:seed
+  
+- Start the server
+
     ruby script/server
 
 == SEO
 
 - When creating post fill description area for description meta tag of your show post page
 
-- Add tags to the post which are used as keywords on that page
+- Add tags to the post which are used as keywords on the post page
 
 == Run tests
 
@@ -50,7 +58,7 @@ Personal Blog application for http://dalibornasevic.com
 
     cucumber features
 
-- Run specs
+- Run RSpec specs
 
     rspec spec
 
@@ -58,7 +66,7 @@ Personal Blog application for http://dalibornasevic.com
 
 (The MIT License)
 
-Copyright (c) 2009 Dalibor Nasevic
+Copyright (c) 2009-2011 Dalibor Nasevic
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the

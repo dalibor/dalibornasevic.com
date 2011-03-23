@@ -13,7 +13,7 @@
         %p
           = post.description
         %time
-          = time_ago_in_words post.created_at
+          = time_ago_in_words post.published_at
           ago
 
   = render :partial => 'shared/tags'
