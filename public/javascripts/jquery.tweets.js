@@ -43,7 +43,7 @@
         var url;
 
         $.each(data, function (i) {
-          liClass = (i === 0) ? "odd" : "even";
+          liClass = (i % 2 === 0) ? 'odd' : 'even';
           url = twitterUrl + this.user.screen_name + '/status/' + this.id_str;
 
           // fix date for IE
@@ -54,11 +54,11 @@
           var date  = day + ' ' + month + ' ' + year + ', ' + time
 
           ul.append(
-            $("<li/>", {"class": liClass}).append(
+            $('<li/>', {'class': liClass}).append(
               $('<div/>').text(this.text).autolink(),
               $('<i/>').append(
                 $('<a/>').attr({href: url, title: date,
-                  "class": "date", target: '_blank'}).timeago()
+                  'class': 'date', target: '_blank'}).timeago()
               )
             )
           )

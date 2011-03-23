@@ -2,11 +2,12 @@
 - keywords(@post.tags.map(&:name).join(', '))
 - description(@post.description)
 
-= render 'posts/post', :post => @post
-
-= render 'shared/archive'
+.wrapper
+  = render 'posts/post', :post => @post
+  = render 'shared/archive'
 
 .comments_wrapper
+  %a{:name => "comments"}
   %h3 Comments
   - if @post.comments.size > 0
     %ol

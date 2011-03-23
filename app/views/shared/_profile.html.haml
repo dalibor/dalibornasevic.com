@@ -1,14 +1,17 @@
 %section#profile
   %section.about
-    = image_tag 'dalibor.nasevic.jpg', :alt => 'Dalibor Nasevic'
-    %h2
-      My name is <strong>Dalibor Nasevic</strong>. I'm full-stack software developer with experience in web & mobile applications.
+    %div
+      = image_tag 'dalibor.nasevic.jpg', :alt => 'Dalibor Nasevic'
+      %h2
+        My name is <strong>Dalibor Nasevic</strong>.
+        I'm Ruby on Rails consultant living in Skopje.
 
     %p
       This is my blog where I write about software practices, good design and agile methodologies like Scrum and Extreme Programming.
 
     %p
       Tools that make my ideas into reality: Ruby, Ruby on Rails, jQuery, Titanium Mobile (Android), Ubuntu, Vim, Git, Cucumber, RSpec, Haml, Sass and many other Open Source frameworks.
+      = link_to "read my professional highlights >>", static_path('about')
 
   %section#tweets
     %header

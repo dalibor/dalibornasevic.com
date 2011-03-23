@@ -87,7 +87,7 @@ h6
 
 section
   header
-    background: $green-light
+    background: $green
     +border-top-left-radius(5px)
     +border-bottom-left-radius(5px)
     padding: 5px 10px
@@ -100,13 +100,14 @@ section
       float: right
 
 #container
-  width: 960px
-  margin: 0 auto
+  width: 900px
+  margin: 25px auto 0
   overflow: hidden
 
 .wrapper
-  width: 960px
+  width: 900px
   margin: 0 auto
+  overflow: hidden
 
 header#header
   height: 70px
@@ -129,35 +130,40 @@ header#header
           text-decoration: none
         
     p
-      margin: 5px 0
-      border-top: 2px solid $olive
+      margin-top: 7px
+      border-top: 5px solid #CCC
+      padding-top: 2px
+      font-size: 15px
 
   nav
     float: right
     margin: 20px 0 0 0
 
     ul
-      +horizontal-list
+      +horizontal-list(6px)
 
 #profile
   width: 420px
   float: left
 
   .about
-    background: $green-light
+    background: $green
     padding: 10px
     overflow: hidden
     +border-radius(10px)
     +box-shadow(#666, 0, 2px, 2px)
 
-    h2
-      margin-bottom: 15px
-      font-size: 1.4em
-      letter-spacing: -0.03em
-      margin-left: 90px
-      //text-align: justify
-      strong
-        text-transform: UPPERCASE
+    div
+      overflow: hidden
+      margin-bottom: 5px
+
+      h2
+        margin: 10px 0 15px 90px
+        font-size: 1.4em
+        letter-spacing: -0.03em
+        //text-align: justify
+        strong
+          text-transform: UPPERCASE
 
     img
       float: left
@@ -168,50 +174,48 @@ header#header
       padding: 5px
       margin: 0
 
-  #tweets
-    margin-top: 15px
-    header
-      //border-left: 10px solid $twitter-dark
-
-  #tracks
-    margin-top: 15px
-    header
-      //border-left: 10px solid $lastfm-dark
+  #tweets, #tracks
+    margin: 35px 0 20px
 
   #tracks_container, #tweets_container
     ul
       margin: 0
       li
-        margin: 5px 0 0
+        margin: 10px 0 0
         padding: 5px
         overflow: hidden
-        border-bottom: 1px dashed $green-dark
-        img
-          margin-right: 5px
-          float: left
+        border-bottom: 1px dashed #CCC
         img.cover
+          margin: 3px 10px 0 0
+          float: left
           width: 34px
           height: 34px
 
+        div.listening_now
+          margin-top: 2px
+          img
+            margin: 6px 5px 0 0
+            float: left
+
         i
           display: block
-          padding-top: 5px
+          padding-top: 8px
 
         .date
           font-size: 0.9em
           font-weight: bold
 
 #blog
-  width: 520px
-  margin-left: 20px
+  width: 440px
+  margin-left: 40px
   float: right
 
   #posts
 
     article
-      margin: 5px 0 10px
+      margin: 10px 0
       padding: 5px
-      border-bottom: 1px dashed $green-dark
+      border-bottom: 1px dashed #CCC
 
       h4
         margin: 0 0 5px 0
@@ -228,9 +232,12 @@ header#header
         font-style: italic
 
 #about
-  width: 500px
+  width: 420px
   margin-left: 40px
+  padding: 20px 10px
   float: right
+  background: #DDD
+  +border-radius(10px)
 
   h2
     margin: 0 0 15px 10px
@@ -238,7 +245,7 @@ header#header
   ul
     li
       list-style: circle outside none
-      margin: 5px 0 10px
+      margin: 5px 0 15px
 
 .posts_wrapper
   width: 650px
@@ -247,8 +254,8 @@ header#header
   overflow: hidden
 
   .post_wrapper
-    border-bottom: 1px dashed #666
-    margin-bottom: 25px
+    border-bottom: 1px dashed #CCC
+    margin-bottom: 35px
 
 .post_wrapper
   width: 650px
@@ -275,10 +282,11 @@ header#header
         font-weight: bold
         color: #888
 
-        time
-          border-right: 2px solid #999
-          margin-right: 7px
-          padding-right: 4px
+        .tags
+          border-left: 2px solid #CCC
+          border-right: 2px solid #CCC
+          margin: 0 10px
+          padding: 0 10px
 
         span
           word-spacing: 3px
@@ -297,12 +305,16 @@ aside.archive
   width: 650px
   margin-top: 30px
 
+  h3
+    margin-bottom: 20px
+
   ol
     margin: 0
 
     li
-      border-bottom: 1px dashed #666
+      border-bottom: 1px dashed #CCC
       margin: 20px 0 30px
+      padding-bottom: 5px
       overflow: hidden
 
       .author
@@ -341,9 +353,12 @@ footer
       +horizontal-list
 
 #tags
+  margin: 35px 0 0
+
   .content
     margin-top: 5px
     padding: 5px
+    word-spacing: 4px
 
   .t1
     font-size: 12px
@@ -383,11 +398,11 @@ form
 
 input, textarea
   +border-radius(3px)
-  border: 1px solid #666
+  border: 1px solid #CCC
   padding: 3px
   &:hover, &:focus, &:active
     +box-shadow(#ccc, 0, 0, 5px)
-    border: 1px solid #999
+    border: 1px solid #CCC
 
 input[type=submit]
   cursor: pointer
@@ -441,7 +456,7 @@ blockquote
 
 .pagination a, .pagination span
   -moz-border-radius: 3px
-  border: 1px solid #c1c1c1
+  border: 1px solid #CCC
 
 .pagination em
   background: #36393d

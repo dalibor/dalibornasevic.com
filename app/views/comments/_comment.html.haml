@@ -7,6 +7,5 @@
     = sanitize simple_format(comment.content), :tags => %w(br p)
 
   %time
-    posted
     = time_ago_in_words comment.created_at
     ago
