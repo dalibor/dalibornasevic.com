@@ -30,4 +30,8 @@ module ApplicationHelper
       #"http://gravatar.com/avatar/#{gravatar_id}.png?s=48&d=#{CGI.escape(default_url)}"
     #end
   end
+
+  def body_id
+    controller.controller_path.split('/').push(controller.action_name).join('_')
+  end
 end

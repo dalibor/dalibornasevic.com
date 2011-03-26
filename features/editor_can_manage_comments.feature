@@ -9,7 +9,6 @@ Feature: Manage comments
     And a comment exists with post: the post, name: "Pink Panter"
     And I am logged in as "editor@example.com"
     When I follow "Comments"
-    Then show me the page
     And I follow "Pink Panter"
     And I follow "Edit"
     And I fill in "Content" with "Great Site"

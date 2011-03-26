@@ -2,8 +2,8 @@
 
 = render 'shared/profile'
 
-%section#blog
-  %section#posts
+%section.right
+  %section.posts_excerpt
     %header
       %h3 Recent posts
       = link_to "All posts", posts_path
@@ -16,4 +16,9 @@
           = time_ago_in_words post.published_at
           ago
 
-  = render :partial => 'shared/tags'
+  %section.all_tags
+    %header
+      %h3 Tags
+    .content
+      - tag_cloud Tag.tag_counts, %w(t1 t2 t3 t4 t5) do |name, css_class|
+        = link_to name, tag_posts_path(name), :class => css_class, :rel => 'tag'

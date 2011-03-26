@@ -14,8 +14,8 @@
   %title
     #{B[:title]} - #{yield(:title)}
 
-  %meta{ :content => yield(:description) || B[:description], :name => "description" }/
-  %meta{ :content => yield(:keywords) || B[:keywords], :name => "keywords" }/
+  %meta{ :content => yield(:description).presence || B[:description], :name => "description" }
+  %meta{ :content => yield(:keywords).presence || B[:keywords], :name => "keywords" }/
   %meta{ :content => "Dalibor Nasevic", :name => "author" }/
 
   = auto_discovery_link_tag(:rss, posts_path(:format => 'rss'))

@@ -1,13 +1,12 @@
-.post_wrapper
-  %article
-    %header
-      %h2= link_to post.title, post
-      %div
-        %time{:datetime => post.published_at}
-          = time_ago_in_words post.published_at
-          ago
-        %span.tags= raw post.tags.map{|tag| link_to(tag.name, tag_posts_path(tag))}.join(' ')
-        %span= link_to pluralize(post.comments_count, 'Comment'), post_path(post) + '#comments'
+%article.post
+  %header
+    %h2= link_to post.title, post
+    %div
+      %time{:datetime => post.published_at}
+        = time_ago_in_words post.published_at
+        ago
+      %span.tags= raw post.tags.map{|tag| link_to(tag.name, tag_posts_path(tag), :rel => 'tag')}.join(' ')
+      %span= link_to pluralize(post.comments_count, 'Comment'), post_path(post) + '#comments'
 
-    %section
-      = raw find_and_preserve(post.content)
+  %section
+    = raw find_and_preserve(post.content)

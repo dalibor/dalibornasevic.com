@@ -6,7 +6,7 @@
   = render 'posts/post', :post => @post
   = render 'shared/archive'
 
-.comments_wrapper
+.comments
   %a{:name => "comments"}
   %h3 Comments
   - if @post.comments.size > 0

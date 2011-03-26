@@ -46,18 +46,7 @@ ul
 
 //p + p
   //text-indent: 1em
-
-body
-  background-color: #F2F2F2
-  font-size: 75%
-  //background: url("../../images/underline.gif")
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif
-
 // http://24ways.org/2006/compose-to-a-vertical-rhythm
-html > body
-  //font-size: 12px
-  font-size: 13px
-
 p
   line-height: 1.5em
   //margin-top: 1.5em
@@ -68,10 +57,6 @@ h1
   line-height: 0.75em
   margin-top: 0.5em
   margin-bottom: 1em
-  //margin-top: 0.75em
-  //margin-bottom: 0.75em
-  //line-height = height-of-each-line / font-size
-  //1.5 / 2 = 0.75
 h2
   font-size: 1.5em
 h3
@@ -84,6 +69,89 @@ h5
   font-size: 0.9em
 h6
   font-size: 0.8em
+
+blockquote
+  background-color: #E5E8E8
+  border: 1px solid #C9C9C9
+  font-style: italic
+  font-size: 14px
+  margin: 10px
+  padding: 10px
+
+body
+  background-color: #F2F2F2
+  font-size: 13px
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif
+
+/* GRID BEGIN */
+.container
+  width: 900px
+  margin: 25px auto 0
+  overflow: hidden
+
+.left
+  float: left
+  width: 420px
+
+.right
+  float: right
+  margin-left: 40px
+  width: 440px
+
+.wrapper
+  width: 900px
+  margin: 0 auto
+  overflow: hidden
+/* GRID END */
+
+/* HEADER BEGIN */
+.header
+  height: 70px
+  margin-bottom: 10px
+
+  nav
+    float: right
+    margin: 20px 0 0 0
+
+    ul
+      +horizontal-list(6px)
+/* HEADER END */
+
+/* FOOTER BEGIN */
+.footer
+  height: 20px
+  margin-top: 30px
+
+  .copyright
+    float: left
+
+  nav
+    float: right
+
+    ul
+      +horizontal-list
+/* FOOTER END */
+
+/* LOGO BEGIN */
+.logo
+  float: left
+  h1
+    margin-bottom: 0
+    a
+      text-transform: uppercase
+      font-size: 25px
+      color: $olive
+      letter-spacing: -0.03em
+
+      &:hover
+        text-decoration: none
+      
+  p
+    margin-top: 7px
+    border-top: 5px solid #CCC
+    padding-top: 2px
+    font-size: 15px
+/* LOGO END */
 
 section
   header
@@ -99,85 +167,42 @@ section
     a
       float: right
 
-#container
-  width: 900px
-  margin: 25px auto 0
+.about
+  background: $green
+  padding: 10px
   overflow: hidden
+  +border-radius(10px)
+  +box-shadow(#666, 0, 2px, 2px)
 
-.wrapper
-  width: 900px
-  margin: 0 auto
-  overflow: hidden
-
-header#header
-  height: 70px
-  margin-bottom: 10px
-  //background: red
-  //+linear-gradient(color-stops(#B86262, #934545), bottom)
-  //+linear-gradient(color-stops(#934545, #B86262))
-
-  #logo
-    float: left
-    h1
-      margin-bottom: 0
-      a
-        text-transform: uppercase
-        font-size: 25px
-        color: $olive
-        letter-spacing: -0.03em
-
-        &:hover
-          text-decoration: none
-        
-    p
-      margin-top: 7px
-      border-top: 5px solid #CCC
-      padding-top: 2px
-      font-size: 15px
-
-  nav
-    float: right
-    margin: 20px 0 0 0
-
-    ul
-      +horizontal-list(6px)
-
-#profile
-  width: 420px
-  float: left
-
-  .about
-    background: $green
-    padding: 10px
+  div
     overflow: hidden
-    +border-radius(10px)
-    +box-shadow(#666, 0, 2px, 2px)
+    margin-bottom: 5px
+    position: relative
 
-    div
-      overflow: hidden
-      margin-bottom: 5px
-
-      h2
-        margin: 10px 0 15px 90px
-        font-size: 1.4em
-        letter-spacing: -0.03em
-        //text-align: justify
-        strong
-          text-transform: UPPERCASE
+    h2
+      margin-left: 90px
+      font-size: 1.3em
+      letter-spacing: -0.03em
+      //text-align: justify
+      strong
+        text-transform: UPPERCASE
 
     img
+      position: absolute
+      top: 0
+      bottom: 0
+      margin: auto 5px
       float: left
-      margin: 0 5px
-      +rotate(-3deg)
+      +rotate(-5deg)
 
-    p
-      padding: 5px
-      margin: 0
+  p
+    padding: 5px
+    margin: 0
 
-  #tweets, #tracks
-    margin: 35px 0 20px
+.updates
+  margin: 35px 0 20px
 
-  #tracks_container, #tweets_container
+  > div
     ul
       margin: 0
       li
@@ -205,33 +230,27 @@ header#header
           font-size: 0.9em
           font-weight: bold
 
-#blog
-  width: 440px
-  margin-left: 40px
-  float: right
+.posts_excerpt
+  article
+    margin: 10px 0
+    padding: 5px
+    border-bottom: 1px dashed #CCC
 
-  #posts
+    h4
+      margin: 0 0 5px 0
+      font-size: 1.1em
 
-    article
-      margin: 10px 0
-      padding: 5px
-      border-bottom: 1px dashed #CCC
+    p
+      margin: 0
 
-      h4
-        margin: 0 0 5px 0
-        font-size: 1.1em
+    time
+      display: block
+      padding-top: 10px
+      font-size: 0.9em
+      font-weight: bold
+      font-style: italic
 
-      p
-        margin: 0
-
-      time
-        display: block
-        padding-top: 10px
-        font-size: 0.9em
-        font-weight: bold
-        font-style: italic
-
-#about
+.highlights
   width: 420px
   margin-left: 40px
   padding: 20px 10px
@@ -247,52 +266,51 @@ header#header
       list-style: circle outside none
       margin: 5px 0 15px
 
-.posts_wrapper
+.posts
   width: 650px
   float: left
   margin-right: 20px
   overflow: hidden
 
-  .post_wrapper
+  .post
     border-bottom: 1px dashed #CCC
     margin-bottom: 35px
 
-.post_wrapper
+article.post
   width: 650px
   float: left
 
-  article
-    ul
-      li
-        list-style: disc outside none
-        padding-bottom: 5px
+  ul
+    li
+      list-style: disc outside none
+      padding-bottom: 5px
 
-    h3
-      margin-bottom: 1em
+  h3
+    margin-bottom: 1em
 
-    header
-      //background: #EEE
-      margin-bottom: 20px
-      h2
-        font-size: 24px
-      div
-        margin-top: 2px
-        padding-top: 3px
-        text-transform: uppercase
-        font-size: 11px
-        font-weight: bold
-        color: #888
+  header
+    //background: #EEE
+    margin-bottom: 20px
+    h2
+      font-size: 24px
+    div
+      margin-top: 2px
+      padding-top: 3px
+      text-transform: uppercase
+      font-size: 11px
+      font-weight: bold
+      color: #888
 
-        .tags
-          border-left: 2px solid #CCC
-          border-right: 2px solid #CCC
-          margin: 0 10px
-          padding: 0 10px
+      .tags
+        border-left: 2px solid #CCC
+        border-right: 2px solid #CCC
+        margin: 0 10px
+        padding: 0 10px
 
-        span
-          word-spacing: 3px
+      span
+        word-spacing: 3px
 
-aside.archive
+aside
   float: right
   width: 205px
 
@@ -302,7 +320,7 @@ aside.archive
     li
       margin: 3px 0
 
-.comments_wrapper
+.comments
   width: 650px
   margin-top: 30px
 
@@ -334,26 +352,10 @@ aside.archive
         margin-left: 10px
 
 .comment_form
-
   h3
     margin-bottom: 1em
 
-
-footer
-  height: 20px
-  margin-top: 30px
-  //+linear-gradient(color-stops(#934545, #B86262))
-
-  .copyright
-    float: left
-
-  nav
-    float: right
-
-    ul
-      +horizontal-list
-
-#tags
+.all_tags
   margin: 35px 0 0
 
   .content
@@ -421,25 +423,11 @@ input[type=submit]:hover, input[type=submit]:focus, input[type=submit]:active
 .submit
   margin-left: 100px
 
-#error_explanation
-  margin: 20px
-
-  p
-    margin: 0 10px 0
-    
-blockquote
-  background-color: #E5E8E8
-  border: 1px solid #C9C9C9
-  font-style: italic
-  font-size: 14px
-  margin: 10px
-  padding: 10px
-
 .syntaxhighlighter
   padding: 10px 0
 
 
-/* pagination */
+/* PAGINATION BEGIN */
 
 .pagination a, .pagination span, .pagination em
   padding: 2px 5px
@@ -469,12 +457,15 @@ blockquote
 
 .pagination a:hover
   border: 1px solid #666
+  
+/* PAGINATION END */
 
-#recaptcha_widget_div
-  margin-left: 100px
+/* FLASH BEGIN */
+#error_explanation
+  margin: 20px
 
-.recaptcha_error
-  display: none
+  p
+    margin: 0 10px 0
 
 .notice, .error
   padding: 2px 10px
@@ -491,3 +482,9 @@ blockquote
   background-color: #c00
   border: 3px solid red
 
+#recaptcha_widget_div
+  margin-left: 100px
+
+.recaptcha_error
+  display: none
+/* FLASH END */

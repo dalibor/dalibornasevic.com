@@ -1,16 +1,15 @@
 !!!
 %html
   %head
-    %title Dalibor Nasevic
-    = stylesheet_link_tag "web-app-theme/base", "web-app-theme/themes/drastic-dark/style", "web-app-theme/override", 'syntaxhighlighter/shCore.css', 'syntaxhighlighter/shThemeFadeToGrey', :cache => true
-    = render 'layouts/brushes'
-    = javascript_include_tag 'jquery-1.4.4.min.js', 'jquery.wymeditor.min.js', 'wym_boot', 'rails', 'plugins', 'admin'
+    %title Administration
+    = stylesheet_link_tag "web-app-theme/base", "web-app-theme/themes/drastic-dark/style", "web-app-theme/override", 'syntaxhighlighter/shCore.css', 'syntaxhighlighter/shThemeFadeToGrey', :cache => 'admin'
+    = javascript_include_tag 'jquery-1.4.4.min.js', 'jquery.wymeditor.min.js', 'wym_boot', 'rails', 'plugins', 'syntaxhighlighter/shCore', 'syntaxhighlighter/shBrushDiff.js', 'syntaxhighlighter/shBrushPlain.js', 'syntaxhighlighter/shBrushRuby', 'syntaxhighlighter/shBrushBash.js', 'syntaxhighlighter/shBrushCss.js', 'syntaxhighlighter/shBrushSass.js', 'syntaxhighlighter/shBrushJScript.js', 'syntaxhighlighter/shBrushXml.js', 'admin', :cache => 'admin'
     = csrf_meta_tag
   %body
     #container
       #header
         %h1
-          = link_to "Dalibor Nasevic", root_path
+          = link_to B[:title], root_path
         #user-navigation
           %ul.wat-cf
             %li
@@ -36,6 +35,6 @@
           #footer
             .block
               %p
-                Copyright &copy; #{Time.now.year} Dalibor Nasevic.
+                Copyright &copy; #{Time.now.year} #{B[:title]}.
         #sidebar
           = yield :sidebar
