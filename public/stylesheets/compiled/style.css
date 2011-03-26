@@ -788,7 +788,7 @@ article.post header {
   -o-box-shadow: #999999 1px 2px 3px 0;
   box-shadow: #999999 1px 2px 3px 0;
   margin-bottom: 15px;
-  padding: 5px;
+  padding: 5px 15px;
 }
 /* line 295, ../../../app/stylesheets/partials/_page.sass */
 article.post header h2 {
