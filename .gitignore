@@ -9,10 +9,10 @@ config/application.yml
 config/initializers/session_store.rb
 config/initializers/rakismet.rb
 public/sitemap*
-public/javascripts/public.js
-public/javascripts/admin.js
-public/stylesheets/public.css
-public/stylesheets/admin.css
+public/stylesheets/application_cached.css
+public/stylesheets/admin_cached.css
+public/javascripts/application_cached.js
+public/javascripts/admin_cached.js
 capybara*
 *~
 *.swp
