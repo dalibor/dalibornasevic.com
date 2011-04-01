@@ -4,7 +4,7 @@
 
 == DESCRIPTION:
 
-Personal Blog application for http://dalibornasevic.com
+Ruby on Rails 3 Blog application deployed at http://dalibornasevic.com
 
 == INSTALL:
 
@@ -32,7 +32,7 @@ Personal Blog application for http://dalibornasevic.com
 
     bundle install
 
-- Create database and run application
+- Setup database
 
     rake db:create
     rake db:migrate
