@@ -685,11 +685,11 @@ section header a {
 }
 /* line 219, ../../../app/stylesheets/partials/_page.sass */
 .updates > div ul li div.listening_now {
-  margin-top: 2px;
+  margin-top: 5px;
 }
 /* line 221, ../../../app/stylesheets/partials/_page.sass */
 .updates > div ul li div.listening_now img {
-  margin: 6px 5px 0 0;
+  margin: 3px 5px 0 0;
   float: left;
 }
 /* line 225, ../../../app/stylesheets/partials/_page.sass */
