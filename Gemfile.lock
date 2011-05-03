@@ -96,7 +96,6 @@ GEM
       configuration (>= 0.0.5)
       rake (>= 0.8.1)
     linecache (0.43)
-    looksee (0.2.1)
     mail (2.2.14)
       activesupport (>= 2.3.6)
       i18n (>= 0.4.0)
@@ -110,6 +109,9 @@ GEM
       gem_plugin (>= 0.2.3)
     mysql2 (0.2.6)
     nokogiri (1.4.4)
+    paperclip (2.3.11)
+      activerecord (>= 2.3.0)
+      activesupport (>= 2.3.2)
     pickle (0.4.4)
       cucumber (>= 0.8)
       rake
@@ -201,9 +203,9 @@ DEPENDENCIES
   inherited_resources (~> 1.2.1)
   interactive_editor
   launchy
-  looksee
   mongrel
   mysql2
+  paperclip
   pickle
   rails (= 3.0.3)
   recaptcha

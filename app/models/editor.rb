@@ -12,6 +12,7 @@ class Editor < ActiveRecord::Base
 
   # Associations
   has_many :posts
+  has_many :attachments
 
   # Callbacks
   before_save :encrypt_password

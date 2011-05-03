@@ -16,6 +16,7 @@ gem 'html5-boilerplate'
 gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'inherited_resources', '~> 1.2.1'
 gem 'recaptcha', :require => 'recaptcha/rails'
+gem 'paperclip'
 
 group :development do
   gem 'annotate'
@@ -25,7 +26,6 @@ group :development do
   gem 'wirble'
   gem 'interactive_editor'
   gem 'sketches'
-  gem 'looksee'
   gem 'awesome_print'
 end
 

@@ -61,3 +61,7 @@ end
 #  sleep Comment.minimum_wait_time
 #  @after_current_scenario_blocks << lambda{ Comment.minimum_wait_time = original_value }
 #end
+
+Then /^I should see "([^"]*)" in body$/ do |src|
+  page.body.should match(src)
+end

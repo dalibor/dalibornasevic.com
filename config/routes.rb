@@ -33,6 +33,8 @@ Blog::Application.routes.draw do
       end
     end
 
+    resources :attachments
+
     resources :editors
     resource :profile, :only => [:edit, :update]
   end

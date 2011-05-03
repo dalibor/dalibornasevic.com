@@ -17,3 +17,4 @@ capybara*
 *~
 *.swp
 .sass-cache
+public/system/

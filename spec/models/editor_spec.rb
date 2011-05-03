@@ -11,6 +11,7 @@ describe Editor do
 
   describe 'associations' do
     it { should have_many(:posts) }
+    it { should have_many(:attachments) }
   end
 
   describe 'validations' do

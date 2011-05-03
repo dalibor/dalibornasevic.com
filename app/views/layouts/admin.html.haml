@@ -25,6 +25,8 @@
             - if current_editor.is_admin?
               %li{:class => controller.controller_path == 'admin/editors' ? 'active' : '' }
                 %a{:href => admin_editors_path} Editors
+            %li{:class => controller.controller_path == 'admin/attachments' ? 'active' : '' }
+              %a{:href => admin_attachments_path} Attachments
       #wrapper.wat-cf
         .flash
           - flash.each do |type, message|
