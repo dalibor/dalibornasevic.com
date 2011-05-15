@@ -4,6 +4,7 @@ log/*.log
 tmp/**/*
 tmp/webrat-*
 config/database.yml
+config/config.yml
 config/google.yml
 config/application.yml
 config/initializers/session_store.rb

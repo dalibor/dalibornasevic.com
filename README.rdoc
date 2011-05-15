@@ -18,6 +18,11 @@ Ruby on Rails 3 Blog application deployed at http://dalibornasevic.com
     cp config/database.yml.template config/database.yml
     vi config/database.yml
 
+- Config secret keys
+
+    cp config/config.yml.template config/config.yml
+    vim config/config.yml # edit config.yml file
+
 - Setup google analytics
 
     cp config/google.yml.template config/google.yml
