@@ -1,7 +1,7 @@
 class MainController < ApplicationController
 
   def index
-    @posts = Post.order('created_at DESC').limit(5)
+    @posts = Post.published.order('created_at DESC').limit(5)
   end
 
   def show

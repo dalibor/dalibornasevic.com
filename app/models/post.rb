@@ -19,6 +19,9 @@ class Post < ActiveRecord::Base
   before_save :reset_published_at, :unless => Proc.new {|m| m.publish }
   after_save :assign_tags
 
+  # Scopes
+  scope :published, where({:publish => true})
+
   def tag_names
     @tag_names || tags.map(&:name).join(' ')
   end
