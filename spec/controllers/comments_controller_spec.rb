@@ -6,7 +6,7 @@ describe CommentsController do
       @post_mock = mock_model(Post)
       @comment_mock = mock_model(Comment)
 
-      Post.stub_chain(:where, :find).with("1").and_return(@post_mock)
+      Post.stub_chain(:available_for_commenting, :find).with("1").and_return(@post_mock)
       @post_mock.stub_chain(:comments, :new).and_return(@comment_mock)
       @comment_mock.stub!(:request=)
       @comment_mock.stub!(:save).and_return(true)
@@ -14,13 +14,13 @@ describe CommentsController do
     end
 
     it "should find post" do
-      Post.should_receive(:where).with("comments_closed = 0").and_return(@chain)
+      Post.should_receive(:available_for_commenting).and_return(@chain)
       @chain.should_receive(:find).with("1").and_return(@post_mock)
       post :create, :post_id => "1", :comment=>{:name=>"value"}
     end
 
     it "should initialize new comment successfully" do
-      Post.should_receive(:where).with("comments_closed = 0").and_return(@chain)
+      Post.should_receive(:available_for_commenting).and_return(@chain)
       @chain.should_receive(:find).with("1").and_return(@post_mock)
       @post_mock.comments.should_receive(:new).and_return(@comment_mock)
       post :create, :post_id => "1", :comment=>{:name=>"value"}
@@ -38,7 +38,7 @@ describe CommentsController do
 
     it "should display flash notice when comment is approved" do
       post :create, :post_id => "1", :comment=>{:name=>"value"}
-      flash[:notice].should == "Your comment was successfully created."
+      flash[:notice].should == "Thanks for commenting!"
     end
 
     it "should redirect to post path" do
@@ -53,7 +53,7 @@ describe CommentsController do
       @post_mock = mock_model(Post)
       @comment_mock = mock_model(Comment)
 
-      Post.stub_chain(:where, :find).with("1").and_return(@post_mock)
+      Post.stub_chain(:available_for_commenting, :find).with("1").and_return(@post_mock)
       @post_mock.stub_chain(:comments, :new).and_return(@comment_mock)
       @comment_mock.stub!(:request=)
       @comment_mock.stub!(:save).and_return(false)
@@ -81,7 +81,7 @@ describe CommentsController do
 
     it "should display flash error" do
       post :create, :post_id => "1", :comment=>{:name=>"value"}
-      flash[:error].should == "Please enter correct reCaptcha."
+      flash[:error].should == "Please correct invalid fields."
     end
   end
 
@@ -91,7 +91,7 @@ describe CommentsController do
       @post_mock = mock_model(Post)
       @comment_mock = mock_model(Comment)
 
-      Post.stub_chain(:where, :find).with("1").and_return(@post_mock)
+      Post.stub_chain(:available_for_commenting, :find).with("1").and_return(@post_mock)
       @post_mock.stub_chain(:comments, :new).and_return(@comment_mock)
       @comment_mock.stub!(:request=)
       @comment_mock.stub!(:save).and_return(true)

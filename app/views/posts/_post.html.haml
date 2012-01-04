@@ -1,12 +1,27 @@
 %article.post
   %header
-    %h2= link_to post.title, post
-    %div
-      %time{:datetime => post.published_at}
-        = time_ago_in_words post.published_at
-        ago
-      %span.tags= raw post.tags.map{|tag| link_to(tag.name, tag_posts_path(tag), :rel => 'tag')}.join(' ')
-      %span= link_to pluralize(post.comments_count, 'Comment'), post_path(post) + '#comments'
+    %h2= post.title
+    %time= post.published_at.to_s(:date)
+    %span= link_to pluralize(post.comments_count, 'Comment'), post_path(post) + '#comments'
 
   %section
     = raw find_and_preserve(post.content)
+
+    %p
+      Tags:
+      = raw post.tags.map{|tag| link_to(tag.name, tag_posts_path(tag), :rel => 'tag')}.join(', ')
+
+  .comments
+    %a{:name => "comments"}
+    %h3 Comments
+    - if post.comments.size > 0
+      %ol
+        = render :partial => 'comments/comment', :collection => @comments
+    - else
+      %p This article does not have any comments yet.
+
+  .comment_form
+    - if post.comments_closed?
+      %p Sorry, comments are closed for this article.
+    - else
+      = render 'comments/form', :post => post

@@ -21,6 +21,7 @@ class Post < ActiveRecord::Base
 
   # Scopes
   scope :published, where({:publish => true})
+  scope :available_for_commenting, where({:comments_closed => false})
 
   def tag_names
     @tag_names || tags.map(&:name).join(' ')

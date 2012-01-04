@@ -1,24 +1,54 @@
 - title "Software principles and practices to extreme levels"
 
-= render 'shared/profile'
+%section.section
+  %section.info
+    = image_tag('dalibor.nasevic.jpg', :width => 320)
+  %section.description
+    %p I am a <b>software professional</b> currently located in Skopje (Macedonia).
+    %p I am an <a href="http://www.flickr.com/photos/it_com_mk/5003633679/in/set-72157624863051331/lightbox/" target="_blank">award-winning</a> Android <a href="https://market.android.com/details?id=mk.popravi.mobile&hl=en" target="_blank">mobile application</a> developer and Ruby on Rails open-source <a href="http://contributors.rubyonrails.org/contributors/dalibor-nasevic/commits" target="_blank">contributor</a>. I have been working in various capacities on numerous Ruby on Rails projects <a href="http://www.workingwithrails.com/person/13391-dalibor-nasevic" target="_blank">since 2007</a>.
+    %p I am also <b>co-founder and organizer</b> of <a href="http://ruby.mk" target="_blank">MKRUG</a> (Macedonian Ruby Users Group) and active member of <a href="/posts/31-global-day-of-coderetreat-in-skopje-macedonia">software craftmenship</a> movement. I have given <a href="http://b10g.spodeli.org/search/label/ruby.mk" target="_blank">technical</a> presentations on web and mobile technologies, and <a href="http://blip.tv/esocietymk-2010/dalibor-nasevik-popravi-mk-4661075" target="_blank">non-technical</a> presentations on <a href="http://popravi.mk" target="_blank">PopraviMK</a> project in various venues.
+    %p Currently, I am employed by <a href="http://www.siyelo.com/" target="_blank">Siyelo</a> - web application development consultancy with distributed teams in Cape Town and Skopje.
+    %p I am highly motivated toward good execution. Tools like: Linux, Vim, Git and programming practices like: TDD/BDD and Pair Programming are my good friends. I have solid experience mentoring developers in local and distributed teams and experience with Agile methodologies like Scrum and XP.
+    %p I have received B.Sc. in "Computer Engineering, Computer Science and Automatics" from <a href="http://www.feit.ukim.edu.mk/" target="_blank">FEIT</a> (Faculty of Electrical Engineering and Information Technologies) in Skopje.
+    %p As a good engineer I enjoy building products from start to finish. Starting with an idea, researching new technologies, working on UI/UX interactions, developing & designing object-oriented software with best-practices and coding standards and finally deploying a working solution.
+    %p <b>Get in touch with me</b>: <br />Email me at <a href="mailto:dalibor.nasevic@gmail.com">dalibor.nasevic@gmail.com</a>. Follow me on <a href="http://www.twitter.com/blackflasher" target="_blank">Twitter</a>.
 
-%section.right
-  %section.posts_excerpt
-    %header
-      %h3 Recent posts
-      = link_to "All posts", posts_path
-    - @posts.each do |post|
-      %article
-        %h4= link_to post.title, post
-        %p
-          = post.description
-        %time
-          = time_ago_in_words post.published_at
-          ago
 
-  %section.all_tags
-    %header
-      %h3 Tags
-    .content
-      - tag_cloud Tag.tag_counts, %w(t1 t2 t3 t4 t5) do |name, css_class|
-        = link_to name, tag_posts_path(name), :class => css_class, :rel => 'tag'
+%section.section
+  %section.info
+    %h3 open-source projects
+    %p.notes Checkout my <a href="https://github.com/dalibor" target="_blank">Github</a> for more
+  %section.description
+    %ul.projects_excerpt
+      %li
+        %h4= link_to 'popravi.mk', 'https://github.com/dalibor/popravi.mk', :target => '_blank'
+        %span Ruby on Rails, Google maps, API service
+        %p Web application that allows citizens and city councils to report, view, discuss and process urban issues detected on public area. Visit the website <a href="http://popravi.mk/" target="_blank">here</a>.
+      %li
+        %h4= link_to 'PopraviMK', 'https://github.com/dalibor/PopraviMK', :target => '_blank'
+        %span Titanium Mobile (Android)
+        %p Android Mobile application that allows citizens and municipalities to report, view, discuss and process urban issues. Download the application from Android <a href="https://market.android.com/details?id=mk.popravi.mobile&hl=en" target="_blank">market</a>.
+
+%section.section
+  %section.info
+    %h3 Latest blog posts
+    %p.notes My thoughts on software
+
+  %section.description
+    %ul.posts_excerpt
+      - @posts.each do |post|
+        %li
+          %h4= link_to post.title, post
+          %time= post.published_at.to_s(:date)
+
+%section.section
+  %section.info
+    %h3 Presentations
+    %p.notes Talks about technologies and products
+  %section.description
+    %ul.presentations_excerpt
+      %li
+        %h4 <a href="http://e-society.org.mk" target="_blank">e-society</a> conference in Skopje
+        %time December, 2010
+        %p This is my presentation at e-society conference about PopraviMK application. Presentation is in Macedonian.
+        <embed width="360" height="260" allowfullscreen="true" allowscriptaccess="always" type="application/x-shockwave-flash" src="http://blip.tv/play/AYKcvzcC">

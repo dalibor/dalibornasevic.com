@@ -1,9 +1,5 @@
 require File.expand_path('../boot', __FILE__)
 
-# temporary hack for recaptcha:
-# https://github.com/ambethia/recaptcha/issues/closed/#issue/7
-require 'net/http'
-
 require 'rails/all'
 
 # If you have a Gemfile, require the gems listed there, including any gems
@@ -56,9 +52,8 @@ module Blog
   end
 end
 
-APP_CONFIG = YAML.load_file("#{Rails.root}/config/config.yml")[Rails.env]
+Time::DATE_FORMATS[:date] = "%B %d, %Y"
+Time::DATE_FORMATS[:post] = "%d %B, %Y %H:%m"
 
-Recaptcha.configure do |config|
-  config.public_key  = APP_CONFIG['recaptcha']['public_key']
-  config.private_key = APP_CONFIG['recaptcha']['private_key']
-end
+# load settings
+APP_CONFIG = YAML.load_file("#{Rails.root}/config/config.yml")[Rails.env]

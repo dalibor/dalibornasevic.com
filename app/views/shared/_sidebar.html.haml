@@ -1,0 +1,16 @@
+%aside
+  .about
+    %p
+      = image_tag('dalibor.nasevic.small.jpg')
+    %p
+      Hi, my name is <b>Dalibor Nasevic</b> <br/>and I am <b>software professional</b>.
+    %p
+      <b>You</b> can read <a href="/">about me</a>, <a href="mailto:dalibor.nasevic@gmail.com">contact me</a> <br/> or <a href="http://www.twitter.com/blackflasher">follow me</a> on twitter.
+
+  .archive
+    %h3 Archive
+    %ul
+      - @posts_by_month.each do |post|
+        %li
+          = link_to post.published_at.strftime("%B %Y"), date_posts_path(post.published_at.year, post.published_at.month)
+          %span== (#{post.total})

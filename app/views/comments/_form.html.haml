@@ -2,7 +2,7 @@
   %h3 Leave a comment
 
   -#= render "shared/error_messages", :resource => @comment
-  = form_for [@post, @comment], :html => {:class => 'form'} do |f|
+  = form_for [post, @comment], :html => {:class => 'form', :honeypot => true} do |f|
     %div
       %span.field_notice required
       = f.label :name, 'Name'
@@ -19,7 +19,5 @@
       %span.field_notice required
       = f.label :content, 'Comment'
       = f.text_area :content, :rows => 10, :cols => 50
-    %div
-      = raw recaptcha_tags
     %div
       = f.submit 'Comment', :class => 'submit'

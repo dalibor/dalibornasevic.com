@@ -14,7 +14,7 @@ Feature: A visitor can write comments
     And I fill in "URL" with "http://www.dalibornasevic.com"
     And I fill in "Comment" with "My first comment"
     And I press "Comment"
-    Then I should see "Your comment was successfully created."
+    Then I should see "Thanks for commenting!"
     And I should see "My first comment"
 
   Scenario: See comment errors

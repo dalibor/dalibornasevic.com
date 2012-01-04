@@ -1,10 +1,12 @@
 .wrapper
   %small.copyright
-    Copyright &copy; 2009 - #{Date.today.year} dalibornasevic.com
+    &copy; 2009 - #{Date.today.year} dalibornasevic.com
 
   %nav
     %ul
-      %li= link_to 'Twitter', 'http://www.twitter.com/blackflasher', :target => '_blank'
-      %li= link_to 'Last.fm', 'http://www.last.fm/user/blackflasher', :target => '_blank'
-      %li= link_to 'LinkedIn', 'http://mk.linkedin.com/in/dalibornasevic', :target => '_blank'
-      %li= link_to 'Github', 'http://github.com/dalibor', :target => '_blank'
+      %li= link_to image_tag('icons/rss_32.png'), posts_path(:format => 'rss'), :alt => 'RSS feed', :title => 'Subscribe to my RSS feed'
+      %li= mail_to 'dalibor.nasevic@gmail.com', image_tag('icons/email_32.png'), :alt => 'Email', :title => 'Send me an email'
+      %li= link_to image_tag('icons/skype_32.png'), 'skype:dalibor.nasevic?call', :target => '_blank', :alt => 'Skype', :title => 'Call me on Skype'
+      %li= link_to image_tag('icons/twitter_32.png'), 'https://www.twitter.com/blackflasher', :target => '_blank', :alt => 'Twitter', :title => 'Follow me on Twitter'
+      %li= link_to image_tag('icons/github_32.png'), 'https://github.com/dalibor', :target => '_blank', :alt => 'Github', :title => 'Check my projects on Github'
+      %li= link_to image_tag('icons/linkedin_32.png'), 'http://mk.linkedin.com/in/dalibornasevic', :target => '_blank', :alt => 'LinkedIn', :title => 'Connect with me on LinkedIn'

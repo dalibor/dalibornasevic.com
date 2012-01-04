@@ -34,7 +34,6 @@ Blog::Application.routes.draw do
     end
 
     resources :attachments
-
     resources :editors
     resource :profile, :only => [:edit, :update]
   end

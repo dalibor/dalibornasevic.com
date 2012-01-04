@@ -1,9 +1,16 @@
-- title("Recent blog posts")
+- title("Latest blog posts")
 
 .posts
-  = render :partial => 'post', :collection => @posts
+  %ul
+    - @posts.each do |post|
+      %li
+        %article
+          %header
+            %h3= link_to post.title, post
+            %time= post.published_at.to_s(:date)
+          %section
+            %p= post.description
 
-  .pagination
-    = will_paginate @posts
+  = will_paginate @posts
 
-= render 'shared/archive'
+= render 'shared/sidebar'

@@ -1,19 +1,15 @@
 class CommentsController < ApplicationController
 
   def create
-    @post            = Post.where("comments_closed = 0").find(params[:post_id])
+    @post            = Post.available_for_commenting.find(params[:post_id])
     @comment         = @post.comments.new(params[:comment])
     @comment.request = request
 
-    if verify_recaptcha(:model => @comment) && @comment.save
-      flash[:notice] = "Your comment was successfully created."
-      redirect_to @post
+    if @comment.save
+      flash[:notice] = "Thanks for commenting!"
+      redirect_to post_url(@post)
     else
-      if @comment.valid?
-        flash.now[:error] = "Please enter correct reCaptcha."
-      else
-        flash.now[:error] = "Please correct invalid fields in the form."
-      end
+      flash.now[:error] = "Please correct invalid fields."
       render 'new'
     end
   end

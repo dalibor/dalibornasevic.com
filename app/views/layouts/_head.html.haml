@@ -11,8 +11,7 @@
   -# meta element for compatibility mode needs to be before all elements except title & meta msdn.microsoft.com/en-us/library/cc288325(VS.85).aspx
   -# Chrome Frame is only invoked if meta element for compatibility mode is within the first 1K bytes code.google.com/p/chromium/issues/detail?id=23003
 
-  %title
-    #{B[:title]} - #{yield(:title)}
+  %title== #{yield(:title)} - #{B[:title]}
 
   %meta{ :content => yield(:description).presence || B[:description], :name => "description" }
   %meta{ :content => yield(:keywords).presence || B[:keywords], :name => "keywords" }/

@@ -52,6 +52,11 @@ p
   //margin-top: 1.5em
   margin-bottom: 1.5em
 
+time
+  font: 12px / 18px 'OpenSansLightItalic', "Helvetica Neue", Helvetica, Arial, sans-serif
+b
+  font-family: 'OpenSansSemibold', "Helvetica Neue", Helvetica, Arial, sans-serif
+
 h1
   font-size: 2em
   line-height: 0.75em
@@ -64,7 +69,6 @@ h3
 h4
   font-size: 1em
   text-transform: uppercase
-  font-weight: bold
 h5
   font-size: 0.9em
 h6
@@ -75,82 +79,166 @@ blockquote
   border: 1px solid #C9C9C9
   font-style: italic
   font-size: 14px
-  margin: 10px
+  margin: 20px 10px
   padding: 10px
 
 body
   background-color: #F2F2F2
-  font-size: 13px
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif
+  background-image: url('../../images/patterns/wall.png')
+  font: 14px / 21px 'OpenSansRegular', "Helvetica Neue", Helvetica, Arial, sans-serif
+
 
 /* GRID BEGIN */
 .container
-  width: 900px
+  width: 960px
   margin: 25px auto 0
   overflow: hidden
+  min-height: 100%
+  height: auto !important
+  height: 100%
 
-.left
-  float: left
-  width: 420px
+html, body
+  height: 100%
 
-.right
-  float: right
-  margin-left: 40px
-  width: 440px
+.section
+  margin: 20px 0 40px
+  overflow: hidden
+  span
+    font-weight: bold
+  img
+    +border-radius(5px)
+    background-color: rgba(0, 0, 0, 0.1)
+    padding: 10px
+  ul
+    margin-left: 0
+    li
+      margin: 8px 0
+      &:first-child
+        margin: 0
+    &.posts_excerpt, &.projects_excerpt
+      h4
+        display: inline
+      span
+        font: 12px / 18px 'OpenSansLightItalic', "Helvetica Neue", Helvetica, Arial, sans-serif
+    &.presentations_excerpt
+      h4
+        display: inline-block
+        margin-bottom: 8px
+
+
+  .info
+    float: left
+    width: 340px
+    text-align: right
+    .notes
+      font: 13px / 20px 'OpenSansLight', "Helvetica Neue", Helvetica, Arial, sans-serif
+    h3
+      text-transform: uppercase
+      font-size: 1.2em
+
+  .description
+    float: right
+    margin-left: 40px
+    width: 580px
 
 .wrapper
-  width: 900px
+  width: 960px
   margin: 0 auto
   overflow: hidden
 /* GRID END */
 
 /* HEADER BEGIN */
 .header
-  height: 70px
-  margin-bottom: 10px
+  background: #FFF url('../../images/patterns/type.png')
+  border-bottom: 7px solid rgba(0, 0, 0, 0.5)
+  height: 80px
+  padding: 10px 0
 
   nav
     float: right
     margin: 20px 0 0 0
+    a
+      display: inline-block
+      padding: 3px 8px
+      +border-radius(10px)
+      color: $orange
+      &:hover
+        color: #000
+      &.active
+        border-bottom: 3px solid $orange
 
     ul
-      +horizontal-list(6px)
+      +horizontal-list(5px)
+      li:last-child
+        a
+          background-color: $orange
+          margin-left: 20px
+          color: #333
+          &:hover
+            background-color: $yellow
+            color: #000
+
 /* HEADER END */
 
 /* FOOTER BEGIN */
 .footer
-  height: 20px
-  margin-top: 30px
+  background: #CCC url('../../images/patterns/type.png')
+  border-top: 7px solid rgba(0, 0, 0, 0.5)
+  // position: fixed
+  // left: 0px
+  // bottom: 0px
+  height: 40px
+  // width: 100%
+  padding: 10px 0 5px
+  overflow: hidden
 
   .copyright
     float: left
+    margin-top: 15px
 
   nav
     float: right
 
     ul
-      +horizontal-list
+      +horizontal-list(6px)
+
+    a
+      &:hover
+        background: none
+
+/* IE 6 */
+* html .footer
+  position: absolute
+  top: expression((0-(footer.offsetHeight)+(document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.clientHeight)+(ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop))+'px')
+
 /* FOOTER END */
 
 /* LOGO BEGIN */
 .logo
   float: left
-  h1
-    margin-bottom: 0
-    a
-      text-transform: uppercase
-      font-size: 25px
-      color: $olive
-      letter-spacing: -0.03em
+  a
+    color: $orange
 
-      &:hover
-        text-decoration: none
+    &:hover
+      text-decoration: none
+
+      p
+        color: $yellow
+        +transition-property("color")
+        +transition-timing-function("ease-in")
+        +transition-duration(0.2s)
+
+  h1
+    letter-spacing: -0.03em
+    text-transform: uppercase
+    font-family: 'OpenSansRegular', "Helvetica Neue", Helvetica, Arial, sans-serif
+    margin-bottom: 0
 
   p
+    font: 14px/21px 'OpenSansLight', "Helvetica Neue", Helvetica, Arial, sans-serif
     margin-top: 7px
-    border-top: 5px solid #CCC
+    border-top: 5px solid rgba(255, 255, 255, 0.05)
     padding-top: 2px
-    font-size: 15px
 /* LOGO END */
 
 section
@@ -167,111 +255,23 @@ section
     a
       float: right
 
-.about
-  background: $green
-  padding: 10px
-  overflow: hidden
-  +border-radius(10px)
-  +box-shadow(#666, 0, 2px, 2px)
-
-  div
-    overflow: hidden
-    margin-bottom: 5px
-    position: relative
-    height: 90px
-
-    h2
-      margin-left: 110px
-      font-size: 1.3em
-      letter-spacing: -0.03em
-      //text-align: justify
-      strong
-        text-transform: UPPERCASE
-
-    img
-      position: absolute
-      top: 0
-      bottom: 0
-      margin: auto 5px
-      float: left
-      // +rotate(-5deg)
-
-  p
-    padding: 5px
-    margin: 0
-
-.updates
-  margin: 35px 0 20px
-
-  > div
-    ul
-      margin: 0
-      li
-        margin: 10px 0 0
-        padding: 5px
-        overflow: hidden
-        border-bottom: 1px dashed #CCC
-        img.cover
-          margin: 3px 10px 0 0
-          float: left
-          width: 34px
-          height: 34px
-
-        div.listening_now
-          margin-top: 5px
-          img
-            margin: 3px 5px 0 0
-            float: left
-
-        i
-          display: block
-          padding-top: 8px
-
-        .date
-          font-size: 0.9em
-          font-weight: bold
-
-.posts_excerpt
-  article
-    margin: 10px 0
-    padding: 5px
-    border-bottom: 1px dashed #CCC
-
-    h4
-      margin: 0 0 5px 0
-      font-size: 1.1em
-
-    p
-      margin: 0
-
-    time
-      display: block
-      padding-top: 10px
-      font-size: 0.9em
-      font-weight: bold
-      font-style: italic
-
-.highlights
-  width: 420px
-  margin-left: 40px
-  padding: 20px 10px
-  float: right
-  background: #DDD
-  +border-radius(10px)
-
-  h2
-    margin: 0 0 15px 10px
-
-  ul
-    li
-      list-style: circle outside none
-      margin: 5px 0 15px
-
 .posts
   width: 650px
   float: left
   margin-right: 20px
   overflow: hidden
+
+  ul
+    margin: 0
+    li
+      margin-bottom: 40px
+      border-bottom: 1px dashed #CCCCCC
+
+      header
+        margin-bottom: 6px
+        h3
+          text-transform: uppercase
+          display: inline
 
 
 article.post
@@ -279,6 +279,8 @@ article.post
   float: left
   margin-bottom: 35px
 
+  h2
+    // display: inline
   ul
     li
       list-style: disc outside none
@@ -288,13 +290,15 @@ article.post
     margin-bottom: 1em
 
   header
-    background: #DDD
-    +border-radius(10px)
-    +box-shadow(#999, 1px, 2px, 3px)
-    margin-bottom: 15px
-    padding: 5px 15px
+    margin-bottom: 20px
+    span
+      font-size: 12px
+      margin-left: 8px
+    time
+      margin-left: 8px
     h2
       font-size: 24px
+      display: inline
     div
       margin-top: 2px
       padding-top: 3px
@@ -317,15 +321,30 @@ article.post
 
 aside
   float: right
-  width: 205px
+  width: 245px
+  padding-left: 40px
+  margin-bottom: 20px
 
   h3
-    margin: 0 0 15px 20px
+    margin: 0 0 15px 0
   ul
+    margin-left: 0px
     li
-      margin: 3px 0
+      margin: 5px 0
+
+  .about
+    font: 13px / 20px 'OpenSansRegular', "Helvetica Neue", Helvetica, Arial, sans-serif
+    margin-bottom: 20px
+    img
+      +border-radius(5px)
+      background-color: rgba(0, 0, 0, 0.1)
+      padding: 5px
+  .archive
+    span
+      font: 13px / 20px 'OpenSansLightItalic', "Helvetica Neue", Helvetica, Arial, sans-serif
 
 .comments
+  margin-top: 20px
   width: 650px
 
   h3
@@ -339,6 +358,9 @@ aside
       margin: 20px 0 30px
       padding-bottom: 5px
       overflow: hidden
+
+      .name
+        font: 12px / 18px 'OpenSansLight', "Helvetica Neue", Helvetica, Arial, sans-serif
 
       .author
         float: left
@@ -380,9 +402,9 @@ aside
     font-size: 24px
 
 label
-  font-weight: bold
   margin-bottom: 3px
   float: left
+  // font-family: 'OpenSansSemibold', "Helvetica Neue", Helvetica, Arial, sans-serif
   display: inline-block
   width: 100px
 
@@ -410,19 +432,20 @@ input, textarea
   padding: 3px
   &:hover, &:focus, &:active
     +box-shadow(#ccc, 0, 0, 5px)
-    border: 1px solid #CCC
+    border: 1px solid #999
 
 input[type=submit]
   cursor: pointer
-  font-size: 12px
-  font-weight: bold
+  font-size: 14px
+  font-family: 'OpenSansSemibold', "Helvetica Neue", Helvetica, Arial, sans-serif
+  // font-weight: bold
   padding: 6px 12px
-  text-transform: uppercase
-  +border-radius(7px)
-  +box-shadow(#666, 1px, 3px)
+  // text-transform: uppercase
+  +border-radius(5px)
+  // +box-shadow(#666, 1px, 1px)
 
-input[type=submit]:hover, input[type=submit]:focus, input[type=submit]:active
-  +box-shadow(#666, 1px, 3px)
+// input[type=submit]:hover, input[type=submit]:focus, input[type=submit]:active
+//   +box-shadow(#666, 1px, 1px)
 
 
 .submit
@@ -434,6 +457,9 @@ input[type=submit]:hover, input[type=submit]:focus, input[type=submit]:active
 
 /* PAGINATION BEGIN */
 
+.pagination
+  margin: 30px 0
+  overflow: hidden
 .pagination a, .pagination span, .pagination em
   padding: 2px 5px
   margin-right: 5px
@@ -474,7 +500,7 @@ input[type=submit]:hover, input[type=submit]:focus, input[type=submit]:active
 
 .notice, .error
   padding: 2px 10px
-  margin: 10px 0
+  margin: 10px 0 30px
   color: #FFF
   p
     margin: 0
@@ -483,13 +509,7 @@ input[type=submit]:hover, input[type=submit]:focus, input[type=submit]:active
   background-color: #0c3
   border: 3px solid green
 
-.error, .recaptcha_error
+.error
   background-color: #c00
   border: 3px solid red
-
-#recaptcha_widget_div
-  margin-left: 100px
-
-.recaptcha_error
-  display: none
 /* FLASH END */

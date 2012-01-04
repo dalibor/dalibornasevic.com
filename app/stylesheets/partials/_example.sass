@@ -8,6 +8,8 @@
 //--------------------------------
 +html5-boilerplate-fonts($base-font-family, $base-font-size, $base-line-height)
 
+@import compass/css3
+
 //--------------------------------
 // Minimal Base Styles
 //--------------------------------
@@ -23,7 +25,13 @@ a, a:active, a:visited
 
 a:hover
   color: $link-hover-color
-  text-decoration: underline
+  text-decoration: none
+  background-color: $yellow
+  color: #000000
+  +transition-property("background-color")
+  +transition-property("color")
+  +transition-timing-function("ease-in")
+  +transition-duration(0.3s)
 
 ul, ol
   margin-left: $list-left-margin

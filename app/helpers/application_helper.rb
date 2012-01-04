@@ -34,4 +34,12 @@ module ApplicationHelper
   def body_id
     controller.controller_path.split('/').push(controller.action_name).join('_')
   end
+
+  def on_front_page?
+    controller.controller_name == 'main' && controller.action_name == 'index'
+  end
+
+  def on_blog_page?
+    ['posts', 'comments'].include?(controller.controller_name)
+  end
 end

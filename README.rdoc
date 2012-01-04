@@ -46,7 +46,7 @@ Ruby on Rails 3 Blog application deployed at http://dalibornasevic.com
 
     vi db/seeds.rb
     rake db:seed
-  
+
 - Start the server
 
     ruby script/server
@@ -71,7 +71,7 @@ Ruby on Rails 3 Blog application deployed at http://dalibornasevic.com
 
 (The MIT License)
 
-Copyright (c) 2009-2011 Dalibor Nasevic
+Copyright (c) 2009-2012 Dalibor Nasevic
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the

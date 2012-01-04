@@ -1,18 +1,9 @@
 development:
   token:
     secret: "your_long_secret_key"
-  recaptcha: 
-    public_key: 'public_key'
-    private_key: 'private_key'
 test:
   token:
     secret: "your_long_secret_key"
-  recaptcha: 
-    public_key: 'public_key'
-    private_key: 'private_key'
 production:
   token:
     secret: "your_long_secret_key"
-  recaptcha: 
-    public_key: 'public_key'
-    private_key: 'private_key'

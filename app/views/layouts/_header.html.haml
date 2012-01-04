@@ -1,15 +1,12 @@
 .wrapper
   .logo
-    %h1
-      = link_to root_path do
-        %strong Dalibor
-        Nasevic
-    %p
-      Software principles and practices to extreme levels
+    = link_to root_path do
+      %h1
+        <b>Dalibor</b>&nbsp;Nasevic
+      %p
+        Software principles and practices to extreme levels
   %nav
     %ul
-      %li= link_to image_tag('feed-icon-14x14.png'), posts_path(:format => 'rss')
-      %li= link_to "Home", root_path
-      %li= link_to "Blog", posts_path
-      %li= link_to "About", static_path('about')
-      %li= mail_to 'dalibor.nasevic@gmail.com', 'Contact'
+      %li= link_to 'About me', root_path, :class => (on_front_page? ? 'active' : nil)
+      %li= link_to 'Blog', posts_path, :class => (on_blog_page? ? 'active' : nil)
+      %li= mail_to 'dalibor.nasevic@gmail.com', 'Contact me'
