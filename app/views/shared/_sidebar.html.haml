@@ -1,13 +1,14 @@
-%aside
-  .about
+.sidebar
+  %article.about
+    %h3.hidden About me
     %p
-      = image_tag('dalibor.nasevic.small.jpg')
+      = image_tag('dalibor.nasevic.small.jpg', :alt => 'Dalibor Nasevic', :title => 'Dalibor Nasevic')
     %p
-      Hi, my name is <b>Dalibor Nasevic</b> <br/>and I am <b>software professional</b>.
+      Hi, my name is <strong>Dalibor Nasevic</strong> <br/>and I am <strong>software professional</strong>.
     %p
-      <b>You</b> can read <a href="/">about me</a>, <a href="mailto:dalibor.nasevic@gmail.com">contact me</a> <br/> or <a href="http://www.twitter.com/blackflasher">follow me</a> on twitter.
+      <strong>You</strong> can read <a href="/">about me</a>, <a href="mailto:dalibor.nasevic@gmail.com">contact me</a> <br/> or <a href="http://www.twitter.com/blackflasher">follow me</a> on twitter.
 
-  .archive
+  %aside.archive
     %h3 Archive
     %ul
       - @posts_by_month.each do |post|

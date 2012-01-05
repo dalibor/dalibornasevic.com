@@ -19,6 +19,6 @@ Feature: A visitor can write comments
 
   Scenario: See comment errors
     When I press "Comment"
-    Then the page should have ".field_with_errors #comment_name"
-    Then the page should have ".field_with_errors #comment_email"
-    And the page should have ".field_with_errors #comment_content"
+    Then the page should have css selector ".field_with_errors #comment_name"
+    Then the page should have css selector ".field_with_errors #comment_email"
+    And the page should have css selector ".field_with_errors #comment_content"

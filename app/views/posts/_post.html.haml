@@ -4,9 +4,10 @@
     %time= post.published_at.to_s(:date)
     %span= link_to pluralize(post.comments_count, 'Comment'), post_path(post) + '#comments'
 
-  %section
+  .content
     = raw find_and_preserve(post.content)
 
+  %footer
     %p
       Tags:
       = raw post.tags.map{|tag| link_to(tag.name, tag_posts_path(tag), :rel => 'tag')}.join(', ')

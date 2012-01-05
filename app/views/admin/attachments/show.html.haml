@@ -15,7 +15,7 @@
         %b
           = t("activerecord.attributes.admin_attachment.url", :default => t("activerecord.labels.url", :default => "Url"))
           \:
-        = auto_link direct_attachment_url(@attachment.attachment)
+        = link_to @attachment.attachment.url(:original, false), @attachment.attachment.url(:original, false)
       %p
         %b
           = t("activerecord.attributes.admin_attachment.attachment_updated_at", :default => t("activerecord.labels.attachment_updated_at", :default => "Attachment updated at"))

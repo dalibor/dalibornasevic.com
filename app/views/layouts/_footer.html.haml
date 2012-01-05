@@ -3,6 +3,7 @@
     &copy; 2009 - #{Date.today.year} dalibornasevic.com
 
   %nav
+    %h2.hidden Contact
     %ul
       %li= link_to image_tag('icons/rss_32.png'), posts_path(:format => 'rss'), :alt => 'RSS feed', :title => 'Subscribe to my RSS feed'
       %li= mail_to 'dalibor.nasevic@gmail.com', image_tag('icons/email_32.png'), :alt => 'Email', :title => 'Send me an email'

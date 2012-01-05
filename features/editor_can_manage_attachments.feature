@@ -12,7 +12,7 @@ Feature: Manage attachments
     And I press "Save"
     Then I should see "Attachment was successfully created"
     And I should see "Attachment1"
-    And I should see "rails1.png" in body
+    And the page should match "rails1.png"
 
     When I follow "Edit"
     And I fill in "Name" with "Attachment2"
@@ -20,7 +20,7 @@ Feature: Manage attachments
     And I press "Save"
     Then I should see "Attachment was successfully updated"
     And I should see "Attachment2"
-    And I should see "rails2.png" in body
+    And the page should match "rails2.png"
 
     When I follow "Delete"
     Then I should see "Attachment was successfully destroyed"

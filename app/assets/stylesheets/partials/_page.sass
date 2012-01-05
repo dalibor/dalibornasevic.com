@@ -84,7 +84,7 @@ blockquote
 
 body
   background-color: #F2F2F2
-  background-image: url('../../images/patterns/wall.png')
+  background-image: url(image_path('patterns/wall.png'))
   font: 14px / 21px 'OpenSansRegular', "Helvetica Neue", Helvetica, Arial, sans-serif
 
 
@@ -100,7 +100,7 @@ body
 html, body
   height: 100%
 
-.section
+.promo
   margin: 20px 0 40px
   overflow: hidden
   span
@@ -109,22 +109,6 @@ html, body
     +border-radius(5px)
     background-color: rgba(0, 0, 0, 0.1)
     padding: 10px
-  ul
-    margin-left: 0
-    li
-      margin: 8px 0
-      &:first-child
-        margin: 0
-    &.posts_excerpt, &.projects_excerpt
-      h4
-        display: inline
-      span
-        font: 12px / 18px 'OpenSansLightItalic', "Helvetica Neue", Helvetica, Arial, sans-serif
-    &.presentations_excerpt
-      h4
-        display: inline-block
-        margin-bottom: 8px
-
 
   .info
     float: left
@@ -141,6 +125,22 @@ html, body
     margin-left: 40px
     width: 580px
 
+    ul
+      margin-left: 0
+      li
+        margin: 8px 0
+        &:first-child
+          margin: 0
+        h4
+          font-size: 1em
+          text-transform: uppercase
+          display: inline
+        span
+          font: 12px / 18px 'OpenSansLightItalic', "Helvetica Neue", Helvetica, Arial, sans-serif
+        p
+          margin: 10px 0
+
+
 .wrapper
   width: 960px
   margin: 0 auto
@@ -149,7 +149,7 @@ html, body
 
 /* HEADER BEGIN */
 .header
-  background: #FFF url('../../images/patterns/type.png')
+  background: #FFF url(image_path('patterns/type.png'))
   border-bottom: 7px solid rgba(0, 0, 0, 0.5)
   height: 80px
   padding: 10px 0
@@ -182,7 +182,7 @@ html, body
 
 /* FOOTER BEGIN */
 .footer
-  background: #CCC url('../../images/patterns/type.png')
+  background: #CCC url(image_path('patterns/type.png'))
   border-top: 7px solid rgba(0, 0, 0, 0.5)
   // position: fixed
   // left: 0px
@@ -226,7 +226,7 @@ html, body
         color: $yellow
         +transition-property("color")
         +transition-timing-function("ease-in")
-        +transition-duration(0.2s)
+        +transition-duration(0.3s)
 
   h1
     letter-spacing: -0.03em
@@ -240,20 +240,6 @@ html, body
     border-top: 5px solid rgba(255, 255, 255, 0.05)
     padding-top: 2px
 /* LOGO END */
-
-section
-  header
-    background: $green
-    +border-top-left-radius(5px)
-    +border-bottom-left-radius(5px)
-    padding: 5px 10px
-    overflow: hidden
-    h3
-      float: left
-      text-transform: uppercase
-      font-size: 14px
-    a
-      float: right
 
 .posts
   width: 650px
@@ -319,7 +305,7 @@ article.post
     border-bottom: 1px solid #CCC
     padding: 10px 5px
 
-aside
+.sidebar
   float: right
   width: 245px
   padding-left: 40px
