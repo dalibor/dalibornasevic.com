@@ -34,6 +34,13 @@ group :development do
   gem 'haml-rails' # haml generators
   gem 'ruby-debug'
   gem 'mongrel'
+
+  gem 'guard'
+  # gem 'guard-cucumber'
+  # gem 'guard-rspec'
+  gem 'guard-spork'
+  gem 'libnotify'
+  gem 'rb-inotify'
 end
 
 group :development, :test do
@@ -51,4 +58,5 @@ group :test do
   gem 'shoulda-matchers'
   gem 'email_spec'
   gem 'launchy'
+  gem 'spork', '~> 0.9.0.rc'
 end

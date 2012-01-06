@@ -15,7 +15,7 @@ Given /^I am logged in as editor$/ do
 end
 
 Given /^I am logged in as admin$/ do
-  Factory.create(:editor, :is_admin => true)
+  Factory.create(:editor, :is_admin => true, :email => "pink.panter@gmail.com")
   steps %Q{
     Given I am logged in as "pink.panter@gmail.com"
   }
