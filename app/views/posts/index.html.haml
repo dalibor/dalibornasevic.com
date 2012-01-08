@@ -1,5 +1,7 @@
 - title("Latest blog posts")
 
+= render 'shared/sidebar'
+
 %section.posts
   %h2.hidden Latest blog posts
   %ul
@@ -12,5 +14,3 @@
           %p= post.description
 
   = will_paginate @posts
-
-= render 'shared/sidebar'

@@ -20,7 +20,8 @@
   = auto_discovery_link_tag(:rss, posts_path(:format => 'rss'))
 
   -# Mobile viewport optimized: j.mp/bplateviewport
-  %meta{ :content => "width=device-width, initial-scale=1.0", :name => "viewport" }/
+  -# %meta{ :content => "width=device-width, initial-scale=1.0", :name => "viewport" }/
+  %meta{ :content => "width=device-width, user-scalable=no initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0", :name => "viewport" }/
 
   -# Place favicon.ico and apple-touch-icon.png in the root of your domain and delete these references
   -# %link{ :href => "/favicon.ico", :rel => "shortcut icon" }/

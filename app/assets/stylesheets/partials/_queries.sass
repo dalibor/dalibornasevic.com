@@ -1,0 +1,73 @@
+@media screen and (max-width: 1024px)
+  .wrapper, .container
+    width: 90%
+
+
+@media screen and (max-width: 650px)
+  .container
+    margin-top: 15px
+
+  .header
+    .logo
+      display: block
+      float: none
+      p
+        font-size: 11px
+        line-height: 19px
+        display: inline-block
+    nav
+      float: none
+      margin-top: 10px
+
+  .footer
+    .wrapper
+      position: relative
+      height: 80px
+
+      .copyright
+        float: none
+        position: absolute
+        bottom: 10px
+      nav
+        float: none
+        position: absolute
+        top: 5px
+
+  .posts, .post
+    width: 100%
+
+  .sidebar
+    float: none
+    width: inherit
+    padding-left: 0
+    .about
+      img
+        padding: 2%
+        width: 25%
+        float: left
+      .short_about
+        margin-left: 5%
+        margin-top: 0
+        width: 66%
+        float: left
+
+    .archive
+      display: none
+
+
+// @media handheld and (max-width: 480px), screen and (max-device-width: 480px), screen and (max-width: 750)
+@media handheld and (max-width: 480px), screen and (max-width: 480px), screen and (max-device-width: 480px)
+  body
+    font-size: 13px
+
+  .promo
+    margin-top: 0
+    .info, .description
+      float: none
+      width: inherit
+      margin: 0
+    .info
+      text-align: left
+    .description
+      embed
+        width: 100%

@@ -2,5 +2,5 @@
 - keywords(@post.tags.map(&:name).join(', '))
 - description(@post.description)
 
-= render 'posts/post', :post => @post
 = render 'shared/sidebar'
+= render 'posts/post', :post => @post
