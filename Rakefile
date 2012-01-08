@@ -4,10 +4,3 @@ require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
 Blog::Application.load_tasks
-
-# sitemap
-begin
- require 'sitemap_generator/tasks'
-rescue Exception => e
- puts "Warning, couldn't load gem tasks: #{e.message}! Skipping..."
-end
