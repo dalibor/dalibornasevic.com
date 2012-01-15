@@ -13,23 +13,17 @@
 //= require jquery
 //= require jquery_ujs
 //= require 'wymeditor/jquery.wymeditor.js'
-//= require 'wym_boot'
-//= require 'syntaxhighlighter/shCore'
-//= require 'syntaxhighlighter/shBrushDiff.js'
-//= require 'syntaxhighlighter/shBrushPlain.js'
-//= require 'syntaxhighlighter/shBrushRuby'
-//= require 'syntaxhighlighter/shBrushBash.js'
-//= require 'syntaxhighlighter/shBrushCss.js'
-//= require 'syntaxhighlighter/shBrushSass.js'
-//= require 'syntaxhighlighter/shBrushJScript.js'
-//= require 'syntaxhighlighter/shBrushXml.js'
 //= require 'rails'
 //= require 'plugins'
 //
 
 $(function () {
-  SyntaxHighlighter.defaults['toolbar'] = false;
-  SyntaxHighlighter.all();
+  $(".wymeditor").wymeditor({
+    basePath: "/assets/wymeditor/",
+    iframeBasePath: "/assets/wymeditor/iframe/default/",
+    skinPath: "/assets/wymeditor/skins/default/",
+    wymPath: "/assets/admin.js"
+  });
 
   $('form').submit(function () {
     $.each(WYMeditor.INSTANCES, function (i, e) {

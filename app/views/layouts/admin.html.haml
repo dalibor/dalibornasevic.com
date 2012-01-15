@@ -4,6 +4,7 @@
     %title Administration
     = stylesheet_link_tag 'admin'
     = javascript_include_tag 'admin'
+    = yield :head
     = csrf_meta_tag
   %body
     #container

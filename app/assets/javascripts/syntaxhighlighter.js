@@ -10,9 +10,18 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
-//= require jquery
-//= require jquery_ujs
-//= require 'syntaxhighlighter'
-//= require 'rails'
-//= require 'plugins'
-//
+//= require 'syntaxhighlighter/shCore'
+//= require 'syntaxhighlighter/shBrushDiff.js'
+//= require 'syntaxhighlighter/shBrushPlain.js'
+//= require 'syntaxhighlighter/shBrushRuby'
+//= require 'syntaxhighlighter/shBrushBash.js'
+//= require 'syntaxhighlighter/shBrushCss.js'
+//= require 'syntaxhighlighter/shBrushSass.js'
+//= require 'syntaxhighlighter/shBrushJScript.js'
+//= require 'syntaxhighlighter/shBrushXml.js'
+
+
+$(function () {
+  SyntaxHighlighter.defaults['toolbar'] = false;
+  SyntaxHighlighter.all();
+});
