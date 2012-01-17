@@ -3,4 +3,19 @@
 - description(@post.description)
 
 = render 'shared/sidebar'
-= render 'posts/post', :post => @post
+
+%article.post
+  %header
+    %h2= @post.title
+    %time= @post.published_at.to_s(:date)
+
+  .content
+    = raw find_and_preserve(@post.content)
+
+  %footer
+    %p
+      Tags:
+      = raw @post.tags.map{|tag| link_to(tag.name, tag_posts_path(tag), :rel => 'tag')}.join(', ')
+
+  .comments
+    = render 'shared/disqus'
