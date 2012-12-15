@@ -40,22 +40,3 @@ class Comment < ActiveRecord::Base
       self.post.save
     end
 end
-
-# == Schema Information
-#
-# Table name: comments
-#
-#  id         :integer(4)      not null, primary key
-#  post_id    :integer(4)
-#  name       :string(255)
-#  email      :string(255)
-#  url        :string(255)
-#  content    :text
-#  created_at :datetime
-#  updated_at :datetime
-#  user_ip    :string(255)
-#  user_agent :string(255)
-#  referrer   :string(255)
-#  approved   :boolean(1)      default(FALSE), not null
-#
-

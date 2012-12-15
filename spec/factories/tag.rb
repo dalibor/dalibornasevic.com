@@ -1,3 +1,5 @@
-Factory.define :tag, :class => Tag do |f|
-  f.name "tag"
+FactoryGirl.define do
+  factory :tag do |f|
+    f.name "tag"
+  end
 end

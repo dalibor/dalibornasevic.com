@@ -52,21 +52,3 @@ class Post < ActiveRecord::Base
       self.published_at = nil
     end
 end
-
-
-# == Schema Information
-#
-# Table name: posts
-#
-#  id              :integer(4)      not null, primary key
-#  title           :string(255)
-#  content         :text
-#  created_at      :datetime
-#  updated_at      :datetime
-#  comments_count  :integer(4)      default(0)
-#  published_at    :datetime
-#  description     :string(255)
-#  comments_closed :boolean(1)      default(FALSE)
-#  editor_id       :integer(4)
-#
-

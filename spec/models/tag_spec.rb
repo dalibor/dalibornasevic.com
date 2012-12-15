@@ -7,13 +7,13 @@ describe Tag do
   end
 
   it "should assign valid tag_counts" do
-    post1 = Factory.create(:post, :publish => true, :published_at => Time.now)
-    post1.tags << Factory.create(:tag, :name => 'tag1')
-    post1.tags << Factory.create(:tag, :name => 'tag2')
+    post1 = create(:post, :publish => true, :published_at => Time.now)
+    post1.tags << create(:tag, :name => 'tag1')
+    post1.tags << create(:tag, :name => 'tag2')
 
-    post2 = Factory.create(:post, :publish => true, :published_at => Time.now)
-    post2.tags << Factory.create(:tag, :name => 'tag1')
-    post2.tags << Factory.create(:tag, :name => 'tag3')
+    post2 = create(:post, :publish => true, :published_at => Time.now)
+    post2.tags << create(:tag, :name => 'tag1')
+    post2.tags << create(:tag, :name => 'tag3')
 
     tag_counts = Tag.tag_counts
     tag_counts.detect{|tc| tc.name == 'tag1'}.count.should == 2
@@ -22,18 +22,7 @@ describe Tag do
   end
 
   it "should have nice url format using to_param method" do
-    post = Factory.create(:tag, :name => 'tag')
+    post = create(:tag, :name => 'tag')
     post.to_param.should == "tag"
   end
 end
-
-# == Schema Information
-#
-# Table name: tags
-#
-#  id         :integer(4)      not null, primary key
-#  name       :string(255)
-#  created_at :datetime
-#  updated_at :datetime
-#
-

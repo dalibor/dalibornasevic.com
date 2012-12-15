@@ -30,9 +30,9 @@ describe Admin::CommentsController do
   describe "filter comments" do
     before :each do
       editor = login_as_editor
-      post = Factory.create(:post, :editor => editor)
-      @valid_comment = Factory.create(:comment, :post => post, :approved => true)
-      @spam_comment = Factory.create(:comment, :post => post, :approved => false)
+      post = create(:post, :editor => editor)
+      @valid_comment = create(:comment, :post => post, :approved => true)
+      @spam_comment = create(:comment, :post => post, :approved => false)
     end
 
     it "should render all comments successfully" do

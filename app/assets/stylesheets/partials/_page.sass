@@ -1,6 +1,34 @@
-@import compass/css3
-@import compass/utilities
-@import "compass/css3/transform"
+//--------------------------------
+// Minimal Base Styles
+//--------------------------------
+body, select, input, textarea
+  color: $font-color
+
+html
+
+a, a:active, a:visited
+  color: $link-color
+  text-decoration: none
+
+a:hover
+  color: $link-hover-color
+  text-decoration: none
+  background-color: $yellow
+  color: #000000
+  +transition-property("background-color")
+  +transition-property("color")
+  +transition-timing-function("ease-in")
+  +transition-duration(0.3s)
+
+ul, ol
+  margin-left: $list-left-margin
+
+ol
+  list-style-type: decimal
+
+td, td img
+  vertical-align: top
+
 
 //-----------------------------------------------
 // The following html5-boilerplate styles should
@@ -18,7 +46,7 @@ strong, th
 small
   // Use font-size mixin to convert to percentage for YUI
   // http://developer.yahoo.com/yui/3/cssfonts/#fontsize
-  +font-size(11px)
+  font-size: 11px
   // approx 85% when base-font-size eq 13px
 
 // Add the 'required' attribute on your

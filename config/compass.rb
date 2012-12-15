@@ -1,10 +1,12 @@
 # This configuration file works with both the Compass command line tool and within Rails.
+require 'compass/h5bp'
+
 # Require any additional compass plugins here.
+
 project_type = :rails
 
 # Set this to the root of your project when deployed:
 http_path = "/"
-sass_dir = "app/assets/stylesheets"
 
 # You can select your preferred output style here (can be overridden via the command line):
 # output_style = :expanded or :nested or :compact or :compressed
@@ -15,4 +17,9 @@ sass_dir = "app/assets/stylesheets"
 # To disable debugging comments that display the original location of your selectors. Uncomment:
 # line_comments = false
 
-preferred_syntax = :sass
+
+# If you prefer the indented syntax, you might want to regenerate this
+# project again passing --syntax sass, or you can uncomment this:
+# preferred_syntax = :sass
+# and then run:
+# sass-convert -R --from scss --to sass app/stylesheets scss && rm -rf sass && mv scss sass
