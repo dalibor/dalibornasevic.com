@@ -1,12 +1,14 @@
-= blog
+![Travis status](https://travis-ci.org/dalibor/blog.png)
+
+# blog
 
 * http://github.com/dalibor/blog
 
-== DESCRIPTION:
+## DESCRIPTION:
 
-Ruby on Rails 3 Blog application deployed at http://dalibornasevic.com
+Ruby on Rails blog application deployed at: [http://dalibornasevic.com](http://dalibornasevic.com)
 
-== INSTALL:
+## INSTALL:
 
 - Clone repository
 
@@ -22,11 +24,6 @@ Ruby on Rails 3 Blog application deployed at http://dalibornasevic.com
 
     cp config/config.yml.template config/config.yml
     vim config/config.yml # edit config.yml file
-
-- Setup google analytics
-
-    cp config/google.yml.template config/google.yml
-    vi config/google.yml
 
 - Change the secret token for verifying the integrity of signed cookies
 
@@ -51,23 +48,17 @@ Ruby on Rails 3 Blog application deployed at http://dalibornasevic.com
 
     ruby script/server
 
-== SEO
+## SEO
 
 - When creating post fill description area for description meta tag of your show post page
 
 - Add tags to the post which are used as keywords on the post page
 
-== Run tests
-
-- Run cucumber features
-
-    cucumber features
-
-- Run RSpec specs
+## Run tests
 
     rspec spec
 
-== LICENSE:
+## LICENSE:
 
 (The MIT License)
 
