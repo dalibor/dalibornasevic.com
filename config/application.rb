@@ -64,12 +64,18 @@ module Blog
       g.test_framework :rspec, :fixture => false
     end
 
-    ActionView::Base.field_error_proc = Proc.new do |html_tag, instance|
-      include ActionView::Helpers::OutputSafetyHelper
-      raw(%(<span class="field_with_errors">#{html_tag}</span>))
-    end
+    # don't access the DB or load models when precompiling assets.
+    config.assets.initialize_on_precompile = false
+
+    # config.assets.precompile << /(^[^_]|\/[^_])[^\/]*/
+    config.assets.precompile += ['sign.css', 'admin.css', 'admin.js']
 
   end
+end
+
+ActionView::Base.field_error_proc = Proc.new do |html_tag, instance|
+  include ActionView::Helpers::OutputSafetyHelper
+  raw(%(<span class="field_with_errors">#{html_tag}</span>))
 end
 
 Time::DATE_FORMATS[:date] = "%B %d, %Y"
