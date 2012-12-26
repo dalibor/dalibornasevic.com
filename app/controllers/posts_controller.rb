@@ -14,8 +14,6 @@ class PostsController < ApplicationController
 
   def show
     @post           = Post.where('published_at IS NOT NULL').find(params[:id])
-    @comments       = @post.comments.where({:approved => true})
-    @comment        = Comment.new
     @posts_by_month = Post.posts_by_month
   end
 

@@ -1,7 +1,7 @@
 class Post < ActiveRecord::Base
 
   # Attributes
-  attr_accessible :title, :content, :description, :comments_closed,
+  attr_accessible :title, :content, :description,
                   :tag_names, :publish, :published_at
   attr_writer :tag_names
 
@@ -10,7 +10,6 @@ class Post < ActiveRecord::Base
   validates :content, :presence => true
 
   # Associations
-  has_many :comments
   has_many :taggings, :dependent => :destroy
   has_many :tags, :through => :taggings
   belongs_to :editor
@@ -21,7 +20,6 @@ class Post < ActiveRecord::Base
 
   # Scopes
   scope :published, where({:publish => true})
-  scope :available_for_commenting, where({:comments_closed => false})
 
   def tag_names
     @tag_names || tags.map(&:name).join(' ')

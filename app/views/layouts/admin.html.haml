@@ -21,8 +21,6 @@
           %ul.wat-cf
             %li{:class => controller.controller_path == 'admin/posts' ? 'active' : '' }
               %a{:href => admin_posts_path} Posts
-            %li{:class => controller.controller_path == 'admin/comments' ? 'active' : '' }
-              %a{:href => admin_comments_path} Comments
             - if current_editor.is_admin?
               %li{:class => controller.controller_path == 'admin/editors' ? 'active' : '' }
                 %a{:href => admin_editors_path} Editors

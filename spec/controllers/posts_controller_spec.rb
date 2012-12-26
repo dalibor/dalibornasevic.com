@@ -42,12 +42,8 @@ describe PostsController, "list posts" do
   describe "show post" do
     before :each do
       @post_mock     = mock_model(Post)
-      @comment_mock  = mock_model(Comment)
-      @comments_mock = [@comment_mock]
 
       Post.stub_chain(:where, :find).and_return(@post_mock)
-      @post_mock.stub_chain(:comments, :where, :find).and_return(@comments_mock)
-      Comment.stub(:new).and_return(@comment_mock)
     end
 
     it "should render single post successfully" do
@@ -57,19 +53,6 @@ describe PostsController, "list posts" do
       get :show, :id => '1'
       assigns(:post).should_not be_nil
       response.should be_success
-    end
-
-    it "should assing comments for a post successfully" do
-      @chain = mock(:relation)
-      @post_mock.comments.should_receive(:where).and_return(@comments_mock)
-      get :show, :id => '1'
-      assigns(:comments).should_not be_nil
-    end
-
-    it "should initialize new comment comments for a post successfully" do
-      Comment.should_receive(:new).and_return(@comment)
-      get :show, :id => '1'
-      assigns(:comments).should_not be_nil
     end
   end
 end

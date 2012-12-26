@@ -6,16 +6,13 @@ describe Post do
     it { should allow_mass_assignment_of(:title) }
     it { should allow_mass_assignment_of(:content) }
     it { should allow_mass_assignment_of(:description) }
-    it { should allow_mass_assignment_of(:comments_closed) }
     it { should allow_mass_assignment_of(:publish) }
     it { should allow_mass_assignment_of(:published_at) }
     it { should allow_mass_assignment_of(:tag_names) }
-    it { should_not allow_mass_assignment_of(:comments_count) }
     it { should_not allow_mass_assignment_of(:editor_id) }
   end
 
   describe 'associations' do
-    it { should have_many(:comments) }
     it { should have_many(:taggings) }
     it { should have_many(:tags) }
     it { should belong_to(:editor) }

@@ -20,6 +20,7 @@ group :assets do
   gem 'uglifier'
   gem 'compass-rails'
   gem 'compass-h5bp'
+  gem 'therubyracer', '=0.10.1'
 end
 
 group :development do
