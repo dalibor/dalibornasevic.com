@@ -4,49 +4,89 @@
 
 * http://github.com/dalibor/blog
 
+
 ## DESCRIPTION:
 
 Ruby on Rails blog application deployed at: [http://dalibornasevic.com](http://dalibornasevic.com)
+
 
 ## INSTALL:
 
 - Clone repository
 
-    git clone git://github.com/dalibor/blog.git
-    cd blog
+```
+git clone git://github.com/dalibor/blog.git
+cd blog
+```
 
 - Config database
 
-    cp config/database.yml.template config/database.yml
-    vi config/database.yml
+```
+cp config/database.yml.template config/database.yml
+vi config/database.yml
+```
 
 - Config secret keys
 
-    cp config/config.yml.template config/config.yml
-    vim config/config.yml # edit config.yml file
+```
+cp config/config.yml.template config/config.yml
+vim config/config.yml # edit config.yml file
+```
 
 - Change the secret token for verifying the integrity of signed cookies
 
-    First generate new secret token with: 'rake secret'
-    Then add it to config/initializers/secret_token.rb
+```
+First generate new secret token with: 'rake secret'
+Then add it to config/initializers/secret_token.rb
+```
 
 - Install gems
 
-    bundle install
+```
+bundle install
+```
 
 - Setup database
 
-    rake db:create
-    rake db:migrate
+```
+rake db:create
+rake db:migrate
+```
 
 - Seed admin user
 
-    vi db/seeds.rb
-    rake db:seed
+```
+vi db/seeds.rb
+rake db:seed
+```
 
 - Start the server
 
-    ruby script/server
+```
+ruby script/server
+```
+
+- Run tests
+
+```
+rspec spec
+```
+
+
+## DEPLOY
+
+  - Setup production (run only once)
+
+```
+gitploy production setup
+```
+
+  - Deploy to production
+
+```
+gitploy production
+```
+
 
 ## SEO
 
@@ -54,9 +94,6 @@ Ruby on Rails blog application deployed at: [http://dalibornasevic.com](http://d
 
 - Add tags to the post which are used as keywords on the post page
 
-## Run tests
-
-    rspec spec
 
 ## LICENSE:
 

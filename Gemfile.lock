@@ -79,6 +79,7 @@ GEM
       eventmachine (>= 0.12.0)
     ffi (1.2.0)
     fssm (0.2.9)
+    gitploy (0.2.2)
     haml (3.1.7)
     haml-rails (0.3.5)
       actionpack (>= 3.1, < 4.1)
@@ -224,6 +225,7 @@ DEPENDENCIES
   database_cleaner
   email_spec
   factory_girl_rails
+  gitploy
   haml
   haml-rails
   html5-rails

@@ -26,6 +26,7 @@ end
 group :development do
   gem 'thin'
   gem 'haml-rails' # haml generators
+  gem 'gitploy'
 end
 
 group :development, :test do
