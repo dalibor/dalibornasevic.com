@@ -12,7 +12,5 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require 'syntaxhighlighter'
-//= require 'rails'
-//= require 'plugins'
+//= require syntaxhighlighter
 //

@@ -11,6 +11,6 @@
  *= require_self
  *= require 'web-app-theme/base'
  *= require 'web-app-theme/themes/drastic-dark/style'
- *= require 'web-app-theme/override'
+ *= require web_app_theme_override
 */
 

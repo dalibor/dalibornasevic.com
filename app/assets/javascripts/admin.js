@@ -12,17 +12,14 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require 'wymeditor/jquery.wymeditor.js'
-//= require 'rails'
-//= require 'plugins'
+//= require jquery.wymeditor.min
 //
 
 $(function () {
   $(".wymeditor").wymeditor({
-    basePath: "/assets/wymeditor/",
-    iframeBasePath: "/assets/wymeditor/iframe/default/",
-    skinPath: "/assets/wymeditor/skins/default/",
-    wymPath: "/assets/admin.js"
+    basePath: "/wymeditor/",
+    iframeBasePath: "/wymeditor/iframe/default/",
+    skinPath: "/wymeditor/skins/default/"
   });
 
   $('form').submit(function () {
