@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.9'
+gem 'rails', '3.2.11'
 gem 'mysql2'
 gem 'haml'
 gem 'compass', '~> 0.12.alpha.0'
