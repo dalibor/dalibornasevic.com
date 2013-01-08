@@ -6,17 +6,18 @@
   .description
     %h2.hidden About
 
-    %p <strong>Dalibor Nasevic</strong> is a <strong>Ruby on Rails</strong> developer with passion for building successful web products and teams with strong desire to win.
+    %p I'm <strong>Ruby</strong> and <strong>Javascript</strong> developer with <a href="http://www.linkedin.com/in/dalibornasevic" target="_blank" title="My LinkedIn profile">5+ years of experience</a> in the field working on numerous <strong>Ruby on Rails</strong> projects since 2007. I can help your product design and build successful web application front-end to back-end. I'm passionate about building successful web products and teams with strong desire to win.
 
-    %p He is an <a href="https://play.google.com/store/apps/details?id=mk.popravi.mobile&hl=en" target="_blank">award-winning</a> Android developer and experienced <a href="https://github.com/dalibor" target="_blank">Ruby on Rails</a> and Javascript developer working on numerous projects <a href="http://www.workingwithrails.com/person/13391-dalibor-nasevic" target="_blank">since 2007</a>.
+    %p I test and document my code using tools like <strong>RSpec</strong>, <strong>Capybara</strong> and <strong>Cucumber</strong>. I work professionally and quickly using <strong>Vim</strong> editor. I adapt to changes and new requirements easily.
 
-    %p He is co-founder and organizer of <a href="http://ruby.mk" target="_blank">MKRUG</a> (Macedonian Ruby Users Group), <a href="https://github.com/dalibor">open-source</a> contributor and <a href="http://b10g.spodeli.org/search/label/ruby.mk" target="_blank">presenter</a> on web and mobile technologies.
+    %p I'm co-founder and organizer of <a href="http://ruby.mk" target="_blank">MKRUG</a> (Macedonian Ruby Users Group), <a href="https://github.com/dalibor">open-source contributor</a> and <a href="http://b10g.spodeli.org/search/label/ruby.mk" target="_blank">presenter</a> on web and mobile technologies. I'm also an <a href="https://play.google.com/store/apps/details?id=mk.popravi.mobile&hl=en" target="_blank" title="VIP Android content 2010">award-winning</a> Android mobile application developer.
 
-    %p He has experience in product design and has co-founded few startups including: <a href="http://givebrand.com" target="_blank">givebrand.com</a> and <a href="http://popravi.mk" target="_blank">popravi.mk</a>. He has also experience implementing techniques with Agile & Lean values (Scrum, Kanban and XP) and mentoring developers in local and distributed teams.
 
-    %p He has received B.Sc. in "Computer Engineering, Computer Science and Automatics" from <a href="http://www.feit.ukim.edu.mk/" target="_blank">FEIT</a> (Faculty of Electrical Engineering and Information Technologies) in Skopje.
+    %p I have experience implementing techniques with Agile & Lean values (XP, Scrum and Kanban), mentoring developers in local and distributed teams and facilitating Coderetreat events (<a href="/posts/31-global-day-of-coderetreat-in-skopje-macedonia" title="Global Day of Coderetreat 2011 - Skopje (Macedonia)">GDRC11</a> and <a href="/posts/36-global-day-of-coderetreat-2012-skopje-macedonia" title="Global Day of Coderetreat 2012 - Skopje (Macedonia)">GDRC12</a>).
 
-    %p Currently he is working for <a href="http://www.siyelo.com/" target="_blank">Siyelo</a> - web application development consultancy with distributed teams in Cape Town and Skopje.
+    %p I have received B.Sc. in "Computer Engineering, Computer Science and Automatics" from <a href="http://www.feit.ukim.edu.mk/" target="_blank">FEIT</a> (Faculty of Electrical Engineering and Information Technologies) in Skopje.
+
+    %p Currently I'm working for <a href="http://www.siyelo.com/" target="_blank">Siyelo</a> - web application development consultancy with distributed teams in Cape Town and Skopje.
 
     = render 'shared/get_in_touch'
 
@@ -32,12 +33,22 @@
           %h4= link_to post.title, post
           %time= post.published_at.to_s(:date)
 
-%article.promo
+%article.promo.projects
   .info
     %h3 Open-source projects
     %p.notes Checkout my <a href="https://github.com/dalibor" target="_blank">Github</a> for more
   .description
     %ul
+      %li
+        %h4= link_to 'kreator', 'https://github.com/dalibor/kreator', :target => '_blank'
+        %span Ruby, Rack, RSpec
+        %p Experimental MVC web framework build to demonstrate Ruby on Rails concepts.
+
+      %li
+        %h4= link_to 'HRT', 'https://github.com/dalibor/hrt', :target => '_blank'
+        %span Ruby on Rails, jQuery
+        %p Health Resource Tracker - tracks resource flows in the health sector from their sources to the ultimate health function they serve. Visit the <a href="https://hrtapp.com" target="_blank">website</a>.
+
       %li
         %h4= link_to 'popravi.mk', 'https://github.com/dalibor/popravi.mk', :target => '_blank'
         %span Ruby on Rails, Google maps, API service
@@ -56,7 +67,7 @@
       %li
         %h4= link_to 'cyrillizer', 'https://github.com/dalibor/cyrillizer', :target => '_blank'
         %span Ruby
-        %p Ruby gem that converts characters from latin to Macedonian cyrillic alphabet.
+        %p Small ruby gem that converts characters from latin to Macedonian cyrillic alphabet.
 
       %li
         %h4= link_to '140.mk', 'https://github.com/dalibor/140mk', :target => '_blank'
