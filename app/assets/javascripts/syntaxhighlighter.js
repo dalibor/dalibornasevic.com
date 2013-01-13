@@ -19,7 +19,7 @@
 //= require 'syntaxhighlighter/shBrushSass.js'
 //= require 'syntaxhighlighter/shBrushJScript.js'
 //= require 'syntaxhighlighter/shBrushXml.js'
-
+//= require 'syntaxhighlighter/shBrushVimscript.js'
 
 $(function () {
   SyntaxHighlighter.defaults['toolbar'] = false;
