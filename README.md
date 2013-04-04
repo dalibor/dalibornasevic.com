@@ -33,13 +33,6 @@ cp config/config.yml.template config/config.yml
 vim config/config.yml # edit config.yml file
 ```
 
-- Change the secret token for verifying the integrity of signed cookies
-
-```
-First generate new secret token with: 'rake secret'
-Then add it to config/initializers/secret_token.rb
-```
-
 - Install gems
 
 ```
@@ -88,18 +81,11 @@ gitploy production
 ```
 
 
-## SEO
-
-- When creating post fill description area for description meta tag of your show post page
-
-- Add tags to the post which are used as keywords on the post page
-
-
 ## LICENSE:
 
 (The MIT License)
 
-Copyright (c) 2009-2012 Dalibor Nasevic
+Copyright (c) 2009-2013 Dalibor Nasevic
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
