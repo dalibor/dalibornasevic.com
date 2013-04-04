@@ -12,5 +12,3 @@
             %h3= link_to post.title, post
             %time= post.published_at.to_s(:date)
           %p= post.description
-
-  = will_paginate @posts

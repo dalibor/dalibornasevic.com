@@ -1,5 +1,4 @@
 !!! 5
--# http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither
 - html_tag :lang => 'en', :class => 'no-js' do
   = render :partial => 'layouts/head'
   %body{ :id => body_id }
@@ -8,7 +7,4 @@
     .container
       = render :partial => 'layouts/flashes'
       = yield
-    %footer.footer
-      = render :partial => 'layouts/footer'
-    -# Javascript at the bottom for fast page loading
     = render :partial => 'layouts/javascripts'

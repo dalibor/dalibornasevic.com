@@ -1,13 +1,2 @@
 .wrapper
-  .logo
-    = link_to root_path do
-      %h1
-        <b>Dalibor</b>&nbsp;Nasevic
-      %p
-        Software principles and practices to extreme levels
-  %nav
-    %h2.hidden Navigation
-    %ul
-      %li= link_to 'About me', root_path, :class => (on_front_page? ? 'active' : nil)
-      %li= link_to 'Blog', posts_path, :class => (on_blog_page? ? 'active' : nil)
-      %li= mail_to 'dalibor.nasevic@gmail.com', 'Contact me'
+  %h1.logo= link_to "Dalibor Nasevic", root_path

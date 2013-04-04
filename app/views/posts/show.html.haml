@@ -17,5 +17,5 @@
       Tags:
       = raw @post.tags.map{|tag| link_to(tag.name, tag_posts_path(tag), :rel => 'tag')}.join(', ')
 
-  .comments
+  %section.comments
     = render 'shared/disqus'

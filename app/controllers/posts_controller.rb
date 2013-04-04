@@ -2,8 +2,7 @@ class PostsController < ApplicationController
 
   def index
     @posts          = scope.order('published_at DESC').includes('tags').
-                            where('published_at IS NOT NULL').
-                            paginate :page => params[:page], :per_page => 10
+                            where('published_at IS NOT NULL')
     @posts_by_month = Post.posts_by_month
 
     respond_to do |format|

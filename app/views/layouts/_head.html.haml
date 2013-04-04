@@ -11,10 +11,10 @@
   -# meta element for compatibility mode needs to be before all elements except title & meta msdn.microsoft.com/en-us/library/cc288325(VS.85).aspx
   -# Chrome Frame is only invoked if meta element for compatibility mode is within the first 1K bytes code.google.com/p/chromium/issues/detail?id=23003
 
-  %title== #{yield(:title)} - #{B[:title]}
+  %title= yield(:title) || 'Dalibor Nasevic'
 
-  %meta{ :content => yield(:description).presence || B[:description], :name => "description" }
-  %meta{ :content => yield(:keywords).presence || B[:keywords], :name => "keywords" }/
+  %meta{ :content => yield(:description), :name => "description" }
+  %meta{ :content => yield(:keywords), :name => "keywords" }/
   %meta{ :content => "Dalibor Nasevic", :name => "author" }/
 
   = auto_discovery_link_tag(:rss, posts_path(:format => 'rss'))
@@ -22,6 +22,9 @@
   -# Mobile viewport optimized: j.mp/bplateviewport
   -# %meta{ :content => "width=device-width, initial-scale=1.0", :name => "viewport" }/
   %meta{ :content => "width=device-width, user-scalable=no initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0", :name => "viewport" }/
+
+
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Vollkorn">
 
   -# Place favicon.ico and apple-touch-icon.png in the root of your domain and delete these references
   -# %link{ :href => "/favicon.ico", :rel => "shortcut icon" }/

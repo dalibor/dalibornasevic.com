@@ -3,11 +3,13 @@
     %h3.hidden About me
     = image_tag('dalibor.nasevic.small.jpg', :alt => 'Dalibor Nasevic', :title => 'Dalibor Nasevic')
     .short_about
-      %p I'm <strong>Software Engineer</strong> with <a href="http://www.linkedin.com/in/dalibornasevic" target="_blank" title="My LinkedIn profile">5+ years</a> of experience with <strong>Ruby on Rails</strong>. I write clean code and practice XP.
+      %p I'm Ruby Developer with <a href="http://www.linkedin.com/in/dalibornasevic" target="_blank" title="My LinkedIn profile">over 5 years</a> of experience working with Ruby on Rails. I write clean code and practice TDD.
       = render 'shared/get_in_touch'
 
   %aside.archive
-    %h3 Archive
+    %h3
+      == Archive
+      %span== #{link_to "view all", posts_path}
     %ul
       - @posts_by_month.each do |post|
         %li
