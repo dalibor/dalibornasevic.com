@@ -1,9 +1,9 @@
 xml.instruct!
 xml.rss("version" => "2.0", "xmlns:dc" => "http://purl.org/dc/elements/1.1/") do
   xml.channel do
-    xml.title B[:title]
-    xml.link posts_path(:format => 'rss')
-    xml.description B[:description]
+    xml.title "Dalibor Nasevic"
+    xml.link posts_path(:format => "rss")
+    xml.description "Dalibor Nasevic's blog"
     xml.language "en-gb"
     for post in @posts
       xml.item do
