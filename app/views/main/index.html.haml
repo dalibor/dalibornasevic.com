@@ -1,19 +1,22 @@
 %article.promo.about
   .info
-    = image_tag('dalibor.nasevic.jpg', :alt => 'Dalibor Nasevic', :title => 'Dalibor Nasevic')
+    = image_tag('dalibor.nasevic.jpeg', :alt => 'Dalibor Nasevic', :title => 'Dalibor Nasevic')
   .description
 
     %p
-      Hello, I'm Dalibor. I'm <a href="http://www.linkedin.com/in/dalibornasevic" target="_blank" title="My LinkedIn profile">an experienced software engineer</a> working exclusively with Ruby and Ruby on Rails. I write clean code and practice eXtreme Programming (TDD, Pair Programming, Refactoring).
+      Hello, I'm Dalibor.
+    %p
+      I'm <a href="http://www.linkedin.com/in/dalibornasevic" target="_blank" title="My LinkedIn profile">software engineer</a> working exclusively with Ruby and Ruby on Rails since 2007. I write clean code and practice eXtreme Programming (TDD, Pair Programming, Refactoring).
 
-    %p I'm organizer of <a href="http://ruby.mk" target="_blank">MKRUG</a>, <a href="https://github.com/dalibor">open-source contributor</a> and <a href="https://play.google.com/store/apps/details?id=mk.popravi.mobile&hl=en" target="_blank" title="VIP Android content 2010">an award-winning</a> Android mobile application developer.
+    %p
+      I work at <a href="https://madmimi.com" target="_blank">Mad Mimi</a> on the email infrastructure service and marketing tool. I'm also organizer of <a href="http://ruby.mk" target="_blank">MKRUG</a> and <a href="https://github.com/dalibor">open-source contributor</a>.
 
     = render 'shared/get_in_touch'
 
 %article.promo
   .info
     %h3 Blog posts
-    %p.notes== Browse all my #{link_to "blog posts", posts_path}
+    %p.notes= link_to "Browse all blog posts", posts_path
 
   .description
     %ul
@@ -25,18 +28,18 @@
 %article.promo.projects
   .info
     %h3 Projects
-    %p.notes== View all my #{link_to "Github projects", "https://github.com/dalibor", target: "_blank"}
+    %p.notes= link_to "View all Github projects", "https://github.com/dalibor", target: "_blank"
   .description
     %ul
       %li
         %h4= link_to 'popravi.mk', 'https://github.com/dalibor/popravi.mk', :target => '_blank'
         %span Ruby on Rails, API service, Google maps
-        %p Web application that allows citizens and city councils to report, view, discuss and process urban issues detected on public area. Visit the <a href="http://popravi.mk/" target="_blank">website</a>.
+        %p <a href="http://popravi.mk/" target="_blank">Web application</a> for reporting, discussing and processing urban issues with city councils.
 
       %li
         %h4= link_to 'PopraviMK', 'https://github.com/dalibor/PopraviMK', :target => '_blank'
         %span Titanium Mobile (Android mobile application)
-        %p Mobile application for Android devices that allows citizens and city councils to report, view, discuss and process urban issues. Download the application from <a href="https://market.android.com/details?id=mk.popravi.mobile&hl=en" target="_blank">market</a>.
+        %p <a href="https://play.google.com/store/apps/details?id=mk.popravi.mobile&hl=en" target="_blank" title="VIP Android content 2010">Award-winning</a> Android mobile application for reporting urban issues to city councils.
 
       %li
         %h4= link_to 'kreator', 'https://github.com/dalibor/kreator', :target => '_blank'

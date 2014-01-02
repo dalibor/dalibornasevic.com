@@ -149,7 +149,6 @@ html, body
       font-size: 1.2em
       text-transform: uppercase
     img
-      +border-radius(5px)
       background-color: rgba(0, 0, 0, 0.1)
       padding: 2.5%
       width: 80%
@@ -175,6 +174,9 @@ html, body
 
   &.about
     font-size: 1.3em
+
+    .description
+      padding-top: 20px
 
   &.projects
     ul
@@ -275,8 +277,10 @@ h1.logo
   .about
     font: 13px / 20px 'OpenSansRegular', "Helvetica Neue", Helvetica, Arial, sans-serif
     margin-bottom: 20px
+    a.profile_image
+      background-color: inherit
     img
-      +border-radius(5px)
+      +border-radius(50%)
       background-color: rgba(0, 0, 0, 0.1)
       padding: 5px
       width: 80%
