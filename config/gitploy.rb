@@ -1,15 +1,9 @@
 require 'gitploy/script'
 
 configure do |c|
-  c.path = '/home/deployer/www/dalibornasevic.com'
-
-  # stage :staging do
-  #   c.host = 'staging.dalibornasevic.com'
-  #   c.user = 'deployer'
-  # end
-
   stage :production do
-    c.host = 'dalibornasevic.com'
+    c.path = '/home/deployer/www/dalibornasevic.com'
+    c.host = '107.170.47.48'
     c.user = 'deployer'
   end
 end
