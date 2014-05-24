@@ -1,4 +1,4 @@
-![Travis status](https://travis-ci.org/dalibor/blog.png)
+![Travis status](https://travis-ci.org/dalibor/dalibornasevic.com.png)
 
 # blog
 
