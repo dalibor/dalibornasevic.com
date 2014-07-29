@@ -18,7 +18,6 @@
 %article.promo
   .info
     %h3 Blog posts
-    %p.notes= link_to "Browse all blog posts", posts_path
 
   .description
     %ul
@@ -27,23 +26,5 @@
           %h4= link_to post.title, post
           %time= post.published_at.to_s(:date)
 
-%article.promo.projects
-  .info
-    %h3 Projects
-    %p.notes= link_to "View all Github projects", "https://github.com/dalibor", target: "_blank"
-  .description
-    %ul
-      %li
-        %h4= link_to 'popravi.mk', 'https://github.com/dalibor/popravi.mk', :target => '_blank'
-        %span Ruby on Rails, API service, Google maps
-        %p <a href="http://popravi.mk/" target="_blank">Web application</a> for reporting, discussing and processing urban issues with city councils.
 
-      %li
-        %h4= link_to 'PopraviMK', 'https://github.com/dalibor/PopraviMK', :target => '_blank'
-        %span Titanium Mobile (Android mobile application)
-        %p <a href="https://play.google.com/store/apps/details?id=mk.popravi.mobile&hl=en" target="_blank" title="VIP Android content 2010">Award-winning</a> Android mobile application for reporting urban issues to city councils.
-
-      %li
-        %h4= link_to 'kreator', 'https://github.com/dalibor/kreator', :target => '_blank'
-        %span Ruby, Rack, RSpec
-        %p Experimental MVC web framework build to demonstrate Ruby on Rails concepts.
+    %p.notes= link_to "View all blog posts →", posts_path
