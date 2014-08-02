@@ -12,6 +12,4 @@
  *= require web-app-theme/base
  *= require web-app-theme/themes/drastic-dark/style
  *= require web_app_theme_override
- *= require syntaxhighlighter/shCore.css
- *= require syntaxhighlighter/shThemeFadeToGrey
 */

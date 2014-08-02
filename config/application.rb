@@ -68,7 +68,7 @@ module Blog
     config.assets.initialize_on_precompile = false
 
     # config.assets.precompile << /(^[^_]|\/[^_])[^\/]*/
-    config.assets.precompile += ['sign.css', 'admin.css', 'admin.js', 'modernizr.js', 'syntaxhighlighter.js']
+    config.assets.precompile += ['sign.css', 'admin.css', 'admin.js', 'modernizr.js']
   end
 end
 
