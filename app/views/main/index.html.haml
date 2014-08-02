@@ -23,7 +23,7 @@
     %ul
       - @posts.each do |post|
         %li
-          %h4= link_to post.title, post
+          %h3= link_to post.title, post
           %time= post.published_at.strftime('%e %b %Y')
 
 

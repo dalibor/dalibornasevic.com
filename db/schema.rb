@@ -11,13 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121226174212) do
+ActiveRecord::Schema.define(:version => 20140802093504) do
 
   create_table "attachments", :force => true do |t|
     t.string   "name"
     t.integer  "editor_id"
-    t.datetime "created_at",              :null => false
-    t.datetime "updated_at",              :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "attachment_file_name"
     t.string   "attachment_content_type"
     t.integer  "attachment_file_size"
@@ -30,17 +30,16 @@ ActiveRecord::Schema.define(:version => 20121226174212) do
     t.string   "password_hash"
     t.string   "password_salt"
     t.boolean  "is_admin",      :default => false
-    t.datetime "created_at",                       :null => false
-    t.datetime "updated_at",                       :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "posts", :force => true do |t|
     t.string   "title"
     t.text     "content"
-    t.datetime "created_at",                      :null => false
-    t.datetime "updated_at",                      :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.datetime "published_at"
-    t.string   "description"
     t.integer  "editor_id"
     t.boolean  "publish",      :default => false
   end
@@ -48,8 +47,8 @@ ActiveRecord::Schema.define(:version => 20121226174212) do
   create_table "taggings", :force => true do |t|
     t.integer  "post_id"
     t.integer  "tag_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "taggings", ["post_id"], :name => "index_taggings_on_post_id"
@@ -57,8 +56,8 @@ ActiveRecord::Schema.define(:version => 20121226174212) do
 
   create_table "tags", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "tags", ["name"], :name => "index_tags_on_name"

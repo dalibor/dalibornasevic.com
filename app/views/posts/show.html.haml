@@ -1,6 +1,6 @@
 - title(@post.title)
+- description(@post.title)
 - keywords(@post.tags.map(&:name).join(', '))
-- description(@post.description)
 
 = render 'shared/sidebar'
 

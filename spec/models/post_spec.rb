@@ -5,7 +5,6 @@ describe Post do
   describe 'attributes' do
     it { should allow_mass_assignment_of(:title) }
     it { should allow_mass_assignment_of(:content) }
-    it { should allow_mass_assignment_of(:description) }
     it { should allow_mass_assignment_of(:publish) }
     it { should allow_mass_assignment_of(:published_at) }
     it { should allow_mass_assignment_of(:tag_names) }

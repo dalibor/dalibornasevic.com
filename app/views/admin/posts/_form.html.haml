@@ -15,10 +15,6 @@
   = f.check_box :publish
   %span.description Is post published?
 .group
-  = f.label :description, t("activerecord.attributes.post.description", :default => "Description"), :class => :label
-  = f.text_field :description, :class => 'text_field'
-  %span.description Description goes in page head as description tag
-.group
   = f.label :tag_names, t("activerecord.attributes.post.tag_names", :default => "Tags"), :class => :label
   = f.text_field :tag_names, :class => 'check_box'
   %span.description Ex: ruby rails

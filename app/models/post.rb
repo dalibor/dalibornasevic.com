@@ -1,8 +1,7 @@
 class Post < ActiveRecord::Base
 
   # Attributes
-  attr_accessible :title, :content, :description,
-                  :tag_names, :publish, :published_at
+  attr_accessible :title, :content, :tag_names, :publish, :published_at
   attr_writer :tag_names
 
   # Validations
