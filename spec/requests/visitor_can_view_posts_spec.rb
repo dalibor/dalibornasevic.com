@@ -26,17 +26,17 @@ describe "Visitor" do
     page.should_not have_content "Cucumber"
   end
 
-  it "can see posts grouped by month" do
-    create(:post, title: "Cucumber", published_at: "2011-01-03")
-    create(:post, title: "Webrat", published_at: "2011-01-13")
-    create(:post, title: "Vim", published_at: "2011-02-03")
+  it "can see posts grouped by year" do
+    create(:post, title: "Cucumber", published_at: "2013-02-03")
+    create(:post, title: "Webrat", published_at: "2013-01-13")
+    create(:post, title: "Vim", published_at: "2012-02-03")
     visit posts_path
-    page.should have_content "January 2011 (2)"
-    page.should have_content "February 2011 (1)"
+    page.should have_content "2013 (2)"
+    page.should have_content "2012 (1)"
     page.should have_content "Cucumber"
     page.should have_content "Webrat"
     page.should have_content "Vim"
-    click_link "January 2011"
+    click_link "2013"
     page.should have_content "Cucumber"
     page.should have_content "Webrat"
     page.should_not have_content "Vim"

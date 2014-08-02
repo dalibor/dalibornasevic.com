@@ -18,7 +18,7 @@
   %aside.archive
     %h3 Archives
     %ul
-      - @posts_by_month.each do |post|
+      - @posts_by_year.each do |post|
         %li
-          = link_to post.published_at.strftime("%B %Y"), date_posts_path(post.published_at.year, post.published_at.month)
+          = link_to post.published_at.strftime("%Y"), yearly_posts_path(post.published_at.year)
           %span== (#{post.total})

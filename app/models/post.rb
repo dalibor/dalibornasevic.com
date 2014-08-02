@@ -28,24 +28,23 @@ class Post < ActiveRecord::Base
     "#{id}-#{title.parameterize}"
   end
 
-  def self.posts_by_month
+  def self.posts_by_year
     select("published_at, COUNT(*) AS total").
-    group("YEAR(published_at), MONTH(published_at)").
+    group("YEAR(published_at)").
     where('published_at IS NOT NULL').
     order('published_at DESC')
   end
 
   private
-
-    def assign_tags
-      if tag_names
-        self.tags = tag_names.split(/\s+/).map do |name|
-          Tag.find_or_create_by_name(name.strip)
-        end
+  def assign_tags
+    if tag_names
+      self.tags = tag_names.split(/\s+/).map do |name|
+        Tag.find_or_create_by_name(name.strip)
       end
     end
+  end
 
-    def reset_published_at
-      self.published_at = nil
-    end
+  def reset_published_at
+    self.published_at = nil
+  end
 end

@@ -3,6 +3,7 @@ Blog::Application.routes.draw do
   get '/logout', :to => 'sessions#destroy', :as => 'logout'
   get '/tag/:tag' => 'posts#index', :as => :tag_posts, :constraints => { :tag => /.*/ }
   get '/date/:year/:month' => 'posts#index', :as => :date_posts
+  get '/date/:year/' => 'posts#index', :as => :yearly_posts
   get '/sitemap.:format' => 'main#sitemap', :as => :sitemap
 
   root :to => 'main#index'
