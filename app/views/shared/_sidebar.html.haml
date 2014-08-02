@@ -4,19 +4,19 @@
     = link_to image_tag('dalibor.nasevic.small.jpeg', :alt => 'Dalibor Nasevic', :title => 'Dalibor Nasevic'), root_path, class: 'profile_image'
     .short_about
       %p
-        Hello, I'm <a href="https://github.com/dalibor">Dalibor</a>.
+        Hello, I'm <a href="http://www.linkedin.com/in/dalibornasevic">Dalibor Nasevic</a>.
         %br
-        I'm working at <a href="https://madmimi.com" target="_blank">Mad Mimi</a>.
+        Working at <a href="https://madmimi.com" target="_blank">Mad Mimi</a>.
         %br
-        I'm organizer of <a href="http://ruby.mk" target="_blank">ruby.mk</a>.
+        Organizing <a href="http://ruby.mk" target="_blank">ruby.mk</a>.
+        %br
+        Pushing code to <a href="https://github.com/dalibor" target="_blank">Github</a>.
         %br
         You can <a href="mailto:dalibor.nasevic@gmail.com">email me</a> or <a href="https://twitter.com/dnasevic" target="_blank">tweet me</a>.
 
 
   %aside.archive
-    %h3
-      == Archive
-      %span== #{link_to "view all", posts_path}
+    %h3 Archives
     %ul
       - @posts_by_month.each do |post|
         %li

@@ -4,7 +4,7 @@
   .description
 
     %p
-      Hello, I'm Dalibor.
+      Hello, I'm Dalibor Nasevic.
     %p
       I'm <a href="http://www.linkedin.com/in/dalibornasevic" target="_blank" title="My LinkedIn profile">software engineer</a> working at <a href="https://madmimi.com" target="_blank">Mad Mimi</a> on the email infrastructure service and marketing tool. I'm also organizer of <a href="http://ruby.mk" target="_blank">MKRUG</a> and <a href="https://github.com/dalibor">open-source contributor</a>.
 
@@ -24,7 +24,7 @@
       - @posts.each do |post|
         %li
           %h4= link_to post.title, post
-          %time= post.published_at.to_s(:date)
+          %time= post.published_at.strftime('%e %b %Y')
 
 
     %p.notes= link_to "View all blog posts →", posts_path

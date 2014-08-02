@@ -6,16 +6,17 @@
 
 %article.post
   %header
-    %h2= @post.title
-    %time= @post.published_at.to_s(:date)
+    %h1= @post.title
 
   .content
     = raw find_and_preserve(@post.content)
 
   %footer
     %p
-      Tags:
-      = raw @post.tags.map{|tag| link_to(tag.name, tag_posts_path(tag), :rel => 'tag')}.join(', ')
+      Posted by #{@post.editor.name} on
+      %time= @post.published_at.to_s(:date)
+      and tagged with:
+      == #{raw @post.tags.map{|tag| link_to(tag.name, tag_posts_path(tag), :rel => 'tag')}.to_sentence}.
 
   %section.comments
     = render 'shared/disqus'

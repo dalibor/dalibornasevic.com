@@ -9,6 +9,6 @@
       %li
         %article
           %header
-            %h3= link_to post.title, post
             %time= post.published_at.to_s(:date)
-          %p= post.description
+            %h3= link_to post.title, post
+          %p= truncate(strip_tags(post.content), length: 350)

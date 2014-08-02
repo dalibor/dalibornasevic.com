@@ -11,8 +11,9 @@ describe "Visitor" do
   end
 
   it "can view a single post" do
-    create(:post, title: "Cucumber")
-    create(:post, title: "Webrat")
+    editor = create(:editor)
+    create(:post, title: "Cucumber", editor: editor)
+    create(:post, title: "Webrat", editor: editor)
     visit posts_path
     click_link "Cucumber"
     page.should have_content "Cucumber"
