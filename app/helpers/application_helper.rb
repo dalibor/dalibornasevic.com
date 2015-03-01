@@ -19,18 +19,6 @@ module ApplicationHelper
     content_for(:head) { stylesheet_link_tag(*files) }
   end
 
-  def gravatar_url(email)
-    gravatar_id = Digest::MD5.hexdigest(email.downcase)
-    "http://gravatar.com/avatar/#{gravatar_id}.png?s=48"
-    #if user.avatar_url.present?
-      #user.avatar_url
-    #else
-      #default_url = "#{root_url}images/guest.png"
-      #gravatar_id = Digest::MD5.hexdigest(user.email.downcase)
-      #"http://gravatar.com/avatar/#{gravatar_id}.png?s=48&d=#{CGI.escape(default_url)}"
-    #end
-  end
-
   def body_id
     controller.controller_path.split('/').push(controller.action_name).join('_')
   end
