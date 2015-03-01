@@ -28,10 +28,6 @@ class PostsController < ApplicationController
       @scope = @scope.where("YEAR(published_at) = ?", params[:year])
     end
 
-    if params[:month].present?
-      @scope = @scope.where("MONTH(published_at) = ?", params[:month])
-    end
-
     @scope
   end
 

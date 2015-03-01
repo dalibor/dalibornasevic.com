@@ -3,12 +3,9 @@
 = render 'shared/sidebar'
 
 %section.posts
-  %h2.hidden Latest blog posts
-  %ul
+  %h1= posts_title
+  %ul.posts_list
     - @posts.each do |post|
       %li
-        %article
-          %header
-            %time= post.published_at.to_s(:date)
-            %h3= link_to post.title, post
-          %p= truncate(strip_tags(post.content), length: 350)
+        %h3= link_to post.title, post
+        %time= post.published_at.strftime('%e %b %Y')

@@ -20,7 +20,7 @@
     %h3 Blog posts
 
   .description
-    %ul
+    %ul.posts_list
       - @posts.each do |post|
         %li
           %h3= link_to post.title, post
