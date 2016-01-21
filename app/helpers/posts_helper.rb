@@ -1,11 +1,11 @@
 module PostsHelper
   def posts_title
     if params[:tag].present?
-      "Tagged with #{params[:tag]}"
+      "Blog posts tagged with #{params[:tag]}"
     elsif params[:year].present?
-      "Written in #{params[:year]}"
+      "Blog posts written in #{params[:year]}"
     else
-      "All Blog Posts"
+      "Blog posts"
     end
   end
 end
