@@ -7,12 +7,13 @@ branches:
   only:
     - master
 
+before_install:
+  - sudo apt-get -qq update
+  - sudo apt-get install -y libicu-dev
+  - sudo apt-get install -y cmake
+
 before_script:
   # setup config
   - "cp config/config.yml.template config/config.yml"
-
-  # setup database
-  - "bundle exec rake db:create"
-  - "bundle exec rake db:migrate"
 
 script: bundle exec rspec spec
