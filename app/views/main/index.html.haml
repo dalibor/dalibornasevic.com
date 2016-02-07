@@ -6,13 +6,13 @@
     %p
       Hi there! I'm Dalibor Nasevic.
     %p
-      I'm <a href="http://www.linkedin.com/in/dalibornasevic" target="_blank" title="My LinkedIn profile">Software Engineer</a> working at <a href="https://godaddy.com" target="_blank">GoDaddy</a> on the email delivery infrastructure and email marketing service. I am responsible for architecture design and scaling operations. My core expertise are Ruby / Rails and Linux and I'm interested in infrastructure automation.
+      I'm <a href="http://www.linkedin.com/in/dalibornasevic" target="_blank" title="My LinkedIn profile">Software Engineer</a> working at <a href="https://godaddy.com" target="_blank">GoDaddy</a> on the email delivery infrastructure and email marketing services. My primary focus are architecture design and scaling operations and my core expertise are Ruby, Rails and Linux.
 
     %p
-      I co-founded and organized <a href="http://ruby.mk" target="_blank">MKRUG</a>. I organized and facilitated <a href="/tag/coderetreat">Coderetreat</a> events spreading the software craftsmanship bug. I strive to continuously improve things, write clean code and practice eXtreme Programming.
+      I co-founded and organized <a href="http://ruby.mk" target="_blank">MKRUG</a>. I organized and facilitated few <a href="/posts?tag=coderetreat">Coderetreat</a> events spreading the bug of Software Craftsmanship. I strive to continuously improve things, write clean code and practice eXtreme Programming.
 
     %p
-      In 2010, I did a small experiment with Titanium Mobile and was awarded for best mobile application at VIP mobile operator contest in Macedonia.
+      In 2010, I did a small experiment with Titanium Mobile and won the <a href="/posts/15-vip-android-challenge-grand-prix-with-popravimk">Grand Prix</a> of the first mobile application contest in Macedonia organized by VIP mobile operator.
 
 
     %p
@@ -27,7 +27,7 @@
       - @posts.each do |post|
         %li
           %h3= link_to post.title, post
-          %time= post.published_at.strftime('%e %b %Y')
+          %time= post.date.strftime('%e %b %Y')
 
 
     %p.notes= link_to "View all blog posts →", posts_path

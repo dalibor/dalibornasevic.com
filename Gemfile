@@ -1,16 +1,19 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.2.11'
-gem 'mysql2'
 gem 'haml'
 gem 'compass', '~> 0.12.alpha.0'
 gem 'will_paginate'
-gem 'bcrypt-ruby', :require => 'bcrypt'
-gem 'inherited_resources'
-gem 'paperclip'
 gem 'jquery-rails', '=1.0.19'
 gem 'modernizr-rails'
 gem 'html5-rails'
+gem 'virtus'
+
+# markdown to html
+gem 'github-markup', '= 1.2.1'
+gem 'github-markdown', '= 0.6.6'
+gem 'github-linguist', '= 3.1.1'
+gem 'html-pipeline', '= 1.9.0'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -30,16 +33,12 @@ group :development do
 end
 
 group :development, :test do
-  gem 'rspec-rails'
-  gem 'web-app-theme', '>= 0.6.2'
+  gem 'rspec-rails', '~> 3.1'
   gem 'quiet_assets'
 end
 
 group :test do
-  gem 'shoulda-matchers'
   gem 'poltergeist'
-  gem 'database_cleaner'
-  gem 'factory_girl_rails'
+  gem 'capybara'
   gem 'launchy', '= 2.1.0'
-  gem 'email_spec'
 end

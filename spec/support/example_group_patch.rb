@@ -1,6 +1,6 @@
-class RSpec::Core::ExampleGroup
+class RSpec::Core::Example
   def passed?
-    example.instance_variable_get(:@exception).nil?
+    RSpec.current_example.instance_variable_get(:@exception).nil?
   end
 
   def failed?

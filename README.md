@@ -2,28 +2,26 @@
 
 # blog
 
-* http://github.com/dalibor/blog
-
+* http://github.com/dalibor/dalibornasevic.com
 
 ## DESCRIPTION:
 
 Ruby on Rails blog application deployed at: [http://dalibornasevic.com](http://dalibornasevic.com)
 
+## DEPENDENCIES:
+
+```
+sudo apt-get install libicu-dev
+sudo apt-get install cmake
+```
 
 ## INSTALL:
 
 - Clone repository
 
 ```
-git clone git://github.com/dalibor/blog.git
-cd blog
-```
-
-- Config database
-
-```
-cp config/database.yml.template config/database.yml
-vi config/database.yml
+git clone git://github.com/dalibor/dalibornasevic.com.git
+cd dalibornasevic.com
 ```
 
 - Config secret keys
@@ -39,30 +37,16 @@ vim config/config.yml # edit config.yml file
 bundle install
 ```
 
-- Setup database
-
-```
-rake db:create
-rake db:migrate
-```
-
-- Seed admin user
-
-```
-vi db/seeds.rb
-rake db:seed
-```
-
 - Start the server
 
 ```
-ruby script/server
+rails s
 ```
 
 - Run tests
 
 ```
-rspec spec
+bundle exec rspec spec
 ```
 
 
@@ -85,7 +69,7 @@ gitploy production
 
 (The MIT License)
 
-Copyright (c) 2009-2013 Dalibor Nasevic
+Copyright (c) 2009-2016 Dalibor Nasevic
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the

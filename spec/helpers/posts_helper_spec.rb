@@ -1,18 +1,18 @@
 require 'spec_helper'
 
-describe PostsHelper do
+describe PostsHelper, :type => :helper do
 
   it "returns posts title" do
-    posts_title.should == "All Blog Posts"
+    expect(posts_title).to eq("Blog posts")
   end
 
   it "returns posts title for tag" do
     params[:tag] = 'ruby'
-    posts_title.should == "Tagged with ruby"
+    expect(posts_title).to eq("Blog posts tagged with ruby")
   end
 
   it "returns posts title for year" do
     params[:year] = '2014'
-    posts_title.should == "Written in 2014"
+    expect(posts_title).to eq("Blog posts written in 2014")
   end
 end

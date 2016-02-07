@@ -1,0 +1,175 @@
+---
+id: 43
+title: "12 Vim Tips"
+date: 2014-03-23 22:29:00 +0100
+author: Dalibor Nasevic
+tags: [vim]
+---
+
+This compilation of Vim tips is repost of some intermediate to advanced Vim tips I've found interesting. Let's recap.
+
+### 1. Repeat the last Ex command
+
+In Vim there are 3 command line mode prompts:
+
+- Ex command prompt: `:something`
+- Search prompt: `/something`
+- Expression prompt (from insert mode type `<C-r>=` ): `=1+1<cr>`
+
+Let's say we run a spec from the Ex command prompt with:
+
+```bash
+:!rspec spec/models/code_spec.rb
+```
+
+We can repeat the last Ex command by typing `@:` from normal mode.
+
+### 2. Sort properties in CSS
+
+If we want to order the lines in the CSS selector alphabetically, we just select the lines and type `:sort` while in visual mode and then we have them sorted.
+
+```css
+h4 {
+  font-size: 11px;
+  margin: 15px;
+  background: red;
+}
+```
+
+### 3. Select yanked and pasted text
+
+We can select the original yanked text with `gv` . And, select last pasted text with `gb` . `gb` is a custom mapping that we add to vimrc file and I find it `extremely`  useful when doing extract method refactoring, a cut-paste and then we need to fix indentation. With `gb` we easily select the pasted text and we fix the indentation with  `<`  or `>`.
+
+```vim
+" select last paste in visual mode
+nnoremap <expr> gb '`[' . strpart(getregtype(), 0, 1) . '`]'
+```
+
+### 4. Paste text while in insert mode
+
+Say we're in insert mode and we want to paste yanked text without leaving the insert mode. We can do that with  `<C-r>0`. If yanked text contains new line characters, `<C-r><C-p>0` will take care of fixing indentation issues.
+
+### 5. Delete in insert mode
+
+To delete a character, word or line while in `Insert` mode, `Vim Command Line` mode or `Shell Command Line`  we have the following shortcuts available:
+
+```vim
+<C-h> " delete back one character (backspace)
+<C-w> " delete back one word
+<C-u> " delete back to start of line
+<C-k> " delete forward to end of line
+```
+
+### 6. Run normal mode commands across a range
+
+We have the following javascript lines and we forgot to append `;`  to each of them:
+
+```javascript
+var element = $(this)
+var tabName = element.data('tab')
+var report = element.data('report')
+```
+
+We can visually select all 3 lines and then run command `:normal A;`  that will execute `A;` (append ;) for each line. Alternatively, we can run same on the whole content of the file with  `:%normal A;`.
+
+### 7. Repeat last change on multiple lines
+
+What if we did a single modification on the first line of the above snippet appending `;` at the end of the line with `A;`. We can repeat that command by selecting the lines 2-3 and running the **dot** command over visual selection with `:'<,'> normal .`
+
+### 8. Replace in multiple files
+
+Replacing in multiple files is not a straight forward action in Vim. To search & replace in multiple files, first we need to create a list of files in which we'll execute a command. We do that by using the `:args` command. For example, lets load all javascript files that start with the "ext" string:
+
+```vim
+:args app/assets/javascripts/ext*.js
+```
+
+We can see which files are loaded in the arguments list by running the `:args` command. Having the arguments list prepared, we can execute search & replace with:
+
+```vim
+:argdo %s/From/To/g
+```
+
+Once changes have been made in the files, we can save all the files in arguments list with:
+
+```vim
+:argdo update
+```
+
+### 9. Search and replace in multiple files
+
+Previous tip works OK if we know the files where we want to run the replace command. But, most of the time we want to search for a text in files and then run the replace command only in those files. We can do that by using `vimgrep` command to find a pattern in files. `vimgrep` command creates quicklist with files matching the pattern which list we can see by opening it with `:copen` command. If we want quicklist to be useful, we need to convert it to arguments list by using the `:Qargs` mapping which we have in our vimrc file:
+
+```vim
+command! -nargs=0 -bar Qargs execute 'args' QuickfixFilenames()
+
+" populate the argument list with each of the files named in the quickfix list
+function! QuickfixFilenames()
+  let buffer_numbers = {}
+  for quickfix_item in getqflist()
+    let buffer_numbers[quickfix_item['bufnr']] = bufname(quickfix_item['bufnr'])
+  endfor
+  return join(map(values(buffer_numbers), 'fnameescape(v:val)'))
+endfunction
+```
+
+Finally, here's an example of what needs to be run to do search & replace in files:
+
+```vim
+:vimgrep /CurrencyNumberHelper/ app/models/*.rb
+:Qargs
+:argdo %s/CurrencyNumberHelper/CurrencyHelper/g
+:argdo update
+```
+
+Other option (pointed by buztard in the comments) is to use Ack-Grep to create the arguments:
+
+```vim
+:args `Ack-Grep -l CurrencyNumberHelper`
+:argdo %s/CurrencyNumberHelper/CurrencyHelper/g
+:argdo update
+```
+
+### 10. Edit already recorded macro
+
+While recording a macro it's easy to do mistakes. And when that happens, it's easier to edit the already recorded macro than to re-record it. Lets say we have recorded new macro in register `a` . We can print the content of the macro in the current buffer using `:put a` and then edit the macro in Vim. Once macro is changed, we can select it and then yank it to register a with `"ay` . Then we are ready to execute the new macro from register a with `@a` .
+
+### 11. Execute macro in multiple files
+
+We have already recorded a macro and we want to run it in few files. First we build arguments list with the files, for example let's load all models from a Rails app:
+
+```vim
+:args app/models/*.rb
+```
+
+Then we run the macro (that is recorded in register `a`) with:
+
+```vim
+:argdo normal @a
+```
+
+In the end we save all the buffers with:
+
+```vim
+:argdo update
+```
+
+### 12. Vi mode on command line
+
+Bash shell provides two modes for command line editing: `emacs` and `vi` . Emacs editing mode is the default one, and we can change it to vi mode using:
+
+```bash
+set -o vi
+```
+
+Then while on command line, we can press `ESC` to go to `vi` editing mode and use vi's single line editing capabilities. While in `vi` editing mode on the command line, we can press `v` that will popup editor where we can edit and save buffer that will be executed on command line. Awesome, huh? :)
+
+If we need to go back to emacs mode, type:
+
+```bash
+set -o emacs
+```
+
+Here's a [cheatsheet](http://www.catonmat.net/download/bash-vi-editing-mode-cheat-sheet.txt) of what Vi commands we can run in bash shell vi mode.
+
+Looking for more Vim tips? Checkout my [vimfiles](http://github.com/dalibor/vimfiles "Vimfiles") on Github.

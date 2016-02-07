@@ -3,8 +3,15 @@ class PostsController < ApplicationController
   before_filter :load_archive, only: [:index, :show]
 
   def index
-    @posts = scope.order('published_at DESC').includes('tags').
-                   where('published_at IS NOT NULL')
+    @posts = Post.all.reverse
+
+    if params[:tag].present?
+      @posts = @posts.select { |post| post.tags.include?(params[:tag]) }
+    end
+
+    if params[:year].present?
+      @posts = @posts.select { |post| post.date.year == params[:year].to_i }
+    end
 
     respond_to do |format|
       format.html
@@ -13,25 +20,12 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.where('published_at IS NOT NULL').find(params[:id])
+    @post = Post.find(params[:id])
   end
 
   private
-  def scope
-    @scope = if params[:tag].present? && (tag = Tag.find_by_name(params[:tag]))
-      tag.posts
-    else
-      Post
-    end
-
-    if params[:year].present?
-      @scope = @scope.where("YEAR(published_at) = ?", params[:year])
-    end
-
-    @scope
-  end
 
   def load_archive
-    @posts_by_year = Post.posts_by_year
+    @posts_by_year = Post.by_year
   end
 end

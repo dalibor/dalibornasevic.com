@@ -13,10 +13,6 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
-.DS_store
 
-config/database.yml
 config/config.yml
-public/system
-public/uploads
 public/assets

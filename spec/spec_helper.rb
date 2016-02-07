@@ -2,8 +2,6 @@
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
-require 'rspec/autorun'
-require "email_spec"
 
 # Capybara javascript driver
 require 'capybara/poltergeist'
@@ -14,6 +12,8 @@ Capybara.javascript_driver = :poltergeist
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
 RSpec.configure do |config|
+  config.include Capybara::DSL
+
   # ## Mock Framework
   #
   # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:
@@ -35,39 +35,14 @@ RSpec.configure do |config|
   # rspec-rails.
   config.infer_base_class_for_anonymous_controllers = false
 
-  # Email spec
-  config.include(EmailSpec::Helpers)
-  config.include(EmailSpec::Matchers)
-
-  # FactoryGirl syntax methods
-  config.include FactoryGirl::Syntax::Methods
-
-  # Database Cleaner
-  config.before(:suite) do
-    DatabaseCleaner.clean_with(:truncation)
-  end
-
-  config.before(:each) do
-    DatabaseCleaner.strategy = :transaction
-    reset_mailer
-  end
-
-  config.before(:each, :js => true) do
-    DatabaseCleaner.strategy = :truncation
-  end
-
-  config.before(:each) do
-    DatabaseCleaner.start
-  end
-
-  config.after(:each) do
-    DatabaseCleaner.clean
-  end
-
   # show me the page if example failed
   config.after(:each, :type => :request) do |example|
     if ENV.include?('SHOW_ME_THE_PAGE')
       save_and_open_page if example.failed?
     end
+  end
+
+  config.before(:each) do
+    stub_const("Post::POSTS_PATH", File.join(Rails.root, 'spec/fixtures/posts'))
   end
 end

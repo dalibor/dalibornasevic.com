@@ -1,58 +1,41 @@
 require 'spec_helper'
 
-describe PostsController, "list posts" do
-  describe "index posts" do
-    it "should render list of posts successfully" do
-      Post.stub_chain(:order, :includes, :where, :paginate).and_return(@mock_objects = [mock_model(Post)])
+describe PostsController, :type => :controller do
+  render_views
+
+  describe "#index" do
+    it "renders index.html" do
       get :index
-      response.should be_success
-      assigns(:posts).should_not be_nil
+      expect(response).to be_success
+      expect(response.body).to include('Post 1')
+      expect(response.body).to include('Post 2')
     end
 
-    it "should render list of posts successfully when :tag param is present" do
-      tag = 'tag 1'
-
-      Tag.stub(:find_by_name).with(tag).and_return(@tag_mock = mock_model(Tag))
-      @tag_mock.stub_chain(:posts, :order, :includes, :where, :paginate => (@posts_mock = [mock_model(Post)]))
-
-      Tag.should_receive(:find_by_name).with(tag).and_return(@tag_mock)
-      @tag_mock.should_receive(:posts)
-
-      get :index, :tag => tag
-
-      response.should be_success
-      assigns(:posts).should_not be_nil
+    it "filters posts by year" do
+      get :index, year: 2015
+      expect(response).to be_success
+      expect(response.body).to include('Post 1')
+      expect(response.body).not_to include('Post 2')
     end
 
-    it "should render list of posts successfully when :tag param is present but tag is not found" do
-      tag = 'tag 1'
-      Tag.stub(:find_by_name).with(tag).and_return(nil)
-      Post.stub_chain(:order, :includes, :where, :paginate).and_return(@posts_mock = [mock_model(Post)])
+    it "filters posts by tag" do
+      get :index, tag: 'tag1'
+      expect(response).to be_success
+      expect(response.body).to include('Post 1')
+      expect(response.body).not_to include('Post 2')
+    end
 
-      Post.should_receive(:order)
-
-      get :index, :tag => tag
-
-      response.should be_success
-      assigns(:posts).should_not be_nil
+    it "renders index.rss" do
+      get :index, format: :rss
+      expect(response).to be_success
     end
   end
 
-
-  describe "show post" do
-    before :each do
-      @post_mock     = mock_model(Post)
-
-      Post.stub_chain(:where, :find).and_return(@post_mock)
-    end
-
-    it "should render single post successfully" do
-      @chain = mock(:relation)
-      Post.should_receive(:where).and_return(@chain)
-      @chain.should_receive(:find).and_return(@post_mock)
-      get :show, :id => '1'
-      assigns(:post).should_not be_nil
-      response.should be_success
+  describe "#show" do
+    it "renders show.html" do
+      get :show, id: '1-post'
+      expect(response).to be_success
+      expect(response.body).to include('Post 1')
     end
   end
 end

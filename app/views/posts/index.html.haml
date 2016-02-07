@@ -8,4 +8,4 @@
     - @posts.each do |post|
       %li
         %h3= link_to post.title, post
-        %time= post.published_at.strftime('%e %b %Y')
+        %time= post.date.strftime('%e %b %Y')

@@ -1,6 +1,6 @@
 - title(@post.title)
 - description(@post.title)
-- keywords(@post.tags.map(&:name).join(', '))
+- keywords(@post.tags.join(', '))
 
 = render 'shared/sidebar'
 
@@ -13,10 +13,10 @@
 
   %footer
     %p
-      Posted by #{@post.editor.name} on
-      %time= @post.published_at.to_s(:date)
+      Posted by #{@post.author} on
+      %time= @post.date.to_s(:date)
       and tagged with:
-      == #{raw @post.tags.map{|tag| link_to(tag.name, tag_posts_path(tag), :rel => 'tag')}.to_sentence}.
+      == #{raw @post.tags.map { |tag| link_to(tag, posts_path(tag: tag), :rel => 'tag')}.to_sentence}.
 
   %section.comments
     = render 'shared/disqus'

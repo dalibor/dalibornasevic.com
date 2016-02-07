@@ -1,50 +1,56 @@
-class Post < ActiveRecord::Base
+require_dependency 'markdown_to_html'
 
-  # Attributes
-  attr_accessible :title, :content, :tag_names, :publish, :published_at
-  attr_writer :tag_names
+class Post
+  include Virtus.model
+  extend ActiveModel::Naming
 
-  # Validations
-  validates :title, :presence => true
-  validates :content, :presence => true
+  DATA_REGEX = /\A(---\s*\n.*?\n?)^((---)\s*$\n?)/m
+  POSTS_PATH = File.join(Rails.root, 'posts')
 
-  # Associations
-  has_many :taggings, :dependent => :destroy
-  has_many :tags, :through => :taggings
-  belongs_to :editor
-
-  # Callbacks
-  before_save :reset_published_at, :unless => Proc.new {|m| m.publish }
-  after_save :assign_tags
-
-  # Scopes
-  scope :published, where({:publish => true})
-
-  def tag_names
-    @tag_names || tags.map(&:name).join(' ')
-  end
+  attribute :id, Integer
+  attribute :title, String
+  attribute :content, String
+  attribute :date, DateTime
+  attribute :author, String
+  attribute :tags, Array
 
   def to_param
     "#{id}-#{title.parameterize}"
   end
 
-  def self.posts_by_year
-    select("published_at, COUNT(*) AS total").
-    group("YEAR(published_at)").
-    where('published_at IS NOT NULL').
-    order('published_at DESC')
-  end
+  class << self
+    def all
+      @all ||= load_all.sort_by(&:date)
+    end
 
-  private
-  def assign_tags
-    if tag_names
-      self.tags = tag_names.split(/\s+/).map do |name|
-        Tag.find_or_create_by_name(name.strip)
+    def find(id)
+      all.detect { |post| post.id == id.to_i }
+    end
+
+    def all_tags
+      all.map(&:tags).flatten.uniq.sort
+    end
+
+    def by_year
+      all.reverse.group_by { |post| post.date.year }
+    end
+
+    private
+    def load_all
+      Dir["#{POSTS_PATH}/*.md"].sort.map do |filename|
+        data_string = File.read(filename).match(DATA_REGEX)[0]
+        content     = $'.strip
+        data        = YAML.load(data_string)
+
+        Post.new(
+          id: data['id'],
+          title: data['title'],
+          date: data['date'],
+          author: data['author'],
+          tags: data['tags'],
+          content: MarkdownToHTML.convert(content)
+        )
       end
     end
-  end
-
-  def reset_published_at
-    self.published_at = nil
   end
 end

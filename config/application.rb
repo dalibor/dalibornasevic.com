@@ -1,6 +1,10 @@
 require File.expand_path('../boot', __FILE__)
 
-require 'rails/all'
+require "rails"
+
+# Require only what is needed
+require "action_controller/railtie"
+require "sprockets/railtie"
 
 if defined?(Bundler)
   # If you precompile assets before deploying to production, use this line
@@ -68,7 +72,7 @@ module Blog
     config.assets.initialize_on_precompile = false
 
     # config.assets.precompile << /(^[^_]|\/[^_])[^\/]*/
-    config.assets.precompile += ['sign.css', 'admin.css', 'admin.js', 'modernizr.js']
+    config.assets.precompile += ['modernizr.js']
   end
 end
 
