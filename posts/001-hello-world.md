@@ -6,6 +6,6 @@ author: Dalibor Nasevic
 tags: [personal, blog]
 ---
 
-Hello everyone! This is my technical blog. It's a Ruby on Rails web application that you can find the source code on my [Github](https://github.com/dalibor/dalibornasevic.com "My blog") account.
+Hello everyone! I'm Dalibor and this is my blog. It's a simple Ruby on Rails application that you can find the source code on [Github](https://github.com/dalibor/dalibornasevic.com "Dalibor Nasevic blog").
 
-I tried out few blogging platforms but none was too exciting. Sometimes it's more fun to build your own thing and have full control over both development and deployment. It's a good learning exercise and a playground for improving your TDD skills, learn how to setup new VPS box, configure web server and go through the deployment process. I'll share some of my experiences with it here.
+Besides the fact that I can customize it, the reason for building something from scratch is the experience I get by maintaining it live. It's a playground to experiment, learn TDD, go through Rails version upgrades, configure VPS, web servers, deployment process and all the fun stuff.
