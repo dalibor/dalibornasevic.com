@@ -1,6 +1,6 @@
 ![Travis status](https://travis-ci.org/dalibor/dalibornasevic.com.png)
 
-# blog
+# dalibornasevic.com
 
 * http://github.com/dalibor/dalibornasevic.com
 
