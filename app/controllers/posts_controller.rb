@@ -22,10 +22,4 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
   end
-
-  private
-
-  def load_archive
-    @posts_by_year = Post.by_year
-  end
 end

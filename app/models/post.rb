@@ -20,6 +20,8 @@ class Post
 
   class << self
     def all
+      # Reset cache in development environment
+      @all = nil if Rails.env.development?
       @all ||= load_all.sort_by(&:date)
     end
 

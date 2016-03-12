@@ -17,6 +17,12 @@
   %meta{ :content => yield(:keywords), :name => "keywords" }/
   %meta{ :content => "Dalibor Nasevic", :name => "author" }/
 
+  %meta{ :property => "og:locale", :content => "en_US" }/
+  %meta{ :property => "og:site_name", :content => "via http://dalibornasevic.com" }/
+  %meta{ :property => "og:url", :content => "http://dalibornasevic.com" }/
+  %meta{ :property => "og:title", :content => "Dalibor Nasevic" }/
+  %meta{ :property => "og:description", :content => "Software Engineer working at GoDaddy" }/
+
   = auto_discovery_link_tag(:rss, posts_path(:format => 'rss'))
 
   -# Mobile viewport optimized: j.mp/bplateviewport
