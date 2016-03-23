@@ -1,6 +1,6 @@
 ---
 id: 67
-title: "Email Authentication"
+title: "Email Authentication Protocols"
 date: 2016-03-23 18:10:00 +0100
 author: Dalibor Nasevic
 tags: [email, authentication]
