@@ -13,15 +13,18 @@
 
   %title= yield(:title).presence || 'Dalibor Nasevic'
 
-  %meta{ :content => yield(:description).presence || "Software Engineer", :name => "description" }
+  - description = "Software Engineer working at GoDaddy on the email delivery infrastructure and email marketing products. Responsible for design and development of scalable services using open-source tools like Ruby, Rails, MySQL, Redis and Linux."
+
+  %meta{ :content => yield(:description).presence || description, :name => "description" }
   %meta{ :content => yield(:keywords).presence || "dalibor, nasevic, ruby, rails", :name => "keywords" }/
   %meta{ :content => "Dalibor Nasevic", :name => "author" }/
 
   %meta{ :property => "og:locale", :content => "en_US" }/
   %meta{ :property => "og:site_name", :content => "Dalibor Nasevic" }/
+  %meta{ :property => "og:url", :content => request.url }/
   %meta{ :property => "og:title", :content => yield(:title).presence || 'Dalibor Nasevic' }/
   %meta{ :property => "og:image", :content => "http://dalibornasevic.com#{image_path('dalibor.nasevic.jpg')}" }/
-  %meta{ :property => "og:description", :content => yield(:description).presence || "Software Engineer" }/
+  %meta{ :property => "og:description", :content => yield(:description).presence || description }/
 
   = auto_discovery_link_tag(:rss, posts_path(:format => 'rss'))
 
