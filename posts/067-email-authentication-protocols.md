@@ -3,7 +3,7 @@ id: 67
 title: "Email Authentication Protocols"
 date: 2016-03-23 18:10:00 +0100
 author: Dalibor Nasevic
-tags: [email, authentication]
+tags: [email, authentication, protocols]
 ---
 
 Email authentication can be very confusing and it can take time to grasp it. One of the reasons for writing this post is to document these things for myself for future reference.
