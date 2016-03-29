@@ -19,6 +19,8 @@ end
 
 deploy do
   push!
+  # when you need to force push
+  # local { run "git push #{config.user}@#{config.host}:#{config.path}/.git #{config.local_branch}:#{config.remote_branch} -f" }
   remote do
     run "cd #{config.path}"
     run "git reset --hard"
