@@ -1,5 +1,5 @@
 - title(@post.title)
-- description(@post.title)
+- description(strip_tags(@post.content).split("\n").first)
 - keywords(@post.tags.join(', '))
 
 = render 'shared/sidebar'
