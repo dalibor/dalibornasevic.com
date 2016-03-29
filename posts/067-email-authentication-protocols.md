@@ -6,9 +6,9 @@ author: Dalibor Nasevic
 tags: [email, authentication, protocols]
 ---
 
-Email authentication can be very confusing and it can take time to grasp it. One of the reasons for writing this post is to document these things for myself for future reference.
-
 When [Simple Mail Transfer Protocol](https://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol) (SMTP) was designed in 1982 ([RFC 821](http://www.rfcreader.com/#rfc821)), it did not provide any way to identify message senders. A system lacking that component was easy to abuse by spammers. It was clear that SMTP was in need for techniques to prevent spam and identify the origin of a message.
+
+Email authentication protocols can be very confusing and it can take time to grasp them. One of the reasons for writing this post is to document things for myself for future reference.
 
 ### HELO check
 
