@@ -180,4 +180,4 @@ Memory: 0.58 MB
 
 In the last script we did not load the whole file in memory at once which is the reason why we see less than 1 MB of memory increase. Time seems to be a very little slower compared to previous script because there is more IO involved.
 
-Imagine you need to process large CSV files of 10GB or more. Deciding which strategy seems obvious.
+Imagine you need to process large CSV files of 10GB or more. Deciding which strategy to use seems obvious.
