@@ -15,7 +15,7 @@ Before we start, let's prepare a CSV file `data.csv` with 1 million rows (~ 75 M
 
 ```ruby
 require 'csv'
-require_relative './measurements'
+require_relative './helpers'
 
 headers = ['id', 'name', 'email', 'city', 'street', 'country']
 
