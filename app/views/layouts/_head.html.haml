@@ -23,7 +23,7 @@
   %meta{ :property => "og:site_name", :content => "Dalibor Nasevic" }/
   %meta{ :property => "og:url", :content => request.url }/
   %meta{ :property => "og:title", :content => yield(:title).presence || 'Dalibor Nasevic' }/
-  %meta{ :property => "og:image", :content => "http://dalibornasevic.com#{image_path('dalibor.nasevic.jpg')}" }/
+  %meta{ :property => "og:image", :content => "#{request.base_url}/assets/dalibor.nasevic.jpg" }/
   %meta{ :property => "og:description", :content => yield(:description).presence || description }/
 
   = auto_discovery_link_tag(:rss, posts_path(:format => 'rss'))
