@@ -69,7 +69,7 @@ Time: 5.17
 Memory: 1.08 MB
 ```
 
-Output can vary between machines, but the point is that when building the CSV file, the Ruby process did not spike in memory usage because the garbage collector (GC) was reclaiming the used memory. The process' memory increase is about 1MB, and it created a CSV file with size of 75 MB.
+Output can vary between machines, but the point is that when building the CSV file, the Ruby process did not spike in memory usage because the garbage collector (GC) was reclaiming the used memory. The memory increase of the process is about 1MB, and it created a CSV file with size of 75 MB.
 
 ```bash
 $ ls -lah data.csv
@@ -77,9 +77,9 @@ $ ls -lah data.csv
 ```
 
 
-### Parsing CSV file in memory
+### Reading CSV from a file at once (CSV.read)
 
-Now, let's parse the `data.csv` file with the following script:
+Let's build a CSV object from a file (`data.csv`) and iterate with the following script:
 
 ```ruby
 require_relative './helpers'
@@ -108,10 +108,45 @@ Time: 19.84
 Memory: 920.14 MB
 ```
 
-Important to note here is the big memory spike to 920 MB. That is because we load and parse the whole CSV file in memory at once. That causes lots of String objects to be created by the CSV library and the used memory is much more higher than the actual size of the CSV file.
+Important to note here is the big memory spike to 920 MB. That is because we build the whole CSV object in memory. That causes lots of String objects to be created by the CSV library and the used memory is much more higher than the actual size of the CSV file.
 
 
-### Parsing CSV file line by line from String in memory
+### Parsing CSV from in memory String (CSV.parse)
+
+Let's build a CSV object from a content in memory and iterate with the following script:
+
+```ruby
+require_relative './helpers'
+require 'csv'
+
+print_memory_usage do
+  print_time_spent do
+    content = File.read('data.csv')
+    csv = CSV.parse(content, headers: true)
+    sum = 0
+
+    csv.each do |row|
+      sum += row['id'].to_i
+    end
+
+    puts "Sum: #{sum}"
+  end
+end
+```
+
+The results are:
+
+```bash
+$ ruby parse2.rb
+Sum: 499999500000
+Time: 21.71
+Memory: 1003.69 MB
+```
+
+As we can see from the results, the memory increase is about the memory increase from the previous example plus the memory size of the file content that we read in memory (75MB).
+
+
+### Parsing CSV line by line from String in memory (CSV.new)
 
 Let's now see what happens if we load the file content in a String and parse it line by line:
 
@@ -121,7 +156,8 @@ require 'csv'
 
 print_memory_usage do
   print_time_spent do
-    csv = CSV.new(File.read('data.csv'), headers: true)
+    content = File.read('data.csv')
+    csv = CSV.new(content, headers: true)
     sum = 0
 
     while row = csv.shift
@@ -136,18 +172,18 @@ end
 The results are:
 
 ```bash
-$ ruby parse2.rb
+$ ruby parse3.rb
 Sum: 499999500000
 Time: 9.73
 Memory: 74.64 MB
 ```
 
-From the results we can see that the memory used is about the file size (75 MB) because the whole file content is loaded in memory and the processing time is about twice faster.
+From the results we can see that the memory used is about the file size (75 MB) because the file content is loaded in memory and the processing time is about twice faster. This approach is useful when we have the content that we don't need to read it from a file and we just want to iterate over it line by line.
 
 
 ### Parsing CSV file line by line from IO object
 
-Can we do any better than the previous script? Let's use an IO file object directly and see:
+Can we do any better than the previous script? Yes, if we have the CSV content in a file. Let's use an IO file object directly:
 
 ```ruby
 require_relative './helpers'
@@ -172,12 +208,38 @@ end
 The results are:
 
 ```bash
-$ ruby parse3.rb
+$ ruby parse4.rb
 Sum: 499999500000
 Time: 9.88
 Memory: 0.58 MB
 ```
 
-In the last script we did not load the whole file in memory at once which is the reason why we see less than 1 MB of memory increase. Time seems to be a very little slower compared to previous script because there is more IO involved.
+In the last script we see less than 1 MB of memory increase. Time seems to be a very little slower compared to previous script because there is more IO involved. The CSV library has a built in mechanism for this, `CSV.foreach`:
 
-Imagine you need to process large CSV files of 10GB or more. Deciding which strategy to use seems obvious.
+```ruby
+require_relative './helpers'
+require 'csv'
+
+print_memory_usage do
+  print_time_spent do
+    sum = 0
+
+    CSV.foreach('data.csv', headers: true) do |row|
+      sum += row['id'].to_i
+    end
+
+    puts "Sum: #{sum}"
+  end
+end
+```
+
+The results are similar:
+
+```ruby
+$ ruby parse5.rb
+Sum: 499999500000
+Time: 9.84
+Memory: 0.53 MB
+```
+
+Imagine you need to process large CSV files of 10GB or more. Deciding to use the last strategy seems obvious.
