@@ -1,0 +1,15 @@
+<% title("Latest blog posts") %>
+
+<%= render 'shared/sidebar' %>
+
+<section class="posts">
+  <h1><%= posts_title %></h1>
+  <ul class="posts_list">
+    <% @posts.each do |post| %>
+      <li>
+        <time><%= post.date.strftime('%Y-%m-%d') %></time>
+        <h3><%= link_to post.title, post %></h3>
+      </li>
+    <% end %>
+  </ul>
+</section>

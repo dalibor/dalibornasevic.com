@@ -19,7 +19,7 @@ module ApplicationHelper
     content_for(:head) { stylesheet_link_tag(*files) }
   end
 
-  def body_id
-    controller.controller_path.split('/').push(controller.action_name).join('_')
+  def personal_description
+    "Software Engineer working at GoDaddy on the email delivery infrastructure and email marketing products"
   end
 end

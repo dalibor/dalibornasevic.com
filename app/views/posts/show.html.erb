@@ -1,0 +1,24 @@
+<% title(@post.title) %>
+<% description(strip_tags(@post.content).split("\n").first) %>
+<% keywords(@post.tags.join(', ')) %>
+
+<%= render 'shared/sidebar' %>
+
+<article class="post">
+  <header>
+    <h1><%= @post.title %></h1>
+  </header>
+
+  <div class="content">
+  <%= raw @post.content %>
+
+  <footer>
+    <p>
+      Posted by <%= @post.author %> on <time><%= @post.date.to_s(:date) %></time> and tagged with: <%= raw @post.tags.map { |tag| link_to(tag, posts_path(:tag => tag), :rel => 'tag')}.to_sentence %>.
+    </p>
+  </footer>
+
+  <section class="comments">
+    <%= render 'shared/disqus' %>
+  </section>
+</article>

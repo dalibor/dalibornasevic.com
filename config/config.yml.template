@@ -1,15 +1,9 @@
 development:
   token:
     secret: "your_long_secret_key123456789012345678901234567890"
-  google:
-    account_id: "UA-xxxxxxx-x"
 test:
   token:
     secret: "your_long_secret_key123456789012345678901234567890"
-  google:
-    account_id: "UA-xxxxxxx-x"
 production:
   token:
     secret: "your_long_secret_key123456789012345678901234567890"
-  google:
-    account_id: "UA-xxxxxxx-x"

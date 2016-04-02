@@ -1,12 +1,6 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.2.11'
-gem 'haml'
-gem 'compass', '~> 0.12.alpha.0'
-gem 'will_paginate'
-gem 'jquery-rails', '=1.0.19'
-gem 'modernizr-rails'
-gem 'html5-rails'
 gem 'virtus'
 
 # markdown to html
@@ -19,22 +13,21 @@ gem 'html-pipeline', '= 1.9.0'
 # in production environments by default.
 group :assets do
   gem 'sass-rails'
-  gem 'coffee-rails'
   gem 'uglifier'
   gem 'compass-rails'
   gem 'compass-h5bp'
-  gem 'therubyracer', '=0.10.1'
+  gem 'compass', '~> 0.12.alpha.0'
 end
 
 group :development do
   gem 'thin'
-  gem 'haml-rails' # haml generators
   gem 'gitploy'
 end
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.1'
   gem 'quiet_assets'
+  gem 'html5-rails'
 end
 
 group :test do

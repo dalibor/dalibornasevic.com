@@ -70,9 +70,6 @@ module Blog
 
     # don't access the DB or load models when precompiling assets.
     config.assets.initialize_on_precompile = false
-
-    # config.assets.precompile << /(^[^_]|\/[^_])[^\/]*/
-    config.assets.precompile += ['modernizr.js']
   end
 end
 
