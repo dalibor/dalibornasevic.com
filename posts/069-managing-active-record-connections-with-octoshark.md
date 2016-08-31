@@ -6,19 +6,21 @@ author: Dalibor Nasevic
 tags: [octoshark, active record, database connections, rails]
 ---
 
-I wrote this simple ActiveRecord connection manager called [Octoshark](https://github.com/dalibor/octoshark) some time ago but never put any words about it on my blog. Now that I have been using it successfully in production for about a year sending millions of emails per day for both [GoDaddy Email Marketing](https://uk.godaddy.com/online-marketing/email-marketing) and [Mad Mimi](https://madmimi.com/), let's do that.
+I wrote [Octoshark](https://github.com/dalibor/octoshark) a while ago but never really put any words about it on my blog. Now that I have been using it successfully in production for about a year handling millions of API requests per day and sending millions of emails per day for both [GoDaddy Email Marketing](https://www.godaddy.com/online-marketing/email-marketing) and [Mad Mimi](https://madmimi.com/), let's do that.
 
 <p style="text-align:center;">
-  <img src="/images/octoshark.png" alt="Octoshark" title="Octoshark">
+  <img src="/images/octoshark.png" alt="Octoshark" title="Octoshark logo design by Sascha Michael Trinkaus">
 </p>
 
-### Why Octoshark?
+### What is Octoshark?
 
-There are many gems that try to solve the problem of accessing data from different databases and develop features for the architecture they are designing for. Just to mention few: [Octopus](https://github.com/thiagopradi/octopus), [Apartment](https://github.com/influitive/apartment), [db-charmer](https://github.com/kovyrin/db-charmer), [makara](https://github.com/taskrabbit/makara), but there are many many more.
+Octoshark is a simple ActiveRecord connection manager. It provides connection switching mechanisms that can be used in various scenarios like master-slave, sharding or multi-tenant architecture.
 
-I played with some of them and took the architecture of the system I was designing from monolithic, through sharding to multi-tenant. Octoshark was born on that way to help me migrate the system from one architecture to another. It is the minimal building block I needed for multi database access.
+There are many other gems that solve the problem of accessing data from different databases and develop more complex features for the architecture they are designing for. Just to mention few: [Octopus](https://github.com/thiagopradi/octopus), [Apartment](https://github.com/influitive/apartment), [db-charmer](https://github.com/kovyrin/db-charmer), [makara](https://github.com/taskrabbit/makara), but there are many many more.
 
-Octoshark was made with the following goals in mind:
+I played with some of them and took the architecture of the system I was designing from monolithic, through sharding to multi-tenant. Octoshark was born on that journey as the minimal building block that I needed to migrate the system from one architecture to another.
+
+Octoshark was written with the following goals in mind:
 
 - be simple and do one thing - connection switching
 - be easy to maintain and upgrade with Rails versions
@@ -156,6 +158,6 @@ end
 
 ### Conclusion
 
-Scaling Rails horizontally and building sharding or multi-tenant architecture is an exciting project. It involves reuse and customization of some ActiveRecord components. I wish ActiveRecord connection management and integration with Rails was done in a way to allow for extention or replacement instead of the shutgun approach of using `ActiveRecord::Base.clear_active_connections!` to return current thread connections back to the pool after each request.
+Scaling Rails horizontally and building sharding or multi-tenant architecture is an exciting project. It involves reuse and customization of some ActiveRecord components. I wish ActiveRecord connection management with Rails was done in a way to allow for extention or replacement instead of the shutgun integration like using `ActiveRecord::Base.clear_active_connections!` to return current thread connections back to the pool after each request.
 
-In the end, it's a matter of how much of ActiveRecord we patch and how carefully we reuse its building blocks. Everything comes up with a maintenance cost and the right solution comes up along the lines of minimal maintenance cost.
+With that in mind, I think it's a matter of how much of ActiveRecord we patch and how carefully we reuse its building blocks. Everything comes up with a maintenance cost, try optimize by minimizing it.
