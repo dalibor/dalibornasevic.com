@@ -1,5 +1,5 @@
 <% title(@post.title) %>
-<% description(@page.description) %>
+<% description(@post.summary) %>
 <% keywords(@post.tags.join(', ')) %>
 <%= page_image(@post.image) if @post.image %>
 
