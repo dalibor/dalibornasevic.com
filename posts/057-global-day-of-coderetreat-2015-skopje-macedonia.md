@@ -4,6 +4,7 @@ title: "Global Day of Coderetreat 2015 - Skopje (Macedonia)"
 date: 2015-11-08 11:17:00 +0100
 author: Dalibor Nasevic
 tags: [coderetreat, gdcr]
+image: /images/gdcr2015.jpg
 ---
 
 We're glad to be celebrating the Global Day of Coderetreat in Macedonia for the fifth time!

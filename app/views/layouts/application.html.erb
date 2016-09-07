@@ -16,7 +16,7 @@
     <meta content="Dalibor Nasevic" property="og:site_name">
     <meta content="<%= request.url %>" property="og:url">
     <meta content="<%= yield(:title).presence || "Dalibor Nasevic" %>" property="og:title">
-    <meta content="<%= "#{request.base_url}/assets/dalibor.nasevic.jpg" %>" property="og:image">
+    <meta content="<%= yield(:page_image).presence || "#{request.base_url}/assets/dalibor.nasevic.jpg" %>" property="og:image">
     <meta content="<%= yield(:description).presence || personal_description %>" property="og:description">
     <%= auto_discovery_link_tag(:rss, posts_path(:format => "rss")) %>
     <meta content="width=device-width, user-scalable=no initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" name="viewport">

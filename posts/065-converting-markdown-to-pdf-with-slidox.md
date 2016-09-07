@@ -4,6 +4,7 @@ title: "Converting Markdown to PDF with Slidox"
 date: 2016-02-09 21:30:00 +0100
 author: Dalibor Nasevic
 tags: [slidox, pdf, html, builder]
+image: /images/slidox_screenshot.png
 ---
 
 I've had this small project called [Slidox](https://github.com/dalibor/slidox) laying around since [August 2014](https://github.com/dalibor/slidox/commit/7f67c6791c9b8c76da49402cbe4c5422181c7701). It was only yesterday when I noticed it and decided to spend few more hours to wrap it up and release it (backup the code on Github and Rubygems). Nothing fancy, just wiring up some simple Ruby tooling for converting Markdown to PDF with preference for syntax highlighting.

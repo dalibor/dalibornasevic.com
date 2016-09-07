@@ -13,9 +13,14 @@ class Post
   attribute :date, DateTime
   attribute :author, String
   attribute :tags, Array
+  attribute :image, String
 
   def to_param
     "#{id}-#{title.parameterize}"
+  end
+
+  def summary
+    content.to_s.scan(/<p*?>(.*)<\/p>/).flatten.first
   end
 
   class << self
@@ -50,7 +55,8 @@ class Post
           date: data['date'],
           author: data['author'],
           tags: data['tags'],
-          content: MarkdownToHTML.convert(content)
+          content: MarkdownToHTML.convert(content),
+          image: data['image']
         )
       end
     end

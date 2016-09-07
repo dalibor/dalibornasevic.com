@@ -4,6 +4,7 @@ title: "Global Day of Coderetreat 2014 - Skopje (Macedonia)"
 date: 2014-11-11 00:58:00 +0100
 author: Dalibor Nasevic
 tags: [coderetreat, gdcr]
+image: /images/coderetreat.png
 ---
 
 Skopje is participating in the 4th annual [Global Day of Coderetreat 2014](http://globalday.coderetreat.org/). The event will be held on Saturday, November 15th at Ever-Near office. There are few spots left, so hurry up to [register](http://coderetreat.org/events/global-day-of-coderetreat-2014-skopje-macedonia).

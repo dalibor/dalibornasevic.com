@@ -4,6 +4,7 @@ title: "Global Day of Coderetreat 2012 - Skopje (Macedonia)"
 date: 2012-12-16 22:34:00 +0100
 author: Dalibor Nasevic
 tags: [coderetreat, gdcr]
+image: /images/coderetreat_skopje_2012.png
 ---
 
 Last Saturday I hosted and facilitated [Global Day Of Coderetreat event in Skopje (Macedonia)](http://coderetreat.org/events/global-day-of-coderetreat-2012-skopje-macedonia "Global Day Of Coderetreat event in Skopje (Macedonia)"). It is second year I'm doing that, you can read the notes from last year here  [GDCR 2011](http://dalibornasevic.com/posts/31-global-day-of-coderetreat-in-skopje-macedonia "Global Day of Coderetreat 2011 Skopje (Macedonia)").

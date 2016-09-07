@@ -4,11 +4,18 @@ module ApplicationHelper
   end
 
   def keywords(page_keywords)
-    content_for(:keywords) { page_keywords } unless page_keywords.blank?
+    content_for(:keywords) { page_keywords } if page_keywords.present?
   end
 
   def description(page_description)
-    content_for(:description) { page_description } unless page_description.blank?
+    content_for(:description) { page_description } if page_description.present?
+  end
+
+  def page_image(page_image)
+    if page_image.present?
+      image = page_image.starts_with?('http') ? page_image : "#{root_url}#{page_image}"
+      content_for(:page_image) { image }
+    end
   end
 
   def javascript(*files)

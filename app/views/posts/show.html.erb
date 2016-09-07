@@ -1,6 +1,7 @@
 <% title(@post.title) %>
-<% description(strip_tags(@post.content).split("\n").first) %>
+<% description(@page.description) %>
 <% keywords(@post.tags.join(', ')) %>
+<%= page_image(@post.image) if @post.image %>
 
 <%= render 'shared/sidebar' %>
 
