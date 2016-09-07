@@ -13,7 +13,7 @@ module ApplicationHelper
 
   def page_image(page_image)
     if page_image.present?
-      image = page_image.starts_with?('http') ? page_image : "#{root_url}#{page_image}"
+      image = page_image.starts_with?('http') ? page_image : "#{root_url.chop}#{page_image}"
       content_for(:page_image) { image }
     end
   end
