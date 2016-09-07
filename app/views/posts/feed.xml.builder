@@ -7,12 +7,12 @@ xml.feed "xmlns" => "http://www.w3.org/2005/Atom" do
   if @posts.present?
     xml.updated @posts.first.date.to_s(:rfc2822)
   end
-  xml.id "http://dalibornasevic.com"
+  xml.id "http://dalibornasevic.com/"
   xml.title "Dalibor Nasevic"
   for post in @posts
     xml.entry do
       xml.title xml_escape(post.title)
-      xml.link "href" => post_url(post), "rel" => "alternate", "type" => "text/html", "title" => h(post.title)
+      xml.link "href" => post_url(post), "rel" => "alternate", "type" => "text/html", "title" => xml_escape(post.title)
       xml.published post.date.to_s(:rfc2822)
       xml.updated post.date.to_s(:rfc2822)
       xml.id post_url(post)
