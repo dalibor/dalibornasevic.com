@@ -19,14 +19,6 @@ class PostsController < ApplicationController
     end
   end
 
-  def feed
-    @posts = Post.all.reverse
-
-    respond_to do |format|
-      format.xml { render :layout => false}
-    end
-  end
-
   def show
     @post = Post.find(params[:id])
   end
