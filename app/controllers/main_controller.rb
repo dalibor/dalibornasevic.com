@@ -3,7 +3,7 @@ class MainController < ApplicationController
   before_filter :load_archive, only: [:index]
 
   def index
-    @posts = Post.all.reverse.first(10)
+    @posts = Post.all.reverse
   end
 
   def sitemap

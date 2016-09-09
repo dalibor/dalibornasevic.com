@@ -18,6 +18,7 @@
     <meta content="<%= yield(:title).presence || "Dalibor Nasevic" %>" property="og:title">
     <meta content="<%= yield(:page_image).presence || "#{request.base_url}/assets/dalibor.nasevic.jpg" %>" property="og:image">
     <meta content="<%= yield(:description).presence || personal_description %>" property="og:description">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <%= auto_discovery_link_tag(:rss, posts_path(:format => "rss")) %>
     <meta content="width=device-width, user-scalable=no initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" name="viewport">
     <%= stylesheet_link_tag "application" %>
