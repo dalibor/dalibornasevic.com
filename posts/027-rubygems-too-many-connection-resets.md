@@ -6,7 +6,7 @@ author: Dalibor Nasevic
 tags: [rubygems, ruby, gem]
 ---
 
- **Update** : This issue is now fixed. As noted in the comments by Erik Michaels-Ober, patch has been [committed](https://github.com/rubygems/rubygems.org/commit/9eb072cc5a0283dd059447c3e537c35ea47dad39 "Rubygems patch") and deployed to the API of Rubygems website.
+**Update**: This issue is now fixed. As noted in the comments by Erik Michaels-Ober, patch has been [committed](https://github.com/rubygems/rubygems.org/commit/9eb072cc5a0283dd059447c3e537c35ea47dad39 "Rubygems patch") and deployed to the API of Rubygems website.
 
 I built a very small gem yesterday for translating model fields stored in the same model [model\_fields\_i18n](https://github.com/dalibor/model_fields_i18n "Translate model fields stored in the same model") and was trying to push it to Rubygems, but was getting this error:
 

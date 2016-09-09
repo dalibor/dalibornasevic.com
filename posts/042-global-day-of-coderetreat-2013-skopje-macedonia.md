@@ -7,7 +7,7 @@ tags: [coderetreat, gdcr]
 image: /images/coderetreat_skopje_2013.png
 ---
 
- **Update** : [Photos from the event](https://plus.google.com/photos/103602485545252546722/albums/5957584293053394737 "GDCR 2013 Skopje/Macedonia photos").
+**Update**: [Photos from the event](https://plus.google.com/photos/103602485545252546722/albums/5957584293053394737 "GDCR 2013 Skopje/Macedonia photos").
 
 Hello everyone!
 
