@@ -15,6 +15,8 @@ describe Post do
       expect(post.date).to eq(DateTime.parse('2015-02-05 10:00:00 +0200'))
       expect(post.author).to eq('Pink Panther')
       expect(post.tags).to eq(['tag1', 'tag2'])
+      expect(post.image).to eq('/image.png')
+      expect(post.summary).to eq('Post 1 summary')
     end
 
     it "converts markdown to html" do

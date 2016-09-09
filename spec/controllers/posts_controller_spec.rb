@@ -33,7 +33,7 @@ describe PostsController, :type => :controller do
 
   describe "#show" do
     it "renders show.html" do
-      get :show, id: '1-post'
+      get :show, id: Post.all.first.to_param
       expect(response).to be_success
       expect(response.body).to include('Post 1')
     end

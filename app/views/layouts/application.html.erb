@@ -8,23 +8,24 @@
   <head>
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
-    <title><%= yield(:title).presence || "Dalibor Nasevic" %></title>
-    <meta content="<%= yield(:description).presence || personal_description %>" name="description">
-    <meta content="<%= yield(:keywords).presence || "dalibor, nasevic, ruby, rails" %>" name="keywords">
+    <title><%= page_title %></title>
+    <meta content="<%= page_description %>" name="description">
+    <meta content="<%= page_keywords %>" name="keywords">
     <meta content="Dalibor Nasevic" name="author">
     <meta content="en_US" property="og:locale">
     <meta content="Dalibor Nasevic" property="og:site_name">
     <meta content="<%= request.url %>" property="og:url">
-    <meta content="<%= yield(:title).presence || "Dalibor Nasevic" %>" property="og:title">
-    <meta content="<%= yield(:page_image).presence || "#{request.base_url}/assets/dalibor.nasevic.jpg" %>" property="og:image">
-    <meta content="<%= yield(:description).presence || personal_description %>" property="og:description">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <meta content="<%= page_title %>" property="og:title">
+    <meta content="<%= page_image %>" property="og:image">
+    <meta content="<%= page_description %>" property="og:description">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     <%= auto_discovery_link_tag(:rss, posts_path(:format => "rss")) %>
     <meta content="width=device-width, user-scalable=no initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" name="viewport">
     <%= stylesheet_link_tag "application" %>
     <%= csrf_meta_tag %>
     <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" />
     <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" />
+    <link rel="author" href="https://plus.google.com/+DaliborNasevic" />
   </head>
 
   <body>

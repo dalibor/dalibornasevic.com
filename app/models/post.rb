@@ -14,13 +14,10 @@ class Post
   attribute :author, String
   attribute :tags, Array
   attribute :image, String
+  attribute :summary, String
 
   def to_param
     "#{id}-#{title.parameterize}"
-  end
-
-  def summary
-    content.to_s.scan(/<p*?>(.*)<\/p>/).flatten.first
   end
 
   class << self
@@ -50,13 +47,14 @@ class Post
         data        = YAML.load(data_string)
 
         Post.new(
-          id: data['id'],
-          title: data['title'],
-          date: data['date'],
-          author: data['author'],
-          tags: data['tags'],
+          id: data.fetch('id'),
+          title: data.fetch('title'),
+          date: data.fetch('date'),
+          author: data.fetch('author'),
+          tags: data.fetch('tags'),
           content: MarkdownToHTML.convert(content),
-          image: data['image']
+          image: data.fetch('image', nil),
+          summary: data.fetch('summary')
         )
       end
     end

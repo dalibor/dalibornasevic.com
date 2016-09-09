@@ -1,7 +1,7 @@
-<% title(@post.title) %>
-<% description(@post.summary) %>
-<% keywords(@post.tags.join(', ')) %>
-<%= page_image(@post.image) if @post.image %>
+<% @page_title = @post.title %>
+<% @page_description = @post.summary %>
+<% @page_keywords = @post.tags.join(', ') %>
+<% @page_image = @post.image %>
 
 <%= render 'shared/sidebar' %>
 
