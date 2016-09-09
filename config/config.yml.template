@@ -1,9 +1,0 @@
-development:
-  token:
-    secret: "your_long_secret_key123456789012345678901234567890"
-test:
-  token:
-    secret: "your_long_secret_key123456789012345678901234567890"
-production:
-  token:
-    secret: "your_long_secret_key123456789012345678901234567890"

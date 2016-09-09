@@ -83,6 +83,3 @@ end
 
 Time::DATE_FORMATS[:date] = "%B %d, %Y"
 Time::DATE_FORMATS[:post] = "%d %B, %Y %H:%M"
-
-# load settings
-APP_CONFIG = YAML.load_file("#{Rails.root}/config/config.yml")[Rails.env]
