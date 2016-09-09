@@ -4,6 +4,7 @@ title: "Create Your Own Dotfiles"
 date: 2014-07-13 12:55:00 +0200
 author: Dalibor Nasevic
 tags: [code, stats, tools]
+summary: "Share your dotfiles and make them reusable after reinstalling operating systems."
 ---
 
 A while ago I gave you an advice to create and maintain your own [vimfiles](http://dalibornasevic.com/posts/29-control-your-vim-editor). Now, I would advice you to create and maintain your own dotfiles as well. It's your own environment and tools you use to do your job well.

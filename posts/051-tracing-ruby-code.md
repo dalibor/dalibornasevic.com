@@ -4,6 +4,7 @@ title: "Tracing Ruby Code"
 date: 2015-02-28 17:46:00 +0100
 author: Dalibor Nasevic
 tags: [ruby, trace_point]
+summary: "Tracing Ruby code execution with TracePoint."
 ---
 
 I'm not a big fan of using debugging tools with Ruby. When I want to check something I'll often just use `puts` (or even `raise` when debugging controller actions/views because it's easier to see the result in browser instead of looking in the logs).

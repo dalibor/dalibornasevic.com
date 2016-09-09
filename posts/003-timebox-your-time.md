@@ -4,6 +4,7 @@ title: "Timebox your time!"
 date: 2009-07-15 21:41:00 +0200
 author: Dalibor Nasevic
 tags: [timeboxing, agile, productivity]
+summary: "Timeboxing time to prevent spending time procrastinating on unimportant stuff."
 ---
 
 Time boxing is a time management technique that comes from Agile Software Development. It is a way of limiting the amount of time (timebox) spent on something in order to prevent excessive effort or unproductive work. It can be used for planing projects where timeboxes are usually measured with days, hours or weeks; for personal tasks where timeboxes are usually measured in minutes; and it can be used for non work-related tasks like hobbies, sports etc.

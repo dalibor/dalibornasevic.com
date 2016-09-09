@@ -4,6 +4,7 @@ title: "Handling bounces, FBLs and List-Unsubscribes"
 date: 2016-03-20 16:20:00 +0100
 author: Dalibor Nasevic
 tags: [email, bounce, feedback loop, list unsubscribe]
+summary: "Strategies for processing and testing bounces, feedback loops (FBLs) and List-Unsubscribe requests in an email delivery system."
 ---
 
 Handling Bounces, Feedback Loops (FBLs) and List-Unsubscribe requests is critical for the reputation of an email delivery system. Ignoring to process this valuable feedback from [Internet Service Providers](https://en.wikipedia.org/wiki/Internet_service_provider) (ISPs) will cause IPs to end-up on various [blacklists](https://en.wikipedia.org/wiki/DNSBL) and deliverability to suffer.

@@ -4,6 +4,7 @@ title: "Principles introduced by Eiffel programming language"
 date: 2013-04-04 22:11:00 +0200
 author: Dalibor Nasevic
 tags: [OO, design, principles, eiffel]
+summary: "Overview of few important principles introduced by the Eiffel programming language."
 ---
 
 [**Eiffel**](http://en.wikipedia.org/wiki/Eiffel_(programming_language) "Eiffel programming language") is an object-oriented programming language designed by Bertrand Meyer in 1986. It didn't gain much popularity, but it introduced few important programming principles that had big impact and later found their way into other programming languages. So, I thought I would introduce some of them briefly in here.

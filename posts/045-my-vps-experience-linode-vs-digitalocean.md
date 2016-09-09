@@ -4,6 +4,7 @@ title: "My VPS Experience (Linode vs DigitalOcean)"
 date: 2014-06-01 09:36:00 +0200
 author: Dalibor Nasevic
 tags: [linode, digitalocean, vps]
+summary: "Why I switched from Linode to DigitalOcean."
 ---
 
 I've been using [Linode](https://www.linode.com "Linode") for about 4.5 years and I migrated to [Digital Ocean](https://www.digitalocean.com/?refcode=1b34a8d1d224 "Digital Ocean"). So, just want to share some of my personal experience and thoughts here.

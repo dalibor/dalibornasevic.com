@@ -4,6 +4,7 @@ title: "jQuery.tweets and jQuery.tracks plugins"
 date: 2011-03-31 23:14:00 +0200
 author: Dalibor Nasevic
 tags: [jQuery, javascript, twitter, last.fm, json, plugin]
+summary: "Writing jQuery plugins for displaying recent tweets from Twitter and recent tracks from Last.fm."
 ---
 
 I just extracted 2 small jQuery plugins from [my blog](http://dalibornasevic.com/) which I use for displaying recent tweets from my [Twitter](http://twitter.com/dnasevic "Dalibor Nasevic's Twitter profile") profile and recent tracks from my [Last.fm](http://www.last.fm/user/blackflasher "Dalibor Nasevic's Last.fm profile") profile. Both plugins use the JSON APIs, and you can check them on my Github profile:

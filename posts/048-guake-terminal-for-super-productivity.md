@@ -4,6 +4,7 @@ title: "Guake terminal for super productivity"
 date: 2014-09-01 21:28:00 +0200
 author: Dalibor Nasevic
 tags: [guake, productivity, ubuntu]
+summary: "Compiling, installing and configuring Guake multi terminal for GNOME Desktop on Ubuntu."
 ---
 
 [Guake](https://github.com/Guake/guake) is one of my favorite software running on Linux. It's a simple, but perfect multi terminal application for GNOME Desktop. When SSHing to servers I often use [screen](http://www.gnu.org/software/screen/) or [tmux](http://tmux.sourceforge.net/), but on my host OS I prefer to use Guake.

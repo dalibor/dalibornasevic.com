@@ -4,6 +4,7 @@ title: "Rake routes task"
 date: 2011-01-13 21:59:00 +0100
 author: Dalibor Nasevic
 tags: [rails, routes, rake]
+summary: "Generating routes for a specific controller in Ruby on Rails application with rake routes task."
 ---
 
 You can list all defined routes in your Rails application with:

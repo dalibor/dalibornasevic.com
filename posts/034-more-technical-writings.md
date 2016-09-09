@@ -4,6 +4,7 @@ title: "More technical writings"
 date: 2012-07-18 00:45:00 +0200
 author: Dalibor Nasevic
 tags: [personal, rails, vim, screen, redis, machine_learning]
+summary: "Some things I have been doing in the past half year."
 ---
 
 First half of this year has been quite busy 'till now! 

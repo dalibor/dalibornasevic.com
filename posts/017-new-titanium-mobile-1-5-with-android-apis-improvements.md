@@ -4,6 +4,7 @@ title: "New Titanium Mobile 1.5 with Android APIs improvements"
 date: 2011-01-09 23:29:00 +0100
 author: Dalibor Nasevic
 tags: [titanium, android, ubuntu, mobile]
+summary: "Overview of Titanium Mobile 1.5."
 ---
 
 New version of Titanium Mobile 1.5 has been released recently including many improvements of the Android APIs in Titanium. [Android module](http://developer.appcelerator.com/apidoc/mobile/latest/Titanium.Android-module "Titanium Android module") now allows us to use native Activity, Intent, Service in Android mobile applications developed with Titanium.

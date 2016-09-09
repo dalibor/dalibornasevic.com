@@ -4,6 +4,7 @@ title: "Using Amazon S3 in Rails Applications"
 date: 2010-04-03 18:15:00 +0200
 author: Dalibor Nasevic
 tags: [ruby, rails, aws, review]
+summary: "Using Amazon S3 for uploads in Ruby on Rails applications."
 ---
 
 After reviewing [Vim for Rails Development](http://www.codeulatescreencasts.com/products/vim-for-rails-developers "Vim for Rails Development Screencast") screencast some time ago, I received another one, the second screencast of [Codeulate Screencasts](http://www.codeulatescreencasts.com/ "Codeulate Screencasts") which is titled: [Using Amazon S3 in Rails Applications](http://www.codeulatescreencasts.com/products/build-an-app-with-rails-and-s3 "Using Amazon S3 in Rails Applications"). This screencast presents how to build a file upload application with Rails and Amazon S3 including some tips and gems you may find useful while building that functionality.

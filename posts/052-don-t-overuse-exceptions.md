@@ -4,6 +4,7 @@ title: "Don't Overuse Exceptions"
 date: 2015-03-01 12:22:00 +0100
 author: Dalibor Nasevic
 tags: [ruby, exceptions]
+summary: "Never use exceptions to control flow."
 ---
 
 > Exceptions are like non-local goto statements.

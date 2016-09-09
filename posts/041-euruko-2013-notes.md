@@ -5,6 +5,7 @@ date: 2013-06-30 19:33:00 +0200
 author: Dalibor Nasevic
 tags: [euruko, ruby, rails, matz]
 image: /images/dalibor-nasevic-matz.jpg
+summary: "My notes from EuRuKo 2013 conference in Athens, Greece."
 ---
 
 [EuRuKo 2013](http://euruko2013.org/ "EuRuKo 2013") is over. It happened in Athens and was perfectly organized by the local volunteers. It's the biggest Ruby conference in Europe, community driven and non profit.

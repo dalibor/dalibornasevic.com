@@ -4,6 +4,7 @@ title: "Ruby class_eval, __FILE__ and __LINE__ arguments"
 date: 2011-01-08 00:59:00 +0100
 author: Dalibor Nasevic
 tags: [ruby, class_eval, metaprogramming]
+summary: What does __FILE__ and __LINE__ arguments mean with Ruby's class_eval.
 ---
 
 Here is an example of `class_eval` method call that we will discuss:

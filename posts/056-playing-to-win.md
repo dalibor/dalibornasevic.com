@@ -4,6 +4,7 @@ title: "Playing to win"
 date: 2015-10-17 12:22:00 +0200
 author: Dalibor Nasevic
 tags: [xp, agile]
+summary: "The extreme programming philosophy of building software by playing to win."
 ---
 
 [Extreme Programming Explained](http://www.amazon.com/Extreme-Programming-Explained-Embrace-Edition/dp/0321278658) by [Kent Beck](https://en.wikipedia.org/wiki/Kent_Beck) is one of the most inspirational software development books I've ever read. I was looking at some notes I usually take when reading books and found this lovely quote:

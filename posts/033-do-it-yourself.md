@@ -4,6 +4,7 @@ title: "Do It Yourself"
 date: 2012-01-15 13:59:00 +0100
 author: Dalibor Nasevic
 tags: [DIY, practice, learn, work, ethic]
+summary: "Taking responsibility for your career and doing things for yourself."
 ---
 
 Do you have an app that you built for yourself? Do you have a pet project that you're building yourself? Do you prefer building and maintaining your own blog over using a blogging service like Wordpress, Blogger or Posterous?

@@ -4,6 +4,7 @@ title: "Pomodoro Technique"
 date: 2009-07-29 00:58:00 +0200
 author: Dalibor Nasevic
 tags: [productivity, agile, pomodoro, timeboxing]
+summary: "Simple overview of the Pomodoro Technique for being more productive."
 ---
 
 My last post was about [time boxing](http://dalibornasevic.com/posts/3-time-boxing-for-the-agile-gods "Time Boxing for the Agile Gods") and we're continuing with a focus on productivity. Here I will describe the benefits and usage of the Pomodoro Technique. This technique helps with ideas on how to organize, measure and set value for your work to be productive.

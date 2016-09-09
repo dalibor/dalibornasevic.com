@@ -4,6 +4,7 @@ title: "Extreme Programming Wisdoms"
 date: 2011-03-26 15:13:00 +0100
 author: Dalibor Nasevic
 tags: [xp, agile]
+summary: "The Inspirational Extreme Programming Wisdoms."
 ---
 
 An excerpt from "Extreme Programming Explained" book by Kent Beck:

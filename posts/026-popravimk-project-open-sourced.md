@@ -4,6 +4,7 @@ title: "PopraviMK project open-sourced"
 date: 2011-05-14 22:52:00 +0200
 author: Dalibor Nasevic
 tags: [popravimk, opensource, rails, titanium]
+summary: "Open-sourcing PopraviMK Titanium mobile and web applications."
 ---
 
 I have open-sourced [PopraviMK](http://popravi.mk/ "PopraviMK official site") project (both web and mobile applications) on my [Github](https://github.com/dalibor "Dalibor Nasevic's Github profile") profile. The Android mobile application won the Grant Prix on the [Android Challenge](http://dalibornasevic.com/posts/15-grand-prix-on-vip-android-challenge-with-popravimk "PopraviMK Android Grand Prix") in Macedonia (2010).

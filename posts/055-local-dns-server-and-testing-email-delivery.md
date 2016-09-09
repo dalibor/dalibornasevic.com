@@ -4,6 +4,7 @@ title: "Local DNS server and testing email delivery"
 date: 2015-10-11 16:04:00 +0200
 author: Dalibor Nasevic
 tags: [ruby, dns, dig, mailcatcher, smtp]
+summary: How to replace your OS’ default DNS resolver with a RubyDNS powered one and test email delivery.
 ---
 
 Domain Name System (DNS) is one of the most important Internet protocol. It plays especially important role in email delivery being a prerequisite to Mail Transport Agents (MTAs). Running a local DNS test server to test various MTA configurations in an environment that can simulate production DNS is very helpful.

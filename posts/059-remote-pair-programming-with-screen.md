@@ -4,6 +4,7 @@ title: "Remote pair-programming with Screen"
 date: 2015-11-18 08:33:00 +0100
 author: Dalibor Nasevic
 tags: [screen, pair-programming]
+summary: "Setting up a remote pair-programming with Screen."
 ---
 
 **Note**: This is a republish of an article I wrote back in November 2011 on [Siyelo blog](http://blog.siyelo.com/remote-pair-programming-with-screen/).

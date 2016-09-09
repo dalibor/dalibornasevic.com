@@ -4,6 +4,7 @@ title: "RVM and Passenger for Rails 2 and Rails 3 apps"
 date: 2011-01-23 23:03:00 +0100
 author: Dalibor Nasevic
 tags: [rails, rails3, deploy, ubuntu, passenger, apache, rvm]
+summary: "Making RVM and Passenger work together for Rails 2 and Rails 3 applications."
 ---
 
 If you want to have more control over your development environments when working with Rails applications, you can isolate different sets of gems by using the [RVM](http://rvm.beginrescueend.com/ "Ruby Version Manager") (Ruby Version Manager).

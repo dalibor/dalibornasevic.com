@@ -4,6 +4,7 @@ title: "Rubygems: too many connection resets"
 date: 2011-09-01 22:06:00 +0200
 author: Dalibor Nasevic
 tags: [rubygems, ruby, gem]
+summary: "Rubygems issue with too many connection resets."
 ---
 
 **Update**: This issue is now fixed. As noted in the comments by Erik Michaels-Ober, patch has been [committed](https://github.com/rubygems/rubygems.org/commit/9eb072cc5a0283dd059447c3e537c35ea47dad39 "Rubygems patch") and deployed to the API of Rubygems website.

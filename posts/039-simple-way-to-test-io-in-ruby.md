@@ -4,6 +4,7 @@ title: "Simple way to test IO in Ruby"
 date: 2013-01-28 22:44:00 +0100
 author: Dalibor Nasevic
 tags: [ruby, io, rspec]
+summary: "Testing IO with Ruby in a simple and custom way."
 ---
 
 I worked on a small CLI (Command Line Interface) in Ruby over the weekend and I wanted to test the user input on the command line and the output that the program will print out. I figured out this simple FakeIO class that helps me do that.

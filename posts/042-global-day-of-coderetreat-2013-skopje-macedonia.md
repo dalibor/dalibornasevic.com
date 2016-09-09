@@ -5,6 +5,7 @@ date: 2013-11-27 20:30:00 +0100
 author: Dalibor Nasevic
 tags: [coderetreat, gdcr]
 image: /images/coderetreat_skopje_2013.png
+summary: "Registration details and photos for Global Day of Coderetreat 2013 in Skopje, Macedonia."
 ---
 
 **Update**: [Photos from the event](https://plus.google.com/photos/103602485545252546722/albums/5957584293053394737 "GDCR 2013 Skopje/Macedonia photos").

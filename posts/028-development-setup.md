@@ -4,6 +4,7 @@ title: "Development Setup"
 date: 2011-10-23 15:00:00 +0200
 author: Dalibor Nasevic
 tags: [ubuntu, development, setup, software, hardware]
+summary: "Notes from my development setup."
 ---
 
 A week ago I upgraded to Ubuntu 11.10 (Oneiric Ocelot) and have spend some time experimenting with different windows managers / shells to find out what works best for me. As a Web Developer I have been doing software / hardware decisions all the time, and here is my current set of tools.

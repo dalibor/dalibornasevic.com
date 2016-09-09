@@ -4,6 +4,7 @@ title: "Ruby Singleton Pattern"
 date: 2010-01-24 18:26:00 +0100
 author: Dalibor Nasevic
 tags: [ruby, singleton, patterns, rails]
+summary: "Implementing Singleton Pattern with Ruby in few ways."
 ---
 
 Singleton is perhaps the most hated of all programming patterns. You can read some of the reasons for this in [Why Singletons are Evil](http://blogs.msdn.com/scottdensmore/archive/2004/05/25/140827.aspx "Why Singletons are Evil"). But, I think it has some good usages. I will start by describing what a singleton pattern is, walk through different ways of implementing it in Ruby, and point to how it's used in Rails.

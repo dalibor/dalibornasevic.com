@@ -4,6 +4,7 @@ title: "Agile values and principles"
 date: 2011-11-12 12:37:00 +0100
 author: Dalibor Nasevic
 tags: [agile, values, principles]
+summary: "Understanding Agile values and priciples is easy, but implementing Agile is a different story."
 ---
 
 Agile [values](http://agilemanifesto.org/ "Agile values") and [principles](http://agilemanifesto.org/principles.html "Agile principles") are:

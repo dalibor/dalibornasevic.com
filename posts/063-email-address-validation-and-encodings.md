@@ -4,6 +4,7 @@ title: "Email address validation and encodings"
 date: 2015-12-20 00:15:00 +0100
 author: Dalibor Nasevic
 tags: [email, rfc, validation, encoding]
+summary: "Validating an email address is an interesting and complex problem."
 ---
 
 > How do you validate an email address?

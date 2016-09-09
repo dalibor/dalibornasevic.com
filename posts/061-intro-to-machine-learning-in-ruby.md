@@ -4,6 +4,7 @@ title: "Intro to Machine Learning in Ruby"
 date: 2015-11-18 08:39:00 +0100
 author: Dalibor Nasevic
 tags: [machine-learning, ruby]
+summary: "Building a news aggregator using Machine Learning and Ruby."
 ---
 
 **Note**: This is a republish of an article I wrote back in December 2011 on [Siyelo blog](http://blog.siyelo.com/intro-to-machine-learning-in-ruby/).

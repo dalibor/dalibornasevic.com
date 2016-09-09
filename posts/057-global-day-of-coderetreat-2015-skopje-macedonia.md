@@ -5,6 +5,7 @@ date: 2015-11-08 11:17:00 +0100
 author: Dalibor Nasevic
 tags: [coderetreat, gdcr]
 image: /images/gdcr2015.jpg
+summary: "Call for registration for Global Day of Coderetreat 2015 in Skopje, Macedonia."
 ---
 
 We're glad to be celebrating the Global Day of Coderetreat in Macedonia for the fifth time!

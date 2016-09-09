@@ -4,6 +4,7 @@ title: "Rails deployment audit"
 date: 2015-11-18 08:41:00 +0100
 author: Dalibor Nasevic
 tags: [devops, deployment]
+summary: "Things to consider when deploying Ruby on Rails applications."
 ---
 
 **Note**: This is a republish of an article I wrote back in July 2012 on [Siyelo blog](http://blog.siyelo.com/rails-deployment-audit/).

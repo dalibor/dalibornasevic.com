@@ -4,6 +4,7 @@ title: "Markup processing and code syntax highlight"
 date: 2014-08-02 16:50:00 +0200
 author: Dalibor Nasevic
 tags: [ruby, markup, syntax, highlight]
+summary: "Convert markdown to HTML and syntax highlighting the Github way."
 ---
 
 I changed the code syntax highlighting on my blog. I was using [Syntax Highlighter](http://alexgorbatchev.com/SyntaxHighlighter/) Javascript tool that does its work on the fly in browser. I wanted something more light-weight to the browser that I can also script easily for my other needs, like building PDF presentations.

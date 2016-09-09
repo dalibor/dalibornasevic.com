@@ -4,6 +4,7 @@ title: "ScreenCloud basic screenshot editing support"
 date: 2014-09-02 19:29:00 +0200
 author: Dalibor Nasevic
 tags: [ubuntu, screenshot, screencloud]
+summary: "Compiling and installing ScrenCloud tool on Ubuntu with screenshot editing support."
 ---
 
 Screenshot sharing tool [ScreenCloud](https://github.com/olav-st/screencloud) is coming with basic [editing capabilities](https://github.com/olav-st/screencloud/issues/5) that will be released in the upcoming version. Here's an [example screenshot](http://screencloud.net/v/luEB) of what it can do. If you can't wait for the official release, here is how to compile and install the latest version from source.

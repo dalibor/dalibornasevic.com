@@ -4,6 +4,7 @@ title: "How to send private messages with Facebook API"
 date: 2012-07-23 20:05:00 +0200
 author: Dalibor Nasevic
 tags: [social, import, integration, facebook]
+summary: "Sending private message on Facebook using Facebook Chat API."
 ---
 
 **Update**: [Facebook Chat API](https://developers.facebook.com/docs/chat) has been deprecating and this hack does not work anymore.
@@ -43,5 +44,3 @@ client.close
 But... first we need to register Facebook application to get the APP ID and APP SECRET. Then we need to authenticate the user on Facebook with OmniAuth to get their uid - **sender\_uid** and then we need to import their contacts to get a single **receiver\_uid**  that the sender wants to message. We can use the  [koala](https://github.com/arsduo/koala/ "koala gem") gem for importing Facebook contacts.
 
 For Twitter and Linkedin we can use [twitter](https://github.com/sferik/twitter "twitter gem") and [linkedin](https://github.com/pengwynn/linkedin "linkedin gem") gems for both import and private messaging.
-
-p.s. It's always good idea to do [pair programming](http://boban.jovanoski.net/ "Boban Jovanoski") while working on new features.

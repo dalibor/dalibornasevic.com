@@ -4,6 +4,7 @@ title: "Premature end of script headers"
 date: 2009-11-11 02:17:00 +0100
 author: Dalibor Nasevic
 tags: [rails, apache, passenger]
+summary: Fixing premature end of script headers in Apache with Phussion Passenger
 ---
 
 **Update**: As Hongli Lai notes in the comments, this is actually the case when app/apache is running as a root user, and user switching is turned on (the default).

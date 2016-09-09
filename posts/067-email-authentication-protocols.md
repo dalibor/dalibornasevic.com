@@ -4,6 +4,7 @@ title: "Email Authentication Protocols"
 date: 2016-03-23 18:10:00 +0100
 author: Dalibor Nasevic
 tags: [email, authentication, protocols]
+summary: "Overview of email authentication protocols: SPF, Sender-ID, Domain Keys, DKIM and DMARC."
 ---
 
 When [Simple Mail Transfer Protocol](https://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol) (SMTP) was designed in 1982 ([RFC 821](http://www.rfcreader.com/#rfc821)), it did not provide any way to identify message senders. A system lacking that component was easy to abuse by spammers. It was clear that SMTP was in need for techniques to prevent spam and identify the origin of a message.

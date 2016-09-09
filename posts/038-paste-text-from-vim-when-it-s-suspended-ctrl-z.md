@@ -4,6 +4,7 @@ title: "Paste text from Vim when it's suspended (ctrl+z)"
 date: 2013-01-13 14:06:00 +0100
 author: Dalibor Nasevic
 tags: [vim, ubuntu, clipboard]
+summary: "Pasting text from Vim after suspending it (hiding it in terminal by pressing ctrl+z)."
 ---
 
 I'm using Ubuntu and terminal vim and I have this workflow that I would yank something in Vim, suspend it (ctrl+z) and then paste the yanked text on command line usually to do a search with [ack](http://betterthangrep.com/ "ack is a tool like grep, optimized for programmers"). For some reason when I suspend Vim, X Window clipboard gets empty and it will paste nothing. Here is a small vim function that will fix that by using [xsel](http://www.vergenet.net/~conrad/software/xsel/ "Command-line program for getting and setting the contents of the X selection").

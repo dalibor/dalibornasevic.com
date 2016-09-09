@@ -5,6 +5,7 @@ date: 2015-11-14 20:12:00 +0100
 author: Dalibor Nasevic
 tags: [coderetreat, gdcr]
 image: /images/gdcr2015_skopje.jpg
+summary: "Photos and slides from Global Day of Coderetreat 2015."
 ---
 
 Another day celebrating software craftsmanship is behind us. Lots of fun and sharing with our small but hard-core community. Thanks to everyone for attending the Global Day of Coderetreat 2015 in Skopje!

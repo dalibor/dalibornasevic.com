@@ -4,6 +4,7 @@ title: "Control Your Vim Editor"
 date: 2011-10-30 22:45:00 +0100
 author: Dalibor Nasevic
 tags: [vim, vimfiles]
+summary: "Create your own Vimfiles to have more control over your Vim editor."
 ---
 
 I have created my own [vimfiles](https://github.com/dalibor/vimfiles "Dalibor Nasevic's vimfiles") and you should too. By doing so:

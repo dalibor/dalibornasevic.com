@@ -4,6 +4,7 @@ title: "Deploying with Gitploy"
 date: 2012-12-27 23:04:00 +0100
 author: Dalibor Nasevic
 tags: [ruby, gitploy, rails, deployment]
+summary: "Simple application deploys via Git using the Gitploy tool."
 ---
 
 Often times I'm impressed by simple tools that do a great job. [Gitploy](https://github.com/brentd/gitploy "Dead-simple (no, really) deployment DSL created with git in mind.") is one such tool, a very small deployment DSL created with git in mind that is dead-simple to use. It is only about 125 lines of [ruby code](https://github.com/brentd/gitploy/blob/master/lib/gitploy.rb "Gitploy script code") that you can read and understand in few minutes.

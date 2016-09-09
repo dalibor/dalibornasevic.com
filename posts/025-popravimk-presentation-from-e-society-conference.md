@@ -5,6 +5,7 @@ date: 2011-04-10 16:07:00 +0200
 author: Dalibor Nasevic
 tags: [popravimk, e-society, presentations]
 image: /images/e-society.png
+summary: "PopraviMK presentation from e-society conference in Skopje."
 ---
 
 [Slides](https://speakerdeck.com/dalibor/popravimk-e-society "PopraviMK presentation on E-society (2010, Skopje)") from my presentation on [e-society conference](http://e-society.org.mk/) (2010, Skopje) about [popravi.mk](http://popravi.mk "Official popravi.mk site").

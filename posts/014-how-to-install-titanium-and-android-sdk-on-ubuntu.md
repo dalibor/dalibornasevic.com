@@ -4,6 +4,7 @@ title: "How to install Titanium and Android SDK on Ubuntu"
 date: 2010-10-13 03:32:00 +0200
 author: Dalibor Nasevic
 tags: [android, titanium, ubuntu, mobile]
+summary: "Installing Titanium Mobile and Android SDK on Ubuntu."
 ---
 
 Installing Titanium Developer on GNU/Linux based systems has few gotchas and the whole process is not very well documented on the internet with a simple step by step installation instructions that will just work. Here I will describe how I installed Titanium Developer 1.4 on Ubuntu 10.04 and point out some errors that I was getting during the installation.

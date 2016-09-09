@@ -4,6 +4,7 @@ title: "Commitment and persistence"
 date: 2016-02-07 14:46:00 +0100
 author: Dalibor Nasevic
 tags: [commitment, persistence]
+summary: "It's all about commitment and persistence."
 ---
 
 Whenever you are debugging some nasty bug for hours or you are trying to figure out a solution to a complex problem for days, remind yourself to the following video.

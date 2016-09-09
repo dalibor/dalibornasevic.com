@@ -4,6 +4,7 @@ title: "Redis in the NoSQL ecosystem"
 date: 2015-11-18 08:35:00 +0100
 author: Dalibor Nasevic
 tags: [redis, nosql]
+summary: "Redis storage and what kind of problems it helps solve."
 ---
 
 **Note**: This is a republish of an article I wrote back in December 2011 on [Siyelo blog](http://blog.siyelo.com/redis-in-the-nosql-ecosystem/).

@@ -4,6 +4,7 @@ title: "Hello World"
 date: 2009-06-13 21:19:00 +0200
 author: Dalibor Nasevic
 tags: [personal, blog]
+summary: "Introducing my blog."
 ---
 
 Hello everyone! I'm Dalibor and this is my personal blog. The software behind it is a simple Ruby on Rails application and you can find its source code on [Github](https://github.com/dalibor/dalibornasevic.com "Dalibor Nasevic's blog").

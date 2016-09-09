@@ -4,6 +4,7 @@ title: "Vim for Rails Development"
 date: 2010-02-28 20:48:00 +0100
 author: Dalibor Nasevic
 tags: [ubuntu, ruby, rails, vim, ruby.mk]
+summary: "Setting up Vim editor for Ruby on Rails development."
 ---
 
 **Update 2**: I've created my own [vimfiles](/posts/29-control-your-vim-editor), and you should too.

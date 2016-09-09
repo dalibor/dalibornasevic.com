@@ -4,6 +4,7 @@ title: "Javascript Development Tips"
 date: 2010-02-05 00:45:00 +0100
 author: Dalibor Nasevic
 tags: [javascript, benchmark, debug, jslint, patterns]
+summary: "Totally random Javascript development tips."
 ---
 
 I'm working on live betting system written in Javascript and jQuery. It consumes two APIs (Search and POS API) and has some complex functionality. So, time has come to tag something with Javascript on my blog. :)

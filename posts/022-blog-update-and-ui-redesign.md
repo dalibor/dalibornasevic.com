@@ -4,6 +4,7 @@ title: "Blog update and UI redesign"
 date: 2011-03-23 22:38:00 +0100
 author: Dalibor Nasevic
 tags: [blog, rails3, jQuery, UI, ruby.mk]
+summary: "Some changes on my blog including UI redesign."
 ---
 
 I have upgraded [my blog application](https://github.com/dalibor/dalibornasevic.com "Blog application") from Rails 2.3.x to Rails 3 and re-designed the UI.

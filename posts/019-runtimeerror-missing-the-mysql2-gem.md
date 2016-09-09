@@ -4,6 +4,7 @@ title: "RuntimeError: !!! Missing the mysql2 gem"
 date: 2011-01-22 22:31:00 +0100
 author: Dalibor Nasevic
 tags: [rails3, upgrade, database, mysql]
+summary: "The confusing error for missing mysql2 gem in Rails 3 application is actually a database.yml config issue."
 ---
 
 I started migrating my blog from Rails 2 to Rails 3, working up my deployment setup using rvm and phusion passenger. When setting up the staging server, I run into this error:

@@ -4,6 +4,7 @@ title: "Understanding standard streams and redirection"
 date: 2015-03-08 00:41:00 +0100
 author: Dalibor Nasevic
 tags: [ruby, unix, streams]
+summary: "Playing with Ruby and standard streads and redirection on command line."
 ---
 
 Every process is initialized with 3 standard file descriptors:

@@ -4,6 +4,7 @@ title: "My new job at Siyelo"
 date: 2010-09-23 22:30:00 +0200
 author: Dalibor Nasevic
 tags: [job, personal]
+summary: "Changes on my processional plan, got a new job at Siyelo."
 ---
 
 Several changes happened on my professional plan in the last few months, and I didn't have the time to update my blog. But, here is the chance for doing that.

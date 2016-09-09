@@ -4,6 +4,7 @@ title: "Vip Android challenge Grand Prix with PopraviMK"
 date: 2010-10-12 03:31:00 +0200
 author: Dalibor Nasevic
 tags: [android, vip, challenge, popravimk, titanium, rails]
+summary: "Winning the Grand Prix on Vip Android challenge with PopraviMK mobile and web application."
 ---
 
 For those that missed the news, we won the [Grand Prix](http://www.flickr.com/photos/it_com_mk/5003633679/in/set-72157624863051331/lightbox/ "Vip Android Grand Prix") as the best mobile application on the Android challenge organized by [Vip](http://android.vip.mk/winners "Winners from Vip Android contest") mobile operator in Macedonia.

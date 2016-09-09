@@ -5,6 +5,7 @@ date: 2011-12-18 19:36:00 +0100
 author: Dalibor Nasevic
 tags: [management, leadership, teams]
 image: /images/five_dysfunctions_of_a_team.png
+summary: "My notes from The Five Dysfunctions of a Team: A Leadership Fable book."
 ---
 
 Recently I read the [The Five Dysfunctions of a Team: A Leadership Fable](http://www.amazon.com/Five-Dysfunctions-Team-Leadership-Lencioni/dp/0787960756 "The Five Dysfunctions of a Team: A Leadership Fable") book by Patrick Lencioni. It's a book on team leadership and management that I would recommend to you regardless if you are a team leader, manager or just a developer working in a team.

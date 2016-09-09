@@ -4,6 +4,7 @@ title: "How to debug stuck Ruby processes"
 date: 2015-05-30 10:03:00 +0200
 author: Dalibor Nasevic
 tags: [ruby, unix, process, gdb, strace]
+summary: "Debugging stuck Ruby processes using gdb, strace and nrdebug."
 ---
 
 Debugging OS components is fun, especially if you know the right tools and how to use them.

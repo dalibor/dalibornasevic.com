@@ -4,6 +4,7 @@ title: "Ruby: stack level too deep (SystemStackError)"
 date: 2009-10-11 15:22:00 +0200
 author: Dalibor Nasevic
 tags: [ruby, exceptions, ubuntu]
+summary: "Fixing Ruby: stack level too deep by changing system limits with ulimit."
 ---
 
 Last months I worked on a web application that measures popularity of words in internet media, can calculate popularity values and compare different words values. It's similar to Google Trends, except that here information are time critical with live updates every 5 minutes.

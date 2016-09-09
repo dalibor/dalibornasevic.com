@@ -4,6 +4,7 @@ title: "12 Vim Tips"
 date: 2014-03-23 22:29:00 +0100
 author: Dalibor Nasevic
 tags: [vim]
+summary: "Compilation of few advanced Vim tips."
 ---
 
 This compilation of Vim tips is repost of some intermediate to advanced Vim tips I've found interesting. Let's recap.
