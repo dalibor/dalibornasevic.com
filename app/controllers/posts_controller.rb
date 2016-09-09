@@ -21,5 +21,8 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    unless @post
+      render :file => 'public/404.html', :status => :not_found, :layout => false
+    end
   end
 end
