@@ -27,6 +27,7 @@ deploy do
     run "ruby -v"
     run "bundle install"
     run "bundle exec rake assets:precompile"
+    run "bundle exec rake posts:cache"
     run "touch tmp/restart.txt"
   end
 end
