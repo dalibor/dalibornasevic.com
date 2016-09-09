@@ -19,7 +19,7 @@
 
 <article class="promo">
   <div class="description">
-    <h2 class="info">Blog posts</h2>
+    <h2 class="info">Recent blog posts</h2>
     <ul class="posts_list">
       <% @posts.each do |post| %>
         <li>
@@ -28,5 +28,6 @@
         </li>
       <% end %>
     </ul>
+    <p class="notes"><%= link_to "View all blog posts →", posts_path %></p>
   </div>
 </article>
