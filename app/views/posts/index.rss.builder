@@ -8,8 +8,8 @@ xml.rss("version" => "2.0", "xmlns:atom" => "http://www.w3.org/2005/Atom") do
     xml.tag!("atom:link", "href" => posts_url(:format => "rss"), "rel" => "self", "type" => "application/rss+xml")
     for post in @posts
       xml.item do
-        xml.title xml_escape(post.title)
-        xml.description xml_escape(post.content)
+        xml.title post.title
+        xml.description post.content
         xml.pubDate post.date.to_s(:rfc822)
         xml.link post_url(post)
         xml.guid post_url(post)
