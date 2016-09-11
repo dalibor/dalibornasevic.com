@@ -8,7 +8,7 @@ module ApplicationHelper
   end
 
   def page_description
-    @page_description || "Software Engineer working at GoDaddy on the email delivery infrastructure and email marketing products"
+    @page_description || "Software Engineer at GoDaddy"
   end
 
   def page_image
