@@ -7,7 +7,7 @@ tags: [ruby, gem, mkrug]
 summary: "Presentation on how to build a Ruby gem."
 ---
 
-Last month I gave a talk at the local [MK Ruby Users Group](http://ruby.mk/ "Ruby Macedonia") on how to build a Ruby Gem. It was a bit of history and then a practical guide on building a gem and an overview of what it involves to maintain it. You can find my slides from the presentation on [speakerdeck](https://speakerdeck.com/dalibor/how-to-build-a-ruby-gem "How to Build a Ruby Gem").
+Last month I gave a talk at the local [Macedonian Ruby User Group](http://ruby.mk/ "Ruby Macedonia") on how to build a Ruby Gem. It was a bit of history and then a practical guide on building a gem and an overview of what it involves to maintain it. You can find my slides from the presentation on [speakerdeck](https://speakerdeck.com/dalibor/how-to-build-a-ruby-gem "How to Build a Ruby Gem").
 
 <script async class="speakerdeck-embed" data-id="f1b4408082290131d97b1ae9d79fbfac" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
 

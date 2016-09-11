@@ -7,7 +7,7 @@ tags: [ruby.mk]
 summary: "Announcing Macedonian Ruby User Group (MKRUG) and ruby.mk website."
 ---
 
-About three months ago with few Ruby Hackers from Macedonia, we started a local Ruby Users Group in Skopje (Macedonia). We looked for a good and consistent place with basic stuff for presentations like internet and projector. Our first meetings were at different places like Faculty of Electrical Engineering and Information Technologies in Skopje and Cultural Center Tocka. In collaboration with Free Software Macedonia and other open source freaks we managed to organize a Hacklab (an autonomous technology zone) which we can share and have regularly meetings in.
+About three months ago with few Ruby Hackers from Macedonia, we started a local Ruby User Group in Skopje (Macedonia). We looked for a good and consistent place with basic stuff for presentations like internet and projector. Our first meetings were at different places like Faculty of Electrical Engineering and Information Technologies in Skopje and Cultural Center Tocka. In collaboration with Free Software Macedonia and other open source freaks we managed to organize a Hacklab (an autonomous technology zone) which we can share and have regularly meetings in.
 
 So far we have done few official presentations and workshops with our Ruby users group:
 
