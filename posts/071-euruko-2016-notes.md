@@ -29,7 +29,7 @@ Last weekend I was at [EuRuKo 2016](http://euruko2016.org/ "EuRuKo 2016") conver
 
 <strong>José Valim</strong> opened the second day with a great presentation on Elixir. He demoed Elixir tooling, the power of Erlang and how building applications in a functional language is conceptually different from object-oriented language. New concepts of applications, processes and supervisors and the benefits of Elixir for building fault-tolerant applications. I like that Elixir is doing things the right way and is cherry-picking good ideas from the predecessors.
 
-<strong>Hiroshi Shibata</strong> gave a talk on how to begin developing Ruby core. Many links, directions and guides on the process. It's interesting how Ruby core team members want to make jokes on Matz. It's also interesting to see such presentation and watch Matz' reactions. I remember [EuRuKo 2013](http://euruko2016.org/ "EuRuKo 2013") in Athens and Koichi Sasada doing the same thing. It might be just my personal impression and coincidence.
+<strong>Hiroshi Shibata</strong> gave a talk on how to begin developing Ruby core. Many links, directions and guides on the process. It's interesting how Ruby core team members want to make jokes on Matz. It's also interesting to see such presentation and watch Matz' reactions. I remember [EuRuKo 2013](http://euruko2016.org/ "EuRuKo 2013") in Athens and Koichi Sasada doing the same thing.
 
 <strong>Carina C. Zona</strong> gave a presentation on the consequences of insighful algorithms. Plenty real world examples of an emotional pain a web application can cause to humans. Discussing social and ethic aspects including examples of Google, Facebook and others popular websites.
 
