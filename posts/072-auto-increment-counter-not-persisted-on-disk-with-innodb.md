@@ -22,22 +22,18 @@ It turns out, InnoDB [does not persist](http://dev.mysql.com/doc/refman/5.7/en/i
 After reading the above documentation, I had a light-bulb moment.
 
 
-### More context on the issue
+### More context
 
 I have one table in the system that is regularly cleaned removing old unnecessary data to take care of disk space usage. It's a multi-tenant architecture in which each user has it's own database and when user is inactive for a period of time, one of their tables becomes empty after cron task deletes data.
 
-One of the physical servers running few MySQL instances was having memory issues that caused some instances to restart. After restart, the `AUTO_INCREMENT` value for the empty table reset to 0 that is calculated by the following query and any new inserted records in the table have IDs that were already used before.
-
-```sql
-SELECT MAX(ai_col) FROM table_name FOR UPDATE;
-```
+One of the physical servers running few MySQL instances was having memory issues that caused some instances to restart. After restart, the `AUTO_INCREMENT` value for the empty table got reset to 0 and newly inserted records were with IDs that were already used.
 
 
-### Fixing the issue
+### Fixing it
 
-After figuring out the issue, the solution is pretty straight-forward. When cleaning the table, leave the last record in there, so that if server crashes and restart again, the `AUTO_INCREMENT` value will get initialized to the correct value instead of getting reset to 0.
+Once the issue was figured out, the solution was pretty straight-forward. When cleaning the table, leave the last record in there, so that if server crashes and restart again, the `AUTO_INCREMENT` value will get initialized to the correct value instead of getting reset to 0.
 
-Fixing the incorrect `AUTO_INCREMENT` counters for the table involves figuring out a safe max INT value based on relations that the table has with other tables in the database and changing it. Also, a dummy record needs to be inserted in the databases with empty tables to prevent the issue from happening again if server crashed again before new data is inserted in the table.
+Fixing the incorrect `AUTO_INCREMENT` counters for the table involves figuring out a safe max INT value based on relations that the table has with other tables in the database and changing it. Also, a dummy record needs to be inserted in cleaned empty tables to prevent the issue from happening again if server crashed again before new data is inserted in the table.
 
 To get the auto-increment value for a table:
 
@@ -52,6 +48,6 @@ ALTER TABLE table_name AUTO_INCREMENT = new_value;
 ```
 
 
-### Conclusion
+### Final thoughts
 
-It's surprising to see an unexpected database behaviour like this. It's even more surprising to see this issue come after a year in production which is only because the database servers have been rock stable. Luckily, it was isolated and fixed quickly to prevent further data damage that will require more serious data fix.
+It's surprising to see an unexpected database behaviour like this. It's even more surprising to see this issue come after a year in production, but it's just because the database servers and application have been rock solid in general. Luckily, it was an isolated case and was fixed quickly to prevent further data damage that will require more serious data fix.
