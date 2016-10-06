@@ -22,7 +22,7 @@ It turns out, InnoDB [does not persist](http://dev.mysql.com/doc/refman/5.7/en/i
 After reading the above documentation, I had a light-bulb moment.
 
 
-### What really happened?
+### More context on the issue
 
 I have one table in the system that is regularly cleaned removing old unnecessary data to take care of disk space usage. It's a multi-tenant architecture in which each user has it's own database and when user is inactive for a period of time, one of their tables becomes empty after cron task deletes data.
 
