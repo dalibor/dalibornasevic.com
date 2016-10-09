@@ -18,7 +18,7 @@ Last weekend I was at [EuRuKo 2016](http://euruko2016.org/ "EuRuKo 2016") conver
 
 <strong>Matz</strong> opened the conference giving a presentation about the future of Ruby. Some interesting announcements include: Ruby 3x3 - Ruby 3 will be 3 times faster than Ruby 2; Global Interpreter Lock (GIL) will get replaced with another GIL (Guild Interpreter Lock) for better concurency abstraction; Adding static typing to Ruby is still on the radar of things.
 
-<strong>Xavier Noria</strong> had a nice presentation on code readability, comparing different versions of similar code snippets and discussing which one reads better and why. Pretty straight forward stuff, but nonetheless a good presentation. One of the key points he put out there was having Empaty for the readers of your code: "Constantly think for the readers of your code. Not because of you. Because of them."
+<strong>Xavier Noria</strong> had a nice presentation on code readability, comparing different versions of similar code snippets and discussing which one reads better and why. Pretty straight forward stuff, but nonetheless a good presentation. One of the key points he put out there was having Empathy for the readers of your code: "Constantly think for the readers of your code. Not because of you. Because of them."
 
 <strong>Andrew Radev</strong> had a good presentation on programming principles. He shared a funny story from a co-worker building a small gem with some native C extention that introduced tech debt to the project. He was making a good point that it's easier to ask for forgiveness than permission.
 
