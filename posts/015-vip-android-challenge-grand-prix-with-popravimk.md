@@ -15,7 +15,7 @@ For those that missed the news, we won the [Grand Prix](http://www.flickr.com/ph
 
 People can use both applications to report problems they have found on public area and institutions can respond to their requests and solve the problems.
 
-Will institutions they do? That's the question we are trying to answer in the next period. We are preparing a presentation for the municipalities and how they can get involved and play an active role into the system.
+Will institutions do that? That's the question we are trying to answer in the next period. We are preparing a presentation for the municipalities and how they can get involved and play an active role into the system.
 
 We were two members in the team working on the development of this service. I did all the programming stuff and Dime Pashoski worked on the design.
 
