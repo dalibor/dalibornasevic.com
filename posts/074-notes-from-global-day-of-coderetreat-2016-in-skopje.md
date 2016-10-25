@@ -5,7 +5,7 @@ date: 2016-10-25 10:30:00 +0100
 author: Dalibor Nasevic
 tags: [coderetreat, gdcr]
 image: /images/gdcr2016_1.jpg
-summary: "Notes from Global Day of Coderetreat 2016 in Skopje."
+summary: "Another great experience being part of Global Day of Coderetreat 2016 event in Skopje. Awesome to see how it evolved over the years and still continuing."
 ---
 
 One more [Global Day of Coderetreat](http://globalday.coderetreat.org/) is behind us. The 6th since the beginning in 2011. It was another great experience for me being part of it by facilitating the local event in Skopje.
