@@ -16,8 +16,13 @@
     <meta content="Dalibor Nasevic" property="og:site_name">
     <meta content="<%= request.url %>" property="og:url">
     <meta content="<%= page_title %>" property="og:title">
-    <meta content="<%= page_image %>" property="og:image">
     <meta content="<%= page_description %>" property="og:description">
+    <meta content="<%= page_image %>" property="og:image">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@dnasevic" />
+    <meta name="twitter:title" content="<%= page_title %>" />
+    <meta name="twitter:description" content="<%= page_description %>" />
+    <meta name="twitter:image" content="<%= page_image %>" />
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     <%= auto_discovery_link_tag(:rss, posts_path(:format => "rss")) %>
     <meta content="width=device-width, user-scalable=no initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" name="viewport">
