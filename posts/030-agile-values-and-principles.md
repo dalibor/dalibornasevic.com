@@ -7,21 +7,26 @@ tags: [agile, values, principles]
 summary: "Understanding Agile values and priciples is easy, but implementing Agile is a different story."
 ---
 
-Agile [values](http://agilemanifesto.org/ "Agile values") and [principles](http://agilemanifesto.org/principles.html "Agile principles") are:
+The 4 Agile [values](http://agilemanifesto.org/ "Agile values") are:
 
-- Individuals & Interactions
-- Working Software
-- Customer Collaboration
-- Responding to Change
-- Early and Continues Delivery
-- Welcoming Changing Requirements
-- Business People and Developers Work Together
-- Motivated Individuals
-- Face-to-Face Conversation
-- Sustainable Development
-- Technical Excellence
+- Individuals and interactions over processes and tools
+- Working software over comprehensive documentation
+- Customer collaboration over contract negotiation
+- Responding to change over following a plan
+
+The 12 Agile [principles](http://agilemanifesto.org/principles.html "Agile principles") are:
+
+- Early and continues delivery
+- Welcome changing requirements
+- Deliver working software frequently
+- Business people and developers work together
+- Motivated individuals
+- Face-to-face conversation
+- Working software
+- Sustainable development
+- Technical excellence
 - Simplicity
-- Self-Organized Teams
+- Self-organizing teams
 - Reflection
 
-Understanding these values and principles is easy, but implementing Agile in an organization is difficult. There are few [methodologies](http://www.agilesherpa.org/intro_to_agile/agile_methodologies/) to help out in the process, and the one I feel strong about is eXtreme Programming (XP). It focuses on delivering high-quality software quickly and continuously with the management overhead set to minimum.
+Getting sense about the values and principles is easy, but the reality and the process of transforming to an agile team is a long journey. There are few [methodologies](https://en.wikipedia.org/wiki/Software_development_process) that contribute with different ideas on that path and what I like most is the strong focus of eXtreme Programming on the engineering practices and delivering high-quality software quickly and continuously with the management overhead set to minimum.
