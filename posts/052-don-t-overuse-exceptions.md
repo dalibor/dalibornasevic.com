@@ -11,7 +11,7 @@ summary: "Never use exceptions to control flow."
 
 I like this description a lot from the wiki-wiki article on [Don't Use Exceptions For Flow Control](http://c2.com/cgi/wiki?DontUseExceptionsForFlowControl). And, we all know that GOTOs are [considered harmful](http://c2.com/cgi/wiki?GotoConsideredHarmful).
 
-Also, I cannot agree more with these 2 statements from Joel Spolsky in his article on [exceptions](http://www.joelonsoftware.com/items/2003/10/13.html):
+Also, I have sympathies toward these 2 statements from Joel Spolsky in his article on [exceptions](http://www.joelonsoftware.com/items/2003/10/13.html):
 
 > 1. Never throw an exception of my own.
 > 2. Always catch any possible exception that might be thrown by a library I'm using on the same line as it is thrown and deal with it immediately. 
