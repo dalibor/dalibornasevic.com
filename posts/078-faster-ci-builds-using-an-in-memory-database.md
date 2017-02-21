@@ -1,9 +1,9 @@
 ---
 id: 78
 title: "Faster CI builds using an in-memory database"
-date: 2017-02-21 10:00:00 +0100
+date: 2017-02-21 09:10:00 +0100
 author: Dalibor Nasevic
-tags: [tmpfs, mysql, ubuntu, test suite]
+tags: [tmpfs, mysql, ubuntu, docker, ci]
 summary: "Speed up your CI builds by using an in-memory database with tmpfs."
 ---
 
