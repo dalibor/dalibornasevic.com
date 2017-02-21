@@ -19,7 +19,9 @@
     </p>
   </footer>
 
-  <section class="comments">
-    <%= render 'shared/disqus' %>
-  </section>
+  <% if Rails.env.production? %>
+    <section class="comments">
+      <%= render 'shared/disqus' %>
+    </section>
+  <% end %>
 </article>
