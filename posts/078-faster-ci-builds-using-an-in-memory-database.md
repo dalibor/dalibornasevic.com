@@ -11,7 +11,7 @@ What if you could get some speed improvement for your database intensive tests f
 
 In this blog post we'll use an in-memory file storage called [tmpfs](https://en.wikipedia.org/wiki/Tmpfs) that is available on most Unix-like operating systems. To test this out I am using Ubuntu 14.04 and MySQL 5.5.54 but the approach applies to any database that writes data to disk. Databases are very sensitive to [IOPS](https://en.wikipedia.org/wiki/IOPS) since their job is reading and writing data and the speed gain comes from faster writes to RAM than disk.
 
-You should expect to see more significant speed improvement if your test suite is more intense on the database and the gain depends on the speed difference between writing to RAM and writing to disk for your machine.
+You should expect to see more significant speed improvement if your test suite is more intense on the database like using database cleaning strategy with non-transactional fixtures, using truncation, etc. The gain depends on the speed difference between writing to RAM and writing to disk for your machine.
 
 In my test, I got ~ **32%** speed improvement with build time decrease from **32.96** to **22.37** seconds:
 
