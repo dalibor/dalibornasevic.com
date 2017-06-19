@@ -1,6 +1,6 @@
 ---
 id: 79
-title: "Debugging Rails views in production"
+title: "Debugging Rails Views in Production"
 date: 2017-06-11 11:00:00 +0100
 author: Dalibor Nasevic
 tags: [rails, views, debugging]
