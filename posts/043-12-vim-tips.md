@@ -123,12 +123,20 @@ Finally, here's an example of what needs to be run to do search & replace in fil
 :argdo update
 ```
 
-Other option (pointed by buztard in the comments) is to use Ack-Grep to create the arguments:
+Other option (pointed by buztard in the comments) is to use ack-grep to create the arguments:
 
 ```vim
-:args `Ack-Grep -l CurrencyNumberHelper`
+:args `ack-grep -l CurrencyNumberHelper`
+# or, if you're using Ack plugin, then just :Ack CurrencyNumberHelper
 :argdo %s/CurrencyNumberHelper/CurrencyHelper/g
 :argdo update
+```
+
+If you're on a [newer version](https://github.com/vim/vim/commit/aa23b379421aa214e6543b06c974594a25799b09) of Vim, you can just simply use `cdo` or `cfdo` as pointed out by Thiago A. in the comments:
+
+```vim
+:Ack CurrencyNumberHelper
+:cfdo s/CurrencyNumberHelper/CurrencyHelper/g | update
 ```
 
 ### 10. Edit already recorded macro
