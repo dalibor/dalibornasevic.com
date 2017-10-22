@@ -1,6 +1,6 @@
 ---
 id: 75
-title: "Playing planning poker with Firepoker"
+title: "Playing Planning Poker with Firepoker"
 date: 2016-11-20 08:30:00 +0100
 author: Dalibor Nasevic
 tags: [agile, planning poker, firepoker]
