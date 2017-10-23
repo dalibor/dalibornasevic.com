@@ -62,12 +62,12 @@ Looking at the Faraday error definitions we can see it has the following hierarc
 StandardError
   Faraday::Error
     Faraday::MissingDependency
-    Faraday::Error::ClientError
-      Faraday::Error::ConnectionFailed
-      Faraday::Error::ResourceNotFound
-      Faraday::Error::ParsingError
-      Faraday::Error::TimeoutError
-      Faraday::Error::SSLError
+    Faraday::ClientError
+      Faraday::ConnectionFailed
+      Faraday::ResourceNotFound
+      Faraday::ParsingError
+      Faraday::TimeoutError
+      Faraday::SSLError
 ```
 
 ### Exploring Faraday errors
@@ -134,6 +134,8 @@ end.get('https://httpstat.us/500')
 
 # Faraday::ClientError: the server responded with status 500
 ```
+
+Note that in the last two examples I use this handy [httpstat.us](https://httpstat.us/) service that returns the requested status code.
 
 ### Handling exceptions
 
@@ -205,14 +207,13 @@ The other exceptions that Faraday could raise are not temporary and we don't wan
 
 > Always provide a test / spec that documents why each exception is being handled. This is very important for future readers of the code to understand the failure context better.
 
-
 We'll use RSpec to test the exception retries. If we focus on the `Faraday::TimeoutError`, the scenarios that we want to test are that 1) an error is retried and 2) retry is not infinite.
 
 ```ruby
 describe LinkCounter do
   let(:url) { 'http://example.com' }
 
-  it "retries timeout errors" do
+  it "retries read timeout errors" do
     link_counter = LinkCounter.new(url)
     connection = link_counter.send(:connection)
     expect(connection).to receive(:get).once.and_raise(Faraday::TimeoutError)
@@ -222,7 +223,7 @@ describe LinkCounter do
     expect(link_counter.count).to eq(1)
   end
 
-  it "re-raises error after exausting error retries" do
+  it "re-raises read timeout error after exausting error retries" do
     link_counter = LinkCounter.new(url)
     connection = link_counter.send(:connection)
     expect(connection).to receive(:get).exactly(4).times.and_raise(Faraday::TimeoutError)
@@ -237,10 +238,43 @@ end
 
 In the above example we use [rspec-mocks](https://github.com/rspec/rspec-mocks) to set expectations for the consecutive calls. In the first spec, for the first `GET` request we expect timeout error and then for the second call we return a body with content that has one link. In the second spec, we expect 4 `GET` requests (1 + 3 retries) and all of them raising timeout error resulting in a final exception being raised.
 
-One final note, if you are using [mocha](https://github.com/freerange/mocha), you can set expectations for consecutive invocations like this:
+If you are using [mocha](https://github.com/freerange/mocha), you can set expectations for consecutive invocations like this:
 
 ```ruby
 connection.expects(:get).
   raises(Faraday::TimeoutError).
   then.returns(stub(get: body: '<a href="#">link</a>'))
 ```
+
+Let's now cover the other two cases that are 3) retrying open timeout errors and 4) not retrying unknown host errors.
+
+```ruby
+describe LinkCounter do
+  # the rest of the specs
+
+  it "retries open timeout errors" do
+    link_counter = LinkCounter.new(url)
+    connection = link_counter.send(:connection)
+    expect(connection).to receive(:get).once.and_raise(Faraday::ConnectionFailed.new('execution expired'))
+    expect(connection).to receive(:get).once.and_return(double(body: '<a href="#">link</a>'))
+    allow_any_instance_of(Retryable).to receive(:sleep_interval).and_return(0)
+
+    expect(link_counter.count).to eq(1)
+  end
+
+  it "does not retry unknown host errors" do
+    link_counter = LinkCounter.new(url)
+    connection = link_counter.send(:connection)
+    expect(connection).to receive(:get).once.and_raise(Faraday::ConnectionFailed.new("Failed to open TCP connection to example.nonexistent.com:80 (getaddrinfo: Name or service not known)"))
+    allow_any_instance_of(Retryable).to receive(:sleep_interval).and_return(0)
+
+    expect {
+      expect(link_counter.count)
+    }.to raise_error(Faraday::ConnectionFailed)
+  end
+end
+```
+
+### Final notes
+
+In this walkthough I did not use TDD intentionally to focus on these other important details. And also, we are often surprised by exceptions we cannot predict in development but they appear in production and we handle them after the fact. The important thing is to always document with a spec the very specific exception that happens, in which conditions it happens so that others can understand, improve and refactor the code in the future.
