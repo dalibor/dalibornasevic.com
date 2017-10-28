@@ -7,6 +7,8 @@ tags: [auto-increment, innodb, mysql]
 summary: "Auto-increment counter is not persisted on disk with InnoDB engine. That can lead to some surprising bugs like what this story is about."
 ---
 
+**Note**: This [issue](https://bugs.mysql.com/bug.php?id=199) has been fixed in MySQL 8.0.0, 14 years after the original bug report.
+
 Few weeks ago I hit an interesting bug in production that made me wonder is time-travel real!? I was seeing activities for emails before the emails were actually sent...
 
 How is that even possible I was wondering!?
