@@ -77,7 +77,7 @@ There are few other key mappings to configure but I don't find them very importa
 
 In `Scrolling` tab, I have set Scrollback lines to 10000 with Show scrollbar and scroll On Key Stroke.
 
-In `Appearance` I've set Transparency to 0, Text color white, Background color to blank.
+In `Appearance` I've set Transparency to 0, Text color white, Background color to black.
 
 On the `General` tab few settings are important to be checked:
 
