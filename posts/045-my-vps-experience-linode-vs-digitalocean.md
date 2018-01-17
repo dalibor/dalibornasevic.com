@@ -29,4 +29,6 @@ Let me know your VPS experience and what do you recommend?
 
 **Update 3**: I forgot to mention the other reason I migrated off Linode. I was on an old plan that didn't have SSD and at the time they had auto-migration to new boxes with SSD only for 64 bit OS. And, because I was on a 32 bit system, they told me I'll need to wait 2-3 months for them to implement the auto migration script. So, I felt that's not great customer experience, new accounts to always get benefits and old accounts never get a discount.
 
-**Update 4 (2017-02-16)**: Linode added a $5 plan for a 1GB VPS and they are now more competitive vs Digital Ocean's 512MB for the same price.
+**Update 4 (2017-02-16)**: Linode [added a $5 plan](https://www.linode.com/pricing) for a 1GB VPS and they are now more competitive vs Digital Ocean's 512MB for the same price.
+
+**Update 5 (2018-01-17)**: Digital Ocean [updated their plans](https://blog.digitalocean.com/new-droplet-plans/) and lowered the prices (1GB VPS for $5).
