@@ -1,7 +1,7 @@
 ---
 id: 81
 title: "Refactoring Rails configs for deploy to Kubernetes"
-date: 2018-02-25 20:00:00 +0100
+date: 2018-02-27 08:30:00 +0100
 author: Dalibor Nasevic
 tags: [rails, configs, 12factor, kubernetes]
 summary: "Config strategy for running Rails app in different environments and deploy targets."
