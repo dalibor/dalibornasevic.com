@@ -55,6 +55,15 @@ git filter-branch --index-filter 'git rm --cached --ignore-unmatch filename' HEA
 
 `--ignore-unmatch` parameter is used to ignore nonexistent files.
 
+To remove the file from all branches that might have it in their history tree:
+
+```bash
+git filter-branch --force --index-filter 'git rm --cached --ignore-unmatch filename' --prune-empty --tag-name-filter cat -- --all
+```
+
+`--prune-empty` parameter is used to remove empty commits.
+
+
 At the end, don't forget to push the changes to the repository with --force, since this is not a fast forward commit, and the whole history within the commits range we filtered will be rewritten.
 
 ```bash
