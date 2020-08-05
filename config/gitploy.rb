@@ -3,7 +3,7 @@ require 'gitploy/script'
 configure do |c|
   stage :production do
     c.path = '/home/deployer/www/dalibornasevic.com'
-    c.host = '107.170.47.48'
+    c.host = '192.241.242.98'
     c.user = 'deployer'
   end
 end
