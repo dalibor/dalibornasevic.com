@@ -1,0 +1,56 @@
+<div class='posts-nav'>
+  <div class='prev'>
+    {% if page.previous.url %}
+    <a id='nav-prev-link' href='{{page.previous.url}}'>&laquo; {{page.previous.title}}</a>
+    {% endif %}
+  </div>
+
+  <div class='next'>
+    {% if page.next.url %}
+    <a id='nav-next-link' href='{{page.next.url}}'>{{ page.next.title }} &raquo;</a>
+    {% endif %}
+  </div>
+</div>
+
+<div class='posts-related'>
+  <p>You might be interested to check out:</p>
+  <ul>
+    {% assign maxRelated = 5 %}
+    {% assign minCommonTags =  2 %}
+    {% assign maxRelatedCounter = 0 %}
+
+    {% for post in site.posts reversed %}
+
+      {% assign sameTagCount = 0 %}
+
+      {% for category in post.categories %}
+        {% if post.url != page.url %}
+          {% if page.categories contains category %}
+            {% assign sameTagCount = sameTagCount | plus: 1 %}
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+
+      {% if sameTagCount >= minCommonTags %}
+        <li>
+          <a href="{{ post.url }}">{{ post.title }}</a>
+        </li>
+        {% assign maxRelatedCounter = maxRelatedCounter | plus: 1 %}
+        {% if maxRelatedCounter >= maxRelated %}
+          {% break %}
+        {% endif %}
+      {% endif %}
+
+    {% endfor %}
+
+    <!-- Add up newest posts if there are no related -->
+
+    {% assign newestPostsCount = maxRelated | minus: maxRelatedCounter %}
+    {% for post in site.related_posts limit:newestPostsCount %}
+    <li>
+      <a href="{{ post.url }}">{{ post.title }}</a>
+    </li>
+    {% endfor %}
+
+  </ul>
+</div>

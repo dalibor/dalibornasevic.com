@@ -19,6 +19,11 @@ layout: default
     {{ content }}
   </div>
 
+  <div id='post-footer'>
+    {% include short_about.html %}
+    {% include posts_nav.html %}
+  </div>
+
   {%- if site.disqus.shortname -%}
     {%- include disqus_comments.html -%}
   {%- endif -%}
