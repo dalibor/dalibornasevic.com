@@ -7,7 +7,7 @@ summary: "Writing jQuery plugins for displaying recent tweets from Twitter and r
 permalink: /posts/24-jquery-tweets-and-jquery-tracks-plugins
 ---
 
-I just extracted 2 small jQuery plugins from my blog which I use for displaying recent tweets from my [Twitter](http://twitter.com/dnasevic "Dalibor Nasević's Twitter profile") profile and recent tracks from my [Last.fm](http://www.last.fm/user/blackflasher "Dalibor Nasević's Last.fm profile") profile. Both plugins use the JSON APIs, and you can check them on my Github profile:
+I just extracted 2 small jQuery plugins from my blog which I use for displaying recent tweets from my [Twitter](http://twitter.com/dnasevic "Dalibor Nasevic's Twitter profile") profile and recent tracks from my [Last.fm](http://www.last.fm/user/blackflasher "Dalibor Nasevic's Last.fm profile") profile. Both plugins use the JSON APIs, and you can check them on my Github profile:
 
 - [jQuery.tweets](https://github.com/dalibor/jQuery.tweets "jQuery.tweets plugin") - displays recent tweets from a Twitter profile. 
 - [jQuery.tracks](https://github.com/dalibor/jQuery.tracks "jQuery.tracks plugin") - displays recent tracks from a Last.fm profile.

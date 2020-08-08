@@ -13,7 +13,7 @@ Hello everyone!
 
 I'll be hosting and facilitating the [Global Day of Coderetreat 2013](http://globalday.coderetreat.org/ "Global Day of Coderetreat 2013") in Skopje (Macedonia). If you're about to spend the day practicing the craft of software development on 14th of December 2013, go [register for the event](http://coderetreat.org/events/global-day-of-coderetreat-2013-skopje-macedonia "Global Day of Coderetreat 2013 - Skopje, Macedonia").
 
-Special thanks to the sponsors: Ever-Near for providing T-shirts for participants, Siyelo for food and drinks sponsorship and Media Lab for the space for the event. Also, thanks to [Milan](http://milan.nasevic.com/ "Milan Nasević") for helping out with the organization details and Milena for the T-shirt design:
+Special thanks to the sponsors: Ever-Near for providing T-shirts for participants, Siyelo for food and drinks sponsorship and Media Lab for the space for the event. Also, thanks to [Milan](http://milan.nasevic.com/ "Milan Nasevic") for helping out with the organization details and Milena for the T-shirt design:
 
 ![Coderetreat 2013 T-shirt](/images/coderetreat_skopje_2013.png "Coderetreat 2013 T-shirt")
 

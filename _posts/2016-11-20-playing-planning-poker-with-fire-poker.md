@@ -4,7 +4,7 @@ title: "Playing Planning Poker with Firepoker"
 date: 2016-11-20 08:30:00 +0100
 categories: [agile, planning-poker]
 summary: "How to customize and host Firepoker tool for estimating work on projects."
-permalink: /posts/75-playing-planning-poker-with-fire-poker
+permalink: /posts/75-playing-planning-poker-with-firepoker
 ---
 
 [Planning Poker](https://en.wikipedia.org/wiki/Planning_poker) is an excelent technique for estimating work on projects.  It is very valuable for Agile teams because it engages create consensus-based estimates and helps avoid [anchoring](https://en.wikipedia.org/wiki/Anchoring) by revealing the cards only once everyone played. It is also useful when doing other kinds of estimates like Agile Dojo self-assessments or any other rankings that involve more than one team member.

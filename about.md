@@ -7,9 +7,9 @@ permalink: /about/
 
 <h2 class="post-list-heading">About</h2>
 
-Hi, I'm Dalibor Nasević.
+Hi, I'm Dalibor Nasevic.
 
-<img alt="Dalibor Nasević" src="/assets/dalibor.nasevic.photo.jpg" title="Dalibor Nasević">
+<img alt="Dalibor Nasevic" src="/assets/dalibor.nasevic.photo.jpg" title="Dalibor Nasevic">
 
 I'm a <a href="https://www.linkedin.com/in/dalibornasevic" target="_blank" title="My LinkedIn profile">Principal Software Engineer</a> at <a href="https://www.godaddy.com" target="_blank">GoDaddy</a> working on the email delivery infrastructure for <a href="https://www.godaddy.com/online-marketing/email-marketing" target="_blank">GoDaddy Email Marketing</a> and <a href="https://madmimi.com" target="_blank">Mad Mimi</a>. My primary focus is architecture design and development of scalable and robust services. My core expertise is with Ruby, AWS and Email Delivery. I put an accent on the "how" using <a href="/posts/23-extreme-programming-wisdoms">eXtreme Programming</a> practices.
 

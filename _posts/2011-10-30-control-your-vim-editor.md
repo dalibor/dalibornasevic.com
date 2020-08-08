@@ -7,7 +7,7 @@ summary: "Create your own Vimfiles to have more control over your Vim editor."
 permalink: /posts/29-control-your-vim-editor
 ---
 
-I have created my own [vimfiles](https://github.com/dalibor/vimfiles "Dalibor Nasević's vimfiles") and you should too. By doing so:
+I have created my own [vimfiles](https://github.com/dalibor/vimfiles "Dalibor Nasevic's vimfiles") and you should too. By doing so:
 
 - you will control your editor 
 - you will learn to better config it

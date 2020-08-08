@@ -7,7 +7,7 @@ summary: "Open-sourcing PopraviMK Titanium mobile and web applications."
 permalink: /posts/26-popravimk-project-open-sourced
 ---
 
-I have open-sourced [PopraviMK](http://popravi.mk/ "PopraviMK official site") project (both web and mobile applications) on my [Github](https://github.com/dalibor "Dalibor Nasević's Github profile") profile. The Android mobile application won the Grant Prix on the [Android Challenge](/posts/15-grand-prix-on-vip-android-challenge-with-popravimk "PopraviMK Android Grand Prix") in Macedonia (2010).
+I have open-sourced [PopraviMK](http://popravi.mk/ "PopraviMK official site") project (both web and mobile applications) on my [Github](https://github.com/dalibor "Dalibor Nasevic's Github profile") profile. The Android mobile application won the Grant Prix on the [Android Challenge](/posts/15-grand-prix-on-vip-android-challenge-with-popravimk "PopraviMK Android Grand Prix") in Macedonia (2010).
 
 PopraviMK applications allow people to submit urban issues they have found on public area. The reported issues are then sent to the institutions (usually municipalities) and they can respond to the requests and solve the issues.
 
