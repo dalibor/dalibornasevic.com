@@ -4,7 +4,9 @@ title: "Permanently remove files and folders from Git repo"
 date: 2009-07-07 07:10:00 +0200
 categories: [git]
 summary: "Overriding Git history and permanently removing files and folders from Git repository."
-permalink: /posts/2-permanently-remove-files-and-folders-from-git-repo
+permalink: /posts/2-permanently-remove-files-and-folders-from-a-git-repository
+redirect_from:
+  - /posts/2-permanently-remove-files-and-folders-from-git-repo
 ---
 
 > Note: In this blog post the operations that are presented will override git history. Be careful what you're doing and backup your repo if you're not sure what you're doing.

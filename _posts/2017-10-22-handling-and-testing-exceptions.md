@@ -4,7 +4,7 @@ title: "A Walkthrough for Handling and Testing Exceptions"
 date: 2017-10-22 10:00:00 +0100
 categories: [ruby, rspec, testing, exceptions]
 summary: "In a previous blog posts I wrote about the problem of overusing exceptions, and in this one we'll look at some exception handling and testing practices."
-permalink: /posts/80-handling-and-testing-exceptions
+permalink: /posts/80-a-walkthrough-for-handling-and-testing-exceptions
 ---
 
 In a previous blog posts I wrote about the problem of [overusing exceptions](/posts/52-don-t-overuse-exceptions), and in this one we'll look at some exception handling and testing practices.

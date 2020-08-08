@@ -4,7 +4,7 @@ title: "Auto-reconnect for ActiveRecord connections"
 date: 2017-01-20 09:00:00 +0100
 categories: [rails, active record, mysql]
 summary: "Custom auto-reconnect in Rails applications when using ActiveRecord connections."
-permalink: /posts/77-auto-reconnect-for-active-record-connections
+permalink: /posts/77-auto-reconnect-for-activerecord-connections
 ---
 
 ActiveRecord has a special config option `reconnect: true` for native auto-reconnect when using MySQL database. With that option in `database.yml`, it will try to reconnect only once as per the [manual](http://dev.mysql.com/doc/refman/5.7/en/auto-reconnect.html) before it fails:

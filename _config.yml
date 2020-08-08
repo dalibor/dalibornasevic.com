@@ -38,6 +38,7 @@ disqus:
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-redirect-from
 
 feed:
   path: posts.rss

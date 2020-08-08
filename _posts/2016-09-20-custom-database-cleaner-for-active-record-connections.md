@@ -4,7 +4,7 @@ title: "Custom Database Cleaner for ActiveRecord connections"
 date: 2016-09-20 08:30:00 +0100
 categories: [rails, active record, octoshark, mysql]
 summary: "Custom database cleaner for cleaning multiple databases in Rails applications when using dynamic ActiveRecord connections."
-permalink: /posts/70-custom-database-cleaner-for-active-record-connections
+permalink: /posts/70-custom-database-cleaner-for-activerecord-connections
 ---
 
 Having a clean database state before each test is crucial for avoiding intermittent or random test failures. This kind of test failures usually happen due to the order of tests execution and when some of the previous tests will leave artifacts that cause future tests to fail.

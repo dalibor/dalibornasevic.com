@@ -4,7 +4,7 @@ title: "Managing ActiveRecord connections with Octoshark"
 date: 2016-08-30 08:30:00 +0100
 categories: [octoshark, active record, database connections, rails]
 summary: "Octoshark is an ActiveRecord connection manager that provides connection switching mechanisms for scenarios involving master-slave, sharding or multi-tenant architecture."
-permalink: /posts/69-managing-active-record-connections-with-octoshark
+permalink: /posts/69-managing-activerecord-connections-with-octoshark
 ---
 
 I wrote [Octoshark](https://github.com/dalibor/octoshark) a while ago but never really put any words about it on my blog. Now that I have been using it successfully in production for about a year handling millions of API requests per day and sending millions of emails per day for both [GoDaddy Email Marketing](https://www.godaddy.com/online-marketing/email-marketing) and [Mad Mimi](https://madmimi.com/), let's do that.
