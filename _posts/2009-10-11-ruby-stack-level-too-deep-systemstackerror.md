@@ -2,7 +2,7 @@
 layout: post
 title: "Ruby: stack level too deep (SystemStackError)"
 date: 2009-10-11 15:22:00 +0200
-categories: [ruby, exceptions]
+categories: [exceptions, ruby]
 summary: "Fixing Ruby: stack level too deep by changing system limits with ulimit."
 permalink: /posts/5-ruby-stack-level-too-deep-systemstackerror
 ---

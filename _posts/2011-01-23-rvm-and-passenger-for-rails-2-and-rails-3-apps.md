@@ -2,7 +2,7 @@
 layout: post
 title: "RVM and Passenger for Rails 2 and Rails 3 apps"
 date: 2011-01-23 23:03:00 +0100
-categories: [rails, rails3, deploy, ubuntu, passenger, apache, rvm]
+categories: [rails, deploy, ubuntu, passenger, apache, rvm]
 summary: "Making RVM and Passenger work together for Rails 2 and Rails 3 applications."
 permalink: /posts/21-rvm-and-passenger-for-rails-2-and-rails-3-apps
 ---

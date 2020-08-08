@@ -2,7 +2,7 @@
 layout: post
 title: "Refactoring Rails configs for deploy to Kubernetes"
 date: 2018-02-27 08:30:00 +0100
-categories: [rails, devops, kubernetes]
+categories: [kubernetes, devops, rails]
 summary: "Config strategy for running Rails app in different environments and deploy targets."
 permalink: /posts/81-refactoring-rails-configs-for-deploy-to-kubernetes
 ---
