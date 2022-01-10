@@ -7,8 +7,8 @@ summary: "In some of our Ruby on Rails applications, we have migrated from using
 permalink: /posts/83-distributed-cron-for-rails-apps-with-sidekiq-scheduler
 ---
 
-I published a new blog post on the [GoDaddy Open Source Blog](https://godaddy.github.io) that talks about migrating from OS based cron jobs to distributed cron jobs using Sidekiq Scheduler.
+I wrote a new blog post on the [GoDaddy Engineering Blog](https://www.godaddy.com/engineering/2018/10/15/distributed-cron-for-rails-apps-with-sidekiq-scheduler/).
 
-> One such plugin that helped us run distributed cron, reduce maintenance costs and simplify our deployments is [Sidekiq Scheduler](https://github.com/moove-it/sidekiq-scheduler). We will discuss the motivation for migrating from OS based cron to distributed cron using Sidekiq Scheduler and the benefits we get from it.
+> In some of our Ruby on Rails applications, we have migrated from using OS based cron to distributed cron using Sidekiq Scheduler. We will discuss the motivation for this change and the benefits from it
 
-Read the [full article](https://godaddy.github.io/2018/10/15/distributed-cron-for-rails-apps-with-sidekiq-scheduler/).
+Read the [full article](https://www.godaddy.com/engineering/2018/10/15/distributed-cron-for-rails-apps-with-sidekiq-scheduler/).
