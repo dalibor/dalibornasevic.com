@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "Extreme Programming Wisdoms"
+title: "Extreme Programming Wisdom"
 date: 2011-03-26 15:13:00 +0100
 categories: [xp, agile]
-summary: "The Inspirational Extreme Programming Wisdoms."
-permalink: /posts/23-extreme-programming-wisdoms
+summary: "Inspiring eXtreme programming wisdom."
+permalink: /posts/23-extreme-programming-wisdom
 ---
 
 An excerpt from "Extreme Programming Explained" book by Kent Beck:
