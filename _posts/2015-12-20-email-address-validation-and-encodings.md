@@ -21,10 +21,11 @@ Let's start with a very simple regular expression for validating an email addres
 
 This regular expression is not very restrictive and will not produce false negatives. It says, the email address must have `@`, must have 1 or more characters in the local part (string before `@`), and must have 1 or more characters in the domain part (string after `@`).
 
-Usually, we would want to check that there is also a dot in the domain part, although that's not required by the spec:
+Usually, we would want to check that there is also a dot in the domain part, although that's not required by the spec, prevent whitespace characters in the domain part and limit start and end of string with `\A` and `\z`:
 
 ```ruby
-/.+@.+\..+/
+/\A.+@\S+\.\S+\z/
+```
 ```
 
 Here are few valid email addresses:
