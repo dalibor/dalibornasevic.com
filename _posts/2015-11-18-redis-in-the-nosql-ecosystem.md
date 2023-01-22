@@ -7,7 +7,7 @@ summary: "Redis storage and what kind of problems it helps solve."
 permalink: /posts/60-redis-in-the-nosql-ecosystem
 ---
 
-**Note**: This is a republish of an article I wrote back in December 2011 on [Siyelo blog](http://blog.siyelo.com/redis-in-the-nosql-ecosystem/).
+_This blog post was originally published on the Siyelo blog in December 2011._
 
 Redis (<strong>RE</strong>mote <strong>DI</strong>ctionary <strong>S</strong>erver) is key-value in-memory database storage that also supports disk storage for persistence. It supports several [data types](http://redis.io/topics/data-types-intro): Strings, Hashes, Lists, Sets and Sorted Sets; implements [publish/subscribe](http://redis.io/topics/pubsub) messaging paradigm and has [transactions](http://redis.io/topics/transactions).
 

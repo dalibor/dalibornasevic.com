@@ -5,9 +5,10 @@ date: 2015-11-18 08:33:00 +0100
 categories: [screen, pair-programming]
 summary: "Setting up a remote pair-programming with Screen."
 permalink: /posts/59-remote-pair-programming-with-screen
+featured: true
 ---
 
-**Note**: This is a republish of an article I wrote back in November 2011 on [Siyelo blog](http://blog.siyelo.com/remote-pair-programming-with-screen/).
+_This blog post was originally published on the Siyelo blog in November 2011._
 
 There are different available options for remote pair-programming (a great summary post [here](http://evan.tiggerpalace.com/articles/2011/10/17/some-people-call-me-the-remote-pairing-guy-/)).
 

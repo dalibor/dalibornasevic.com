@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Posts
+title: Blog
 permalink: /posts/
 order: 1
 ---

@@ -5,9 +5,10 @@ date: 2015-11-18 08:41:00 +0100
 categories: [devops, deploy]
 summary: "Things to consider when deploying Ruby on Rails applications."
 permalink: /posts/62-rails-deployment-audit
+featured: true
 ---
 
-**Note**: This is a republish of an article I wrote back in July 2012 on [Siyelo blog](http://blog.siyelo.com/rails-deployment-audit/).
+_This blog post was originally published on the Siyelo blog in July 2012._
 
 We shared our Rails Deployment experience with Red Comet Labs, and in this article we'll discuss a checklist of some [devops](http://www.jedi.be/blog/2010/02/12/what-is-this-devops-thing-anyway/) practices and tools we are familiar with.
 

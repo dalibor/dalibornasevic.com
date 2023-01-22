@@ -5,9 +5,10 @@ date: 2011-03-26 15:13:00 +0100
 categories: [xp, agile]
 summary: "Inspiring eXtreme programming wisdom."
 permalink: /posts/23-extreme-programming-wisdom
+featured: true
 ---
 
-An excerpt from "Extreme Programming Explained" book by Kent Beck:
+An excerpt from the "Extreme Programming Explained" book by Kent Beck:
 
 - If code reviews are good, we'll review code all the time (pair programming).
 - If testing is good, everybody will test all the time (unit testing), even the customers (functional testing).

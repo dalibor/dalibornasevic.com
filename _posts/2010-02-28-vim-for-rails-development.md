@@ -7,8 +7,9 @@ summary: "Setting up Vim editor for Ruby on Rails development."
 permalink: /posts/11-vim-for-rails-development
 ---
 
-**Update 2**: I've created my own [vimfiles](/posts/29-control-your-vim-editor), and you should too.
 **Update 1**: There are new [updated vimfiles](http://www.akitaonrails.com/2010/04/25/updated-vimfiles "Akita on Rails Vim files") from Akita on Rails.
+
+**Update 2**: I've created my own [vimfiles](/posts/29-control-your-vim-editor), and you should too.
 
 Few days ago I received a free copy of [Vim for Rails Development](http://www.codeulatescreencasts.com/products/vim-for-rails-developers%20screencast "Vim for Rails Development") from Ben Orenstein of [Codeulate Screencasts](http://www.codeulatescreencasts.com/ "Codeulate Screencasts") and we will be showing it at [MKRUG meetup](http://b10g.spodeli.org/2010/02/ruby-meetup-acer-23-rails-vim-rails.html "MKRUG meetup") this Thursday (04.03.2010). So, I thought it would be good to write a new blog post about where to start and how to learn Vim for Rails development by referencing some books/screencasts.
 

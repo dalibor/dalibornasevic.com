@@ -5,9 +5,10 @@ date: 2015-11-18 08:39:00 +0100
 categories: [ruby, machine-learning]
 summary: "Building a news aggregator using Machine Learning and Ruby."
 permalink: /posts/61-intro-to-machine-learning-in-ruby
+featured: true
 ---
 
-**Note**: This is a republish of an article I wrote back in December 2011 on [Siyelo blog](http://blog.siyelo.com/intro-to-machine-learning-in-ruby/).
+_This blog post was originally published on the Siyelo blog in December 2011._
 
 Machine learning is branch of <strong>A</strong>rtificial <strong>I</strong>ntelligence (AI) concerned with design and development of algorithms that allow computers to learn. It's a very broad subject so we will just focus on a simple example that uses statistical classification.
 

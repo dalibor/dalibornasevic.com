@@ -5,6 +5,7 @@ date: 2017-02-21 09:10:00 +0100
 categories: [mysql, ubuntu, docker, ci]
 summary: "Speed up your CI builds by using an in-memory database with tmpfs."
 permalink: /posts/78-faster-ci-builds-using-an-in-memory-database
+featured: true
 ---
 
 What if you could get some speed improvement for your database intensive tests for free?

@@ -1,10 +1,6 @@
 # dalibornasevic.com
 
-* http://github.com/dalibor/dalibornasevic.com
-
-## DESCRIPTION:
-
-Personal website deployed at: [http://dalibornasevic.com](http://dalibornasevic.com)
+Blog is deployed at: [https://dalibornasevic.com](https://dalibornasevic.com)
 
 ## INSTALL:
 

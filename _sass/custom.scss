@@ -67,7 +67,6 @@ a:hover {
 }
 
 
-
 ul.social_links {
   margin: 0;
   padding: 0;
@@ -129,7 +128,40 @@ body {
   overflow: scroll;
 }
 
-
 .site-header {
   border-top: 0 solid $grey-color-dark;
+}
+
+
+.primary-avatar {
+  text-align: center;
+  margin-bottom: 20px;
+
+  img {
+    border-radius: 50%;
+    height: 200px;
+  }
+}
+
+.primary-about {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.primary-posts {
+  text-align: center;
+
+  .post-list-heading {
+    font-size: 20px;
+  }
+
+  ul.post-list {
+    li {
+      margin-bottom: 10px;
+
+      .post-meta, .post-link {
+        font-size: 16px;
+      }
+    }
+  }
 }
