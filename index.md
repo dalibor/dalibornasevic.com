@@ -10,7 +10,7 @@ layout: default
 </div>
 
 <div class='primary-about'>
-  Hi, I'm Dalibor Nasevic. I'm a <a href="https://www.linkedin.com/in/dalibornasevic" target="_blank" title="My LinkedIn profile">Sr. Principal Software Engineer</a> at <a href="https://www.godaddy.com" target="_blank">GoDaddy</a>, responsible for delivering billions of customer emails. I developed a highly scalable and available, cloud-ready email delivery platform running on AWS infrastructure and on-premise.
+  Hi, I'm Dalibor Nasevic. I'm a <a href="https://www.linkedin.com/in/dalibornasevic" target="_blank" title="My LinkedIn profile">Sr. Principal Software Engineer</a> at <a href="https://www.godaddy.com" target="_blank">GoDaddy</a>, responsible for delivering billions of customer emails. I have developed a highly scalable and available, cloud-ready email delivery platform running on AWS infrastructure and on-premise.
   <br>
   You can reach out to me via <a href="mailto:dalibor.nasevic@gmail.com" title="Email">email</a> or tweet me at <a href="https://twitter.com/dnasevic" title="Twitter" target="_blank">@dnasevic</a>.
 </div>
