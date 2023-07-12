@@ -5,7 +5,7 @@ permalink: /about/
 order: 2
 ---
 
-Hey there! My name is Dalibor Nasevic.
+Hello, my name is Dalibor Nasevic.
 
 <img alt="Dalibor Nasevic" src="/assets/dalibor.nasevic.photo.jpg" title="Dalibor Nasevic">
 
@@ -17,4 +17,4 @@ In 2010, I stumbled upon Titanium Mobile and won the award for the <a href="/pos
 
 In 2018, I moved to Belgrade, Serbia where I enjoy attending football and basketball games.
 
-You can reach out to me via <a href="mailto:dalibor.nasevic@gmail.com" title="Email">email</a> or tweet me at <a href="https://twitter.com/dnasevic" title="Twitter" target="_blank">@dnasevic</a>.
+You can reach out to me via <a href="mailto:dalibor.nasevic@gmail.com" title="Email">email</a>.
