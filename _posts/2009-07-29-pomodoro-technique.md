@@ -5,6 +5,7 @@ date: 2009-07-29 00:58:00 +0200
 categories: [productivity, pomodoro, timebox]
 summary: "Simple overview of the Pomodoro Technique for being more productive."
 permalink: /posts/4-pomodoro-technique
+featured: true
 ---
 
 My last post was about [time boxing](/posts/3-timebox-your-time) and we're continuing with a focus on productivity. Here I will describe the benefits and usage of the Pomodoro Technique. This technique helps with ideas on how to organize, measure and set value for your work to be productive.
@@ -31,7 +32,7 @@ sudo apt-get install timer-applet
 
 And then add it to your panel. There I set 3 presets (timers), for 25 minutes (Pomodoro work), 5 minutes (Pomodoro break), 30 minutes (break after 4 Pomodoros).
 
-There is also an Adobe AIR application [Pomodairo](http://code.google.com/p/pomodairo/)which aims to solve the problem with different operating systems, but it's still in alpha phase.
+There is also an Adobe AIR application [Pomodairo](http://code.google.com/p/pomodairo/) which aims to solve the problem with different operating systems, but it's still in alpha phase.
 
 ### Activity Inventory Sheet
 
