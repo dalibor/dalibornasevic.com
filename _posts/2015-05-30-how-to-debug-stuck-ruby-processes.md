@@ -14,7 +14,7 @@ Debugging OS components is fun, especially if you know the right tools and how t
   <span>© Brendan D. Gregg - <a href="http://www.brendangregg.com/linuxperf.html">http://www.brendangregg.com/linuxperf.html</a></span>
 </p>
 
-I remember once debugging a stuck Ruby process that turned out to be an infinite loop caused by a timezone change (different countries change DST at different dates). Interesting thing about it was that it took us a year to find and fix it because the year before it dissapeared shortly when DST for the other country changed. We couldn't reproduce it anymore, only until the next year when it started again...
+I remember once debugging a stuck Ruby process that turned out to be an infinite loop caused by a timezone change (different countries change DST at different dates). Interesting thing about it was that it took us a year to find and fix it because the year before it disappeared shortly when DST for the other country changed. We couldn't reproduce it anymore, only until the next year when it started again...
 
 Once you find and fix the issue everything looks reasonable. But, having the problem at hand and wondering what's causing it can be quite challenging and interesting or frustrating. It can take some time to get to the bottom of it.
 

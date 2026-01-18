@@ -9,7 +9,7 @@ permalink: /posts/72-auto-increment-counter-not-persisted-on-disk-with-innodb
 
 **Note**: This [issue](https://bugs.mysql.com/bug.php?id=199) has been fixed in MySQL 8.0.0, 14 years after the original bug report.
 
-Few weeks ago I hit an interesting bug in production that made me wonder is time-travel real!? I was seeing activities for emails before the emails were actually sent...
+A few weeks ago I hit an interesting bug in production that made me wonder is time-travel real!? I was seeing activities for emails before the emails were actually sent...
 
 How is that even possible I was wondering!?
 
@@ -26,7 +26,7 @@ After reading the above documentation, I had a light-bulb moment.
 
 ### More context
 
-I have one temporary table in the system that is regularly cleaned removing old unnecessary data to take care of disk space usage. It's a multi-tenant architecture in which each user has it's own database and when user is inactive for a period of time, one of their tables becomes empty after cron task deletes data.
+I have one temporary table in the system that is regularly cleaned removing old unnecessary data to take care of disk space usage. It's a multi-tenant architecture in which each user has its own database and when user is inactive for a period of time, one of their tables becomes empty after cron task deletes data.
 
 One of the physical servers running few MySQL instances was having memory issues that caused some instances to restart. After restart, the `AUTO_INCREMENT` value for the empty table got reset to 0 and newly inserted records were with IDs that were already used.
 
@@ -52,4 +52,4 @@ ALTER TABLE table_name AUTO_INCREMENT = new_value;
 
 ### Final thoughts
 
-It's surprising to learn about this `AUTO_INCREMENT` behaviour with InnoDB that is unexpected in my opinion. It's even more surprising when it comes after a year in production, but that's just because the database servers and application have been rock solid in general. Luckily, it was an isolated case and was fixed quickly to prevent further data damage that will require more serious data fix. Just something to be aware of and design around this flaw to prevent it bite you.
+It's surprising to learn about this `AUTO_INCREMENT` behaviour with InnoDB that is unexpected in my opinion. It's even more surprising when it comes after a year in production, but that's just because the database servers and application have been rock solid in general. Luckily, it was an isolated case and was fixed quickly to prevent further data damage that will require more serious data fix. Just something to be aware of and design around this flaw to prevent it from biting you.

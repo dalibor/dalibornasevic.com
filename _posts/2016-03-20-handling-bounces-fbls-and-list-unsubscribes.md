@@ -15,7 +15,7 @@ Handling Bounces, Feedback Loops (FBLs) and List-Unsubscribe requests is critica
 
 To give a more practical example of how to use VERP, imagine there are 3 models in an application: `Email` that has one `Sender` and many `Recipient` models. The Return-Path of the email is set to a value like `user_1_email_2@example.com` and MTA software is configured to accept all incoming emails matching `/email_\d+_email_\d+@example.com/` pattern. Once an email is received and routed to the application, from the IDs in the local-part of the email address we can find the `Email`, `Sender` and `Recipient` models and do what's necessary with them.
 
-Some might ask why not use a custom header field instead!? It's because some mail servers does not return all headers from the original message which leads to difficulties in determining the details.
+Some might ask why not use a custom header field instead!? It's because some mail servers do not return all headers from the original message which leads to difficulties in determining the details.
 
 ### Hard, soft and general bounces
 
@@ -26,7 +26,7 @@ Bounces are grouped in 3 groups:
 - **Hard bounces**
   <p>Bounces that failed because of a permanent reason and should not be retried. In this group we have reasons like "bad-domain" and "bad-mailbox". Sending emails to non-existent mailbox will cause a reputation damage.</p>
 - **Soft bounces**
-  <p>Bounces that failed because of a temporary reason. They can be retried few times but if issue persist they should be treated as permanent. An example would be when an account is over quota limit.</p>
+  <p>Bounces that failed because of a temporary reason. They can be retried a few times but if issue persist they should be treated as permanent. An example would be when an account is over quota limit.</p>
 - **General bounces**
   <p>Bounces that failed because of a technical reason. They are usually treated as soft bounces, but they need to be carefully checked because they could hide an issue on the sending side like wrong format of the "From" header for an example.</p>
 
@@ -190,7 +190,7 @@ The most important part is the `Feedback-Type` value which specifies the FBL typ
 
 ### List-Unsubscribe
 
-[List-Unsubscribe](http://www.list-unsubscribe.com/) is an optional header field defined in [RFC 2369](http://www.rfcreader.com/#rfc2369). ISP that support the List-Unsubscribe header (Gmail for example) will provide a botton in their UI for users to unsubscribe without going to the ESP's website. List-Unsubscribe header is not a substitute method for unsubscribing, there still needs to be an unsubscribe link visible in the email content.
+[List-Unsubscribe](http://www.list-unsubscribe.com/) is an optional header field defined in [RFC 2369](http://www.rfcreader.com/#rfc2369). ISPs that support the List-Unsubscribe header (Gmail for example) will provide a button in their UI for users to unsubscribe without going to the ESP's website. List-Unsubscribe header is not a substitute method for unsubscribing, there still needs to be an unsubscribe link visible in the email content.
 
 List-Unsubscribe can be either a mailto and/or URI. There are some email providers like Microsoft that support [only mailto](https://mail.live.com/mail/junkemail.aspx). So the recommendation is to always have mailto and optionally use URI version.
 

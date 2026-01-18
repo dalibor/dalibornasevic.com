@@ -11,7 +11,7 @@ I like the following description for exceptions from the wiki-wiki article on [D
 
 > Exceptions are like non-local goto statements.
 
-Also, I mostly agree with these two statements from Joel Spolsky's article on [exceptions](http://www.joelonsoftware.com/items/2003/10/13.html). I think there are situations where raising exceptions on your own makes sense thought.
+Also, I mostly agree with these two statements from Joel Spolsky's article on [exceptions](http://www.joelonsoftware.com/items/2003/10/13.html). I think there are situations where raising exceptions on your own makes sense though.
 
 > 1. Never throw an exception of my own.
 > 2. Always catch any possible exception that might be thrown by a library I'm using on the same line as it is thrown and deal with it immediately. 

@@ -7,7 +7,7 @@ summary: "Totally random Javascript development tips."
 permalink: /posts/10-javascript-development-tips
 ---
 
-I'm working on live betting system written in Javascript and jQuery. It consumes two APIs (Search and POS API) and has some complex functionality. So, time has come to tag something with Javascript on my blog. :)
+I'm working on live betting system written in Javascript and jQuery. It consumes two APIs (Search and POS API) and has some complex functionality. So, time has come to tag something with Javascript on my blog.
 
 The first tip is about benchmarking and second about debugging Javascript code using the console functionality. I use Firefox and Firebug for web development.
 

@@ -3,11 +3,11 @@ layout: post
 title: "A Walkthrough for Handling and Testing Exceptions"
 date: 2017-10-22 10:00:00 +0100
 categories: [rspec, testing, ruby, exceptions]
-summary: "In a previous blog posts I wrote about the problem of overusing exceptions, and in this one we'll look at some exception handling and testing practices."
+summary: "In a previous blog post I wrote about the problem of overusing exceptions, and in this one we'll look at some exception handling and testing practices."
 permalink: /posts/80-a-walkthrough-for-handling-and-testing-exceptions
 ---
 
-In a previous blog posts I wrote about the problem of [overusing exceptions](/posts/52-don-t-overuse-exceptions), and in this one we'll look at some exception handling and testing practices.
+In a previous blog post I wrote about the problem of [overusing exceptions](/posts/52-don-t-overuse-exceptions), and in this one we'll look at some exception handling and testing practices.
 
 To start with, let's define `LinkCounter` class. `LinkCounter` counts how many links are on a web page. It is initialized with a url, it uses [Faraday](https://github.com/lostisland/faraday) HTTP client to fetch the page content and it uses [Nokogiri](https://github.com/sparklemotion/nokogiri) to parse the HTML content.
 
@@ -50,7 +50,7 @@ Pretty simple so far.
 
 ### What could possibly go wrong?
 
-To improve the robustness of our `LinkCounter` we need to think about what could fail? We identify the Faraday's `connection.get` call, doing the `GET` HTTP request, as one with highest probably of failure because it depends on the reliability of the network.
+To improve the robustness of our `LinkCounter` we need to think about what could fail? We identify the Faraday's `connection.get` call, doing the `GET` HTTP request, as one with the highest probability of failure because it depends on the reliability of the network.
 
 > Always rescue very specific exceptions. Never rescue `Exception` and avoid rescuing `StandardError` too because it can hide unexpected errors like `NameError` and `NoMethodError`. See ruby's [exception hierarchy](http://blog.nicksieger.com/articles/2006/09/06/rubys-exception-hierarchy/).
 
@@ -223,7 +223,7 @@ describe LinkCounter do
     expect(link_counter.count).to eq(1)
   end
 
-  it "re-raises read timeout error after exausting error retries" do
+  it "re-raises read timeout error after exhausting error retries" do
     link_counter = LinkCounter.new(url)
     connection = link_counter.send(:connection)
     expect(connection).to receive(:get).exactly(4).times.and_raise(Faraday::TimeoutError)

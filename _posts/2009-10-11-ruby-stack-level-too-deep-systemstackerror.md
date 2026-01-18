@@ -51,4 +51,4 @@ After doubling the stack size to 16384 I stopped getting the `stack level too de
 
 If you add the above line to .bashrc file on the server, every time you ssh to that machine, it will change the stack size and run all processes in the new environment.
 
-In the end, I solved the problem with that simple solution, hopefully that will prevent you from spending the whole day experimenting with different potential solutions if you have a similar problem. :)
+In the end, I solved the problem with that simple solution, hopefully that will prevent you from spending the whole day experimenting with different potential solutions if you have a similar problem.

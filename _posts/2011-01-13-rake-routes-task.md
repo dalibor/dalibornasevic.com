@@ -19,4 +19,4 @@ And what's more interesting, you can list only the routes for a single controlle
 rake routes CONTROLLER=projects
 ```
 
-Just a quick tip. :)
+Just a quick tip.

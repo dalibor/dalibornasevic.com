@@ -46,7 +46,7 @@ sudo rm -rf /mnt/testdisk
 
 ### Run MySQL in Docker container
 
-If you're now familiar with Docker you can skip this section. If you are familiar or you want to get familiar, first [install it](https://docs.docker.com/engine/installation/), and then just setup a MySQL container with the following command:
+If you're not familiar with Docker you can skip this section. If you are familiar or you want to get familiar, first [install it](https://docs.docker.com/engine/installation/), and then just setup a MySQL container with the following command:
 
 ```bash
 sudo docker run \

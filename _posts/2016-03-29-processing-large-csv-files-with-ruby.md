@@ -8,7 +8,7 @@ permalink: /posts/68-processing-large-csv-files-with-ruby
 featured: true
 ---
 
-Processing large files is a memory intensive operation and could cause servers to run out of RAM memory and swap to disk. Let's look at few ways to process CSV files with Ruby and measure the memory consumption and speed performance.
+Processing large files is a memory intensive operation and could cause servers to run out of RAM memory and swap to disk. Let's look at a few ways to process CSV files with Ruby and measure the memory consumption and speed performance.
 
 
 ### Prepare CSV data sample

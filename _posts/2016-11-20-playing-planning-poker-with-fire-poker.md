@@ -8,7 +8,7 @@ permalink: /posts/75-playing-planning-poker-with-firepoker
 featured: true
 ---
 
-[Planning Poker](https://en.wikipedia.org/wiki/Planning_poker) is an excelent technique for estimating work on projects.  It is very valuable for Agile teams because it engages create consensus-based estimates and helps avoid [anchoring](https://en.wikipedia.org/wiki/Anchoring) by revealing the cards only once everyone played. It is also useful when doing other kinds of estimates like Agile Dojo self-assessments or any other rankings that involve more than one team member.
+[Planning Poker](https://en.wikipedia.org/wiki/Planning_poker) is an excellent technique for estimating work on projects. It is very valuable for Agile teams because it enables consensus-based estimates and helps avoid [anchoring](https://en.wikipedia.org/wiki/Anchoring) by revealing the cards only once everyone played. It is also useful when doing other kinds of estimates like Agile Dojo self-assessments or any other rankings that involve more than one team member.
 
 ### Discovering Firepoker
 
@@ -18,7 +18,7 @@ There are few free and paid online tools for playing Planning Poker with distrib
   <img style="width: 100%" src="/images/planning_poker.png" alt="Playing planning poker with Firepoker" title="Playing planning poker with Firepoker">
 </p>
 
-As we can see from the screenshot above, Firepoker has a very clean and simple UI. It does not require participants to login. Stories for estimation can be created on the fly. Some very good UX decisions have been made there. It is also build with Firebase and AngularJS which makes it easy to deploy anywhere because it's front-end only.
+As we can see from the screenshot above, Firepoker has a very clean and simple UI. It does not require participants to login. Stories for estimation can be created on the fly. Some very good UX decisions have been made there. It is also built with Firebase and AngularJS which makes it easy to deploy anywhere because it's front-end only.
 
 ### Creating Firebase account
 
@@ -26,7 +26,7 @@ To deploy Firepoker, we'll need to create a free [Firebase](https://firebase.goo
 
 ### Deploying to Heroku
 
-It's been a while since I last deployed something to Heroku, but not much has changed in meanwhile which is a good thing. Create a free account, push a branch and the app is live.
+It's been a while since I last deployed something to Heroku, but not much has changed in the meantime which is a good thing. Create a free account, push a branch and the app is live.
 
 In order to make Firepoker deployable to Heroku, we will use Sinatra to help us serve the static files.
 

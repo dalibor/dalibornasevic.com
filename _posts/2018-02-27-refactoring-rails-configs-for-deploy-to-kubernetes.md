@@ -7,7 +7,7 @@ summary: "Config strategy for running Rails app in different environments and de
 permalink: /posts/81-refactoring-rails-configs-for-deploy-to-kubernetes
 ---
 
-Recently, I worked on a project to containerize one of our Rails apps. The goal was to add per pull request verification deploys to Kubernetes as part of the CICD pipeline. During that work I faced a need to re-design how we manage the configs in the application and I will share some thoughts about the approach. But before we jump of that, let's explain the concept of per pull request verification deploys.
+Recently, I worked on a project to containerize one of our Rails apps. The goal was to add per pull request verification deploys to Kubernetes as part of the CICD pipeline. During that work I faced a need to re-design how we manage the configs in the application and I will share some thoughts about the approach. But before we jump into that, let's explain the concept of per pull request verification deploys.
 
 ### Per Pull Request verification deploys
 
@@ -34,7 +34,7 @@ We deploy the app using Capistrano to OpenStack and bare metal servers. For the 
 
   Managing many config files, especially when deploying and running the app in different ways, increases maintenance complexity. The config files that are not stored in source control needs to become visible to the app during deploy. The goal here is to have at most a single file that's not in source control. For Capistrano deploys it's a single shared file with secrets to link during deploy. And, for Kubernetes deploys it's a single Secret resource that's updated on change.
 
-  By keeping as much of the configs in source control, we'll do regular reviews on any config changes before merging to master. This is expecially important for much more complex configs like the one we have for [Octoshark](http://localhost:3000/posts/69-managing-activerecord-connections-with-octoshark) where we connect to around 50 MySQL instances.
+  By keeping as much of the configs in source control, we'll do regular reviews on any config changes before merging to master. This is especially important for much more complex configs like the one we have for [Octoshark](http://localhost:3000/posts/69-managing-activerecord-connections-with-octoshark) where we connect to around 50 MySQL instances.
 
 ### Using environment variables with dotenv
 

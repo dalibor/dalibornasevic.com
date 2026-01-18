@@ -17,7 +17,7 @@ I wrote [Octoshark](https://github.com/dalibor/octoshark) a while ago but never 
 
 Octoshark is a simple ActiveRecord connection manager. It provides connection switching mechanisms that can be used in various scenarios like master-slave, sharding or multi-tenant architecture.
 
-There are many other gems that solve the problem of accessing data from different databases and develop more complex features for the architecture they are designing for. Just to mention few: [Octopus](https://github.com/thiagopradi/octopus), [Apartment](https://github.com/influitive/apartment), [db-charmer](https://github.com/kovyrin/db-charmer), [makara](https://github.com/taskrabbit/makara), but there are many many more.
+There are many other gems that solve the problem of accessing data from different databases and develop more complex features for the architecture they are designing for. Just to mention a few: [Octopus](https://github.com/thiagopradi/octopus), [Apartment](https://github.com/influitive/apartment), [db-charmer](https://github.com/kovyrin/db-charmer), [makara](https://github.com/taskrabbit/makara), but there are many many more.
 
 I played with some of them and took the architecture of the system I was designing from monolithic, through sharding to multi-tenant. Octoshark was born on that journey as the minimal building block that I needed to migrate the system from one architecture to another.
 
@@ -159,6 +159,6 @@ end
 
 ### Conclusion
 
-Scaling Rails horizontally and building sharding or multi-tenant architecture is an exciting project. It involves reuse and customization of some ActiveRecord components. I wish ActiveRecord connection management with Rails was done in a way to allow for extention or replacement instead of the shutgun integration like using `ActiveRecord::Base.clear_active_connections!` to return current thread connections back to the pool after each request.
+Scaling Rails horizontally and building sharding or multi-tenant architecture is an exciting project. It involves reuse and customization of some ActiveRecord components. I wish ActiveRecord connection management with Rails was done in a way to allow for extension or replacement instead of the shutgun integration like using `ActiveRecord::Base.clear_active_connections!` to return current thread connections back to the pool after each request.
 
 With that in mind, I think it's a matter of how much of ActiveRecord we patch and how carefully we reuse its building blocks. Everything comes up with a maintenance cost, try optimize by minimizing it.

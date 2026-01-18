@@ -74,7 +74,7 @@ An interesting problem with Sender-ID is the conflicting spec with the SPF proto
 
 ### DKIM
 
-[DomainKeys Identified Mail](http://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) (DKIM) is a protocol defined with [RFC 4871](http://www.rfcreader.com/#rfc4871) used to verify that the email was authorized to be send from a domain. It also verifies that the message content did not change from the moment the message left the initial mail server until it was received by receiving mail server.
+[DomainKeys Identified Mail](http://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) (DKIM) is a protocol defined with [RFC 4871](http://www.rfcreader.com/#rfc4871) used to verify that the email was authorized to be sent from a domain. It also verifies that the message content did not change from the moment the message left the initial mail server until it was received by receiving mail server.
 
 A message signed with DKIM will have a header like this:
 
@@ -84,7 +84,7 @@ DKIM-Signature: v=1; a=rsa-sha1; c=relaxed/relaxed; s=selector; d=example.com;
 
 Where, `v=1` is the version of the DKIM spec used, `a` is the algorithm which can be "rsa-sha1" or "rsa-sha256", `s` is the selector that is also used to locate the DNS record and `d` is the signing domain.
 
-In order for receiving mail server to check the message integrity it first need to get the public key for the selector used in the email's DKIM signature from the TXT record on the signing domain:
+In order for receiving mail server to check the message integrity it first needs to get the public key for the selector used in the email's DKIM signature from the TXT record on the signing domain:
 
 ```bash
 $ dig txt +short selector._domainkey.example.com

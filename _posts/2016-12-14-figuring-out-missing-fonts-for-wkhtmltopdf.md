@@ -34,7 +34,7 @@ $ cat /etc/redhat-release
 CentOS release 6.7 (Final)
 ```
 
-After few tests I noticed that the issue is happening for Hebrew, Arabic, Chinese, Korean and Japanese, and not for Cyrillic characters for example.
+After a few tests I noticed that the issue is happening for Hebrew, Arabic, Chinese, Korean and Japanese, and not for Cyrillic characters for example.
 
 I did a test with ASCII only characters and compared the PDF source output locally and in production. The font that was selected to use in the PDF was `Nimbussanl Regular` for both. Here is a segment from the PDF source of the render for the `FontName`:
 

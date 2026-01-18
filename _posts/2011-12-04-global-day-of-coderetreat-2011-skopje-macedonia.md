@@ -17,7 +17,7 @@ _What went well?_
 
 - Skopje was a part of the Global Day of Coderetreat (Global Coderetreat [map](http://globalday.coderetreat.org/ "Global Day of Coderetreat map"))
 - Pair programming knowledge transfer (participants worked in: Ruby, Python, Javascript, Java and some Erlang at the end)
-- Direct connect with the event in Barcelona (El Clásico discussion was fun! :) thanks to [Jaume Jornet](https://twitter.com/#%21/jaumejornet "Jaume Jornet"))
+- Direct connect with the event in Barcelona (El Clásico discussion was fun! thanks to [Jaume Jornet](https://twitter.com/#%21/jaumejornet "Jaume Jornet"))
 - 3 local sponsors (big thanks to: [Siyelo](http://siyelo.com/ "Siyelo"), [Atomidata](http://atomidata.com/ "Atomidata") and [Ever-Near](http://ever-near.com/ "Ever-Near"))
 
 _What could be improved?_
