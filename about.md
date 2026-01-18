@@ -15,4 +15,4 @@ Before GoDaddy, I worked as a consultant helping startups build products with Ru
 
 In 2010, I won the <a href="/posts/15-vip-android-challenge-grand-prix-with-popravimk">best mobile application</a> award at the first Android challenge in Macedonia.
 
-Currently I'm based in Belgrade, Serbia. You can reach me via <a href="mailto:dalibor.nasevic@gmail.com">email</a>.
+I'm based in Belgrade, Serbia. You can reach me via <a href="mailto:dalibor.nasevic@gmail.com">email</a>.
