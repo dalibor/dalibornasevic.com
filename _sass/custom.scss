@@ -200,6 +200,13 @@ body {
     width: 100px;
     object-fit: cover;
   }
+
+  @include media-query($on-palm) {
+    float: none;
+    text-align: center;
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
 }
 
 .about-photo {
@@ -207,6 +214,12 @@ body {
   max-width: 180px;
   border-radius: 8px;
   margin: 0 0 20px 32px;
+
+  @include media-query($on-palm) {
+    float: none;
+    display: block;
+    margin: 0 auto 24px auto;
+  }
 }
 
 .primary-about {
@@ -234,16 +247,13 @@ body {
     margin-left: 0;
 
     li {
-      margin-bottom: 12px;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: baseline;
-      gap: 8px;
+      margin-bottom: 16px;
 
       .post-meta {
         font-size: 13px;
         color: $grey-color;
-        min-width: 90px;
+        display: block;
+        margin-bottom: 2px;
       }
 
       .post-link {
