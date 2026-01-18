@@ -11,16 +11,16 @@
 }
 
 .site-title {
-  @include relative-font-size(1.625);
-  font-weight: 300;
+  @include relative-font-size(1.5);
+  font-weight: 600;
   line-height: $base-line-height * $base-font-size * 2.25;
-  letter-spacing: -1px;
+  letter-spacing: -0.02em;
   margin-bottom: 0;
   float: left;
 
   &,
   &:visited {
-    color: $grey-color-dark;
+    color: $text-color;
   }
 }
 
@@ -217,12 +217,13 @@
 }
 
 .post-title {
-  @include relative-font-size(2.625);
-  letter-spacing: -1px;
-  line-height: 1.2;
+  @include relative-font-size(2.5);
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  font-weight: 700;
 
   @include media-query($on-laptop) {
-    @include relative-font-size(2.25);
+    @include relative-font-size(2);
   }
 }
 

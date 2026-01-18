@@ -1,68 +1,121 @@
 .short-about {
   border-top: 1px solid $grey-color-light;
-  padding-top: 80px;
-  margin-top: 80px;
+  padding-top: 64px;
+  margin-top: 64px;
   position: relative;
+  text-align: center;
 
   .avatar {
-    margin: -60px 0 0 -60px;
-    position: absolute; top: 0; left: 50%;
+    margin: -50px 0 0 -50px;
+    position: absolute;
+    top: 0;
+    left: 50%;
   }
 
   .avatar img {
     border-radius: 50%;
-    border: 1px solid $grey-color-light;
-    height: 100px;
-    padding: 3px;
+    border: 2px solid $grey-color-light;
+    height: 80px;
+    width: 80px;
+    object-fit: cover;
+    background: $background-color;
   }
 }
 
 .posts-nav {
-  font-size: 0.9em;
-  margin-top: 20px;
+  font-size: 14px;
+  margin-top: 32px;
   overflow: hidden;
-  padding: 15px 0;
+  padding: 24px 0;
   width: 100%;
+  border-top: 1px solid $grey-color-light;
 }
 
 .posts-nav div {
   display: inline-block;
   float: left;
-  margin: 25px 0 0 0;
+  margin: 0;
+  max-width: 45%;
 }
+
 .posts-nav .next {
   float: right;
-  padding: 0 0 0 5px;
   text-align: right;
 }
 
 .posts-related {
-  font-size: 0.9em;
-  margin: 20px 0 30px 0;
+  font-size: 14px;
+  margin: 32px 0;
+  padding: 24px;
+  background: lighten($grey-color-light, 5%);
+  border-radius: 8px;
 }
+
 .posts-related .text-lg {
-  padding: 20px 0;
+  padding: 0 0 16px 0;
+  font-weight: 600;
 }
+
 .posts-related ul {
-  line-height: 1.7em;
-  padding: 0 30px;
+  line-height: 1.8;
+  padding: 0 0 0 20px;
+  margin: 0;
 }
 
 
-a, a:active, a:visited {
+// Base link style (navigation, etc.)
+a {
+  color: $grey-color-dark;
   text-decoration: none;
+  transition: color 0.15s ease, background-color 0.15s ease;
+
+  &:visited {
+    color: $grey-color-dark;
+  }
+
+  &:hover {
+    color: $text-color;
+  }
 }
 
-a:hover {
-  background-color: #ffdf1f;
-  text-decoration: none;
-}
+// Content links - distinctive style
+.post-content a,
+.primary-about a,
+.page-content > .wrapper > p a,
+.page-content > .wrapper > ul a,
+.short-about .about a,
+.primary-posts .post-link,
+.posts-related a,
+.posts-nav a {
+  color: $text-color;
+  text-decoration: underline;
+  text-decoration-color: rgba(66, 133, 244, 0.4);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
+  transition: text-decoration-color 0.15s ease;
 
+  &:visited {
+    color: $text-color;
+  }
+
+  &:hover {
+    text-decoration-color: rgba(66, 133, 244, 0.8);
+  }
+}
 
 .site-header, .site-footer {
-  a:hover {
-    background-color: inherit;
-    color: #000000;
+  a {
+    color: $grey-color-dark;
+    text-decoration: none;
+
+    &:hover {
+      color: #000000;
+      text-decoration: none;
+    }
+
+    &:visited {
+      color: $grey-color-dark;
+    }
   }
 }
 
@@ -96,20 +149,23 @@ ul.social_links li.last {
 }
 
 .site-footer {
-  padding: 20px 0;
+  padding: 32px 0;
+  border-top: 1px solid $grey-color-light;
+
   .wrapper {
     text-align: center;
   }
 }
 
 
-.site-title {
-  color: $grey-color-dark;
-}
-
 .site-nav {
   .page-link {
     color: $grey-color-dark;
+    font-weight: 500;
+
+    &:hover {
+      color: $text-color;
+    }
   }
 }
 
@@ -134,33 +190,65 @@ body {
 
 
 .primary-avatar {
-  text-align: center;
-  margin-bottom: 20px;
+  float: left;
+  margin-right: 24px;
+  margin-bottom: 16px;
 
   img {
     border-radius: 50%;
-    height: 200px;
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
   }
+}
+
+.about-photo {
+  float: right;
+  max-width: 180px;
+  border-radius: 8px;
+  margin: 0 0 20px 32px;
 }
 
 .primary-about {
-  margin-bottom: 30px;
-  text-align: center;
+  margin-bottom: 32px;
+  line-height: 1.7;
+  color: $text-color;
 }
 
 .primary-posts {
-  text-align: center;
+  clear: both;
+  border-top: 1px solid $grey-color-light;
+  padding-top: 40px;
+  margin-top: 16px;
 
   .post-list-heading {
-    font-size: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: $grey-color;
+    margin-bottom: 20px;
   }
 
   ul.post-list {
-    li {
-      margin-bottom: 10px;
+    margin-left: 0;
 
-      .post-meta, .post-link {
-        font-size: 16px;
+    li {
+      margin-bottom: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 8px;
+
+      .post-meta {
+        font-size: 13px;
+        color: $grey-color;
+        min-width: 90px;
+      }
+
+      .post-link {
+        font-size: 15px;
+        font-weight: 500;
       }
     }
   }

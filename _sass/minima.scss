@@ -6,18 +6,22 @@ $base-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvet
 $base-font-size:   16px !default;
 $base-font-weight: 400 !default;
 $small-font-size:  $base-font-size * 0.875 !default;
-$base-line-height: 1.5 !default;
+$base-line-height: 1.7 !default;
 
 $spacing-unit:     30px !default;
 
-$text-color:       #111 !default;
-$background-color: #fdfdfd !default;
-// $brand-color:      #2a7ae2 !default;
-$brand-color:      #D23939 !default;
+$text-color:       #1a1a1a !default;
+$background-color: #ffffff !default;
+$brand-color:      #2d2d2d !default;
 
-$grey-color:       #828282 !default;
-$grey-color-light: lighten($grey-color, 40%) !default;
-$grey-color-dark:  darken($grey-color, 25%) !default;
+$grey-color:       #6b7280 !default;
+$grey-color-light: #e5e7eb !default;
+$grey-color-dark:  #374151 !default;
+
+// Code block colors (dark theme)
+$code-bg:          #1e1e1e !default;
+$code-text:        #d4d4d4 !default;
+$code-border:      #333333 !default;
 
 $table-text-align: left !default;
 
